@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Write Your First Prompt in Claude — Beginner's Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Learn how to write a prompt in Claude that actually works. This beginner's 2026 guide covers structure, length, examples, and common mistakes to avoid.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/how-to-write-first-prompt-claude/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Write Your First Prompt in Claude — Beginner's Guide (2026)">
+  <meta property="og:description" content="Learn how to write a prompt in Claude that actually works. This beginner's 2026 guide covers structure, length, examples, and common mistakes to avoid.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/how-to-write-first-prompt-claude/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/how-to-write-first-prompt-claude.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Write Your First Prompt in Claude — Beginner's Guide (2026)">
+  <meta name="twitter:description" content="Learn how to write a prompt in Claude that actually works. This beginner's 2026 guide covers structure, length, examples, and common mistakes to avoid.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Write Your First Prompt in Claude \u2014 Beginner's Guide (2026)",
+  "description": "Learn how to write a prompt in Claude that actually works. This beginner's 2026 guide covers structure, length, examples, and common mistakes to avoid.",
+  "url": "https://howtoclaudeatoz.com/how-to-write-first-prompt-claude/",
+  "image": "https://howtoclaudeatoz.com/og/how-to-write-first-prompt-claude.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes a good Claude prompt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A good Claude prompt is specific, gives Claude a clear role or context, states the desired output format, and includes any constraints upfront. The most common mistake is being too vague \u2014 'Write something about marketing' will produce a generic result, while 'Write a 300-word email to a B2B SaaS prospect who has gone cold, using a consultative tone' will produce something immediately usable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a Claude prompt be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prompt length should match task complexity. Simple requests (translate this sentence, fix this bug) can be one line. Complex tasks benefit from 3\u20135 sentences of context: your role, the audience, the format, and the goal. You do not need to write paragraphs for every prompt, but more context almost always produces better results. There is no upper limit \u2014 Claude's 200,000-token context window means you can include thousands of words of background."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use templates for Claude prompts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Prompt templates are one of the most effective ways to get consistent results from Claude. A good template includes placeholders for role, task, context, format, and constraints. You can save templates in Claude Projects as custom instructions so they apply automatically to every conversation in that Project. You can also paste a template into any conversation and fill in the blanks."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Getting Started with Claude",
+      "item": "https://howtoclaudeatoz.com/getting-started/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Write Your First Prompt in Claude \u2014 Beginner's Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/how-to-write-first-prompt-claude/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/getting-started/">Getting Started with Claude</a></li><li aria-current="page">How to Write Your First Prompt in Claude — Beginner's Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How to Write Your First Prompt in Claude — Beginner's Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Knowing how to write a prompt in Claude is the single most important skill for getting useful results from any AI assistant. A vague prompt produces a vague answer; a specific, well-structured prompt produces something you can use immediately. The good news is that Claude is forgiving — it does not require a special syntax or elaborate ritual. But a few simple habits will consistently double the quality of what you get back. This guide covers the anatomy of an effective Claude prompt, walks through real good vs. bad examples, and gives you a reusable template for any task.</p>
+
+<h2>What is a Claude Prompt? — Definition</h2>
+
+<p>A Claude prompt is any message you send to Claude in a conversation. It can be a question, an instruction, a request for creative work, a block of code you want reviewed, or a document you want summarised. Claude processes your entire prompt — including any files you attach — and generates a response designed to fulfil your intent. The quality of the response is directly shaped by the clarity, specificity, and context of your prompt.</p>
+
+<h2>How to Write a Prompt in Claude — Step by Step</h2>
+
+<h3>Step 1: State the Task Clearly in the First Sentence</h3>
+
+<p>The most important part of any prompt is the opening sentence. Claude reads your entire message before responding, but a clear opening sentence sets expectations and helps Claude prioritise correctly. Start with the verb: "Write," "Summarise," "Fix," "Explain," "Translate," "Analyse," "List," or "Compare."</p>
+
+<p><strong>Weak:</strong> "I need something for my presentation." <strong>Strong:</strong> "Write five bullet-point talking points for a 10-minute investor presentation about a B2B SaaS product in the HR technology space."</p>
+
+<h3>Step 2: Give Claude a Role When It Helps</h3>
+
+<p>Assigning Claude a role or persona is one of the most effective prompt techniques. It tells Claude what perspective to write from, what expertise level to assume, and what tone to use. This is especially useful for professional or technical tasks.</p>
+
+<p><strong>Examples of role assignment:</strong></p>
+<ul>
+<li>"You are an experienced senior software engineer reviewing a junior developer's code."</li>
+<li>"You are a copywriter specialising in direct response marketing."</li>
+<li>"You are a plain-English legal summariser. Avoid jargon."</li>
+</ul>
+
+<p>Role assignment is not mandatory for every prompt — Claude handles simple requests well without one. Use it when the tone, expertise level, or perspective of the output matters.</p>
+
+<h3>Step 3: Provide Context That Claude Cannot Infer</h3>
+
+<p>Claude does not know anything about you, your company, your project, or your audience unless you tell it. Include any context that would change what a good response looks like. Common context elements:</p>
+
+<ul>
+<li><strong>Audience:</strong> "This is for a non-technical executive audience."</li>
+<li><strong>Background:</strong> "We are a small UK-based accountancy firm."</li>
+<li><strong>Existing work:</strong> "Here is the draft I have written so far: [paste draft]"</li>
+<li><strong>Constraints:</strong> "Keep it under 200 words. Do not use bullet points."</li>
+</ul>
+
+<h3>Step 4: Specify the Output Format</h3>
+
+<p>Claude will default to a sensible format, but telling it explicitly what you want saves editing time. Be specific about length, structure, and style.</p>
+
+<p><table> <thead> <tr> <th>Instead of...</th> <th>Say...</th> </tr> </thead> <tbody> <tr> <td>"Write something about this"</td> <td>"Write a 400-word blog introduction, no subheadings"</td> </tr> <tr> <td>"Summarise this document"</td> <td>"Summarise in 5 bullet points, each under 20 words"</td> </tr> <tr> <td>"Fix my code"</td> <td>"Fix the bug and explain what was wrong in 2 sentences"</td> </tr> <tr> <td>"Give me ideas"</td> <td>"List 10 ideas as a numbered list. One sentence per idea."</td> </tr> </tbody> </table></p>
+
+<h3>Step 5: Include Examples When You Have Them</h3>
+
+<p>Examples are one of the most powerful context signals you can give Claude. If you want it to match a particular tone, structure, or style, paste an example and say "write something similar to this." If you want it to follow a data format, show one sample row and say "use this format for all entries."</p>
+
+<p><strong>Example:</strong> "Here is a previous product description we used: [example]. Write a new one for the following product with the same tone: [product details]."</p>
+
+<h3>Step 6: Review and Iterate</h3>
+
+<p>Your first prompt will not always produce exactly what you want — and that is fine. Claude is designed for iteration. You can respond to any output with:</p>
+
+<ul>
+<li>"Make this shorter."</li>
+<li>"The tone is too formal — make it more conversational."</li>
+<li>"Great structure, but replace the second point with [alternative]."</li>
+<li>"Rewrite this from the perspective of the customer rather than the company."</li>
+</ul>
+
+<p>Each follow-up message is itself a prompt. Treat a conversation with Claude as a drafting session, not a one-shot transaction.</p>
+
+<h2>Claude Prompt Examples — Good vs. Bad</h2>
+
+<h3>Example 1: Writing Task</h3>
+
+<p><strong>Bad prompt:</strong> "Write an email about our new product."</p>
+
+<p><strong>Good prompt:</strong> "Write a 150-word launch announcement email for our new project management tool, aimed at small business owners who currently use spreadsheets. The tone should be friendly and direct. Include one clear call to action: 'Start your free 14-day trial.' Do not use exclamation marks."</p>
+
+<p><strong>Why it works:</strong> The good prompt specifies length (150 words), audience (small business owners using spreadsheets), tone (friendly and direct), a required element (specific call to action), and a constraint (no exclamation marks). Claude can produce a near-finished output from this in one pass.</p>
+
+<h3>Example 2: Coding Task</h3>
+
+<p><strong>Bad prompt:</strong> "Fix my code."</p>
+
+<p><strong>Good prompt:</strong> "Here is a Python function that is supposed to read a CSV file and return a list of dictionaries. It currently throws a KeyError on line 12. Here is the code: [paste code]. Fix the bug and explain in two sentences what was causing it."</p>
+
+<p><strong>Why it works:</strong> The good prompt gives Claude the code, the expected behaviour, the specific error, and a clear instruction about the format of the explanation. It will receive a working fix with a brief, clear explanation — not a three-paragraph essay about Python error handling.</p>
+
+<h3>Example 3: Research and Summarisation</h3>
+
+<p><strong>Bad prompt:</strong> "Tell me about electric vehicles."</p>
+
+<p><strong>Good prompt:</strong> "Summarise the three most important barriers to electric vehicle (EV) adoption in the UK in 2026, focusing on infrastructure and consumer behaviour rather than technology. Write this as a bulleted list, one sentence per point, suitable for including in a business strategy document."</p>
+
+<p><strong>Why it works:</strong> The good prompt narrows the topic (UK, 2026, infrastructure and consumer behaviour), specifies the number of points (three), the format (bulleted list, one sentence each), and the use case (business strategy document). The output will be immediately usable.</p>
+
+<h2>The Anatomy of a Strong Claude Prompt — Template</h2>
+
+<p>You do not need to use every element in every prompt. For complex tasks, this template ensures you have covered the most important variables:</p>
+
+<p><code>`</code> [Role]: You are a [describe role/expertise].</p>
+
+<p>[Task]: [Verb] [specific thing] for [purpose].</p>
+
+<p>[Context]: [Relevant background, audience, constraints, existing material].</p>
+
+<p>[Format]: Respond as [format: bullet list, numbered list, prose paragraphs, table, etc.].  Length: [word count, number of items, or length guideline].</p>
+
+<p>[Example] (optional): Here is an example of the style/format I want: [example]. <code>`</code></p>
+
+<p>You can use this template verbatim for any task and fill in the brackets.</p>
+
+<h2>Common Claude Prompting Mistakes to Avoid</h2>
+
+<ul>
+<li><strong>Too vague:</strong> "Help me with marketing" gives Claude no direction. Add specifics.</li>
+<li><strong>No format specified:</strong> Claude defaults to prose paragraphs unless you ask for a list, table, or other structure.</li>
+<li><strong>Forgetting to include relevant material:</strong> If you want Claude to summarise a document, paste or upload the document. Do not expect Claude to find it.</li>
+<li><strong>Too many goals in one prompt:</strong> If you want Claude to research, write, and format in one go, break it into steps. "First, list 5 key points from this article. Then, using those points, write a 300-word summary." works better than asking for everything at once without structure.</li>
+<li><strong>Not iterating:</strong> If the first response is 90% right, ask Claude to adjust the 10% that is wrong. You do not need to rewrite the whole prompt.</li>
+</ul>
+
+<h2>Claude Prompt Length — What Works Best</h2>
+
+<p>Short prompts (1–2 sentences) work well for simple, clear tasks: "Fix the typos in this paragraph," "Translate this sentence into German," "What does HTTP stand for?" For complex tasks, 3–6 sentences of context produces meaningfully better results. There is no need to write an essay for every prompt, but more relevant context almost always helps. Claude's 200,000-token context window means you can include thousands of words of background — paste entire documents, long code files, or detailed briefs without worrying about fitting within a limit.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/what-is-claude-ai/">What is Claude AI?</a> — Overview of Claude's capabilities and how to get started</li>
+<li><a href="/claude-context-window-explained/">Claude Context Window Explained</a> — Why Claude can handle very long prompts and documents</li>
+<li><a href="/advanced-prompt-engineering-claude/">Advanced Prompt Engineering for Claude</a> — Master techniques for complex, multi-step prompts</li>
+<li><a href="/claude-system-prompts/">Claude System Prompts</a> — How to set persistent instructions for consistent results</li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>What makes a good Claude prompt?</dt>
+<dd>A good Claude prompt is specific, gives Claude a clear role or context, states the desired output format, and includes any constraints upfront. The most common mistake is being too vague — 'Write something about marketing' will produce a generic result, while 'Write a 300-word email to a B2B SaaS prospect who has gone cold, using a consultative tone' will produce something immediately usable.</dd>
+<dt>How long should a Claude prompt be?</dt>
+<dd>Prompt length should match task complexity. Simple requests (translate this sentence, fix this bug) can be one line. Complex tasks benefit from 3–5 sentences of context: your role, the audience, the format, and the goal. You do not need to write paragraphs for every prompt, but more context almost always produces better results. There is no upper limit — Claude's 200,000-token context window means you can include thousands of words of background.</dd>
+<dt>Can I use templates for Claude prompts?</dt>
+<dd>Yes. Prompt templates are one of the most effective ways to get consistent results from Claude. A good template includes placeholders for role, task, context, format, and constraints. You can save templates in Claude Projects as custom instructions so they apply automatically to every conversation in that Project. You can also paste a template into any conversation and fill in the blanks.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -66,10 +66,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does Make.com have a native Claude AI module?",
+      "name": "How do I connect Claude to Make.com?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Make.com has an Anthropic (Claude) module that connects directly to the Claude API. You can use it to send prompts, pass dynamic data from other modules, and route Claude's responses to any downstream app \u2014 no custom code required."
+        "text": "Go to Make.com, create a new scenario, search for the Anthropic (Claude) module, and click 'Create a connection'. You'll be prompted to enter your Anthropic API key, which you can generate at console.anthropic.com. Once saved, the connection persists across all your scenarios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Make.com have a native Claude module?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Make.com has a native Anthropic (Claude) module that connects directly to the Claude API. You can use it to send prompts, pass dynamic data from other modules, and route Claude's responses to any downstream app \u2014 no custom code required."
       }
     },
     {
@@ -77,15 +85,7 @@
       "name": "What can I automate with Claude and Make.com?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Common workflows include: auto-generating blog drafts from RSS feeds, classifying customer support emails and routing them, summarising documents uploaded to Google Drive, writing personalised cold email sequences from a CRM, and creating social media captions from product data."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need a paid Make.com plan to use Claude?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can connect Claude on Make.com's free plan, but free plans have limited operations per month. For production automations that run frequently, a Core or Pro plan is recommended. You will also need an Anthropic API key with billing enabled regardless of your Make.com plan."
+        "text": "Common workflows include auto-generating blog drafts from RSS feeds, classifying customer support emails and routing them, summarising documents uploaded to Google Drive, writing personalised cold email sequences from a CRM, and creating social media captions from product data."
       }
     }
   ]
@@ -230,17 +230,134 @@
       ">
         <h1>Claude + Make.com — Complete Integration Guide (2026)</h1>
 
-<p>The Claude + Make.com integration turns Anthropic's AI into the reasoning engine of your no-code automation stack. With Make.com's native Claude (Anthropic) module, you can pass any data into Claude — a customer email, a product feed, a form submission — and route the AI-generated response directly to Gmail, Slack, Airtable, Google Docs, or hundreds of other apps, all without writing a single line of code. This guide covers everything: connecting your Anthropic API key, building your first scenario from scratch, handling errors, and the highest-impact workflow templates to steal and deploy today.</p>
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>The Claude Make.com integration turns Anthropic's AI into the reasoning engine of your no-code automation stack. With Make.com's native Anthropic (Claude) module, you can pass any data into Claude — a customer email, a product feed, a form submission — and route the AI-generated response directly to Gmail, Slack, Airtable, Google Docs, or hundreds of other apps, all without writing a single line of code. This guide covers everything: connecting your Anthropic API key, building your first scenario from scratch, choosing between webhook and scheduled triggers, and five high-impact workflow templates you can deploy today.</p>
+
+<h2>What is the Claude Make.com Integration?</h2>
+
+<p>Make.com (formerly Integromat) is a visual automation platform that connects thousands of apps through a drag-and-drop scenario builder. Claude is Anthropic's AI model capable of writing, summarising, classifying, translating, and reasoning over text. When you combine the two, Claude becomes the intelligent middle layer in your automations — it receives raw inputs from any trigger, processes them with AI reasoning, and passes structured outputs to any downstream action.</p>
+
+<p>The Claude Make.com integration works through Make.com's native Anthropic module. You do not need to write HTTP requests or handle authentication manually. Make.com manages the API call, you supply the prompt and your API key, and the module returns Claude's response as a mappable variable you can use anywhere in the scenario.</p>
+
+<p>Make.com supports all current Claude models including claude-haiku-4-5 (fast and cheap), claude-sonnet-4-5 (the everyday workhorse), and claude-opus-4-5 (maximum capability). You select the model per module, so you can use Haiku for high-volume classification tasks and Sonnet for writing tasks within the same scenario.</p>
+
+<h2>How to Connect Claude to Make.com — Step by Step</h2>
+
+<h3>Step 1: Get Your Anthropic API Key</h3>
+
+<p>Visit <a href="https://console.anthropic.com">console.anthropic.com</a> and sign in or create an account. Navigate to <strong>API Keys</strong> in the left sidebar and click <strong>Create Key</strong>. Give it a descriptive name like "Make.com Automations". Copy the key immediately — Anthropic only shows it once. Add a credit balance under <strong>Billing</strong> if you haven't already; API calls won't work without credits loaded.</p>
+
+<h3>Step 2: Open Make.com and Create a New Scenario</h3>
+
+<p>Log into your Make.com account and click <strong>Create a new scenario</strong> from the dashboard. You'll see a blank canvas with a large "+" in the centre. This is where your trigger module will go. Every Make.com scenario starts with a trigger — the event that kicks off the workflow.</p>
+
+<h3>Step 3: Choose Your Trigger</h3>
+
+<p>Click the "+" to browse modules. For your first test, choose <strong>Webhooks > Custom Webhook</strong>. This lets you trigger the scenario manually by sending a POST request, which is perfect for testing. For production workflows, common triggers include:</p>
+
+<ul>
+<li><strong>Gmail > Watch Emails</strong> — fires when a new email arrives in a specific label</li>
+<li><strong>Google Sheets > Watch Rows</strong> — fires when a new row is added</li>
+<li><strong>HTTP > Watch Requests</strong> — fires when your website form submits data</li>
+<li><strong>Schedule</strong> — fires on a time interval (every hour, every day at 9am)</li>
+</ul>
+
+<p>Click the trigger module you chose and follow the setup prompts.</p>
+
+<h3>Step 4: Add the Anthropic (Claude) Module</h3>
+
+<p>Click the "+" after your trigger to add the next module. Search for <strong>Anthropic</strong> in the module search box. Select <strong>Anthropic > Create a Message</strong>. Click <strong>Add</strong> next to the Connection field, enter a name for the connection, and paste your Anthropic API key. Click <strong>Save</strong>.</p>
+
+<p>Now configure the module:</p>
+
+<ul>
+<li><strong>Model</strong>: Select <code>claude-sonnet-4-5</code> for most tasks, <code>claude-haiku-4-5</code> for speed-sensitive high-volume tasks</li>
+<li><strong>Max Tokens</strong>: Set to 500–2000 depending on output length needed</li>
+<li><strong>Messages</strong>: This is your prompt. Click into the <strong>Content</strong> field and mix static text with dynamic variables mapped from your trigger. For example: <code>Summarise this customer email in 3 bullet points:\n\n{{1.Body}}</code></li>
+</ul>
+
+<h3>Step 5: Map Claude's Output to the Next Module</h3>
+
+<p>After the Anthropic module runs, its response is available as <code>{{2.content[].text}}</code> (or similar, depending on your scenario numbering). Add your action module — for example, <strong>Gmail > Send an Email</strong>, <strong>Slack > Create a Message</strong>, or <strong>Google Sheets > Add a Row</strong> — and map Claude's response into the relevant field.</p>
+
+<h3>Step 6: Add Error Handling</h3>
+
+<p>Claude API calls can occasionally fail due to rate limits or network issues. In Make.com, right-click the Anthropic module and select <strong>Add error handler</strong>. Choose <strong>Resume</strong> or <strong>Rollback</strong> depending on whether downstream steps should still run. For production scenarios, add a fallback route that sends you a Slack or email alert when Claude fails.</p>
+
+<h3>Step 7: Test and Activate</h3>
+
+<p>Click <strong>Run once</strong> to test with live data. Inspect each module's output in the execution log to confirm data is flowing correctly. When satisfied, toggle the scenario from <strong>Off</strong> to <strong>On</strong> and set your scheduling or keep the webhook active.</p>
+
+<h2>Claude Make.com — 5 High-Impact Automation Examples</h2>
+
+<h3>1. Auto-Draft Blog Posts from RSS Feeds</h3>
+
+<p><strong>Trigger</strong>: RSS > Watch New Articles from competitor or news RSS feed   <strong>Claude prompt</strong>: "Based on this news article headline and summary, write a 600-word blog post for a [your niche] audience. Include an introduction, three key takeaways, and a conclusion: {{headline}} — {{summary}}"   <strong>Action</strong>: Google Docs > Create Document (saves the draft for human review)</p>
+
+<p>This workflow surfaces content ideas and produces a usable first draft automatically. A content team can review and publish instead of starting from a blank page.</p>
+
+<h3>2. Customer Support Email Triage</h3>
+
+<p><strong>Trigger</strong>: Gmail > Watch Emails (support inbox label)   <strong>Claude prompt</strong>: "Classify this customer support email into one of these categories: [billing, technical, general, complaint, positive-feedback]. Reply with only the category name. Email: {{Body}}"   <strong>Action</strong>: Gmail > Move Email to Label (routes to the right team folder automatically)</p>
+
+<p>This eliminates manual sorting. Claude reads the email and outputs a single category word, which Make.com uses to route the message to the correct label or even forward it to the right team member.</p>
+
+<h3>3. Lead Enrichment from Form Submissions</h3>
+
+<p><strong>Trigger</strong>: Typeform > Watch Responses (or any form tool)   <strong>Claude prompt</strong>: "A new lead has submitted this form. Based on their company name '{{company}}', job title '{{title}}', and message '{{message}}', write a personalised 3-sentence follow-up email. Be warm and professional. Do not mention their form submission directly."   <strong>Action</strong>: Gmail > Send Email (sends the personalised reply immediately)   <strong>Action 2</strong>: HubSpot > Create Contact (logs the lead in your CRM)</p>
+
+<h3>4. Google Drive Document Summariser</h3>
+
+<p><strong>Trigger</strong>: Google Drive > Watch Files (watches a specific folder)   <strong>Action 1</strong>: Google Drive > Download File   <strong>Claude prompt</strong>: "Summarise this document in a 5-bullet executive summary. Focus on action items and key decisions: {{file content}}"   <strong>Action 2</strong>: Slack > Create Message (posts summary to a #summaries channel)</p>
+
+<p>When anyone drops a document into the watched folder, the team gets an instant Slack summary without reading the full file.</p>
+
+<h3>5. Social Media Caption Generator</h3>
+
+<p><strong>Trigger</strong>: Google Sheets > Watch New Rows (product info spreadsheet)   <strong>Claude prompt</strong>: "Write 3 versions of a social media caption for this product. Version A: professional LinkedIn tone. Version B: casual Instagram tone. Version C: punchy Twitter/X tone. Product name: {{name}}. Key features: {{features}}. Price: {{price}}."   <strong>Action</strong>: Google Sheets > Update Row (writes the 3 captions back into columns D, E, F)</p>
+
+<p>The marketing team fills in product info, and captions for three platforms appear in the same row automatically.</p>
+
+<h2>Webhook vs Scheduled Trigger — Which Should You Use?</h2>
+
+<p>Choosing the right trigger type affects cost, speed, and reliability.</p>
+
+<p><table> <thead> <tr> <th>Criteria</th> <th>Webhook Trigger</th> <th>Scheduled Trigger</th> </tr> </thead> <tbody> <tr> <td><strong>Speed</strong></td> <td>Near-instant (fires within seconds of event)</td> <td>Delayed (fires on next scheduled interval)</td> </tr> <tr> <td><strong>Make.com operations used</strong></td> <td>1 per event</td> <td>1 per check interval, even if no data</td> </tr> <tr> <td><strong>Best for</strong></td> <td>Form submissions, emails, live events</td> <td>Batch processing, reports, daily digests</td> </tr> <tr> <td><strong>Requires always-on webhook</strong></td> <td>Yes (URL must remain active)</td> <td>No</td> </tr> <tr> <td><strong>Data volume</strong></td> <td>Processes one record at a time</td> <td>Can process batches with iterators</td> </tr> <tr> <td><strong>Cost at high volume</strong></td> <td>Higher (many individual runs)</td> <td>Lower (one run processes many rows)</td> </tr> </tbody> </table></p>
+
+<p><strong>Use a webhook trigger</strong> when you need immediate action — customer emails, form responses, payment notifications.</p>
+
+<p><strong>Use a scheduled trigger</strong> when you are batch-processing data — daily report generation, weekly digest emails, nightly CRM enrichment runs.</p>
+
+<p>For most Claude Make.com integrations, webhooks handle real-time interactions and scheduled triggers handle batch content generation.</p>
+
+<h2>Claude Make.com Integration — Pricing Considerations</h2>
+
+<p>Make.com charges by operations (each module execution = 1 operation). A typical 4-module Claude scenario uses 4 operations per run. Make.com's free plan gives 1,000 operations/month, suitable for testing. The Core plan ($9/month) gives 10,000 operations/month.</p>
+
+<p>Claude API costs are separate and billed by Anthropic. Claude Haiku is roughly $0.0008 per 1,000 input tokens — processing 1,000 emails per month costs under $1 in API fees. Claude Sonnet is roughly 10x more expensive but still very low-cost at typical automation volumes.</p>
+
+<p>For a workflow processing 500 emails per month with a 4-module scenario, expect to pay roughly $5–15/month total (Make.com + API), far less than any SaaS tool that offers comparable intelligence.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-make-vs-n8n/">Claude vs n8n for Automation</a></li>
+<li><a href="/claude-n8n-workflows/">Claude n8n Workflows</a></li>
+<li><a href="/build-claude-ai-agent/">Build a Claude AI Agent</a></li>
+<li><a href="/claude-crm-automation/">Claude for CRM Automation</a></li>
+<li><a href="/claude-automation-workflows/">Claude Automation Workflows — 10 Templates</a></li>
+</ul>
       </div>
 
       <!-- FAQ section -->
       <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
-<dt>Does Make.com have a native Claude AI module?</dt>
-<dd>Yes. Make.com has an Anthropic (Claude) module that connects directly to the Claude API. You can use it to send prompts, pass dynamic data from other modules, and route Claude's responses to any downstream app — no custom code required.</dd>
+<dt>How do I connect Claude to Make.com?</dt>
+<dd>Go to Make.com, create a new scenario, search for the Anthropic (Claude) module, and click 'Create a connection'. You'll be prompted to enter your Anthropic API key, which you can generate at console.anthropic.com. Once saved, the connection persists across all your scenarios.</dd>
+<dt>Does Make.com have a native Claude module?</dt>
+<dd>Yes. Make.com has a native Anthropic (Claude) module that connects directly to the Claude API. You can use it to send prompts, pass dynamic data from other modules, and route Claude's responses to any downstream app — no custom code required.</dd>
 <dt>What can I automate with Claude and Make.com?</dt>
-<dd>Common workflows include: auto-generating blog drafts from RSS feeds, classifying customer support emails and routing them, summarising documents uploaded to Google Drive, writing personalised cold email sequences from a CRM, and creating social media captions from product data.</dd>
-<dt>Do I need a paid Make.com plan to use Claude?</dt>
-<dd>You can connect Claude on Make.com's free plan, but free plans have limited operations per month. For production automations that run frequently, a Core or Pro plan is recommended. You will also need an Anthropic API key with billing enabled regardless of your Make.com plan.</dd>
+<dd>Common workflows include auto-generating blog drafts from RSS feeds, classifying customer support emails and routing them, summarising documents uploaded to Google Drive, writing personalised cold email sequences from a CRM, and creating social media captions from product data.</dd>
 </dl></section>
 
       <!-- Internal links / Related guides -->

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude + Kling AI — Text to Video Workflow Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude AI to write prompts for Kling AI text-to-video in 2026. Full workflow: scene description, camera direction, prompt engineering, and example outputs.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-kling-ai/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude + Kling AI — Text to Video Workflow Guide (2026)">
+  <meta property="og:description" content="Use Claude AI to write prompts for Kling AI text-to-video in 2026. Full workflow: scene description, camera direction, prompt engineering, and example outputs.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-kling-ai/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-kling-ai.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude + Kling AI — Text to Video Workflow Guide (2026)">
+  <meta name="twitter:description" content="Use Claude AI to write prompts for Kling AI text-to-video in 2026. Full workflow: scene description, camera direction, prompt engineering, and example outputs.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude + Kling AI \u2014 Text to Video Workflow Guide (2026)",
+  "description": "Use Claude AI to write prompts for Kling AI text-to-video in 2026. Full workflow: scene description, camera direction, prompt engineering, and example outputs.",
+  "url": "https://howtoclaudeatoz.com/claude-kling-ai/",
+  "image": "https://howtoclaudeatoz.com/og/claude-kling-ai.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use Claude with Kling AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Write your video prompts in Claude, then paste them into Kling AI's generation interface. Claude excels at structuring the detailed scene descriptions, camera movements, lighting notes, and mood language that Kling AI needs to generate high-quality video. Claude can also batch-produce a full set of prompts from a script or storyboard in one session."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Kling AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kling AI is a text-to-video and image-to-video AI tool developed by Kuaishou Technology. It generates realistic video clips from detailed text prompts, with support for cinematic camera movements, consistent character appearance, and high-resolution output up to 1080p. Kling AI is widely used by content creators, marketers, and filmmakers for AI-generated footage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude write prompts for Kling AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Claude is particularly effective at writing Kling AI prompts because Kling responds well to detailed, structured descriptions that cover scene, subject, camera, lighting, and mood. Claude can write a single prompt, a batch of prompts from a script, or a full storyboard of prompts formatted and numbered for sequential video production."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Video, Voice & Creative Media",
+      "item": "https://howtoclaudeatoz.com/video-voice/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude + Kling AI \u2014 Text to Video Workflow Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-kling-ai/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/video-voice/">Claude for Video, Voice & Creative Media</a></li><li aria-current="page">Claude + Kling AI — Text to Video Workflow Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude + Kling AI — Text to Video Workflow Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude Kling AI text to video is one of the most effective AI video production workflows available in 2026. Kling AI generates photorealistic video from text prompts — but the quality of the output depends almost entirely on the quality of the prompt. Claude bridges that gap. Claude writes structured, detailed Kling AI prompts that specify scene, camera, subject, lighting, and mood with the precision that produces consistent, professional-grade video clips. This guide covers what Kling AI is, where Claude fits in the workflow, and the exact process for producing a full sequence of AI video from a brief.</p>
+
+<h2>What is Kling AI?</h2>
+
+<p>Kling AI is a text-to-video and image-to-video generation platform developed by Kuaishou Technology, a major Chinese technology company. Launched internationally in 2024, Kling AI rapidly became one of the leading AI video tools for creators, marketers, and production teams.</p>
+
+<p>Key capabilities include:</p>
+
+<ul>
+<li><strong>Text-to-video:</strong> Generate 5–10 second video clips from detailed text prompts</li>
+<li><strong>Image-to-video:</strong> Animate a still image based on a motion prompt</li>
+<li><strong>Cinematic camera controls:</strong> Pan, tilt, push in, orbit, crane — specified directly in the prompt</li>
+<li><strong>Resolution:</strong> Up to 1080p at 30fps</li>
+<li><strong>Consistency features:</strong> Character and scene consistency across multiple clips using reference images</li>
+<li><strong>Duration:</strong> Standard clips of 5 seconds; extended clips of up to 10 seconds on Pro plans</li>
+</ul>
+
+<p>Kling AI is available via web interface and API. Pricing is credit-based — standard 5-second clips cost 10 credits, and credits are purchased in bundles starting from $9.99.</p>
+
+<h2>How Claude Helps with Kling AI Video Generation</h2>
+
+<p>Kling AI is a powerful tool that requires precise inputs. A vague prompt ("a person walking in a city") produces generic, often unusable output. A detailed, structured prompt ("a young woman in a tan trench coat walks through a rain-soaked Tokyo street at dusk, shallow depth of field, slow tracking shot from behind, neon reflections on wet pavement, cinematic colour grade") produces a compelling, usable clip.</p>
+
+<p>Writing 20–30 prompts at that level of detail for a short film or marketing video is time-consuming. Claude writes them in bulk, applies consistent visual style across a set of prompts, and adapts them from a script or storyboard automatically.</p>
+
+<p>Claude helps with Kling AI by:</p>
+
+<ul>
+<li>Writing individual high-quality prompts from a scene brief</li>
+<li>Converting a written script into a full set of numbered Kling prompts</li>
+<li>Applying a consistent visual style guide across all prompts in a project</li>
+<li>Writing negative prompt suggestions (what to exclude from the scene)</li>
+<li>Adapting prompts after a generation fails to produce the expected result</li>
+<li>Translating a mood board or reference description into Kling-compatible language</li>
+</ul>
+
+<h2>How to Use Claude + Kling AI — Step by Step</h2>
+
+<h3>Step 1: Define Your Visual Style</h3>
+
+<p>Before writing any prompts, establish a visual style that will apply across all clips in your project. This ensures the finished video looks cohesive rather than like a collection of unrelated clips.</p>
+
+<p>Give Claude a style brief:</p>
+
+<blockquote><p>I am producing a series of AI video clips for a luxury skincare brand commercial. The visual style is: warm golden hour lighting, shallow depth of field, slow-motion close-ups, muted earth tones with gold accents, editorial photography aesthetic. Apply this style consistently to every prompt you write for this project.</p></blockquote>
+
+<h3>Step 2: Write a Scene Brief for Each Clip</h3>
+
+<p>List the scenes or shots your video needs. For each one, write a 1–2 sentence description of what happens. This becomes Claude's input.</p>
+
+<p><strong>Example scene brief:</strong></p>
+<ul>
+<li>Shot 1: Woman applying face cream in front of a mirror, morning light</li>
+<li>Shot 2: Close-up of product bottle on marble surface, soft shadows</li>
+<li>Shot 3: Woman looking out a floor-to-ceiling window, city below</li>
+</ul>
+
+<h3>Step 3: Use the Kling AI Prompt Generation Prompt</h3>
+
+<blockquote><p>You are an expert at writing Kling AI video generation prompts. Using the visual style guide below, convert each scene brief into a detailed Kling AI text prompt. Each prompt should cover: (1) Scene and environment, (2) Subject appearance and action, (3) Camera angle and movement, (4) Lighting and colour, (5) Mood and atmosphere, (6) Technical specs (resolution, frame rate if relevant). Keep each prompt under 200 words. Number each prompt.</p></blockquote>
+<p>></p>
+<blockquote><p>Visual style: [PASTE STYLE BRIEF]</p></blockquote>
+<p>></p>
+<blockquote><p>Scene briefs: [PASTE SCENE LIST]</p></blockquote>
+
+<h3>Step 4: Review and Refine Prompts</h3>
+
+<p>Read each prompt Claude produces and check for:</p>
+
+<ul>
+<li>Vague descriptors (replace "beautiful" with "warm golden light with visible lens flare")</li>
+<li>Contradictory elements ("fast-moving slow-motion" is meaningless — specify what is slow)</li>
+<li>Missing camera movement (Kling produces better results when camera direction is explicit)</li>
+<li>Overly long sentences (Kling processes shorter, clearer clauses more effectively)</li>
+</ul>
+
+<p>Ask Claude to revise specific prompts: "Shot 3 is too vague on camera movement. Specify a slow push-in toward the woman from behind, ending in a close-up of her reflection in the glass."</p>
+
+<h3>Step 5: Add Negative Prompts</h3>
+
+<p>Kling AI supports negative prompts — descriptions of what you do not want in the output. Common exclusions for commercial content:</p>
+
+<blockquote><p>For each of these prompts, write a corresponding negative prompt. Exclude: blurry foreground, distorted hands, text artifacts, watermarks, amateur lighting, overexposed highlights, unrealistic skin tones.</p></blockquote>
+
+<h3>Step 6: Generate Clips in Kling AI</h3>
+
+<p>Paste each prompt into <a href="https://klingai.com">Kling AI</a>. Start with the most important shots first. Check each generation before proceeding — if a clip does not meet quality standards, ask Claude to revise the prompt before regenerating.</p>
+
+<p>Common refinement directions to give Claude:</p>
+
+<ul>
+<li>"The camera is too static. Add a subtle breathing motion or slow push."</li>
+<li>"The lighting reads as artificial. Describe more naturalistic motivation — window light from screen-left."</li>
+<li>"The subject looks wrong. Add more physical description — height, build, hair colour, clothing details."</li>
+</ul>
+
+<h3>Step 7: Assemble the Final Video</h3>
+
+<p>Kling AI generates individual clips. Assembling them into a final video requires a video editor (DaVinci Resolve, Premiere, CapCut). Claude can write the edit order and pacing notes:</p>
+
+<blockquote><p>I have 12 Kling AI clips. Here is the order I plan to assemble them: [LIST]. Write a brief edit direction note for each clip specifying: in point (start of the clip at X seconds), out point (end at Y seconds), transition to next clip (cut, dissolve, etc.), and any audio note (music hits, VO sync points).</p></blockquote>
+
+<h2>Example Claude Prompts for Kling AI</h2>
+
+<p><strong>Cinematic product close-up:</strong></p>
+<blockquote><p>Extreme close-up of a glass perfume bottle on a wet black marble surface. A single drop of water slides down the bottle's curved side. Camera: static, very slight depth-of-field breathing. Lighting: single key light from above-left, warm amber, creating a long diagonal shadow. Background: completely dark. Mood: luxury, minimal, editorial. 5 seconds, 1080p, cinematic colour grade, no motion blur artifacts.</p></blockquote>
+
+<p><strong>Urban lifestyle shot:</strong></p>
+<blockquote><p>A woman in her early 30s wearing a camel wool coat walks through a rain-wet city street at dusk. Camera: slow tracking shot from behind at medium distance, lens slightly compressed. Lighting: ambient neon signage reflections on pavement, practical street lamps, no harsh flash. Subject never fully faces camera. Mood: contemplative, cinematic, Parisian street photography aesthetic. Slow-motion 50% speed. 5 seconds, 1080p.</p></blockquote>
+
+<p><strong>Nature product context:</strong></p>
+<blockquote><p>Wide shot of a forest clearing in early morning mist. A single wooden platform in the centre holds a skincare product. Camera: slow crane descending from tree canopy level to eye level with the product, gentle push in. Lighting: diffused morning light, green and gold tones, light mist catching sunbeams. No people. Mood: natural, serene, artisanal. 8 seconds, 1080p.</p></blockquote>
+
+<h2>Claude + Kling AI — Workflow Summary Table</h2>
+
+<p><table> <thead> <tr> <th>Stage</th> <th>Claude's Role</th> <th>Kling AI's Role</th> </tr> </thead> <tbody> <tr> <td>Style definition</td> <td>Writes visual style guide</td> <td>Not involved</td> </tr> <tr> <td>Script conversion</td> <td>Converts script to prompt list</td> <td>Not involved</td> </tr> <tr> <td>Prompt writing</td> <td>Writes detailed prompts per shot</td> <td>Not involved</td> </tr> <tr> <td>Negative prompts</td> <td>Writes negative prompt per shot</td> <td>Not involved</td> </tr> <tr> <td>Generation</td> <td>Not involved</td> <td>Renders video clips from prompts</td> </tr> <tr> <td>Prompt refinement</td> <td>Revises prompts after poor generation</td> <td>Rerenders revised prompts</td> </tr> <tr> <td>Edit direction</td> <td>Writes assembly and pacing notes</td> <td>Not involved</td> </tr> </tbody> </table></p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-video-storyboards/">How to Write Video Storyboards with Claude</a></li>
+<li><a href="/claude-runway-ml/">Claude + Runway ML — AI Video Production</a></li>
+<li><a href="/claude-youtube-scripts/">How to Write YouTube Scripts with Claude AI</a></li>
+<li><a href="/claude-social-media-video/">Claude for Social Media Video Content</a></li>
+<li><a href="/claude-documentary-scriptwriting/">Claude for Documentary Scriptwriting</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>How do I use Claude with Kling AI?</dt>
+<dd>Write your video prompts in Claude, then paste them into Kling AI's generation interface. Claude excels at structuring the detailed scene descriptions, camera movements, lighting notes, and mood language that Kling AI needs to generate high-quality video. Claude can also batch-produce a full set of prompts from a script or storyboard in one session.</dd>
+<dt>What is Kling AI?</dt>
+<dd>Kling AI is a text-to-video and image-to-video AI tool developed by Kuaishou Technology. It generates realistic video clips from detailed text prompts, with support for cinematic camera movements, consistent character appearance, and high-resolution output up to 1080p. Kling AI is widely used by content creators, marketers, and filmmakers for AI-generated footage.</dd>
+<dt>Can Claude write prompts for Kling AI?</dt>
+<dd>Yes. Claude is particularly effective at writing Kling AI prompts because Kling responds well to detailed, structured descriptions that cover scene, subject, camera, lighting, and mood. Claude can write a single prompt, a batch of prompts from a script, or a full storyboard of prompts formatted and numbered for sequential video production.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

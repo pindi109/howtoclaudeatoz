@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude + n8n — How to Build AI Workflows (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Connect Claude AI to n8n and build powerful automation workflows in 2026. Step-by-step setup, 4 real workflow examples, and self-hosted vs cloud comparison.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-n8n-workflows/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude + n8n — How to Build AI Workflows (2026 Guide)">
+  <meta property="og:description" content="Connect Claude AI to n8n and build powerful automation workflows in 2026. Step-by-step setup, 4 real workflow examples, and self-hosted vs cloud comparison.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-n8n-workflows/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-n8n-workflows.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude + n8n — How to Build AI Workflows (2026 Guide)">
+  <meta name="twitter:description" content="Connect Claude AI to n8n and build powerful automation workflows in 2026. Step-by-step setup, 4 real workflow examples, and self-hosted vs cloud comparison.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude + n8n \u2014 How to Build AI Workflows (2026 Guide)",
+  "description": "Connect Claude AI to n8n and build powerful automation workflows in 2026. Step-by-step setup, 4 real workflow examples, and self-hosted vs cloud comparison.",
+  "url": "https://howtoclaudeatoz.com/claude-n8n-workflows/",
+  "image": "https://howtoclaudeatoz.com/og/claude-n8n-workflows.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use Claude with n8n?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In n8n, add an HTTP Request node configured to call the Anthropic Messages API at https://api.anthropic.com/v1/messages. Set the x-api-key header to your Anthropic API key, set the model, and pass your prompt in the messages array. n8n also has community nodes for Anthropic that wrap this into a cleaner interface."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is n8n better than Make.com for Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "n8n is better if you want to self-host, need unlimited workflow runs without per-operation billing, or are comfortable with a slightly more technical setup. Make.com is better if you want a fully managed cloud platform and a gentler learning curve. Both connect to Claude's API equally well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can n8n use the Claude API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. n8n connects to the Claude API via the HTTP Request node (calling the Anthropic REST API directly) or through community-built Anthropic nodes available in the n8n community node library. Both approaches give full access to Claude's models and parameters."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Automation & AI Workflows",
+      "item": "https://howtoclaudeatoz.com/automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude + n8n \u2014 How to Build AI Workflows (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-n8n-workflows/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/automation/">Claude for Automation & AI Workflows</a></li><li aria-current="page">Claude + n8n — How to Build AI Workflows (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude + n8n — How to Build AI Workflows (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>A Claude n8n workflow combines n8n's powerful open-source automation engine with Claude's AI reasoning capabilities, letting you build intelligent pipelines that write, classify, summarise, and make decisions — all without per-operation pricing. Unlike cloud-only automation platforms, n8n can be fully self-hosted on your own server, making it attractive for teams with data privacy requirements or high workflow volumes where per-operation billing would become expensive. This guide covers connecting Claude to n8n, four practical workflow examples, and the key differences between self-hosted and cloud n8n.</p>
+
+<h2>What is n8n and How Does It Work with Claude?</h2>
+
+<p>n8n is an open-source workflow automation tool with a visual node-based editor similar to Make.com. Each "node" in n8n represents either a trigger (something that starts the workflow) or an action (something the workflow does). Nodes pass data between each other as JSON objects, and you can transform, filter, and route that data using n8n's built-in expression language.</p>
+
+<p>Claude connects to n8n via the Anthropic Messages API. You can call it in two ways:</p>
+
+<p><strong>Option A — HTTP Request Node</strong>: n8n's built-in HTTP Request node can call any REST API. You configure it to POST to <code>https://api.anthropic.com/v1/messages</code> with your API key in the headers. This requires a little more setup but works on any n8n version and gives you complete control over every parameter.</p>
+
+<p><strong>Option B — Community Anthropic Node</strong>: The n8n community library includes Anthropic-specific nodes that provide a cleaner, form-based interface for Claude. Search "Anthropic" in the n8n community nodes panel to install. Note that community nodes are maintained by third parties, not Anthropic or n8n.</p>
+
+<p>For production workflows, the HTTP Request approach is more reliable because it doesn't depend on a community maintainer keeping their node up to date.</p>
+
+<h2>How to Set Up Claude in n8n — Step by Step</h2>
+
+<h3>Step 1: Get Your Anthropic API Key</h3>
+
+<p>Go to <a href="https://console.anthropic.com">console.anthropic.com</a>, sign in, and navigate to <strong>API Keys</strong>. Click <strong>Create Key</strong>, name it "n8n Workflows", and copy the key. Add billing credits under the Billing section — API calls won't succeed without a positive balance.</p>
+
+<h3>Step 2: Install or Access n8n</h3>
+
+<p><strong>Cloud (n8n.io)</strong>: Create an account at n8n.io. You get a hosted instance with a visual editor accessible from your browser. This is the fastest way to get started.</p>
+
+<p><strong>Self-hosted (Docker)</strong>: Run <code>docker run -it --rm --name n8n -p 5678:5678 -v ~/.n8n:/home/node/.n8n docker.n8n.io/n8nio/n8n</code> in your terminal. Access the editor at <code>http://localhost:5678</code>. Self-hosting gives you unlimited workflow executions and full data control, but you manage your own infrastructure.</p>
+
+<h3>Step 3: Store Your API Key as a Credential</h3>
+
+<p>In n8n, open <strong>Credentials</strong> from the left sidebar. Click <strong>New Credential</strong> and search for "Header Auth". Name it "Anthropic API" and add a header:</p>
+
+<ul>
+<li><strong>Name</strong>: <code>x-api-key</code></li>
+<li><strong>Value</strong>: your Anthropic API key</li>
+</ul>
+
+<p>Save the credential. You'll reference this in every HTTP Request node that calls Claude.</p>
+
+<h3>Step 4: Build Your First Claude Node</h3>
+
+<p>In your workflow, add an <strong>HTTP Request</strong> node. Configure it:</p>
+
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>URL</strong>: <code>https://api.anthropic.com/v1/messages</code></li>
+<li><strong>Authentication</strong>: Select "Header Auth" and choose your "Anthropic API" credential</li>
+<li><strong>Headers</strong>: Add <code>anthropic-version: 2023-06-01</code> and <code>content-type: application/json</code></li>
+<li><strong>Body (JSON)</strong>:</li>
+</ul>
+
+<p><code>`</code>json {   "model": "claude-sonnet-4-5",   "max_tokens": 1024,   "messages": [     {       "role": "user",       "content": "{{ $json.prompt }}"     }   ] } <code>`</code></p>
+
+<p>Replace <code>{{ $json.prompt }}</code> with your actual prompt text or a reference to upstream node data.</p>
+
+<h3>Step 5: Extract Claude's Response</h3>
+
+<p>Claude's API returns a JSON object. The response text lives at <code>content[0].text</code> in the response body. In n8n, access it with the expression <code>{{ $json.content[0].text }}</code>. Add a <strong>Set</strong> node after your HTTP Request node to extract this into a cleaner variable for downstream nodes.</p>
+
+<h3>Step 6: Connect Downstream Actions</h3>
+
+<p>Add any n8n node as your action: Gmail, Slack, Google Sheets, Notion, Airtable, HubSpot — n8n has hundreds of built-in integrations. Map the extracted Claude response into the relevant fields of your action node.</p>
+
+<h3>Step 7: Test and Activate</h3>
+
+<p>Use the <strong>Execute Workflow</strong> button to run a test with sample data. Review each node's output panel to confirm data flows correctly. Once satisfied, toggle the workflow <strong>Active</strong> so it runs automatically from its trigger.</p>
+
+<h2>4 Practical Claude n8n Workflow Examples</h2>
+
+<h3>Workflow 1: Automated Email Response Drafts</h3>
+
+<p><strong>Trigger</strong>: Gmail node set to watch for new emails in your inbox   <strong>Claude node prompt</strong>: "You are an email assistant. Read this email and write a professional draft reply. Keep it under 150 words. Be helpful and direct. Email subject: {{subject}}. Email body: {{body}}"   <strong>Action</strong>: Gmail > Create Draft (creates a draft in your Gmail for human review before sending)</p>
+
+<p>This workflow means you never start an email reply from scratch. Every incoming email gets a draft reply waiting for you to review, edit if needed, and hit send.</p>
+
+<h3>Workflow 2: Content Brief to Blog Post Pipeline</h3>
+
+<p><strong>Trigger</strong>: Airtable node watches for new rows in a "Content Briefs" table   <strong>Claude node 1</strong>: "Expand this brief into a full 800-word blog post with H2 subheadings. Brief: {{brief}}"   <strong>Claude node 2</strong>: "Write an SEO meta description (150-160 characters) for this blog post: {{post}}"   <strong>Action</strong>: Airtable > Update Row (writes the full post and meta description back to the same row)</p>
+
+<p>The content team adds briefs to Airtable, and complete draft posts appear in the same table within minutes.</p>
+
+<h3>Workflow 3: Support Ticket Classification and Routing</h3>
+
+<p><strong>Trigger</strong>: Webhook node (your support form posts here)   <strong>Claude node prompt</strong>: "Classify this support message into exactly one category from this list: billing, technical-bug, feature-request, general-question, urgent-complaint. Reply with only the category. Message: {{message}}"   <strong>Switch node</strong>: Routes based on Claude's category output   <strong>Actions</strong>: Different Slack channel notifications or email forwards per category</p>
+
+<p>This workflow eliminates manual triage. Claude reads the message, outputs a single category, and the Switch node routes it to the right team instantly.</p>
+
+<h3>Workflow 4: Weekly Competitor Monitoring Report</h3>
+
+<p><strong>Trigger</strong>: Schedule node (fires every Monday at 8am)   <strong>HTTP node</strong>: Fetches RSS feeds or web pages from competitor sites   <strong>Claude node</strong>: "Here are the latest updates from competitor sites. Summarise the 5 most important developments for our team in bullet points. Highlight anything that might require a response from us: {{content}}"   <strong>Action</strong>: Gmail > Send Email (sends the summary to your team)</p>
+
+<p>No more manually checking competitor sites. The workflow runs weekly, Claude synthesises everything into a readable briefing, and it lands in your inbox before the working week begins.</p>
+
+<h2>Self-Hosted vs Cloud n8n for Claude Workflows</h2>
+
+<p>Choosing between self-hosted and n8n Cloud affects your costs, data handling, and operational overhead.</p>
+
+<p><table> <thead> <tr> <th>Factor</th> <th>Self-Hosted n8n</th> <th>n8n Cloud</th> </tr> </thead> <tbody> <tr> <td><strong>Pricing</strong></td> <td>Free (pay for server costs only)</td> <td>Starts ~$20/month</td> </tr> <tr> <td><strong>Workflow executions</strong></td> <td>Unlimited</td> <td>Limited by plan tier</td> </tr> <tr> <td><strong>Setup effort</strong></td> <td>Moderate (Docker or VPS required)</td> <td>Minutes (browser-based)</td> </tr> <tr> <td><strong>Data privacy</strong></td> <td>Full control, data stays on your server</td> <td>Data passes through n8n's servers</td> </tr> <tr> <td><strong>Maintenance</strong></td> <td>You manage updates and uptime</td> <td>n8n manages infrastructure</td> </tr> <tr> <td><strong>Scaling</strong></td> <td>Manual (you add server resources)</td> <td>Automatic within plan limits</td> </tr> <tr> <td><strong>Best for</strong></td> <td>High volume, sensitive data, developers</td> <td>Getting started, small teams, non-technical users</td> </tr> </tbody> </table></p>
+
+<p><strong>Self-host if</strong>: you have sensitive customer data, you're running thousands of workflow executions per month, or you have a developer comfortable managing a Linux server.</p>
+
+<p><strong>Use n8n Cloud if</strong>: you want to start building immediately without DevOps overhead, your workflow volume is moderate, and data privacy requirements are standard.</p>
+
+<p>Both connect to the Claude API identically — the only difference is where n8n itself runs.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-make-vs-n8n/">Make.com vs n8n for Claude</a></li>
+<li><a href="/claude-make-com-integration/">Claude Make.com Integration</a></li>
+<li><a href="/build-claude-ai-agent/">Build a Claude AI Agent</a></li>
+<li><a href="/claude-automation-workflows/">Claude Automation Workflows — 10 Templates</a></li>
+<li><a href="/claude-api-getting-started/">Claude API Getting Started</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>How do I use Claude with n8n?</dt>
+<dd>In n8n, add an HTTP Request node configured to call the Anthropic Messages API at https://api.anthropic.com/v1/messages. Set the x-api-key header to your Anthropic API key, set the model, and pass your prompt in the messages array. n8n also has community nodes for Anthropic that wrap this into a cleaner interface.</dd>
+<dt>Is n8n better than Make.com for Claude?</dt>
+<dd>n8n is better if you want to self-host, need unlimited workflow runs without per-operation billing, or are comfortable with a slightly more technical setup. Make.com is better if you want a fully managed cloud platform and a gentler learning curve. Both connect to Claude's API equally well.</dd>
+<dt>Can n8n use the Claude API?</dt>
+<dd>Yes. n8n connects to the Claude API via the HTTP Request node (calling the Anthropic REST API directly) or through community-built Anthropic nodes available in the n8n community node library. Both approaches give full access to Claude's models and parameters.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

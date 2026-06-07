@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Generate Schema Markup with Claude (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude to generate JSON-LD schema markup in 2026. Article, FAQ, HowTo, Product, LocalBusiness schema examples, testing tips, and ready-to-use prompts.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-schema-markup/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Generate Schema Markup with Claude (2026 Guide)">
+  <meta property="og:description" content="Use Claude to generate JSON-LD schema markup in 2026. Article, FAQ, HowTo, Product, LocalBusiness schema examples, testing tips, and ready-to-use prompts.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-schema-markup/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-schema-markup.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Generate Schema Markup with Claude (2026 Guide)">
+  <meta name="twitter:description" content="Use Claude to generate JSON-LD schema markup in 2026. Article, FAQ, HowTo, Product, LocalBusiness schema examples, testing tips, and ready-to-use prompts.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Generate Schema Markup with Claude (2026 Guide)",
+  "description": "Use Claude to generate JSON-LD schema markup in 2026. Article, FAQ, HowTo, Product, LocalBusiness schema examples, testing tips, and ready-to-use prompts.",
+  "url": "https://howtoclaudeatoz.com/claude-schema-markup/",
+  "image": "https://howtoclaudeatoz.com/og/claude-schema-markup.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude write JSON-LD schema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Claude generates valid JSON-LD schema markup for all major schema types including Article, FAQ, HowTo, Product, LocalBusiness, Review, BreadcrumbList, and more. Give Claude your page content or key details and it will produce ready-to-paste JSON-LD that you can validate in Google's Rich Results Test before adding to your site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What schema types can Claude generate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude can generate any schema type documented on Schema.org. The most SEO-valuable types it handles include: Article, NewsArticle, FAQPage, HowTo, Product, Review, AggregateRating, LocalBusiness, BreadcrumbList, VideoObject, Event, Recipe, and Organization. Claude applies the correct required and recommended properties for each type."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I test Claude-generated schema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the JSON-LD from Claude directly into Google's Rich Results Test (search.google.com/test/rich-results). This tool validates the schema against Google's requirements and shows you which rich result types your schema qualifies for. Schema.org Validator is a second option for catching structural errors. Fix any warnings before adding the code to your site."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for SEO",
+      "item": "https://howtoclaudeatoz.com/seo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Generate Schema Markup with Claude (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-schema-markup/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/seo/">Claude for SEO</a></li><li aria-current="page">How to Generate Schema Markup with Claude (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How to Generate Schema Markup with Claude (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Generating schema markup with Claude is one of the most practical and time-saving applications of AI in SEO. Schema markup (structured data) tells search engines exactly what your content is — an FAQ, a product, a local business, a how-to guide — and unlocks rich results in the SERP: star ratings, FAQ dropdowns, step-by-step instructions, and price information. Writing JSON-LD manually is tedious and error-prone. Claude generates accurate, valid schema for any type in seconds, and you can test it immediately with Google's Rich Results Tool. This guide covers every major schema type with example prompts and outputs.</p>
+
+<h2>What is Schema Markup and Why Does It Matter?</h2>
+
+<p>Schema markup is structured data added to your HTML that helps search engines understand the content of a page beyond plain text. It uses the Schema.org vocabulary and is typically implemented as JSON-LD (JavaScript Object Notation for Linked Data) — a block of code in the <code><head></code> or <code><body></code> of your page.</p>
+
+<p>Schema does two things for SEO:</p>
+
+<ol>
+<li><strong>Enables rich results</strong> — star ratings, FAQ dropdowns, HowTo steps, and product information appear directly in search results, significantly increasing click-through rates</li>
+<li><strong>Improves understanding</strong> — even without rich results, structured data helps Google index your content more accurately, which can improve rankings for relevant queries</li>
+</ol>
+
+<p>Claude can generate correct, ready-to-use JSON-LD for all major schema types without requiring you to know the Schema.org specification.</p>
+
+<h2>Schema Types Claude Can Generate</h2>
+
+<p><table> <thead> <tr> <th>Schema Type</th> <th>What It Enables</th> <th>Best For</th> </tr> </thead> <tbody> <tr> <td>Article</td> <td>News, blog, article markup</td> <td>Blog posts, news articles</td> </tr> <tr> <td>FAQPage</td> <td>FAQ dropdowns in SERP</td> <td>Pages with Q&A sections</td> </tr> <tr> <td>HowTo</td> <td>Step-by-step instructions in SERP</td> <td>Tutorial and guide pages</td> </tr> <tr> <td>Product</td> <td>Price, availability, rating in SERP</td> <td>E-commerce product pages</td> </tr> <tr> <td>Review / AggregateRating</td> <td>Star ratings in SERP</td> <td>Reviews, comparison pages</td> </tr> <tr> <td>LocalBusiness</td> <td>Business details in knowledge panel</td> <td>Local service businesses</td> </tr> <tr> <td>BreadcrumbList</td> <td>Breadcrumb navigation in SERP</td> <td>All site pages</td> </tr> <tr> <td>VideoObject</td> <td>Video rich results</td> <td>Pages with embedded video</td> </tr> <tr> <td>Organization</td> <td>Brand knowledge panel information</td> <td>Homepage, About page</td> </tr> <tr> <td>Event</td> <td>Event details in SERP</td> <td>Event listing pages</td> </tr> <tr> <td>Recipe</td> <td>Ingredients, time, calories in SERP</td> <td>Recipe websites</td> </tr> </tbody> </table></p>
+
+<h2>How to Generate Schema Markup with Claude — Step by Step</h2>
+
+<h3>Step 1: FAQPage schema</h3>
+
+<p>FAQPage schema is the highest-value schema type for most content sites. FAQ dropdowns in Google results can double the visual real estate your result occupies.</p>
+
+<p>Prompt:</p>
+
+<p><code>`</code> Generate FAQPage JSON-LD schema markup for a page with the following questions and answers.</p>
+
+<p>Page URL: [https://example.com/your-page/]</p>
+
+<p>FAQs: Q: [question 1] A: [answer 1]</p>
+
+<p>Q: [question 2] A: [answer 2]</p>
+
+<p>Q: [question 3] A: [answer 3]</p>
+
+<p>Output valid JSON-LD that I can add inside a <script type="application/ld+json"> tag. <code>`</code></p>
+
+<p>Example output Claude produces:</p>
+
+<p><code>`</code>json {   "@context": "https://schema.org",   "@type": "FAQPage",   "mainEntity": [     {       "@type": "Question",       "name": "How much do solar panels cost in the UK?",       "acceptedAnswer": {         "@type": "Answer",         "text": "Solar panels for a typical UK home cost between £5,000 and £11,000 depending on system size. A 3.5kWp system for a 3-bedroom house typically costs £6,000-£8,000 including installation."       }     },     {       "@type": "Question",       "name": "How long do solar panels last?",       "acceptedAnswer": {         "@type": "Answer",         "text": "Most solar panels come with a 25-year performance warranty and a 10-12 year product warranty. In practice, quality panels last 30-40 years with minimal degradation — typically less than 0.5% output loss per year."       }     }   ] } <code>`</code></p>
+
+<h3>Step 2: HowTo schema</h3>
+
+<p>HowTo schema enables rich results showing your step-by-step instructions directly in the SERP, with estimated time and materials.</p>
+
+<p>Prompt:</p>
+
+<p><code>`</code> Generate HowTo JSON-LD schema for a page that explains the following process.</p>
+
+<p>Page title: [title] Page URL: [URL] Description: [1-2 sentence description of what the guide teaches] Total time: [e.g. PT30M for 30 minutes] Tools/materials needed (optional): [list]</p>
+
+<p>Steps:</p>
+<ol>
+<li>[Step 1 name]: [Step 1 description]</li>
+<li>[Step 2 name]: [Step 2 description]</li>
+<li>[Step 3 name]: [Step 3 description]</li>
+</ol>
+<p>[continue for all steps]</p>
+
+<p>Output valid JSON-LD. <code>`</code></p>
+
+<h3>Step 3: Article schema</h3>
+
+<p>Article schema should be added to all blog posts and news articles. It is not always a rich result trigger, but it improves Google's understanding of your content type and authorship.</p>
+
+<p>Prompt:</p>
+
+<p><code>`</code> Generate Article JSON-LD schema for the following blog post.</p>
+
+<p>Headline: [article title] URL: [full URL] Date published: [YYYY-MM-DD] Date modified: [YYYY-MM-DD] Author name: [full name] Author URL: [author page URL if available] Publisher name: [website/brand name] Publisher logo URL: [logo image URL] Description: [meta description text] Image URL: [featured image URL]</p>
+
+<p>Use Article type (not NewsArticle). Output valid JSON-LD. <code>`</code></p>
+
+<h3>Step 4: Product schema</h3>
+
+<p>Product schema with AggregateRating is one of the most visible rich results — star ratings appear under your listing in the SERP.</p>
+
+<p>Prompt:</p>
+
+<p><code>`</code> Generate Product JSON-LD schema with AggregateRating for the following product.</p>
+
+<p>Product name: [name] Description: [1-2 sentence description] URL: [product page URL] Image URL: [product image URL] Brand: [brand name] Price: [price] Currency: [GBP / USD / EUR] Availability: [InStock / OutOfStock / PreOrder] Average rating: [e.g. 4.7] Review count: [e.g. 124]</p>
+
+<p>Output valid JSON-LD. <code>`</code></p>
+
+<h3>Step 5: LocalBusiness schema</h3>
+
+<p>LocalBusiness schema populates Google's knowledge panel with your business details and improves local search visibility.</p>
+
+<p>Prompt:</p>
+
+<p><code>`</code> Generate LocalBusiness JSON-LD schema for the following business.</p>
+
+<p>Business name: [name] Business type: [e.g. Electrician, Restaurant, Dental Clinic — use Schema.org type where possible] URL: [website URL] Address: [full postal address] Telephone: [phone number with country code] Email: [contact email] Opening hours: [e.g. Monday-Friday 09:00-17:00, Saturday 10:00-14:00] Geographic coordinates (optional): latitude [lat], longitude [lon] Price range: [£ / ££ / £££] Social profiles (optional): [list URLs]</p>
+
+<p>Output valid JSON-LD. <code>`</code></p>
+
+<h3>Step 6: BreadcrumbList schema</h3>
+
+<p>BreadcrumbList schema adds the breadcrumb navigation trail to your SERP listing. It is easy to implement and supported on virtually all site types.</p>
+
+<p>Prompt:</p>
+
+<p><code>`</code> Generate BreadcrumbList JSON-LD schema for this page.</p>
+
+<p>Breadcrumb trail:</p>
+<ol>
+<li>Home — [https://example.com/]</li>
+<li>[Category name] — [https://example.com/category/]</li>
+<li>[Current page title] — [https://example.com/category/page/]</li>
+</ol>
+
+<p>Output valid JSON-LD. <code>`</code></p>
+
+<h2>Testing Claude-Generated Schema</h2>
+
+<p>Always validate schema before adding it to your site. There are two tools:</p>
+
+<p><strong>Google Rich Results Test</strong> — the most important validator. Go to search.google.com/test/rich-results, paste your JSON-LD, and see whether it qualifies for rich results and whether there are any errors. Fix all errors before deploying.</p>
+
+<p><strong>Schema.org Validator</strong> — validator.schema.org provides deeper validation against the full Schema.org specification. Use this to catch property-level warnings that Google's tool might not flag.</p>
+
+<p>Common errors Claude-generated schema might have (and how to fix them):</p>
+
+<p><table> <thead> <tr> <th>Error</th> <th>Cause</th> <th>Fix</th> </tr> </thead> <tbody> <tr> <td>Missing required property</td> <td>Claude omitted a field Google requires</td> <td>Ask Claude to add the missing property</td> </tr> <tr> <td>Invalid URL format</td> <td>URL missing https:// or contains a typo</td> <td>Fix the URL in the JSON</td> </tr> <tr> <td>Price format incorrect</td> <td>Should be a string e.g. "29.99" not a number</td> <td>Ask Claude to correct to string format</td> </tr> <tr> <td>Date format incorrect</td> <td>Should be YYYY-MM-DD</td> <td>Correct the date format</td> </tr> </tbody> </table></p>
+
+<p>If you get errors, paste the error message back to Claude:</p>
+
+<p><code>`</code> The Rich Results Test returned this error for the schema you generated: "[paste error message]"</p>
+
+<p>Fix the JSON-LD to resolve this error. <code>`</code></p>
+
+<h2>Adding Schema to Your Site</h2>
+
+<p>There are three ways to add JSON-LD to your pages:</p>
+
+<ol>
+<li><strong>Direct in HTML</strong> — paste the <code><script type="application/ld+json"></code> block into your page template, just before <code></head></code> or <code></body></code></li>
+<li><strong>CMS plugin</strong> — WordPress plugins like Yoast SEO, RankMath, or Schema Pro allow you to paste JSON-LD or have built-in schema generators</li>
+<li><strong>Google Tag Manager</strong> — add schema as a custom HTML tag, which avoids editing template files</li>
+</ol>
+
+<p>For sites with many pages requiring the same schema structure (e.g. all product pages), ask Claude to generate a template with placeholder variables that your developer or CMS can populate dynamically.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-on-page-seo/">Claude for On-Page SEO Optimisation</a> — Schema is one part of a complete on-page SEO checklist</li>
+<li><a href="/claude-for-local-seo/">Claude for Local SEO</a> — LocalBusiness schema in the context of a full local SEO strategy</li>
+<li><a href="/claude-meta-titles-descriptions/">Claude Meta Titles and Descriptions</a> — Complement schema with strong meta tags</li>
+<li><a href="/how-to-write-seo-content-with-claude/">How to Write SEO Content with Claude</a> — Writing the content that schema markup enhances</li>
+<li><a href="/site-audit-with-claude/">Site Audit with Claude</a> — Identify pages missing schema as part of a full site audit</li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude write JSON-LD schema?</dt>
+<dd>Yes. Claude generates valid JSON-LD schema markup for all major schema types including Article, FAQ, HowTo, Product, LocalBusiness, Review, BreadcrumbList, and more. Give Claude your page content or key details and it will produce ready-to-paste JSON-LD that you can validate in Google's Rich Results Test before adding to your site.</dd>
+<dt>What schema types can Claude generate?</dt>
+<dd>Claude can generate any schema type documented on Schema.org. The most SEO-valuable types it handles include: Article, NewsArticle, FAQPage, HowTo, Product, Review, AggregateRating, LocalBusiness, BreadcrumbList, VideoObject, Event, Recipe, and Organization. Claude applies the correct required and recommended properties for each type.</dd>
+<dt>How do I test Claude-generated schema?</dt>
+<dd>Paste the JSON-LD from Claude directly into Google's Rich Results Test (search.google.com/test/rich-results). This tool validates the schema against Google's requirements and shows you which rich result types your schema qualifies for. Schema.org Validator is a second option for catching structural errors. Fix any warnings before adding the code to your site.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

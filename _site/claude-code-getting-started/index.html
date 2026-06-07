@@ -74,18 +74,18 @@
     },
     {
       "@type": "Question",
-      "name": "How do I install Claude Code?",
+      "name": "Is Claude Code free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Claude Code is installed via npm. Run 'npm install -g @anthropic-ai/claude-code' in your terminal, then run 'claude' to launch it. You will need an Anthropic account and API key, or a Claude Pro or Max subscription. Full prerequisites and setup steps are covered in this guide."
+        "text": "Claude Code is available to Claude Pro and Max subscribers at no additional per-token cost within their plan limits. API users are billed for tokens consumed by Claude Code sessions. There is no separate charge for the CLI itself \u2014 you pay for the underlying Claude API usage."
       }
     },
     {
       "@type": "Question",
-      "name": "Is Claude Code free to use?",
+      "name": "How is Claude Code different from Claude.ai?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Claude Code is available to Claude Pro and Max subscribers at no additional per-token cost within their plan limits. API users are billed for tokens consumed by Claude Code sessions. There is no separate charge for the CLI itself \u2014 you pay for the underlying Claude API usage."
+        "text": "Claude.ai is a browser-based chat interface where you paste code manually and get responses in a conversation window. Claude Code runs in your terminal with direct file system access \u2014 it reads your actual project files, makes edits, runs tests, and executes shell commands autonomously. Claude Code is purpose-built for software development; Claude.ai is a general-purpose assistant."
       }
     }
   ]
@@ -230,17 +230,226 @@
       ">
         <h1>Claude Code — Complete Getting Started Guide (2026)</h1>
 
-<p>Claude Code is Anthropic's official command-line interface that brings Claude directly into your development environment. Instead of copy-pasting code into a browser window, Claude Code runs in your terminal with access to your actual project files — it can read your codebase, write and edit files, run shell commands, and navigate complex multi-file codebases without you lifting a finger. Getting started with Claude Code takes under five minutes if you have Node.js installed. This guide covers exactly that: installation, authentication, your first session, the most useful commands, and the patterns that make Claude Code dramatically more effective than using Claude in a chat interface for serious development work.</p>
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude Code getting started is simpler than most developers expect: install one npm package, authenticate with your Anthropic account, and you have a full AI pair programmer running inside your terminal. Claude Code is Anthropic's official CLI that gives Claude direct access to your project files, letting it read entire codebases, write and edit files, run shell commands, and navigate multi-file projects — all without copy-pasting code into a browser. This guide covers everything you need: installation, authentication, your first session, the most useful commands, and the project-level conventions that make Claude Code dramatically more powerful for serious development work.</p>
+
+<h2>What is Claude Code?</h2>
+
+<p>Claude Code is a command-line interface built by Anthropic that embeds Claude directly into your development workflow. Unlike Claude.ai, which is a browser chat interface where you manually paste snippets, Claude Code has full access to your local file system. It can open, read, and edit files; run shell commands (with your approval); search codebases with grep and find; and make coordinated changes across dozens of files simultaneously.</p>
+
+<p>Key capabilities that set Claude Code apart from browser-based AI assistants:</p>
+
+<ul>
+<li><strong>Codebase-wide context</strong> — Claude Code indexes your project and understands the relationships between files. It knows how your <code>auth.py</code> imports from <code>models.py</code> without you explaining it.</li>
+<li><strong>Agentic task execution</strong> — give Claude Code a high-level goal ("add rate limiting to all API endpoints") and it plans, implements, and verifies the work across multiple files.</li>
+<li><strong>CLAUDE.md project memory</strong> — a markdown file at your project root that persists instructions, architecture notes, and conventions across every session.</li>
+<li><strong>Slash commands and MCP</strong> — built-in commands for common actions plus the Model Context Protocol for integrating external tools and data sources.</li>
+<li><strong>Permission-gated shell access</strong> — Claude Code can run bash commands, but it always asks before executing anything that modifies your system.</li>
+</ul>
+
+<h2>How to Install Claude Code — Step by Step</h2>
+
+<h3>Step 1: Check Prerequisites</h3>
+
+<p>Claude Code requires Node.js 18 or higher. Check your version:</p>
+
+<p><code>`</code>bash node --version</p>
+<h1>Should output v18.0.0 or higher</h1>
+<p><code>`</code></p>
+
+<p>If you need to install or upgrade Node.js, use <a href="https://github.com/nvm-sh/nvm">nvm</a> (recommended) or download from nodejs.org.</p>
+
+<h3>Step 2: Install the CLI</h3>
+
+<p>Install Claude Code globally via npm:</p>
+
+<p><code>`</code>bash npm install -g @anthropic-ai/claude-code <code>`</code></p>
+
+<p>Verify the installation succeeded:</p>
+
+<p><code>`</code>bash claude --version <code>`</code></p>
+
+<h3>Step 3: Authenticate</h3>
+
+<p>Run <code>claude</code> in any directory to launch the setup flow. Claude Code will open your browser to authenticate via your Anthropic account. You have two options:</p>
+
+<ul>
+<li><strong>Claude Pro or Max subscription</strong> — authenticate with your claude.ai account. Usage counts toward your plan limits.</li>
+<li><strong>API key</strong> — set your key as an environment variable before running:</li>
+</ul>
+
+<p><code>`</code>bash export ANTHROPIC<em>API</em>KEY=sk-ant-your-key-here claude <code>`</code></p>
+
+<p>To make the API key permanent, add the export line to your <code>~/.bashrc</code> or <code>~/.zshrc</code>.</p>
+
+<h3>Step 4: Navigate to Your Project</h3>
+
+<p>Claude Code works best when launched from your project root — this gives it the widest possible context for reading your files.</p>
+
+<p><code>`</code>bash cd /path/to/your/project claude <code>`</code></p>
+
+<h3>Step 5: Run Your First Command</h3>
+
+<p>Once the Claude Code session starts, you interact through a conversational prompt. Try these first commands to get a feel for the tool:</p>
+
+<p><code>`</code>bash</p>
+<h1>Ask Claude Code to summarise your project</h1>
+<blockquote><p>Summarise the architecture of this codebase in 3 paragraphs</p></blockquote>
+
+<h1>Ask it to find something specific</h1>
+<blockquote><p>Find all places where we call the Stripe API</p></blockquote>
+
+<h1>Ask for a code change</h1>
+<blockquote><p>Add input validation to the register() function in auth.py</p></blockquote>
+<p><code>`</code></p>
+
+<p>Claude Code will read the relevant files, show you what it plans to do, and ask for confirmation before making any edits.</p>
+
+<h3>Step 6: Set Up Your CLAUDE.md File</h3>
+
+<p><code>CLAUDE.md</code> is the single most powerful Claude Code feature for sustained development work. Create a file called <code>CLAUDE.md</code> at your project root — Claude Code reads this file automatically at the start of every session. Use it to store:</p>
+
+<ul>
+<li>Project architecture overview</li>
+<li>Coding conventions and style rules</li>
+<li>Which files to avoid editing</li>
+<li>Common commands (how to run tests, linting, builds)</li>
+<li>Domain-specific context Claude needs to write good code</li>
+</ul>
+
+<p>Here is a real example:</p>
+
+<p><code>`</code>markdown</p>
+<h1>Project: PayTrack API</h1>
+
+<h2>Stack</h2>
+<ul>
+<li>Python 3.12, FastAPI, PostgreSQL 15</li>
+<li>SQLAlchemy 2.0 (async), Alembic for migrations</li>
+<li>pytest for testing, ruff for linting</li>
+</ul>
+
+<h2>Architecture</h2>
+<ul>
+<li><code>app/routers/</code> — FastAPI route handlers (one file per resource)</li>
+<li><code>app/services/</code> — business logic, no DB calls here</li>
+<li><code>app/models/</code> — SQLAlchemy ORM models</li>
+<li><code>app/schemas/</code> — Pydantic request/response schemas</li>
+</ul>
+
+<h2>Conventions</h2>
+<ul>
+<li>All routes must have a corresponding test in <code>tests/routers/</code></li>
+<li>Use <code>async def</code> for all route handlers and DB operations</li>
+<li>Never commit secrets — use environment variables from <code>config.py</code></li>
+<li>Run <code>ruff check .</code> before marking any task done</li>
+</ul>
+
+<h2>Commands</h2>
+<ul>
+<li>Run tests: <code>pytest tests/ -v</code></li>
+<li>Start dev server: <code>uvicorn app.main:app --reload</code></li>
+<li>Apply migrations: <code>alembic upgrade head</code></li>
+</ul>
+<p><code>`</code></p>
+
+<p>With a CLAUDE.md like this, Claude Code knows your stack, conventions, and architecture from the first message — you never need to re-explain context.</p>
+
+<h3>Step 7: Explore Slash Commands</h3>
+
+<p>Claude Code has built-in slash commands for common workflows. Type <code>/</code> in the session to see them all. The most useful ones:</p>
+
+<p><table> <thead> <tr> <th>Command</th> <th>What it does</th> </tr> </thead> <tbody> <tr> <td><code>/clear</code></td> <td>Clear conversation history and start fresh</td> </tr> <tr> <td><code>/compact</code></td> <td>Summarise the conversation to reduce token usage</td> </tr> <tr> <td><code>/model</code></td> <td>Switch Claude model mid-session</td> </tr> <tr> <td><code>/permissions</code></td> <td>Review and adjust file/shell permissions</td> </tr> <tr> <td><code>/mcp</code></td> <td>List connected MCP servers</td> </tr> <tr> <td><code>/cost</code></td> <td>Show token usage for the current session</td> </tr> </tbody> </table></p>
+
+<h2>Claude Code Key Features — Deep Dive</h2>
+
+<h3>Agentic Mode vs. Conversational Mode</h3>
+
+<p>Claude Code can operate in two modes. In <strong>conversational mode</strong>, you have a back-and-forth dialogue — ask a question, get an answer, ask a follow-up. In <strong>agentic mode</strong>, you hand Claude Code a multi-step task and it executes it autonomously, pausing only when it needs your approval on a significant action (like running a shell command or deleting a file).</p>
+
+<p>For large tasks, agentic mode is transformative. Example:</p>
+
+<p><code>`</code>bash</p>
+<blockquote><p>Refactor all database queries in the services/ directory to use</p></blockquote>
+<p>async SQLAlchemy 2.0 style. Run the tests after each file to    confirm nothing breaks. <code>`</code></p>
+
+<p>Claude Code will work through each file methodically, run <code>pytest</code> after each change, and report back when done.</p>
+
+<h3>Model Context Protocol (MCP)</h3>
+
+<p>MCP is an open standard that lets Claude Code connect to external tools and data sources. You can connect Claude Code to your database, Jira, GitHub, Linear, Figma, and dozens of other tools so Claude has live context — not just what's in your files.</p>
+
+<p>To see connected MCP servers:</p>
+
+<p><code>`</code>bash</p>
+<blockquote><p>/mcp</p></blockquote>
+<p><code>`</code></p>
+
+<p>MCP servers are configured in your Claude Code settings file. See our <a href="/claude-mcp-explained/">Claude MCP Explained guide</a> for a full walkthrough.</p>
+
+<h3>Multi-File Editing</h3>
+
+<p>Claude Code's most impressive capability for real development work is coherent multi-file editing. Give it a task that spans many files and it maintains consistency across all of them:</p>
+
+<p><code>`</code>bash</p>
+<blockquote><p>Add a <code>last_modified</code> timestamp field to the User model.</p></blockquote>
+<p>Update the migration, Pydantic schema, API response, and    relevant tests to match. <code>`</code></p>
+
+<p>Claude Code traces the dependency chain across your codebase and makes all the required changes in one coordinated pass.</p>
+
+<h2>What Claude Code Is Best For</h2>
+
+<p>Claude Code excels at tasks that are tedious but systematic:</p>
+
+<ul>
+<li><strong>Refactoring</strong> — rename a function across 40 files, update all call sites, fix tests</li>
+<li><strong>Adding features</strong> — implement a complete feature end-to-end from model to route to test</li>
+<li><strong>Debugging</strong> — paste an error, Claude Code traces it back through your actual code</li>
+<li><strong>Code reviews</strong> — ask it to review a file or diff for security issues, performance, or style</li>
+<li><strong>Writing tests</strong> — generate comprehensive test coverage for existing functions</li>
+<li><strong>Documentation</strong> — generate docstrings, README sections, or OpenAPI specs from code</li>
+</ul>
+
+<p>It is less suited to tasks that require running a UI, interacting with a browser, or making real-time decisions based on live production data (though MCP integrations can bridge some of those gaps).</p>
+
+<h2>Claude Code vs Claude.ai for Development</h2>
+
+<p><table> <thead> <tr> <th>Capability</th> <th>Claude Code</th> <th>Claude.ai</th> </tr> </thead> <tbody> <tr> <td>Reads your actual files</td> <td>Yes</td> <td>No — you paste manually</td> </tr> <tr> <td>Makes file edits</td> <td>Yes</td> <td>No</td> </tr> <tr> <td>Runs shell commands</td> <td>Yes (with approval)</td> <td>No</td> </tr> <tr> <td>Remembers project context</td> <td>Yes (CLAUDE.md)</td> <td>Only in-session</td> </tr> <tr> <td>Works with whole codebase</td> <td>Yes</td> <td>Limited by paste size</td> </tr> <tr> <td>Best for</td> <td>Production codebases</td> <td>Quick questions, prototyping</td> </tr> <tr> <td>Interface</td> <td>Terminal</td> <td>Browser</td> </tr> <tr> <td>Multi-file coordination</td> <td>Yes</td> <td>No</td> </tr> </tbody> </table></p>
+
+<p>For serious development work on a real project, Claude Code is the right tool. Claude.ai is excellent for one-off questions, explaining concepts, or drafting code snippets when you are not near your development machine.</p>
+
+<h2>Tips for Getting the Most from Claude Code</h2>
+
+<p><strong>Be specific about the goal, not the implementation.</strong> Claude Code figures out the how — you just need to describe the what and why clearly.</p>
+
+<p><strong>Use CLAUDE.md religiously.</strong> Any time you find yourself explaining the same thing twice (your test framework, your naming conventions, your deployment setup), add it to CLAUDE.md.</p>
+
+<p><strong>Give Claude Code permission to run tests.</strong> The most powerful workflow is: make a change → run tests → fix failures → repeat. Claude Code can do this loop autonomously if you allow shell command execution.</p>
+
+<p><strong>Review diffs before accepting.</strong> Claude Code shows you exactly what it plans to change. Read the diff — Claude is very good but not infallible, and catching a wrong assumption early saves time.</p>
+
+<p><strong>Use <code>/compact</code> on long sessions.</strong> If you have been working for hours, the conversation history gets large and expensive. <code>/compact</code> summarises the session so you keep context without burning tokens.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-mcp-explained/">Claude MCP Explained</a></li>
+<li><a href="/claude-api-getting-started/">Claude API Getting Started</a></li>
+<li><a href="/debug-code-with-claude/">Debug Code with Claude</a></li>
+<li><a href="/claude-code-reviews/">Claude Code Reviews</a></li>
+<li><a href="/claude-co-developer/">Building Apps with Claude as Your Co-Developer</a></li>
+</ul>
       </div>
 
       <!-- FAQ section -->
       <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
 <dt>What is Claude Code?</dt>
 <dd>Claude Code is Anthropic's official command-line interface (CLI) for Claude. It runs in your terminal and gives Claude direct access to your local codebase — it can read files, write code, run commands, search for patterns, and make multi-file edits. It is designed for developers who want AI assistance inside their actual development environment rather than a browser chat window.</dd>
-<dt>How do I install Claude Code?</dt>
-<dd>Claude Code is installed via npm. Run 'npm install -g @anthropic-ai/claude-code' in your terminal, then run 'claude' to launch it. You will need an Anthropic account and API key, or a Claude Pro or Max subscription. Full prerequisites and setup steps are covered in this guide.</dd>
-<dt>Is Claude Code free to use?</dt>
+<dt>Is Claude Code free?</dt>
 <dd>Claude Code is available to Claude Pro and Max subscribers at no additional per-token cost within their plan limits. API users are billed for tokens consumed by Claude Code sessions. There is no separate charge for the CLI itself — you pay for the underlying Claude API usage.</dd>
+<dt>How is Claude Code different from Claude.ai?</dt>
+<dd>Claude.ai is a browser-based chat interface where you paste code manually and get responses in a conversation window. Claude Code runs in your terminal with direct file system access — it reads your actual project files, makes edits, runs tests, and executes shell commands autonomously. Claude Code is purpose-built for software development; Claude.ai is a general-purpose assistant.</dd>
 </dl></section>
 
       <!-- Internal links / Related guides -->

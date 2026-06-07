@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Memory System Explained — How It Works (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Claude's memory system explained: how context windows, Projects, and workarounds help Claude remember across conversations. Complete 2026 guide.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-memory-system-explained/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Memory System Explained — How It Works (2026)">
+  <meta property="og:description" content="Claude's memory system explained: how context windows, Projects, and workarounds help Claude remember across conversations. Complete 2026 guide.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-memory-system-explained/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-memory-system-explained.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Memory System Explained — How It Works (2026)">
+  <meta name="twitter:description" content="Claude's memory system explained: how context windows, Projects, and workarounds help Claude remember across conversations. Complete 2026 guide.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Memory System Explained \u2014 How It Works (2026)",
+  "description": "Claude's memory system explained: how context windows, Projects, and workarounds help Claude remember across conversations. Complete 2026 guide.",
+  "url": "https://howtoclaudeatoz.com/claude-memory-system-explained/",
+  "image": "https://howtoclaudeatoz.com/og/claude-memory-system-explained.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Claude remember previous conversations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. By default, Claude does not remember anything from previous conversations. Each new conversation starts with a blank slate. Claude only has access to the messages within the current conversation's context window. The exception is Claude Projects, where uploaded files and custom instructions persist across multiple conversations within that Project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do Claude Projects help with memory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Projects provide a form of persistent memory by storing files, documents, and custom instructions that are loaded at the start of every conversation within the Project. This means Claude always knows your background, your requirements, and your reference materials \u2014 without you re-pasting them each session. Projects do not carry conversation history between sessions, only the stored files and instructions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make Claude remember things permanently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can create a persistent memory by maintaining a document \u2014 sometimes called a 'memory file' \u2014 that you update with key information and upload to a Claude Project. At the start of new conversations, Claude reads this file and effectively 'remembers' what you have recorded. Some advanced users also use the Claude API with custom memory systems built on vector databases, but this requires technical setup."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Getting Started with Claude",
+      "item": "https://howtoclaudeatoz.com/getting-started/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude Memory System Explained \u2014 How It Works (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-memory-system-explained/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/getting-started/">Getting Started with Claude</a></li><li aria-current="page">Claude Memory System Explained — How It Works (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude Memory System Explained — How It Works (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude's memory system is one of the most commonly misunderstood aspects of the tool. By default, Claude has no memory between conversations — every new chat starts completely fresh. But within a single conversation, Claude's memory system is powerful: it holds up to 200,000 tokens in a single session. This guide explains exactly how Claude's memory works, what the limitations are, and how to use Claude Projects and other techniques to create effective persistent memory for ongoing work.</p>
+
+<h2>What is Claude's Memory System? — Overview</h2>
+
+<p>Claude's memory system operates in three distinct layers, each with different persistence and scope.</p>
+
+<p><strong>Layer 1 — In-context memory:</strong> Everything within the current conversation's context window. This is Claude's primary working memory. It holds the full conversation history, any uploaded files, and any instructions you have given in this session. It persists only for the duration of the conversation.</p>
+
+<p><strong>Layer 2 — Project memory:</strong> Files and instructions stored in a Claude Project. These persist across all conversations within the Project but do not carry over individual conversation history. They represent a form of long-term background knowledge.</p>
+
+<p><strong>Layer 3 — External memory (advanced):</strong> Custom memory systems built via the Claude API using external databases or vector stores. This is a developer-level feature requiring technical setup.</p>
+
+<p>For most users, understanding layers 1 and 2 is sufficient.</p>
+
+<h2>How Claude's In-Context Memory Works</h2>
+
+<h3>The Context Window as Working Memory</h3>
+
+<p>Claude's 200,000-token context window is its working memory for a single conversation. Every message you send, every response Claude gives, and every file you upload is stored within this window. Claude can reference any part of this content when generating a new response — it does not "forget" the beginning of a conversation while it is still within the window.</p>
+
+<p>This is why a long, detailed conversation with Claude can be extremely productive: you can establish extensive context at the start and Claude will carry it throughout the session. You can say "refer back to the document I uploaded at the start" and Claude will do so accurately.</p>
+
+<h3>What Happens When the Context Window Fills</h3>
+
+<p>When a conversation grows long enough to exceed 200,000 tokens, the earliest content begins to fall out of the context window. Claude can no longer access it. This manifests as Claude "forgetting" early-conversation details, repeating information, or becoming less coherent about context established at the start of a long session.</p>
+
+<p>For practical guidance on this, see the <a href="/claude-context-window-explained/">Claude context window guide</a>.</p>
+
+<h3>What Happens When You Start a New Conversation</h3>
+
+<p>When you click "New chat" in Claude, you begin an entirely fresh context window. Claude has no access to any previous conversation — not even the one you just finished. There is no background recall, no learned preferences, and no memory of your name, your projects, or your previous instructions. Every new conversation is, by design, a blank slate.</p>
+
+<p>This is not a bug. It is a deliberate architectural choice made partly for privacy reasons — Claude does not build a persistent profile of you over time without your explicit involvement.</p>
+
+<h2>How Claude Projects Provide Persistent Memory</h2>
+
+<h3>What Projects Store</h3>
+
+<p>Claude Projects (available on Pro, Max, and Team plans) address the blank-slate limitation by providing a persistent storage layer that is loaded automatically into every new conversation within the Project.</p>
+
+<p>A Project stores:</p>
+<ul>
+<li><strong>Files you upload:</strong> PDFs, documents, spreadsheets, code files, and more</li>
+<li><strong>Custom instructions:</strong> Written instructions that tell Claude who it is working with, what the task is, what tone to use, and any standing rules</li>
+</ul>
+
+<p>Every time you start a new conversation within a Project, Claude receives:</p>
+<ol>
+<li>Your custom instructions (as a system prompt)</li>
+<li>Access to all files stored in the Project</li>
+</ol>
+
+<p>This creates a durable form of memory that persists as long as the Project exists.</p>
+
+<h3>What Projects Do Not Store</h3>
+
+<p>Projects do not carry conversation history between sessions. If you have a 50-message conversation within a Project and then start a new conversation in the same Project, Claude will not remember what you discussed in the previous chat. It will only know the Project instructions and files — not the specific exchanges.</p>
+
+<p>This is an important distinction. Project memory is background knowledge, not episodic memory. Claude knows your brief but not what you talked about last Tuesday.</p>
+
+<h2>Practical Techniques for Extending Claude's Memory</h2>
+
+<h3>Technique 1: The Memory File</h3>
+
+<p>Create a plain text or Markdown document called something like "MEMORY.md" or "Context.txt." Record key facts, decisions, preferences, and ongoing work status in this file. Update it periodically as your work evolves. Upload this file to a Claude Project.</p>
+
+<p>Claude will read the memory file at the start of every conversation and will effectively "remember" everything you have recorded in it.</p>
+
+<p>Example memory file entries: <code>`</code> Project: Redesigning the Meridian Analytics website Brand colours: #1A2B4C (navy), #F0A500 (amber), #FFFFFF (white) Tone: Professional but approachable. No jargon. Status as of 2026-06-07: Homepage done. Services page in progress. Key decision: We are not redesigning the blog at this stage. My name: Sarah. I am the marketing director. <code>`</code></p>
+
+<p>This technique effectively gives Claude a persistent memory of your project without requiring any technical setup beyond file management.</p>
+
+<h3>Technique 2: Conversation Summaries</h3>
+
+<p>At the end of a productive conversation, ask Claude to summarise the key decisions, outputs, and next steps in a concise format. Copy this summary and save it — either in a standalone document or in your memory file. At the start of the next relevant conversation, paste the summary as context.</p>
+
+<p><strong>Prompt to generate a summary:</strong> "Before we finish, write a concise summary of this conversation: the key decisions we made, the outputs we produced, and what the agreed next steps are. Format as a bulleted list."</p>
+
+<h3>Technique 3: Re-Pasting Key Context</h3>
+
+<p>For important standing instructions that do not change often, create a plain-text "context block" — a concise paragraph or list that summarises who you are, what you are working on, and what Claude should know. Paste this at the top of every new conversation where it is relevant.</p>
+
+<p>This is less elegant than Projects but works on the free plan where Projects are not available.</p>
+
+<h3>Technique 4: API-Based Memory Systems (Advanced)</h3>
+
+<p>Developers who use the Claude API can build custom memory systems using vector databases like Pinecone or Weaviate. These systems retrieve relevant stored memories based on the current conversation and inject them into the context window automatically. This creates a richer, more dynamic form of persistent memory than simple file uploads, but requires significant technical implementation.</p>
+
+<h2>Step by Step: Setting Up a Memory File in Claude Projects</h2>
+
+<h3>Step 1: Create a Project</h3>
+
+<p>In claude.ai, click "New Project" in the left sidebar. Name it after the work or context you want to maintain — for example, "Writing: Tech Blog" or "Client: Acme Corp."</p>
+
+<h3>Step 2: Write a Memory Document</h3>
+
+<p>Create a plain text or Markdown file on your computer. Include:</p>
+<ul>
+<li>Your name and role</li>
+<li>The project name, goal, and current status</li>
+<li>Key decisions that have been made</li>
+<li>Stylistic or technical preferences</li>
+<li>Any facts Claude would otherwise need you to re-explain</li>
+</ul>
+
+<h3>Step 3: Upload the Memory File to the Project</h3>
+
+<p>In the Project view, click "Add files" and upload your memory document. Claude will have access to it in every conversation within this Project.</p>
+
+<h3>Step 4: Write Project Instructions</h3>
+
+<p>In the Project's custom instructions field, write a brief instruction that tells Claude to read and use the memory file. For example: "At the start of each conversation, review the memory file to understand the current project status and any standing decisions."</p>
+
+<h3>Step 5: Update the Memory File Regularly</h3>
+
+<p>As your project evolves — decisions change, new facts emerge, phases complete — update your memory file and re-upload it to the Project. Remove the old version to avoid Claude drawing on outdated information.</p>
+
+<h2>Claude Memory System — Summary</h2>
+
+<p><table> <thead> <tr> <th>Memory Type</th> <th>Persists Between Conversations?</th> <th>Requires Setup?</th> <th>Available On</th> </tr> </thead> <tbody> <tr> <td>In-context (conversation)</td> <td>No</td> <td>No</td> <td>All plans</td> </tr> <tr> <td>Claude Projects (files + instructions)</td> <td>Yes (files, not chat history)</td> <td>Minimal</td> <td>Pro, Max, Team</td> </tr> <tr> <td>Manual memory file in Project</td> <td>Yes</td> <td>Low</td> <td>Pro, Max, Team</td> </tr> <tr> <td>Conversation summary re-paste</td> <td>Sort of (manual)</td> <td>None</td> <td>All plans</td> </tr> <tr> <td>API vector memory</td> <td>Yes (fully dynamic)</td> <td>High (developer)</td> <td>API access</td> </tr> </tbody> </table></p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/how-to-use-claude-projects/">How to Use Claude Projects</a> — Full guide to creating and managing Projects</li>
+<li><a href="/claude-context-window-explained/">Claude Context Window Explained</a> — How the 200K-token context works in practice</li>
+<li><a href="/claude-keyboard-shortcuts/">Claude Keyboard Shortcuts and Power User Tips</a> — Speed up your workflow including context management</li>
+<li><a href="/claude-system-prompts/">Claude System Prompts</a> — Advanced persistent instructions for consistent behaviour</li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Does Claude remember previous conversations?</dt>
+<dd>No. By default, Claude does not remember anything from previous conversations. Each new conversation starts with a blank slate. Claude only has access to the messages within the current conversation's context window. The exception is Claude Projects, where uploaded files and custom instructions persist across multiple conversations within that Project.</dd>
+<dt>How do Claude Projects help with memory?</dt>
+<dd>Claude Projects provide a form of persistent memory by storing files, documents, and custom instructions that are loaded at the start of every conversation within the Project. This means Claude always knows your background, your requirements, and your reference materials — without you re-pasting them each session. Projects do not carry conversation history between sessions, only the stored files and instructions.</dd>
+<dt>Can I make Claude remember things permanently?</dt>
+<dd>You can create a persistent memory by maintaining a document — sometimes called a 'memory file' — that you update with key information and upload to a Claude Project. At the start of new conversations, Claude reads this file and effectively 'remembers' what you have recorded. Some advanced users also use the Claude API with custom memory systems built on vector databases, but this requires technical setup.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

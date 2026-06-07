@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude for Writing API Documentation (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude to write API documentation — READMEs, OpenAPI specs, docstrings, and endpoint docs — from your code in minutes. Full guide with examples for 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-api-documentation/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude for Writing API Documentation (2026 Guide)">
+  <meta property="og:description" content="Use Claude to write API documentation — READMEs, OpenAPI specs, docstrings, and endpoint docs — from your code in minutes. Full guide with examples for 2026.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-api-documentation/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-api-documentation.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude for Writing API Documentation (2026 Guide)">
+  <meta name="twitter:description" content="Use Claude to write API documentation — READMEs, OpenAPI specs, docstrings, and endpoint docs — from your code in minutes. Full guide with examples for 2026.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude for Writing API Documentation (2026 Guide)",
+  "description": "Use Claude to write API documentation \u2014 READMEs, OpenAPI specs, docstrings, and endpoint docs \u2014 from your code in minutes. Full guide with examples for 2026.",
+  "url": "https://howtoclaudeatoz.com/claude-api-documentation/",
+  "image": "https://howtoclaudeatoz.com/og/claude-api-documentation.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude write API documentation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Claude can write API documentation from your source code, route definitions, or a plain-English description. It generates READMEs, docstrings, OpenAPI/Swagger YAML specs, endpoint reference docs, and code examples in multiple languages. The output is detailed, consistent, and follows documentation best practices. Claude Code (the CLI) can read your entire codebase and generate documentation that accurately reflects how your API actually works."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What format should API docs be in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common formats are: OpenAPI 3.1 YAML (for machine-readable specs that generate interactive Swagger UI), Markdown (for GitHub READMEs and developer portals), and docstrings inside the code (Python, JS, etc). Claude can generate all three. For public APIs, an OpenAPI spec is the gold standard \u2014 it drives documentation sites, client SDK generation, and testing tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude generate OpenAPI specs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Claude generates valid OpenAPI 3.1 YAML from your route definitions, function signatures, or a plain-English description of your API. It includes proper schemas with types, required fields, example values, error responses, and authentication schemes. The generated YAML is compatible with Swagger UI, Redoc, and code generation tools like openapi-generator."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude Code & Developer Use Cases",
+      "item": "https://howtoclaudeatoz.com/claude-code/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude for Writing API Documentation (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-api-documentation/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/claude-code/">Claude Code & Developer Use Cases</a></li><li aria-current="page">Claude for Writing API Documentation (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude for Writing API Documentation (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude API documentation generation turns one of the most tedious parts of software development into a fast, largely automated task. Give Claude your route definitions, function signatures, or existing code, and it produces complete, accurate documentation: OpenAPI 3.1 YAML specs, Markdown endpoint references, inline docstrings, README sections, and multi-language code examples. The output follows documentation best practices — request/response schemas, error codes, authentication details, and example payloads included. This guide covers every documentation format, the exact prompts that produce the best output, and a complete OpenAPI spec example generated from a real API.</p>
+
+<h2>Why Claude Excels at API Documentation</h2>
+
+<p>API documentation has two hard parts: completeness (covering every endpoint, parameter, and error case) and accuracy (matching what the code actually does). Human-written docs suffer from both — sections get skipped when deadlines hit, and docs drift from the implementation over time. Claude handles both by reading the actual source code:</p>
+
+<ul>
+<li><strong>Completeness</strong> — Claude generates docs for every route, every query parameter, every response code it sees in the code.</li>
+<li><strong>Accuracy</strong> — Claude reads your Pydantic models, TypeScript interfaces, or function signatures and uses them directly for schema definitions.</li>
+<li><strong>Consistency</strong> — every endpoint follows the same format, tone, and detail level.</li>
+<li><strong>Multi-language examples</strong> — Claude generates curl, Python, JavaScript, and other language examples for each endpoint automatically.</li>
+</ul>
+
+<h2>How to Write API Documentation with Claude — Step by Step</h2>
+
+<h3>Step 1: Choose Your Documentation Type</h3>
+
+<p>Decide what you need before prompting:</p>
+
+<p><table> <thead> <tr> <th>Documentation type</th> <th>Best for</th> <th>Format</th> </tr> </thead> <tbody> <tr> <td>OpenAPI 3.1 spec</td> <td>Public APIs, SDK generation, Swagger UI</td> <td>YAML</td> </tr> <tr> <td>README / Quickstart</td> <td>GitHub repos, developer onboarding</td> <td>Markdown</td> </tr> <tr> <td>Endpoint reference</td> <td>Developer portal pages</td> <td>Markdown</td> </tr> <tr> <td>Inline docstrings</td> <td>Code maintainability, IDE tooltips</td> <td>Language-native</td> </tr> <tr> <td>Code examples</td> <td>SDK docs, tutorials</td> <td>Code blocks</td> </tr> </tbody> </table></p>
+
+<h3>Step 2: Prepare Your Source Material</h3>
+
+<p>Give Claude the most direct source of truth available:</p>
+
+<ul>
+<li><strong>For existing APIs</strong> — paste your route definitions and request/response models</li>
+<li><strong>For new APIs</strong> — describe the endpoints in plain English</li>
+<li><strong>For Claude Code</strong> — no preparation needed; Claude reads your files directly</li>
+</ul>
+
+<h3>Step 3: Generate an OpenAPI Spec</h3>
+
+<p>Paste your FastAPI (or Express, or Rails) route code and ask:</p>
+
+<p><code>`</code> Generate a complete OpenAPI 3.1 YAML spec from these FastAPI routes.  Include all schemas, required fields, response codes (200, 400, 401, 404, 500),  example values, and Bearer token authentication. Use the function docstrings  as the endpoint descriptions. <code>`</code></p>
+
+<h3>Step 4: Generate a README Section</h3>
+
+<p>For a developer-facing README:</p>
+
+<p><code>`</code> Write a "Getting Started" README section for this REST API. Cover:  authentication (Bearer token), base URL, rate limits (100 req/min),  and show a complete curl example for each endpoint. Use markdown  with code blocks. <code>`</code></p>
+
+<h3>Step 5: Generate Docstrings in Bulk with Claude Code</h3>
+
+<p>In a multi-file project, Claude Code can add docstrings to all undocumented functions:</p>
+
+<p><code>`</code>bash claude</p>
+<blockquote><p>Add Google-style docstrings to every function in the services/</p></blockquote>
+<p>directory that currently lacks one. Use the function logic and    existing type hints to infer the parameter and return descriptions. <code>`</code></p>
+
+<h2>Documentation Types and Prompt Templates</h2>
+
+<h3>OpenAPI 3.1 YAML — Complete Example</h3>
+
+<p>Below is a Claude-generated OpenAPI spec for a simple user authentication API:</p>
+
+<p><code>`</code>yaml openapi: 3.1.0 info:   title: User Auth API   version: 1.0.0   description: Handles user registration, login, and token management.</p>
+
+<p>servers:   - url: https://api.example.com/v1     description: Production   - url: https://staging-api.example.com/v1     description: Staging</p>
+
+<p>security:   - BearerAuth: []</p>
+
+<p>paths:   /auth/register:     post:       summary: Register a new user       operationId: registerUser       security: []       requestBody:         required: true         content:           application/json:             schema:               $ref: '#/components/schemas/RegisterRequest'             example:               email: alice@example.com               password: "S3cure!Pass"               display<em>name: Alice Johnson       responses:         '201':           description: User created successfully           content:             application/json:               schema:                 $ref: '#/components/schemas/AuthResponse'         '409':           description: Email already registered           content:             application/json:               schema:                 $ref: '#/components/schemas/ErrorResponse'               example:                 error: email</em>already_registered                 message: An account with this email address already exists.</p>
+
+<p>/auth/login:     post:       summary: Log in and receive access token       operationId: loginUser       security: []       requestBody:         required: true         content:           application/json:             schema:               $ref: '#/components/schemas/LoginRequest'       responses:         '200':           description: Login successful           content:             application/json:               schema:                 $ref: '#/components/schemas/AuthResponse'         '401':           description: Invalid credentials           content:             application/json:               schema:                 $ref: '#/components/schemas/ErrorResponse'</p>
+
+<p>/auth/refresh:     post:       summary: Exchange a refresh token for a new access token       operationId: refreshToken       requestBody:         required: true         content:           application/json:             schema:               type: object               required: [refresh<em>token]               properties:                 refresh</em>token:                   type: string                   description: Long-lived refresh token issued at login.       responses:         '200':           description: New access token issued           content:             application/json:               schema:                 $ref: '#/components/schemas/AuthResponse'         '401':           description: Invalid or expired refresh token</p>
+
+<p>/users/me:     get:       summary: Get the authenticated user's profile       operationId: getCurrentUser       responses:         '200':           description: User profile           content:             application/json:               schema:                 $ref: '#/components/schemas/UserProfile'         '401':           description: Missing or invalid token</p>
+
+<p>components:   securitySchemes:     BearerAuth:       type: http       scheme: bearer       bearerFormat: JWT</p>
+
+<p>schemas:     RegisterRequest:       type: object       required: [email, password, display<em>name]       properties:         email:           type: string           format: email         password:           type: string           minLength: 8         display</em>name:           type: string           minLength: 2           maxLength: 60</p>
+
+<p>LoginRequest:       type: object       required: [email, password]       properties:         email:           type: string           format: email         password:           type: string</p>
+
+<p>AuthResponse:       type: object       properties:         access<em>token:           type: string           description: Short-lived JWT (expires 15 minutes).         refresh</em>token:           type: string           description: Long-lived token for acquiring new access tokens (expires 30 days).         token<em>type:           type: string           enum: [bearer]         expires</em>in:           type: integer           example: 900</p>
+
+<p>UserProfile:       type: object       properties:         id:           type: string           format: uuid         email:           type: string           format: email         display<em>name:           type: string         created</em>at:           type: string           format: date-time</p>
+
+<p>ErrorResponse:       type: object       required: [error, message]       properties:         error:           type: string           description: Machine-readable error code.         message:           type: string           description: Human-readable error description. <code>`</code></p>
+
+<h3>Generating Python Docstrings</h3>
+
+<p><strong>Prompt:</strong></p>
+
+<p><code>`</code> Add comprehensive Google-style docstrings to these functions.  Infer the parameter types and meanings from the code and type hints. Include: summary, Args, Returns, Raises sections. <code>`</code></p>
+
+<p><strong>Before:</strong> <code>`</code>python def create<em>invoice(customer</em>id, line<em>items, due</em>days=30):     if not line<em>items:         raise ValueError("line</em>items cannot be empty")     total = sum(item["amount"] for item in line_items)     ... <code>`</code></p>
+
+<p><strong>After (Claude-generated docstring):</strong> <code>`</code>python def create<em>invoice(customer</em>id: str, line<em>items: list[dict], due</em>days: int = 30) -> Invoice:     """Create a new invoice for a customer.</p>
+
+<p>Calculates the total from the provided line items and sets the due date     relative to today based on <code>due_days</code>. Saves the invoice to the database     and returns the created Invoice object.</p>
+
+<p>Args:         customer<em>id: The UUID of the customer to invoice.         line</em>items: List of line item dicts, each with keys:             - description (str): Human-readable item description.             - amount (float): Amount in the account currency, must be > 0.             - quantity (int): Number of units, default 1.         due_days: Number of days from today until payment is due. Defaults to 30.</p>
+
+<p>Returns:         The created Invoice object with id, total, and due_date populated.</p>
+
+<p>Raises:         ValueError: If line<em>items is empty or any amount is not positive.         CustomerNotFoundError: If no customer exists with the given customer</em>id.     """ <code>`</code></p>
+
+<h3>Generating Endpoint Reference Docs (Markdown)</h3>
+
+<p><strong>Prompt:</strong></p>
+
+<p><code>`</code> Write Markdown endpoint reference documentation for these routes.  For each endpoint include: HTTP method and path, description,  authentication requirements, request parameters (path, query, body),  response schema, error codes, and a curl example. <code>`</code></p>
+
+<p>Claude generates structured Markdown that can go directly into a docs site, GitHub wiki, or developer portal.</p>
+
+<h2>Tips for Best Results</h2>
+
+<p><strong>Paste schemas alongside routes.</strong> If your routes reference Pydantic models or TypeScript interfaces, include those too. Claude generates accurate schemas from them rather than guessing field types.</p>
+
+<p><strong>Ask for error documentation explicitly.</strong> Documentation often skips the error cases. Add "document all error responses including status codes, error codes, and when they occur" to your prompt.</p>
+
+<p><strong>Request multi-language examples.</strong> "Include code examples in curl, Python (using httpx), and JavaScript (using fetch)" gets you examples your users actually want.</p>
+
+<p><strong>Use Claude Code for living documentation.</strong> Set up a <code>docs:generate</code> script that runs Claude Code against your routes directory and regenerates the OpenAPI spec. Documentation stays in sync with the code automatically.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-code-getting-started/">Claude Code Getting Started</a></li>
+<li><a href="/claude-python-scripting/">Claude Python Scripting</a></li>
+<li><a href="/claude-api-getting-started/">Claude API Getting Started</a></li>
+<li><a href="/debug-code-with-claude/">Debug Code with Claude</a></li>
+<li><a href="/claude-code-reviews/">Claude Code Reviews</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude write API documentation?</dt>
+<dd>Yes — Claude can write API documentation from your source code, route definitions, or a plain-English description. It generates READMEs, docstrings, OpenAPI/Swagger YAML specs, endpoint reference docs, and code examples in multiple languages. The output is detailed, consistent, and follows documentation best practices. Claude Code (the CLI) can read your entire codebase and generate documentation that accurately reflects how your API actually works.</dd>
+<dt>What format should API docs be in?</dt>
+<dd>The most common formats are: OpenAPI 3.1 YAML (for machine-readable specs that generate interactive Swagger UI), Markdown (for GitHub READMEs and developer portals), and docstrings inside the code (Python, JS, etc). Claude can generate all three. For public APIs, an OpenAPI spec is the gold standard — it drives documentation sites, client SDK generation, and testing tools.</dd>
+<dt>Can Claude generate OpenAPI specs?</dt>
+<dd>Yes — Claude generates valid OpenAPI 3.1 YAML from your route definitions, function signatures, or a plain-English description of your API. It includes proper schemas with types, required fields, example values, error responses, and authentication schemes. The generated YAML is compatible with Swagger UI, Redoc, and code generation tools like openapi-generator.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

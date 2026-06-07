@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Artifacts — What They Are and How to Use Them (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Claude Artifacts explained: what they are, how to create them, and all artifact types including code, HTML, SVG, and documents. Complete 2026 guide.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-artifacts-guide/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Artifacts — What They Are and How to Use Them (2026)">
+  <meta property="og:description" content="Claude Artifacts explained: what they are, how to create them, and all artifact types including code, HTML, SVG, and documents. Complete 2026 guide.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-artifacts-guide/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-artifacts-guide.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Artifacts — What They Are and How to Use Them (2026)">
+  <meta name="twitter:description" content="Claude Artifacts explained: what they are, how to create them, and all artifact types including code, HTML, SVG, and documents. Complete 2026 guide.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Artifacts \u2014 What They Are and How to Use Them (2026)",
+  "description": "Claude Artifacts explained: what they are, how to create them, and all artifact types including code, HTML, SVG, and documents. Complete 2026 guide.",
+  "url": "https://howtoclaudeatoz.com/claude-artifacts-guide/",
+  "image": "https://howtoclaudeatoz.com/og/claude-artifacts-guide.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are Claude Artifacts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Artifacts are self-contained, interactive outputs that Claude displays in a dedicated side panel alongside the conversation. When Claude generates a substantial, standalone piece of content \u2014 such as a working webpage, a code file, a formatted document, or an SVG image \u2014 it can present it as an Artifact so you can preview, interact with, and iterate on it without cluttering the chat window."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download Claude Artifacts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Claude Artifacts include a copy button that lets you copy the full content to your clipboard. For code and text artifacts, you can paste the copied content directly into your development environment, text editor, or document. As of 2026, direct file download from the Artifacts panel is available for certain content types via the download icon that appears in the Artifact toolbar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of Artifacts can Claude create?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude can create several types of Artifacts: code files (any programming language), HTML webpages (rendered and interactive), React components (rendered live), SVG graphics (rendered visually), Markdown documents, plain text files, and structured data files like JSON or CSV. The Artifact type is determined automatically based on the content Claude generates."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Getting Started with Claude",
+      "item": "https://howtoclaudeatoz.com/getting-started/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude Artifacts \u2014 What They Are and How to Use Them (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-artifacts-guide/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/getting-started/">Getting Started with Claude</a></li><li aria-current="page">Claude Artifacts — What They Are and How to Use Them (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude Artifacts — What They Are and How to Use Them (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude Artifacts are one of the most useful and underused features in Claude's interface. Claude Artifacts appear as a dedicated side panel when Claude generates a substantial, self-contained output — a working webpage, a formatted document, a code file, an SVG graphic, or a React component. Instead of scrolling through raw code or text buried inside a chat message, you get a clean, interactive preview alongside the conversation. This guide explains every type of Artifact, how to create them, and how to iterate on them effectively.</p>
+
+<h2>What are Claude Artifacts? — Definition</h2>
+
+<p>A Claude Artifact is a self-contained piece of content rendered in a separate panel to the right of the conversation window. Artifacts appear automatically when Claude determines that the output would be better presented independently rather than inline in the chat. They allow you to:</p>
+
+<ul>
+<li><strong>Preview</strong> content in its rendered form (see HTML as a webpage, SVG as an image)</li>
+<li><strong>Interact</strong> with live React components and simple web apps</li>
+<li><strong>Copy</strong> the full content with one click</li>
+<li><strong>Iterate</strong> by asking Claude to update the Artifact, which generates a new version in the same panel</li>
+</ul>
+
+<p>Artifacts were introduced by Anthropic as a way to make Claude more useful for technical and creative output tasks. They are particularly valuable for developers, designers, and content creators who want to see results immediately rather than copy-pasting into other tools.</p>
+
+<h2>All Claude Artifact Types — With Use Cases</h2>
+
+<h3>Code Artifacts</h3>
+
+<p>A code Artifact displays a code file in a syntax-highlighted panel with a copy button. Claude automatically creates a code Artifact when it generates a substantial standalone code file (rather than a short inline snippet).</p>
+
+<p><strong>Common use cases:</strong></p>
+<ul>
+<li>Full Python scripts, functions, or classes</li>
+<li>JavaScript and TypeScript files</li>
+<li>SQL queries</li>
+<li>Shell scripts</li>
+<li>Configuration files (YAML, TOML, JSON)</li>
+</ul>
+
+<p><strong>When it appears:</strong> When you ask Claude to "write a Python script that does X" or "create a SQL query for Y" and the output is substantial enough to warrant a standalone display.</p>
+
+<h3>HTML Artifacts (Rendered Webpages)</h3>
+
+<p>An HTML Artifact renders an HTML (HyperText Markup Language) file live in the panel — you see the actual webpage, not just the source code. You can interact with the rendered page: click buttons, fill in forms, and see how the layout behaves.</p>
+
+<p><strong>Common use cases:</strong></p>
+<ul>
+<li>Landing page mockups</li>
+<li>Email templates</li>
+<li>Simple data visualisations with inline CSS and JavaScript</li>
+<li>Interactive calculators or tools</li>
+<li>Portfolio or profile page prototypes</li>
+</ul>
+
+<p><strong>When it appears:</strong> When you ask Claude to "build a webpage," "create an HTML email template," or "make an interactive tool in HTML."</p>
+
+<h3>React Component Artifacts</h3>
+
+<p>React Artifacts render live React (JavaScript library for building user interfaces) components directly in the panel. You can see how the component looks and behaves, interact with its state, and iterate on the design without any build step.</p>
+
+<p><strong>Common use cases:</strong></p>
+<ul>
+<li>UI (user interface) component prototypes</li>
+<li>Interactive dashboards</li>
+<li>Data visualisation components</li>
+<li>Form builders</li>
+<li>Mini-applications</li>
+</ul>
+
+<p><strong>When it appears:</strong> When you ask Claude to "create a React component" or "build this as a React app." Claude will use React with Tailwind CSS for styling by default.</p>
+
+<h3>SVG Artifacts (Rendered Graphics)</h3>
+
+<p>An SVG (Scalable Vector Graphics) Artifact renders the graphic visually in the panel so you can see the image directly rather than reading the XML source code. SVG files scale to any size without losing quality.</p>
+
+<p><strong>Common use cases:</strong></p>
+<ul>
+<li>Simple icons and logos</li>
+<li>Diagrams and flowcharts</li>
+<li>Infographic elements</li>
+<li>Charts and graphs</li>
+<li>Geometric illustrations</li>
+</ul>
+
+<p><strong>When it appears:</strong> When you ask Claude to "create an SVG icon," "draw a simple diagram as SVG," or "generate a vector graphic of X."</p>
+
+<h3>Markdown Document Artifacts</h3>
+
+<p>A Markdown Artifact displays a formatted document with headings, bullet points, tables, bold text, and other formatting rendered cleanly. Markdown is a plain-text formatting syntax widely used for documentation, README files, and content writing.</p>
+
+<p><strong>Common use cases:</strong></p>
+<ul>
+<li>Technical documentation</li>
+<li>README files for software projects</li>
+<li>Structured reports</li>
+<li>Blog post drafts</li>
+<li>Meeting notes or agendas</li>
+</ul>
+
+<p><strong>When it appears:</strong> When you ask Claude to "write a README," "draft a report," or produce any long-form structured document that benefits from clean formatting.</p>
+
+<h3>Plain Text Artifacts</h3>
+
+<p>A plain text Artifact displays content without any formatting markup. Useful for outputs that need to be pasted into systems that do not support formatting.</p>
+
+<p><strong>Common use cases:</strong></p>
+<ul>
+<li>Email drafts (to paste into email clients)</li>
+<li>Social media copy</li>
+<li>Script text for voiceovers</li>
+<li>Legal clauses or contract text</li>
+<li>Any content intended for a plain-text destination</li>
+</ul>
+
+<h3>JSON and Data Artifacts</h3>
+
+<p>A JSON (JavaScript Object Notation) or structured data Artifact displays data in a clean, readable format that can be copied directly into an application, database, or API.</p>
+
+<p><strong>Common use cases:</strong></p>
+<ul>
+<li>API response schemas</li>
+<li>Configuration file generation</li>
+<li>Dataset creation</li>
+<li>Mock data for development and testing</li>
+<li>Structured content for import into CMS (Content Management System) platforms</li>
+</ul>
+
+<h2>How to Create Claude Artifacts — Step by Step</h2>
+
+<h3>Step 1: Ask Claude to Create a Self-Contained Output</h3>
+
+<p>Artifacts appear automatically when your request produces substantial standalone content. You do not need to explicitly say "create an Artifact." Simply ask for the output type you want.</p>
+
+<p>Prompts that reliably produce Artifacts:</p>
+<ul>
+<li>"Write a Python script that [task]."</li>
+<li>"Build an HTML page that [description]."</li>
+<li>"Create a React component for [UI element]."</li>
+<li>"Draw an SVG diagram of [subject]."</li>
+<li>"Write a Markdown README for this project."</li>
+</ul>
+
+<h3>Step 2: View and Interact With the Artifact</h3>
+
+<p>When an Artifact appears, it displays in a panel to the right of the conversation. For HTML and React Artifacts, you will see the rendered output — click around to test interactive elements. For code Artifacts, you will see syntax-highlighted source code. Use the toolbar at the top of the Artifact panel to:</p>
+
+<ul>
+<li><strong>Copy</strong> the full content to clipboard</li>
+<li><strong>Download</strong> (where available for the content type)</li>
+<li><strong>Switch between preview and source code</strong> (for HTML and React Artifacts)</li>
+</ul>
+
+<h3>Step 3: Iterate on the Artifact</h3>
+
+<p>To update an Artifact, simply continue the conversation with your revision instructions. Claude will update the same Artifact in the panel rather than posting the entire output again in the chat.</p>
+
+<p><strong>Effective iteration prompts:</strong></p>
+<ul>
+<li>"Change the background colour to dark blue and the text to white."</li>
+<li>"Add a 'Submit' button that validates the form fields before submitting."</li>
+<li>"Refactor this script to use a class instead of standalone functions."</li>
+<li>"Make the heading larger and centre-align the layout."</li>
+</ul>
+
+<p>Each iteration creates a new version of the Artifact. You can navigate between versions using the arrows in the Artifact panel toolbar, which lets you compare iterations.</p>
+
+<h3>Step 4: Copy or Export the Finished Artifact</h3>
+
+<p>When you are satisfied with the output, click the copy button to copy the content to your clipboard. Paste it directly into:</p>
+<ul>
+<li>Your code editor for code and scripts</li>
+<li>Your CMS or document editor for text content</li>
+<li>An image editor or SVG file for graphics</li>
+<li>A design tool or email sender for HTML content</li>
+</ul>
+
+<h2>Claude Artifacts — Key Tips for Better Results</h2>
+
+<ul>
+<li><strong>Describe the complete end state upfront.</strong> For complex Artifacts, explain all the requirements in your initial prompt rather than adding features piecemeal. "Build an HTML page with a header, three feature cards with icons, a contact form, and a dark footer" produces a more complete first draft than "Build an HTML page" followed by individual requests.</li>
+</ul>
+
+<ul>
+<li><strong>Use "update" rather than "rewrite" for iterations.</strong> Saying "update the button colour" is clearer than "rewrite it with a different button colour." This helps Claude understand that you want a targeted change, not a full regeneration.</li>
+</ul>
+
+<ul>
+<li><strong>Request specific libraries when you have preferences.</strong> If you want Chart.js for a visualisation, Tailwind for styling, or a specific Python version, say so. Claude defaults to common choices but will follow your preferences.</li>
+</ul>
+
+<ul>
+<li><strong>Export early and often.</strong> Copy your Artifact at meaningful milestones so you have a working version to fall back on if an iteration goes in the wrong direction.</li>
+</ul>
+
+<h2>Artifact Types — Summary Table</h2>
+
+<p><table> <thead> <tr> <th>Artifact Type</th> <th>Rendered?</th> <th>Best For</th> </tr> </thead> <tbody> <tr> <td>Code</td> <td>No (syntax-highlighted)</td> <td>Scripts, functions, full files</td> </tr> <tr> <td>HTML</td> <td>Yes (live preview)</td> <td>Webpages, emails, tools</td> </tr> <tr> <td>React</td> <td>Yes (live interactive)</td> <td>UI components, mini-apps</td> </tr> <tr> <td>SVG</td> <td>Yes (rendered image)</td> <td>Icons, diagrams, graphics</td> </tr> <tr> <td>Markdown</td> <td>Yes (formatted)</td> <td>Documentation, reports</td> </tr> <tr> <td>Plain text</td> <td>No</td> <td>Email drafts, plain copy</td> </tr> <tr> <td>JSON / data</td> <td>No (formatted)</td> <td>API schemas, config, mock data</td> </tr> </tbody> </table></p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/how-to-use-claude-projects/">How to Use Claude Projects</a> — Save and reuse Artifacts across conversations with Projects</li>
+<li><a href="/how-to-write-first-prompt-claude/">How to Write Your First Prompt in Claude</a> — Structure prompts to get better Artifact outputs</li>
+<li><a href="/claude-context-window-explained/">Claude Context Window Explained</a> — How to work with large files and long outputs</li>
+<li><a href="/how-to-write-blog-posts-with-claude/">How to Write Blog Posts with Claude</a> — Using Markdown Artifacts for content creation</li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>What are Claude Artifacts?</dt>
+<dd>Claude Artifacts are self-contained, interactive outputs that Claude displays in a dedicated side panel alongside the conversation. When Claude generates a substantial, standalone piece of content — such as a working webpage, a code file, a formatted document, or an SVG image — it can present it as an Artifact so you can preview, interact with, and iterate on it without cluttering the chat window.</dd>
+<dt>Can I download Claude Artifacts?</dt>
+<dd>Yes. Claude Artifacts include a copy button that lets you copy the full content to your clipboard. For code and text artifacts, you can paste the copied content directly into your development environment, text editor, or document. As of 2026, direct file download from the Artifacts panel is available for certain content types via the download icon that appears in the Artifact toolbar.</dd>
+<dt>What types of Artifacts can Claude create?</dt>
+<dd>Claude can create several types of Artifacts: code files (any programming language), HTML webpages (rendered and interactive), React components (rendered live), SVG graphics (rendered visually), Markdown documents, plain text files, and structured data files like JSON or CSV. The Artifact type is determined automatically based on the content Claude generates.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

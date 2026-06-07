@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automating Email with Claude + GetResponse (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude AI and GetResponse to automate personalised email sequences in 2026. Full workflow guide: Claude writes, Make.com sends, GetResponse triggers the sequence.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-getresponse-email-automation/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Automating Email with Claude + GetResponse (2026 Guide)">
+  <meta property="og:description" content="Use Claude AI and GetResponse to automate personalised email sequences in 2026. Full workflow guide: Claude writes, Make.com sends, GetResponse triggers the sequence.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-getresponse-email-automation/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-getresponse-email-automation.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automating Email with Claude + GetResponse (2026 Guide)">
+  <meta name="twitter:description" content="Use Claude AI and GetResponse to automate personalised email sequences in 2026. Full workflow guide: Claude writes, Make.com sends, GetResponse triggers the sequence.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Automating Email with Claude + GetResponse (2026 Guide)",
+  "description": "Use Claude AI and GetResponse to automate personalised email sequences in 2026. Full workflow guide: Claude writes, Make.com sends, GetResponse triggers the sequence.",
+  "url": "https://howtoclaudeatoz.com/claude-getresponse-email-automation/",
+  "image": "https://howtoclaudeatoz.com/og/claude-getresponse-email-automation.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude write emails for GetResponse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Claude can write subject lines, email body copy, personalisation variables, and full sequences. You then use Make.com to pass Claude's output into GetResponse via API or native module, adding the content to your campaigns, autoresponders, or contact custom fields."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I automate email with Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard workflow is: trigger (new lead, form submission, or schedule) \u2192 Claude module writes personalised email content \u2192 Make.com sends the content to GetResponse via the GetResponse module \u2192 GetResponse delivers the email or adds it to an automation sequence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does GetResponse integrate with Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GetResponse does not have a direct native Claude integration, but the combination works through Make.com (or n8n). Make.com has both native Anthropic (Claude) and GetResponse modules, allowing you to connect them in a visual workflow without any code."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Automation & AI Workflows",
+      "item": "https://howtoclaudeatoz.com/automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Automating Email with Claude + GetResponse (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-getresponse-email-automation/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/automation/">Claude for Automation & AI Workflows</a></li><li aria-current="page">Automating Email with Claude + GetResponse (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Automating Email with Claude + GetResponse (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude GetResponse automation combines Anthropic's AI writing capability with GetResponse's email marketing infrastructure to produce and send personalised email campaigns at scale. Claude generates the content — subject lines, body copy, personalisation — while GetResponse handles list management, delivery, and automation sequences. Make.com acts as the glue between them, triggering Claude when a new contact arrives and passing the AI-generated email into GetResponse automatically. This guide walks through the complete three-platform workflow, explains when to use each trigger type, and gives you three ready-to-adapt automation examples.</p>
+
+<h2>How Claude and GetResponse Work Together</h2>
+
+<p>GetResponse is a full-featured email marketing platform covering campaigns, autoresponders, automation flows, landing pages, and webinars. It does not have a native Claude AI module, but it has a robust API and a native Make.com integration, which is all you need to connect it to Claude.</p>
+
+<p>The workflow architecture looks like this:</p>
+
+<p><strong>Trigger</strong> (new lead, form, schedule) → <strong>Make.com</strong> orchestrates → <strong>Claude</strong> writes personalised content → <strong>Make.com</strong> passes content to <strong>GetResponse</strong> → <strong>GetResponse</strong> delivers email or queues in sequence</p>
+
+<p>Claude handles what it does best — writing high-quality, contextually relevant email content based on what you know about the recipient. GetResponse handles what it does best — reliable delivery, list segmentation, open/click tracking, and automation rules.</p>
+
+<p>This separation means you get genuinely AI-personalised emails (not just mail-merge name insertion) delivered through a platform built for email marketing compliance and deliverability.</p>
+
+<h2>Setting Up the Claude + Make.com + GetResponse Workflow</h2>
+
+<h3>Step 1: Set Up Your GetResponse API Key</h3>
+
+<p>Log into GetResponse, navigate to <strong>Integrations and API</strong> under your profile settings, and click <strong>API</strong> in the sidebar. Click <strong>Generate API Key</strong> and copy it. You'll use this in Make.com to authenticate the GetResponse module.</p>
+
+<h3>Step 2: Set Up Your Anthropic API Key</h3>
+
+<p>Go to <a href="https://console.anthropic.com">console.anthropic.com</a>, create an API key under <strong>API Keys</strong>, and ensure your account has billing credits. Copy the key for use in Make.com.</p>
+
+<h3>Step 3: Create a Make.com Scenario</h3>
+
+<p>In Make.com, create a new scenario. Choose your trigger based on your use case:</p>
+
+<ul>
+<li><strong>GetResponse > Watch Contacts</strong> — fires when a new subscriber is added to a specific list</li>
+<li><strong>Typeform / Gravity Forms / Webflow</strong> — fires when a lead submits a form</li>
+<li><strong>Google Sheets > Watch Rows</strong> — fires when you add a row to a leads spreadsheet</li>
+<li><strong>Schedule</strong> — fires on a time interval for batch email generation</li>
+</ul>
+
+<h3>Step 4: Add the Anthropic (Claude) Module</h3>
+
+<p>After your trigger, add an Anthropic module. In the <strong>Content</strong> field, write your prompt using variables from the trigger. Example for a welcome email:</p>
+
+<p><code>`</code> Write a warm, 150-word welcome email for a new subscriber who signed up from our website.  Their name is {{firstName}}. They signed up via the form on our {{sourceTag}} page. Include: a genuine welcome, one sentence about what emails they'll receive, and a soft call-to-action to reply with their biggest challenge. Subject line: Write a compelling subject line at the start, prefixed with "Subject: ". <code>`</code></p>
+
+<p>Set <strong>Max Tokens</strong> to 600-800 for a full email. Select <code>claude-sonnet-4-5</code> as the model for quality email writing.</p>
+
+<h3>Step 5: Parse Claude's Response</h3>
+
+<p>Add a <strong>Text Parser > Match Pattern</strong> module to extract the subject line from Claude's output (matching "Subject: " followed by the rest of the line). This gives you a clean subject line variable separate from the email body.</p>
+
+<h3>Step 6: Send to GetResponse</h3>
+
+<p>Add a <strong>GetResponse</strong> module. Choose from:</p>
+
+<ul>
+<li><strong>Add Contact</strong> — add a new contact with custom fields containing Claude's content</li>
+<li><strong>Create Newsletter</strong> — create a one-time email campaign with Claude's content</li>
+<li><strong>Send Transactional Email</strong> — send immediately to a specific contact</li>
+</ul>
+
+<p>For most automation workflows, the best approach is to store Claude's generated content in the contact's <strong>custom fields</strong> in GetResponse, then use GetResponse's own automation builder to trigger sending based on those fields.</p>
+
+<h3>Step 7: Activate the GetResponse Automation</h3>
+
+<p>In GetResponse, build an automation flow that triggers when a contact is added to your list and has the custom fields populated. Use the <strong>Send Message</strong> block to send the email whose content was written by Claude and stored in the custom field.</p>
+
+<h2>3 Claude GetResponse Automation Examples</h2>
+
+<h3>Automation 1: AI-Personalised Welcome Sequence</h3>
+
+<p><strong>Trigger</strong>: New subscriber added to your GetResponse list (via GetResponse > Watch Contacts in Make.com)</p>
+
+<p><strong>What Claude writes</strong>: A 3-email welcome sequence. Each Make.com run generates one email in the sequence. The prompt changes based on a counter variable tracking which email number this is:</p>
+
+<ul>
+<li>Email 1 (immediate): Warm welcome + what to expect</li>
+<li>Email 2 (day 2): Most valuable free resource based on their signup tag</li>
+<li>Email 3 (day 5): Soft introduction to your main offer</li>
+</ul>
+
+<p><strong>GetResponse action</strong>: Content is stored in contact custom fields; a GetResponse automation sends each email at the scheduled interval.</p>
+
+<p><strong>Why it works</strong>: Every subscriber gets a welcome sequence that references their specific signup source, making it feel individually crafted rather than generic.</p>
+
+<h3>Automation 2: Lead Magnet Follow-Up Based on Download Topic</h3>
+
+<p><strong>Trigger</strong>: Contact downloads a lead magnet and tag is added in GetResponse (Watch Tags in Make.com)</p>
+
+<p><strong>What Claude writes</strong>: A follow-up email that specifically relates to the lead magnet topic the contact downloaded. The prompt includes the lead magnet title and asks Claude to write a next-step email that adds value on that specific topic.</p>
+
+<p><strong>GetResponse action</strong>: Send immediate follow-up email via Make.com's GetResponse module using the <strong>Send Transactional Email</strong> action.</p>
+
+<p><strong>Why it works</strong>: Generic post-download emails ("Here's your download!") get low engagement. A Claude-written email that continues the conversation on the exact topic the lead cared about enough to download gets significantly higher replies and click-throughs.</p>
+
+<h3>Automation 3: Weekly Newsletter Personalised by Engagement Segment</h3>
+
+<p><strong>Trigger</strong>: Make.com Schedule trigger (every Monday at 7am)</p>
+
+<p><strong>Make.com steps</strong>:</p>
+<ol>
+<li>GetResponse > List Contacts filtered by engagement segment tag (high-engagement, medium-engagement, inactive)</li>
+<li>Claude module generates three newsletter versions — same core content, but different tone and CTAs per segment:</li>
+</ol>
+<p>- High-engagement: More advanced content, stronger CTA    - Medium-engagement: Accessible overview, softer CTA    - Inactive: Re-engagement angle, very low-friction CTA</p>
+<ol>
+<li>GetResponse > Create Newsletter (one per segment) with Claude's version</li>
+</ol>
+
+<p><strong>Why it works</strong>: One newsletter send, three Claude-generated versions optimised for each segment. Inactive subscribers get a re-engagement email; loyal readers get your most advanced material. Both stay subscribed longer.</p>
+
+<h2>Claude Email Writing Prompts — Best Practices</h2>
+
+<p>Claude writes better marketing emails when your prompt is specific. Patterns that work well:</p>
+
+<p><strong>Be explicit about tone</strong>: "Warm and conversational, not corporate" or "Professional but approachable, like a trusted consultant" gives Claude a clearer target than just "friendly".</p>
+
+<p><strong>Give context about the reader</strong>: Include what they signed up for, what they downloaded, their industry, their company size — anything that lets Claude make the email relevant to them specifically.</p>
+
+<p><strong>Specify structure</strong>: "Write a 150-word email with: a one-sentence opening that references [topic], two bullet points, and a single call-to-action at the end" produces more consistent output than an open-ended request.</p>
+
+<p><strong>Ask for the subject line in the same output</strong>: Including "Write a compelling subject line prefixed with 'Subject: '" saves you a separate Claude call and keeps subject line and body aligned in tone.</p>
+
+<p><strong>Use a system prompt for brand voice</strong>: In Make.com's Anthropic module, the System field accepts a brand voice description. Set it once: "You write emails for [Brand Name]. Our voice is: direct, warm, slightly witty, never salesy. We believe in giving value before asking for anything." Every Claude call in the scenario inherits this voice.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-make-com-integration/">Claude Make.com Integration</a></li>
+<li><a href="/claude-crm-automation/">Claude for CRM Automation</a></li>
+<li><a href="/claude-automation-workflows/">Claude Automation Workflows — 10 Templates</a></li>
+<li><a href="/build-claude-ai-agent/">Build a Claude AI Agent</a></li>
+<li><a href="/claude-for-small-business/">Claude for Small Business</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude write emails for GetResponse?</dt>
+<dd>Yes. Claude can write subject lines, email body copy, personalisation variables, and full sequences. You then use Make.com to pass Claude's output into GetResponse via API or native module, adding the content to your campaigns, autoresponders, or contact custom fields.</dd>
+<dt>How do I automate email with Claude?</dt>
+<dd>The standard workflow is: trigger (new lead, form submission, or schedule) → Claude module writes personalised email content → Make.com sends the content to GetResponse via the GetResponse module → GetResponse delivers the email or adds it to an automation sequence.</dd>
+<dt>Does GetResponse integrate with Claude?</dt>
+<dd>GetResponse does not have a direct native Claude integration, but the combination works through Make.com (or n8n). Make.com has both native Anthropic (Claude) and GetResponse modules, allowing you to connect them in a visual workflow without any code.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude for Financial Analysis and Reporting (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="How to use Claude for financial analysis in 2026 — P&L review, ratio analysis, reporting narrative, key prompts, and important accuracy caveats for SMBs.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-financial-analysis/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude for Financial Analysis and Reporting (2026 Guide)">
+  <meta property="og:description" content="How to use Claude for financial analysis in 2026 — P&L review, ratio analysis, reporting narrative, key prompts, and important accuracy caveats for SMBs.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-financial-analysis/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-financial-analysis.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude for Financial Analysis and Reporting (2026 Guide)">
+  <meta name="twitter:description" content="How to use Claude for financial analysis in 2026 — P&L review, ratio analysis, reporting narrative, key prompts, and important accuracy caveats for SMBs.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude for Financial Analysis and Reporting (2026 Guide)",
+  "description": "How to use Claude for financial analysis in 2026 \u2014 P&L review, ratio analysis, reporting narrative, key prompts, and important accuracy caveats for SMBs.",
+  "url": "https://howtoclaudeatoz.com/claude-financial-analysis/",
+  "image": "https://howtoclaudeatoz.com/og/claude-financial-analysis.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude analyse financial data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude can analyse financial data that you paste into the conversation \u2014 P&L statements, balance sheets, cash flow summaries, or budget-vs-actual reports. It can identify trends, calculate ratios, flag anomalies, write narrative commentary, and compare periods. It cannot connect to live accounting software directly; you need to copy or export the data first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude read spreadsheets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude can read spreadsheet data pasted as text or as a markdown table. It cannot open .xlsx files directly in the standard claude.ai interface. Export your data to CSV, copy the values, and paste them into Claude. Claude Pro users with file upload enabled can attach CSV files directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Claude reliable for financial analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude is reliable for explaining financial concepts, writing narrative commentary, calculating basic ratios when given accurate data, and identifying patterns in numbers you provide. It is not a replacement for a qualified accountant or financial adviser. Always verify any calculations independently before using them for decisions, reporting, or investor presentations."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Business & Productivity",
+      "item": "https://howtoclaudeatoz.com/business/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude for Financial Analysis and Reporting (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-financial-analysis/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/business/">Claude for Business & Productivity</a></li><li aria-current="page">Claude for Financial Analysis and Reporting (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude for Financial Analysis and Reporting (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude financial analysis gives business owners a practical way to get more from their own financial data — without needing an accountant present for every question. Claude can read P&L statements, calculate key ratios, write management commentary, compare periods, and explain what the numbers mean in plain language. It cannot log into your accounting software, generate numbers from nothing, or replace qualified financial advice. This guide covers exactly what to give Claude, what to ask it to do, and the important limits to respect.</p>
+
+<p><strong>Important disclaimer:</strong> Claude is not a substitute for a qualified accountant or financial adviser. Always verify figures independently, and consult a professional for tax, compliance, or significant financial decisions.</p>
+
+<h2>How Can Claude Help Your Business with Financial Analysis?</h2>
+
+<p>Claude's financial analysis capability falls into four practical areas:</p>
+
+<ol>
+<li><strong>Interpretation:</strong> Explaining what financial figures mean and how they compare to typical benchmarks</li>
+<li><strong>Ratio calculation:</strong> Working out gross margin, net margin, current ratio, debtor days, and similar metrics from data you provide</li>
+<li><strong>Trend identification:</strong> Spotting patterns across multiple periods when you paste comparative data</li>
+<li><strong>Narrative writing:</strong> Producing management commentary, board report summaries, and investor-facing financial narratives</li>
+</ol>
+
+<p>What Claude does not do: it cannot access your accounting system, generate projections without your assumptions, or guarantee the accuracy of any calculation without being given verified input data.</p>
+
+<h2>What Financial Data to Paste into Claude</h2>
+
+<p>Claude works best when you give it clean, structured data. The formats that work well:</p>
+
+<p><table> <thead> <tr> <th>Document Type</th> <th>What to Include</th> <th>Format</th> </tr> </thead> <tbody> <tr> <td>P&L (Income Statement)</td> <td>Revenue, COGS, gross profit, operating expenses, EBITDA, net profit</td> <td>Paste as text table or CSV values</td> </tr> <tr> <td>Balance Sheet</td> <td>Current assets, fixed assets, current liabilities, long-term debt, equity</td> <td>Paste as text with clear labels</td> </tr> <tr> <td>Cash Flow Summary</td> <td>Operating, investing, financing cash flows; opening and closing balance</td> <td>Paste as labelled line items</td> </tr> <tr> <td>Budget vs Actual</td> <td>Budgeted figure, actual figure, variance for each line</td> <td>Three-column format works best</td> </tr> <tr> <td>Monthly P&L Trend</td> <td>Same P&L columns across 3–12 months side by side</td> <td>Paste as a table</td> </tr> </tbody> </table></p>
+
+<p>Paste data directly into the Claude conversation. If your accounting software allows CSV export, copy the CSV content and paste it. Label your currency and period clearly at the top of the data.</p>
+
+<h2>How to Use Claude for Financial Analysis — Step by Step</h2>
+
+<h3>Step 1: Export and Clean Your Data</h3>
+
+<p>Export your chosen financial statement from your accounting software (Xero, QuickBooks, Sage, etc.) as a CSV or copy it directly. Remove any rows that are purely formatting (blank separator rows, auto-sum rows that duplicate subtotals) to avoid confusing Claude's calculations.</p>
+
+<h3>Step 2: Set Context</h3>
+
+<p>Begin your Claude session with a short context statement:</p>
+
+<blockquote><p>"I am the owner of a [type of business] with an annual turnover of approximately [£X]. I am going to paste some financial data and want your help analysing it. All figures are in GBP. The period is [e.g. April 2025 – March 2026]."</p></blockquote>
+
+<h3>Step 3: Paste Your Data and Request a Summary</h3>
+
+<blockquote><p>"Here is my P&L for the year. Please summarise the key financial performance points in plain language — highlight what is strong, what is weak, and anything that stands out as unusual. [Paste data]"</p></blockquote>
+
+<h3>Step 4: Request Ratio Calculations</h3>
+
+<blockquote><p>"Using the data above, calculate the following ratios and explain what each one tells me about the business: gross profit margin, net profit margin, and operating expense ratio."</p></blockquote>
+
+<p>If you have balance sheet data, add:</p>
+<blockquote><p>"From the balance sheet data, also calculate: current ratio, quick ratio, and debt-to-equity ratio."</p></blockquote>
+
+<h3>Step 5: Request Period Comparison</h3>
+
+<p>If you have multiple periods:</p>
+
+<blockquote><p>"Compare Q1 and Q2 figures. For each major line item, show the change in absolute value and percentage. Flag any line where the change is greater than 10%."</p></blockquote>
+
+<h3>Step 6: Request Management Commentary</h3>
+
+<blockquote><p>"Write a 250-word management commentary for this P&L, suitable for a board report. Lead with the headline performance, then cover revenue, gross margin, and operating costs. Note key variances. Close with a sentence on the outlook."</p></blockquote>
+
+<h3>Step 7: Ask Diagnostic Questions</h3>
+
+<p>Claude is useful for working through financial questions in conversation:</p>
+
+<blockquote><p>"My gross margin has dropped from 42% to 36% year on year. What are the most common causes of a gross margin decline of this size, and what data should I look at to diagnose which one applies to my business?"</p></blockquote>
+
+<h2>Prompt Templates for Common Financial Tasks</h2>
+
+<p><strong>Debtor days calculation:</strong></p>
+<blockquote><p>"My trade debtors are [£X] and my annual revenue is [£Y]. Calculate my debtor days and tell me whether this is a concern for a business of my type."</p></blockquote>
+
+<p><strong>Break-even analysis:</strong></p>
+<blockquote><p>"My fixed monthly costs are [£X] and my gross margin is [Y%]. Calculate my monthly break-even revenue and explain what it means."</p></blockquote>
+
+<p><strong>Scenario modelling narrative:</strong></p>
+<blockquote><p>"If my revenue increases by 15% next year but my gross margin drops by 2 percentage points, how does that affect net profit assuming fixed costs stay the same? My current figures: revenue [£X], gross margin [Y%], fixed costs [£Z]."</p></blockquote>
+
+<p><strong>Year-end review summary:</strong></p>
+<blockquote><p>"Write a 400-word year-end financial review summary for a private company, using the following data. Include performance against prior year and key areas for focus in the coming year. [Paste data]"</p></blockquote>
+
+<h2>What Claude Can and Cannot Do — Financial Analysis Limits</h2>
+
+<p><table> <thead> <tr> <th>Task</th> <th>Claude Can Do</th> <th>Important Caveat</th> </tr> </thead> <tbody> <tr> <td>Explain a P&L</td> <td>Yes</td> <td>Requires accurate input data</td> </tr> <tr> <td>Calculate ratios</td> <td>Yes</td> <td>Verify outputs independently</td> </tr> <tr> <td>Write management commentary</td> <td>Yes</td> <td>You must verify accuracy of claims</td> </tr> <tr> <td>Identify trends</td> <td>Yes (from pasted data)</td> <td>Cannot access historical data itself</td> </tr> <tr> <td>Tax calculations</td> <td>No</td> <td>Requires a qualified accountant</td> </tr> <tr> <td>Audit or verify figures</td> <td>No</td> <td>Not a substitute for external audit</td> </tr> <tr> <td>Live accounting software sync</td> <td>No</td> <td>Export data manually</td> </tr> <tr> <td>Financial projections</td> <td>Partially</td> <td>Needs your assumptions as input</td> </tr> <tr> <td>Regulatory compliance advice</td> <td>No</td> <td>Consult a qualified professional</td> </tr> </tbody> </table></p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-business-plan-writing/">Claude for Business Plan Writing</a></li>
+<li><a href="/claude-business-strategy/">Claude for Business Strategy</a></li>
+<li><a href="/claude-for-small-business/">Claude for Small Business</a></li>
+<li><a href="/claude-project-management/">Claude for Project Management</a></li>
+<li><a href="/what-is-claude-ai/">What Is Claude AI?</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude analyse financial data?</dt>
+<dd>Claude can analyse financial data that you paste into the conversation — P&L statements, balance sheets, cash flow summaries, or budget-vs-actual reports. It can identify trends, calculate ratios, flag anomalies, write narrative commentary, and compare periods. It cannot connect to live accounting software directly; you need to copy or export the data first.</dd>
+<dt>Can Claude read spreadsheets?</dt>
+<dd>Claude can read spreadsheet data pasted as text or as a markdown table. It cannot open .xlsx files directly in the standard claude.ai interface. Export your data to CSV, copy the values, and paste them into Claude. Claude Pro users with file upload enabled can attach CSV files directly.</dd>
+<dt>Is Claude reliable for financial analysis?</dt>
+<dd>Claude is reliable for explaining financial concepts, writing narrative commentary, calculating basic ratios when given accurate data, and identifying patterns in numbers you provide. It is not a replacement for a qualified accountant or financial adviser. Always verify any calculations independently before using them for decisions, reporting, or investor presentations.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

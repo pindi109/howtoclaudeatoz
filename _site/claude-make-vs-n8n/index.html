@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude + Make.com vs n8n — Which Should You Use? (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Make.com vs n8n for Claude automation — detailed 2026 comparison covering pricing, ease of use, Claude integration depth, self-hosting, and which to pick.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-make-vs-n8n/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude + Make.com vs n8n — Which Should You Use? (2026)">
+  <meta property="og:description" content="Make.com vs n8n for Claude automation — detailed 2026 comparison covering pricing, ease of use, Claude integration depth, self-hosting, and which to pick.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-make-vs-n8n/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-make-vs-n8n.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude + Make.com vs n8n — Which Should You Use? (2026)">
+  <meta name="twitter:description" content="Make.com vs n8n for Claude automation — detailed 2026 comparison covering pricing, ease of use, Claude integration depth, self-hosting, and which to pick.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude + Make.com vs n8n \u2014 Which Should You Use? (2026)",
+  "description": "Make.com vs n8n for Claude automation \u2014 detailed 2026 comparison covering pricing, ease of use, Claude integration depth, self-hosting, and which to pick.",
+  "url": "https://howtoclaudeatoz.com/claude-make-vs-n8n/",
+  "image": "https://howtoclaudeatoz.com/og/claude-make-vs-n8n.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Make.com or n8n better for Claude automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Make.com is better for non-technical users who want a polished, fully-managed experience with a native Claude module. n8n is better for developers, teams with high workflow volume, or anyone who needs to self-host for data privacy reasons. Both connect to Claude's API with equal capability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is n8n free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "n8n's core software is open-source and free to self-host \u2014 you only pay for your server. n8n Cloud (the managed hosted version) starts at around $20/month. Self-hosted n8n gives you unlimited workflow executions at no software cost, making it significantly cheaper at high volumes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which is easier, Make.com or n8n?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Make.com has a gentler learning curve. Its visual scenario builder, native module library, and polished UI make it accessible to non-technical users within an hour. n8n has more power but requires more configuration \u2014 especially for API-based integrations like Claude where you build the HTTP request yourself."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Automation & AI Workflows",
+      "item": "https://howtoclaudeatoz.com/automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude + Make.com vs n8n \u2014 Which Should You Use? (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-make-vs-n8n/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/automation/">Claude for Automation & AI Workflows</a></li><li aria-current="page">Claude + Make.com vs n8n — Which Should You Use? (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude + Make.com vs n8n — Which Should You Use? (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>When choosing between Make.com vs n8n for Claude automation, the answer depends almost entirely on who you are and what you're building. Make.com offers a polished no-code experience with a native Claude module that non-technical users can connect in minutes. n8n is open-source, self-hostable, and charges no per-operation fees — making it far more economical at scale for developers willing to accept a steeper setup curve. Both platforms connect to the Claude API with full capability. The question is which wrapper around that API suits your team, budget, and technical comfort. This guide breaks down 10 key criteria and gives a clear recommendation for each use case.</p>
+
+<h2>How Both Platforms Connect to Claude</h2>
+
+<p><strong>Make.com</strong> has a native Anthropic (Claude) module built into its app library. You add it to a scenario, create a connection by pasting your API key, and configure the model and prompt in a form-based UI. No JSON, no headers, no REST knowledge required. Make.com handles the API call transparently.</p>
+
+<p><strong>n8n</strong> connects to Claude via an HTTP Request node that calls the Anthropic Messages API directly. You configure the endpoint URL, headers (including your API key), and the JSON request body yourself. Community-built Anthropic nodes exist in the n8n library but are maintained by third parties. The direct HTTP approach requires more initial setup but gives you complete control and is more reliable long-term.</p>
+
+<p>Both approaches reach exactly the same Claude models and capabilities — the difference is purely in how much configuration you handle yourself.</p>
+
+<h2>Make.com vs n8n for Claude — 10-Criteria Comparison</h2>
+
+<p><table> <thead> <tr> <th>Criteria</th> <th>Make.com</th> <th>n8n</th> </tr> </thead> <tbody> <tr> <td><strong>Pricing model</strong></td> <td>Operations-based ($9–$29+/month)</td> <td>Free self-hosted; ~$20+/month cloud</td> </tr> <tr> <td><strong>Free tier</strong></td> <td>1,000 ops/month</td> <td>Unlimited (self-hosted)</td> </tr> <tr> <td><strong>Ease of use</strong></td> <td>Very easy — visual, form-based</td> <td>Moderate — requires API knowledge</td> </tr> <tr> <td><strong>Native Claude module</strong></td> <td>Yes — built-in Anthropic module</td> <td>No — uses HTTP Request or community node</td> </tr> <tr> <td><strong>Self-hosting</strong></td> <td>No — cloud only</td> <td>Yes — full self-hosting on any server</td> </tr> <tr> <td><strong>Data privacy</strong></td> <td>Data processed on Make.com servers</td> <td>Full control when self-hosted</td> </tr> <tr> <td><strong>Workflow volume</strong></td> <td>Cost rises with volume</td> <td>Flat cost regardless of volume</td> </tr> <tr> <td><strong>App integrations</strong></td> <td>1,500+ native app modules</td> <td>400+ built-in + any REST API via HTTP node</td> </tr> <tr> <td><strong>Error handling UI</strong></td> <td>Visual error routes, easy to configure</td> <td>More powerful but more complex to set up</td> </tr> <tr> <td><strong>Community & support</strong></td> <td>Large, active Make.com community</td> <td>Strong developer community, open source</td> </tr> </tbody> </table></p>
+
+<h2>Pricing Breakdown — Real Cost at Scale</h2>
+
+<p>Pricing is where n8n wins most clearly for teams running high-volume Claude workflows.</p>
+
+<p><strong>Make.com pricing for Claude workflows:</strong></p>
+
+<ul>
+<li>Free plan: 1,000 operations/month — enough for testing only</li>
+<li>Core ($9/month): 10,000 operations/month</li>
+<li>Pro ($16/month): 10,000 operations/month with priority execution</li>
+<li>Teams ($29/month): 10,000 operations/month with multiple users</li>
+</ul>
+
+<p>A typical 4-module Claude scenario (trigger + Claude + transform + action) uses 4 operations per run. At 10,000 operations/month on the Core plan, that's 2,500 workflow runs per month. If you're processing 500 emails per day (15,000 per month), you'd need to upgrade to a higher plan.</p>
+
+<p><strong>n8n pricing for Claude workflows:</strong></p>
+
+<ul>
+<li>Self-hosted: $0 software cost (pay $5–20/month for a VPS)</li>
+<li>n8n Cloud Starter (~$20/month): 2,500 workflow executions/month</li>
+<li>n8n Cloud Pro (~$50/month): Unlimited executions</li>
+</ul>
+
+<p>Self-hosted n8n runs unlimited workflows at no incremental cost. If you process 50,000 records per month, the cost difference versus Make.com is substantial.</p>
+
+<p><strong>Claude API costs</strong> are identical regardless of which platform you use — you pay Anthropic directly based on tokens consumed.</p>
+
+<h2>Ease of Use — Who Can Build Without Help?</h2>
+
+<p><strong>Make.com</strong> is genuinely accessible to non-developers. The scenario builder uses visual modules connected by lines. Every module has a form-based configuration panel. The Anthropic module pre-fills API structure — you just write your prompt and map variables. A non-technical marketer can build a working Claude automation in under an hour with no prior automation experience.</p>
+
+<p><strong>n8n</strong> requires you to understand JSON, REST APIs, and HTTP headers to use Claude effectively. The expression language for mapping data between nodes is more powerful than Make.com's but has a steeper learning curve. A developer will feel at home immediately. A non-technical user will likely struggle with the initial Claude HTTP Request setup without a tutorial.</p>
+
+<p>If your team has no developers, Make.com is the safer choice. If you have a developer or are one yourself, n8n's additional power is worth the setup cost.</p>
+
+<h2>Claude Integration Depth — Are There Any Differences?</h2>
+
+<p>Both platforms have access to the full Anthropic API. There is no functional difference in what Claude can do via Make.com versus n8n:</p>
+
+<ul>
+<li>All Claude models available (Haiku, Sonnet, Opus)</li>
+<li>System prompts supported</li>
+<li>Multi-turn conversations possible (with additional workflow logic)</li>
+<li>Tool use / function calling possible (requires custom HTTP setup in both)</li>
+<li>Streaming responses not natively supported in either (standard request-response only)</li>
+</ul>
+
+<p>Make.com's native module makes the common case (single prompt, single response) easier. n8n's HTTP Request node makes advanced cases (custom headers, structured tool calls) easier to configure precisely.</p>
+
+<h2>Scalability and Self-Hosting</h2>
+
+<p><strong>Make.com</strong> is cloud-only. You cannot self-host it. All your workflow data, trigger payloads, and Claude responses pass through Make.com's servers. For most businesses, this is fine. For healthcare, legal, or financial teams with strict data handling requirements, it may not be.</p>
+
+<p><strong>n8n</strong> self-hosting runs on any Linux server, Docker container, or cloud VM. Your data never leaves your infrastructure. This is n8n's strongest argument for regulated industries and privacy-conscious teams.</p>
+
+<p>For scalability, Make.com scales automatically within your plan but charges more as volume grows. Self-hosted n8n scales with your server — you add CPU and RAM rather than paying per operation.</p>
+
+<h2>Which Should You Choose? — Recommendations by Use Case</h2>
+
+<p><strong>Choose Make.com if:</strong></p>
+<ul>
+<li>You are non-technical or building for a non-technical team</li>
+<li>You want to build and deploy a Claude workflow today with minimal setup</li>
+<li>You're running moderate volume (under 5,000 Claude calls/month)</li>
+<li>You need access to a wide library of pre-built app integrations</li>
+<li>You prefer paying for a fully managed, supported platform</li>
+</ul>
+
+<p><strong>Choose n8n if:</strong></p>
+<ul>
+<li>You are a developer or have developer resources</li>
+<li>You need to self-host for data privacy or compliance reasons</li>
+<li>You're running high workflow volumes (10,000+ executions/month)</li>
+<li>You want to avoid per-operation pricing at scale</li>
+<li>You need fine-grained control over API requests and workflow logic</li>
+</ul>
+
+<p><strong>Choose both if:</strong></p>
+<ul>
+<li>You're a larger team with both technical and non-technical members</li>
+<li>You use Make.com for simple, high-frequency automations and n8n for complex, self-hosted pipelines</li>
+</ul>
+
+<h2>Can You Use Make.com and n8n Together?</h2>
+
+<p>Yes. Many teams use both platforms and even connect them. A common pattern is: n8n runs on your server and handles the Claude API call (for data privacy), then sends the result to Make.com via webhook, where Make.com handles the final app integrations (Google Workspace, Slack, HubSpot) because its native module library is broader.</p>
+
+<p>This hybrid approach gives you n8n's data control for the AI processing step and Make.com's polish for the downstream app actions.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-make-com-integration/">Claude Make.com Integration — Full Guide</a></li>
+<li><a href="/claude-n8n-workflows/">Claude n8n Workflows — Full Guide</a></li>
+<li><a href="/build-claude-ai-agent/">Build a Claude AI Agent</a></li>
+<li><a href="/claude-automation-workflows/">Claude Automation Workflows — 10 Templates</a></li>
+<li><a href="/claude-api-getting-started/">Claude API Getting Started</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Is Make.com or n8n better for Claude automation?</dt>
+<dd>Make.com is better for non-technical users who want a polished, fully-managed experience with a native Claude module. n8n is better for developers, teams with high workflow volume, or anyone who needs to self-host for data privacy reasons. Both connect to Claude's API with equal capability.</dd>
+<dt>Is n8n free?</dt>
+<dd>n8n's core software is open-source and free to self-host — you only pay for your server. n8n Cloud (the managed hosted version) starts at around $20/month. Self-hosted n8n gives you unlimited workflow executions at no software cost, making it significantly cheaper at high volumes.</dd>
+<dt>Which is easier, Make.com or n8n?</dt>
+<dd>Make.com has a gentler learning curve. Its visual scenario builder, native module library, and polished UI make it accessible to non-technical users within an hour. n8n has more power but requires more configuration — especially for API-based integrations like Claude where you build the HTTP request yourself.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

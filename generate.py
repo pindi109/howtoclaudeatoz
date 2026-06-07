@@ -94,12 +94,41 @@ def parse_frontmatter(raw):
 # ---------------------------------------------------------------------------
 # Markdown → HTML converter
 # ---------------------------------------------------------------------------
+def convert_tables(md):
+    """Pre-process: convert markdown tables to HTML before line-by-line parsing."""
+    lines = md.split('\n')
+    result = []
+    i = 0
+    while i < len(lines):
+        if lines[i].startswith('|') and i + 1 < len(lines) and re.match(r'^\|[\s\-:|]+\|', lines[i + 1]):
+            header_cells = [c.strip() for c in lines[i].strip('|').split('|')]
+            i += 2  # skip header + separator
+            html = ['<table>', '<thead>', '<tr>']
+            for h in header_cells:
+                html.append(f'<th>{h}</th>')
+            html += ['</tr>', '</thead>', '<tbody>']
+            while i < len(lines) and lines[i].startswith('|'):
+                cells = [c.strip() for c in lines[i].strip('|').split('|')]
+                html.append('<tr>')
+                for c in cells:
+                    html.append(f'<td>{c}</td>')
+                html.append('</tr>')
+                i += 1
+            html += ['</tbody>', '</table>']
+            result.append('\n'.join(html))
+        else:
+            result.append(lines[i])
+            i += 1
+    return '\n'.join(result)
+
+
 def markdown_to_html(md):
     """
     Convert a subset of Markdown to HTML.
-    Supports: h2/h3/h4, **bold**, *italic*, `code`, numbered lists,
-    bullet lists, blockquotes, horizontal rules, paragraphs, blank lines.
+    Supports: h1-h4, **bold**, *italic*, `code`, numbered lists,
+    bullet lists, blockquotes, horizontal rules, tables, paragraphs.
     """
+    md = convert_tables(md)
     lines = md.split('\n')
     html_parts = []
     in_ul = False

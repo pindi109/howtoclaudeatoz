@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Opus vs Sonnet vs Haiku — Full Model Breakdown (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Claude Opus vs Sonnet vs Haiku compared: context window, cost, speed, intelligence, and best use cases. Full technical breakdown for 2026 with decision matrix.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-opus-vs-sonnet-vs-haiku/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Opus vs Sonnet vs Haiku — Full Model Breakdown (2026)">
+  <meta property="og:description" content="Claude Opus vs Sonnet vs Haiku compared: context window, cost, speed, intelligence, and best use cases. Full technical breakdown for 2026 with decision matrix.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-opus-vs-sonnet-vs-haiku/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-opus-vs-sonnet-vs-haiku.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Opus vs Sonnet vs Haiku — Full Model Breakdown (2026)">
+  <meta name="twitter:description" content="Claude Opus vs Sonnet vs Haiku compared: context window, cost, speed, intelligence, and best use cases. Full technical breakdown for 2026 with decision matrix.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Opus vs Sonnet vs Haiku \u2014 Full Model Breakdown (2026)",
+  "description": "Claude Opus vs Sonnet vs Haiku compared: context window, cost, speed, intelligence, and best use cases. Full technical breakdown for 2026 with decision matrix.",
+  "url": "https://howtoclaudeatoz.com/claude-opus-vs-sonnet-vs-haiku/",
+  "image": "https://howtoclaudeatoz.com/og/claude-opus-vs-sonnet-vs-haiku.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between Claude Opus, Sonnet, and Haiku?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Opus is Anthropic's most intelligent model \u2014 best for complex reasoning, research, and tasks where quality outweighs cost. Claude Sonnet is the mid-tier model that balances high intelligence with significantly lower cost and faster speed, making it the default choice for most production applications. Claude Haiku is the smallest, fastest, and cheapest model, optimised for high-volume tasks where speed and cost efficiency matter more than maximum reasoning depth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Claude model should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use Claude Haiku for classification, data extraction, simple Q&A, and high-volume tasks where you need sub-second responses. Use Claude Sonnet for the majority of production use cases \u2014 coding, writing, analysis, and customer-facing applications \u2014 where you need strong intelligence at manageable cost. Use Claude Opus for complex research, strategic analysis, multi-step reasoning, and tasks where output quality is the primary constraint and cost is secondary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Claude Sonnet good enough for most tasks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Claude Sonnet (currently claude-sonnet-4-5 and claude-sonnet-4-6 in the Claude 4 family) handles the vast majority of professional tasks \u2014 coding, writing, analysis, summarisation, data extraction \u2014 at a quality level that is hard to distinguish from Opus for everyday work. Sonnet becomes meaningfully weaker than Opus on tasks requiring deep multi-step reasoning, extended analysis of complex documents, or nuanced judgement on ambiguous problems."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Advanced Claude",
+      "item": "https://howtoclaudeatoz.com/advanced/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude Opus vs Sonnet vs Haiku \u2014 Full Model Breakdown (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-opus-vs-sonnet-vs-haiku/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/advanced/">Advanced Claude</a></li><li aria-current="page">Claude Opus vs Sonnet vs Haiku — Full Model Breakdown (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude Opus vs Sonnet vs Haiku — Full Model Breakdown (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude Opus vs Sonnet vs Haiku is the model selection question every developer building with Claude must answer — and the answer has real cost and quality implications. Claude Opus vs Sonnet vs Haiku represents Anthropic's three-tier intelligence hierarchy: Opus is the frontier reasoning model, Sonnet is the capable production workhorse, and Haiku is the fast, efficient model for high-volume tasks. Selecting the wrong tier means either overpaying for compute or under-serving your users. This guide gives a full technical breakdown of every model in the Claude 4 family, with a decision matrix you can apply directly to your use case.</p>
+
+<h2>How Claude's Model Tiers Work</h2>
+
+<p>Anthropic releases each generation of Claude as a three-tier family under a consistent naming convention: <code>claude-[tier]-[generation]-[variant]</code>. The current generation is Claude 4. The three tiers — Haiku (small), Sonnet (medium), Opus (large) — reflect different points on the intelligence/cost/speed trade-off curve.</p>
+
+<p>Each tier is a genuinely different model, not simply the same model running at different quality levels. They are trained separately with different compute budgets, parameter counts, and capability targets. This means the jump from Sonnet to Opus is not a minor quality bump — it represents a meaningfully different reasoning capability, particularly on tasks requiring multi-step logical inference, long-context synthesis, and nuanced judgement.</p>
+
+<h2>Full Model Comparison Table</h2>
+
+<p><table> <thead> <tr> <th>Attribute</th> <th>Claude Haiku 4</th> <th>Claude Sonnet 4.5 / 4.6</th> <th>Claude Opus 4</th> </tr> </thead> <tbody> <tr> <td><strong>Context window</strong></td> <td>200,000 tokens</td> <td>200,000 tokens</td> <td>200,000 tokens</td> </tr> <tr> <td><strong>Max output tokens</strong></td> <td>4,096</td> <td>8,192</td> <td>8,192</td> </tr> <tr> <td><strong>Input cost (per 1M tokens)</strong></td> <td>~$0.80</td> <td>~$3.00</td> <td>~$15.00</td> </tr> <tr> <td><strong>Output cost (per 1M tokens)</strong></td> <td>~$4.00</td> <td>~$15.00</td> <td>~$75.00</td> </tr> <tr> <td><strong>Speed</strong></td> <td>Very fast (~100 tok/s)</td> <td>Fast (~75 tok/s)</td> <td>Moderate (~40 tok/s)</td> </tr> <tr> <td><strong>Intelligence level</strong></td> <td>Good</td> <td>Very good</td> <td>Excellent</td> </tr> <tr> <td><strong>Extended thinking</strong></td> <td>No</td> <td>Yes (Sonnet 4.6+)</td> <td>Yes</td> </tr> <tr> <td><strong>Vision/image input</strong></td> <td>Yes</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td><strong>Best for</strong></td> <td>High-volume tasks, triage</td> <td>Production apps, coding</td> <td>Complex analysis, research</td> </tr> <tr> <td><strong>Typical latency (first token)</strong></td> <td>~200ms</td> <td>~400ms</td> <td>~800ms</td> </tr> </tbody> </table></p>
+
+<p><em>Note: Pricing reflects approximate Anthropic API list pricing as of mid-2026. Actual costs vary with caching, batch API, and volume tiers.</em></p>
+
+<h2>Claude Haiku — When to Use It</h2>
+
+<p>Claude Haiku is Anthropic's fastest and most cost-efficient model. It is designed for tasks where throughput and cost per call matter more than maximum reasoning depth.</p>
+
+<p><strong>Haiku excels at:</strong></p>
+<ul>
+<li>High-volume document classification and routing</li>
+<li>Simple question answering over structured data</li>
+<li>Named entity extraction from large batches of text</li>
+<li>Customer service intent detection</li>
+<li>Real-time chatbot responses where latency is critical</li>
+<li>Generating short structured outputs (summaries, tags, labels)</li>
+<li>First-pass triage before escalating to a more powerful model</li>
+</ul>
+
+<p><strong>Haiku struggles with:</strong></p>
+<ul>
+<li>Complex multi-step reasoning chains</li>
+<li>Nuanced long-document synthesis</li>
+<li>Tasks requiring judgement on ambiguous edge cases</li>
+<li>Code generation for non-trivial logic</li>
+<li>Mathematical reasoning beyond basic arithmetic</li>
+</ul>
+
+<p><strong>Cost example:</strong> Processing 1 million customer support tickets at ~500 tokens each (input) costs approximately $400 with Haiku vs $1,500 with Sonnet vs $7,500 with Opus. For simple triage, Haiku's quality is often indistinguishable from Sonnet at a fraction of the cost.</p>
+
+<h2>Claude Sonnet — When to Use It</h2>
+
+<p>Claude Sonnet is the model most production applications should default to. It delivers intelligence close to Opus on the majority of real-world tasks at roughly 20% of the cost.</p>
+
+<p><strong>Sonnet excels at:</strong></p>
+<ul>
+<li>Software development (code generation, debugging, refactoring)</li>
+<li>Business writing (reports, emails, proposals, documentation)</li>
+<li>Data analysis and interpretation</li>
+<li>Question answering over complex documents</li>
+<li>Customer-facing AI assistants</li>
+<li>Content generation at scale</li>
+<li>Structured data extraction from unstructured text</li>
+<li>Reasoning tasks with clear step-by-step logic</li>
+</ul>
+
+<p><strong>Sonnet vs Opus quality gap:</strong> For coding tasks, multiple benchmark evaluations show Sonnet 4.5+ scoring within 5–10% of Opus on standard coding benchmarks (HumanEval, SWE-bench). For open-ended analysis and strategic reasoning, the gap is wider — Opus produces noticeably more thorough, nuanced outputs.</p>
+
+<p><strong>When Sonnet 4.6 (with extended thinking) closes the Opus gap:</strong> Claude Sonnet 4.6 with extended thinking enabled can approach Opus-level reasoning on structured problems by spending additional token budget on internal reasoning. For API users, enabling <code>thinking: {type: "enabled", budget_tokens: 5000}</code> on Sonnet 4.6 can reduce the quality gap significantly for logical reasoning tasks.</p>
+
+<h2>Claude Opus — When to Use It</h2>
+
+<p>Claude Opus is Anthropic's frontier intelligence model. It is the right choice when output quality is the primary constraint and cost is secondary.</p>
+
+<p><strong>Opus excels at:</strong></p>
+<ul>
+<li>Deep research synthesis across multiple complex sources</li>
+<li>Strategic business analysis requiring multi-factor reasoning</li>
+<li>Complex legal document analysis</li>
+<li>Novel problem-solving where the solution path is unclear</li>
+<li>Long-horizon planning and consequence mapping</li>
+<li>Tasks requiring calibrated uncertainty (knowing what it doesn't know)</li>
+<li>Coding on complex, novel, or poorly-defined systems</li>
+<li>Academic and scientific analysis</li>
+</ul>
+
+<p><strong>When Opus is definitively better than Sonnet:</strong></p>
+<ul>
+<li>Analysing 50+ page documents with interdependent sections</li>
+<li>Identifying subtle logical inconsistencies in arguments</li>
+<li>Multi-step financial or quantitative modelling</li>
+<li>Medical/legal cases requiring nuanced judgement</li>
+<li>Research tasks where missing a key insight has high stakes</li>
+</ul>
+
+<p><strong>Cost of Opus at scale:</strong> At $15/million input tokens, Opus is expensive for high-volume use. For a production application processing 100,000 requests per day at 1,000 tokens each, Opus costs approximately $1,500/day vs $300/day for Sonnet. Most teams use Opus for internal tooling, research workflows, and low-volume high-stakes tasks, not as their default production model.</p>
+
+<h2>Use Case Decision Matrix</h2>
+
+<p><table> <thead> <tr> <th>Task</th> <th>Recommended Model</th> <th>Reasoning</th> </tr> </thead> <tbody> <tr> <td>Customer service chatbot</td> <td>Sonnet</td> <td>Needs to be good; volume makes Opus expensive</td> </tr> <tr> <td>Document triage / routing</td> <td>Haiku</td> <td>Simple classification; cost matters</td> </tr> <tr> <td>Production code assistant</td> <td>Sonnet</td> <td>Near-Opus quality at 20% cost</td> </tr> <tr> <td>Complex codebase refactoring</td> <td>Opus</td> <td>High-stakes, non-trivial reasoning required</td> </tr> <tr> <td>Email drafting</td> <td>Sonnet or Haiku</td> <td>Straightforward task; Haiku often sufficient</td> </tr> <tr> <td>Legal document analysis</td> <td>Opus</td> <td>Nuanced judgement; stakes are high</td> </tr> <tr> <td>Marketing copy at volume</td> <td>Haiku or Sonnet</td> <td>Depends on quality bar required</td> </tr> <tr> <td>Scientific research synthesis</td> <td>Opus</td> <td>Deep multi-source reasoning</td> </tr> <tr> <td>Data extraction (structured)</td> <td>Haiku</td> <td>Repetitive, well-defined task</td> </tr> <tr> <td>Financial analysis / modelling</td> <td>Opus</td> <td>Multi-step quantitative reasoning</td> </tr> <tr> <td>Real-time autocomplete</td> <td>Haiku</td> <td>Latency is critical</td> </tr> <tr> <td>Long-form article writing</td> <td>Sonnet</td> <td>Strong quality, manageable cost</td> </tr> <tr> <td>Strategic planning / consulting</td> <td>Opus</td> <td>Judgement and nuance matter</td> </tr> <tr> <td>Language translation</td> <td>Sonnet</td> <td>Good quality; Haiku often sufficient for common languages</td> </tr> <tr> <td>API-connected agent workflows</td> <td>Sonnet + Opus hybrid</td> <td>Haiku/Sonnet for steps, Opus for final synthesis</td> </tr> </tbody> </table></p>
+
+<h2>Understanding Context Window Across All Models</h2>
+
+<p>All Claude 4 models share the same 200,000-token context window. This is a significant architectural decision by Anthropic — it means you do not need to use Opus to process long documents. You can send a 150,000-token document to Haiku for classification or Sonnet for summarisation at a fraction of the Opus cost.</p>
+
+<p>The key distinction is not context window size but what Claude does with long contexts. Opus is better at synthesising information from disparate sections of a long document, identifying subtle connections, and maintaining coherent reasoning across a full 200K context. Haiku and Sonnet can process long contexts but may miss subtleties that Opus catches.</p>
+
+<h2>How to Select a Model for a New Project</h2>
+
+<p><strong>Step 1: Identify your quality bar.</strong> What does "good enough" look like for your task? Write down 3 example outputs that would satisfy you.</p>
+
+<p><strong>Step 2: Test Haiku first.</strong> Run your test cases on Haiku. If the quality meets your bar, stop there — the cost difference is substantial.</p>
+
+<p><strong>Step 3: Move up only if needed.</strong> If Haiku fails your quality bar, test Sonnet. If Sonnet fails, test Opus.</p>
+
+<p><strong>Step 4: Consider a hybrid approach.</strong> Many production systems use a cheap model (Haiku) for initial processing and triage, then route complex or uncertain cases to Sonnet or Opus. This optimises both cost and quality.</p>
+
+<p><strong>Step 5: Account for extended thinking.</strong> If you are on Sonnet 4.6+, test extended thinking mode before jumping to Opus. For reasoning-heavy tasks, this can close the quality gap significantly.</p>
+
+<h2>Prompt Caching and Its Effect on Effective Cost</h2>
+
+<p>Anthropic's API supports prompt caching, which stores the KV cache of long system prompts and context. This dramatically reduces the effective cost per request for applications with long system prompts or repeated context.</p>
+
+<p>With caching, the cost of a 10,000-token system prompt drops from full price to approximately 10% of the input token rate on re-use. For production applications with detailed system prompts, prompt caching can reduce effective Opus costs to be competitive with uncached Sonnet.</p>
+
+<h2>Claude Models vs Competing Model Families</h2>
+
+<p><table> <thead> <tr> <th>Capability</th> <th>Claude Haiku 4</th> <th>Claude Sonnet 4.6</th> <th>Claude Opus 4</th> <th>GPT-4o mini</th> <th>GPT-4o</th> <th>Gemini 1.5 Flash</th> </tr> </thead> <tbody> <tr> <td>Context window</td> <td>200K</td> <td>200K</td> <td>200K</td> <td>128K</td> <td>128K</td> <td>1M</td> </tr> <tr> <td>Instruction following</td> <td>Good</td> <td>Excellent</td> <td>Excellent</td> <td>Good</td> <td>Very good</td> <td>Good</td> </tr> <tr> <td>Code generation</td> <td>Good</td> <td>Excellent</td> <td>Excellent</td> <td>Good</td> <td>Very good</td> <td>Good</td> </tr> <tr> <td>Long-document reasoning</td> <td>Good</td> <td>Very good</td> <td>Excellent</td> <td>Limited</td> <td>Good</td> <td>Very good</td> </tr> <tr> <td>Cost efficiency</td> <td>High</td> <td>Medium</td> <td>Low</td> <td>Very high</td> <td>Low</td> <td>Very high</td> </tr> <tr> <td>Extended reasoning</td> <td>No</td> <td>Yes</td> <td>Yes</td> <td>No</td> <td>No</td> <td>No</td> </tr> </tbody> </table></p>
+
+<p><em>Benchmark scores shift frequently; treat this as a directional comparison rather than a definitive ranking.</em></p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/advanced-prompt-engineering-claude/">Advanced Prompt Engineering with Claude</a></li>
+<li><a href="/claude-200k-context-window/">Claude's 200K Context Window — How to Use It</a></li>
+<li><a href="/claude-api-getting-started/">Getting Started with the Claude API</a></li>
+<li><a href="/claude-system-prompts/">Claude System Prompts — How to Use Them</a></li>
+<li><a href="/future-of-claude-2026/">The Future of Claude — What's Coming in 2026</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>What is the difference between Claude Opus, Sonnet, and Haiku?</dt>
+<dd>Claude Opus is Anthropic's most intelligent model — best for complex reasoning, research, and tasks where quality outweighs cost. Claude Sonnet is the mid-tier model that balances high intelligence with significantly lower cost and faster speed, making it the default choice for most production applications. Claude Haiku is the smallest, fastest, and cheapest model, optimised for high-volume tasks where speed and cost efficiency matter more than maximum reasoning depth.</dd>
+<dt>Which Claude model should I use?</dt>
+<dd>Use Claude Haiku for classification, data extraction, simple Q&A, and high-volume tasks where you need sub-second responses. Use Claude Sonnet for the majority of production use cases — coding, writing, analysis, and customer-facing applications — where you need strong intelligence at manageable cost. Use Claude Opus for complex research, strategic analysis, multi-step reasoning, and tasks where output quality is the primary constraint and cost is secondary.</dd>
+<dt>Is Claude Sonnet good enough for most tasks?</dt>
+<dd>Yes. Claude Sonnet (currently claude-sonnet-4-5 and claude-sonnet-4-6 in the Claude 4 family) handles the vast majority of professional tasks — coding, writing, analysis, summarisation, data extraction — at a quality level that is hard to distinguish from Opus for everyday work. Sonnet becomes meaningfully weaker than Opus on tasks requiring deep multi-step reasoning, extended analysis of complex documents, or nuanced judgement on ambiguous problems.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude for Python Scripting — Developer Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude for Python scripting to automate tasks, process data, call APIs, and build tools faster. Full guide with 3 complete, runnable Python scripts for 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-python-scripting/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude for Python Scripting — Developer Guide (2026)">
+  <meta property="og:description" content="Use Claude for Python scripting to automate tasks, process data, call APIs, and build tools faster. Full guide with 3 complete, runnable Python scripts for 2026.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-python-scripting/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-python-scripting.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude for Python Scripting — Developer Guide (2026)">
+  <meta name="twitter:description" content="Use Claude for Python scripting to automate tasks, process data, call APIs, and build tools faster. Full guide with 3 complete, runnable Python scripts for 2026.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude for Python Scripting \u2014 Developer Guide (2026)",
+  "description": "Use Claude for Python scripting to automate tasks, process data, call APIs, and build tools faster. Full guide with 3 complete, runnable Python scripts for 2026.",
+  "url": "https://howtoclaudeatoz.com/claude-python-scripting/",
+  "image": "https://howtoclaudeatoz.com/og/claude-python-scripting.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude write Python scripts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Claude writes complete, runnable Python scripts including data processing pipelines, API clients, file automation, web scrapers, CLI tools, and more. It handles standard library modules, popular third-party packages (requests, pandas, SQLAlchemy, FastAPI, etc.), and Python 3.10+ features like structural pattern matching and improved type hints. You can ask for a complete script with error handling, logging, and CLI arguments in a single prompt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How good is Claude at Python?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude is among the strongest AI models for Python. It writes idiomatic, Pythonic code \u2014 using list comprehensions where appropriate, context managers for resources, dataclasses, proper exception hierarchies, and type hints. It also knows when not to be clever. For production scripts, Claude consistently adds error handling, logging, and argument parsing without being asked."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What Python libraries does Claude know?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude has deep knowledge of the Python standard library plus the most widely used third-party packages: requests and httpx (HTTP), pandas and polars (data), SQLAlchemy (databases), FastAPI and Flask (web), pytest (testing), pydantic (validation), boto3 (AWS), Pillow (images), BeautifulSoup and Playwright (scraping/automation), and many more. It also knows the Anthropic Python SDK for building Claude-powered tools."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude Code & Developer Use Cases",
+      "item": "https://howtoclaudeatoz.com/claude-code/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude for Python Scripting \u2014 Developer Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-python-scripting/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/claude-code/">Claude Code & Developer Use Cases</a></li><li aria-current="page">Claude for Python Scripting — Developer Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude for Python Scripting — Developer Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude Python scripting is one of the most practical use cases for AI-assisted development. Python's combination of readable syntax, vast ecosystem, and heavy use in automation makes it ideal for AI generation — and Claude is exceptionally good at it. Give Claude a plain-English description of what you need, and it returns a complete, runnable script with error handling, type hints, logging, and argument parsing — the parts that are correct but tedious to write by hand. This guide covers how to get the best Python output from Claude, with three complete scripts you can run today, and how to chain Python scripts with tools like Make.com for full automation pipelines.</p>
+
+<h2>How Claude Helps with Python Scripting</h2>
+
+<p>Claude does not just autocomplete Python — it understands intent. When you say "write a script to process customer CSV exports and load them to Postgres, skipping duplicates", Claude figures out:</p>
+
+<ul>
+<li>Which libraries to use (pandas + SQLAlchemy, or psycopg2 directly)</li>
+<li>How to handle CSV encoding edge cases</li>
+<li>What the upsert SQL should look like</li>
+<li>How to add <code>--dry-run</code> mode and <code>--verbose</code> flags</li>
+<li>How to log progress and failures</li>
+</ul>
+
+<p>The result is a script you would write yourself, but in minutes instead of an hour. Here is how to get consistently good output.</p>
+
+<h2>How to Get Great Python Scripts from Claude — Step by Step</h2>
+
+<h3>Step 1: Be Specific About Inputs and Outputs</h3>
+
+<p>The most common mistake is an under-specified prompt. Instead of:</p>
+
+<p><code>`</code> Write a script to process CSV files <code>`</code></p>
+
+<p>Say:</p>
+
+<p><code>`</code> Write a Python script that:</p>
+<ul>
+<li>Reads all .csv files from an input/ directory</li>
+<li>Each CSV has columns: customer_id, email, amount, date (YYYY-MM-DD)</li>
+<li>Validates that amount is a positive number and email is valid format</li>
+<li>Writes valid rows to output/clean.csv and invalid rows to output/errors.csv with an added 'error_reason' column</li>
+<li>Logs progress to stdout and a logfile</li>
+<li>Accepts --input-dir and --output-dir as CLI arguments</li>
+</ul>
+<p><code>`</code></p>
+
+<h3>Step 2: Specify Your Python Version and Key Libraries</h3>
+
+<p>Claude defaults to Python 3.10+ idioms, but if you need compatibility with an older version or have specific library preferences, say so:</p>
+
+<p><code>`</code> Use Python 3.11. Use httpx instead of requests for async support.  Use pydantic v2 for validation. <code>`</code></p>
+
+<h3>Step 3: Ask for Error Handling and Logging Explicitly (or Tell Claude to Add It)</h3>
+
+<p>Claude adds error handling when you ask for "production-ready" or "robust" scripts. A quick addition to your prompt:</p>
+
+<p><code>`</code> Add proper error handling, retry logic for network calls,  and structured logging using the standard logging module. <code>`</code></p>
+
+<h3>Step 4: Iterate with Claude Code for File-Based Projects</h3>
+
+<p>For multi-file Python projects, Claude Code (the CLI) is more powerful than the browser interface. It reads your existing code, maintains consistency with your patterns, and can run the script to verify it works:</p>
+
+<p><code>`</code>bash cd ~/projects/data-pipeline claude</p>
+<blockquote><p>Refactor the csv_processor.py script to use a class-based</p></blockquote>
+<p>approach so we can subclass it for JSON and XML inputs too.   Run the tests after refactoring. <code>`</code></p>
+
+<h2>Complete Python Script Examples from Claude</h2>
+
+<h3>Script 1: REST API Polling and Alert Tool</h3>
+
+<p><code>`</code>python</p>
+<p>#!/usr/bin/env python3 """ Poll a REST API endpoint at regular intervals and send an alert when a condition is met. Uses httpx for async HTTP and sends alerts via a webhook URL (compatible with Slack, Discord, Make.com).</p>
+
+<p>Usage:     python api_monitor.py --url https://api.example.com/status \                           --webhook https://hooks.slack.com/... \                           --interval 60 """</p>
+
+<p>import argparse import asyncio import logging import sys from datetime import datetime</p>
+
+<p>import httpx</p>
+
+<p>logging.basicConfig(     level=logging.INFO,     format="%(asctime)s %(levelname)s %(message)s",     handlers=[         logging.StreamHandler(sys.stdout),         logging.FileHandler("monitor.log"),     ], ) log = logging.getLogger(<strong>name</strong>)</p>
+
+<p>async def check<em>endpoint(client: httpx.AsyncClient, url: str) -> dict:     """Fetch the endpoint and return parsed JSON."""     response = await client.get(url, timeout=10.0)     response.raise</em>for_status()     return response.json()</p>
+
+<p>def is<em>alert</em>condition(data: dict) -> tuple[bool, str]:     """Return (should<em>alert, reason). Customise this logic."""     status = data.get("status", "")     if status not in ("ok", "healthy"):         return True, f"Status is '{status}'"     error</em>rate = data.get("error<em>rate</em>pct", 0)     if error<em>rate > 5:         return True, f"Error rate {error</em>rate:.1f}% exceeds 5%"     return False, ""</p>
+
+<p>async def send<em>alert(client: httpx.AsyncClient, webhook</em>url: str, reason: str) -> None:     """POST an alert message to the webhook URL."""     payload = {         "text": f":warning: API Monitor Alert — {reason} at {datetime.utcnow().isoformat()}Z"     }     try:         resp = await client.post(webhook<em>url, json=payload, timeout=10.0)         resp.raise</em>for_status()         log.info("Alert sent: %s", reason)     except httpx.HTTPError as e:         log.error("Failed to send alert: %s", e)</p>
+
+<p>async def run<em>monitor(url: str, webhook</em>url: str, interval: int) -> None:     """Main monitoring loop."""     log.info("Starting monitor for %s, polling every %ds", url, interval)     last_alerted = False</p>
+
+<p>async with httpx.AsyncClient() as client:         while True:             try:                 data = await check<em>endpoint(client, url)                 should</em>alert, reason = is<em>alert</em>condition(data)</p>
+
+<p>if should<em>alert and not last</em>alerted:                     await send<em>alert(client, webhook</em>url, reason)                     last<em>alerted = True                 elif not should</em>alert and last<em>alerted:                     log.info("Condition resolved — no longer alerting")                     last</em>alerted = False                 else:                     log.debug("Status OK")</p>
+
+<p>except httpx.HTTPError as e:                 log.error("Request failed: %s", e)                 if not last<em>alerted:                     await send</em>alert(client, webhook<em>url, f"Request failed: {e}")                     last</em>alerted = True</p>
+
+<p>await asyncio.sleep(interval)</p>
+
+<p>def main() -> None:     parser = argparse.ArgumentParser(description="API endpoint monitor")     parser.add<em>argument("--url", required=True, help="Endpoint URL to monitor")     parser.add</em>argument("--webhook", required=True, help="Webhook URL for alerts")     parser.add<em>argument("--interval", type=int, default=60, help="Poll interval in seconds")     args = parser.parse</em>args()</p>
+
+<p>try:         asyncio.run(run_monitor(args.url, args.webhook, args.interval))     except KeyboardInterrupt:         log.info("Monitor stopped")</p>
+
+<p>if <strong>name</strong> == "<strong>main</strong>":     main() <code>`</code></p>
+
+<h3>Script 2: CSV-to-PostgreSQL ETL Pipeline</h3>
+
+<p><code>`</code>python</p>
+<p>#!/usr/bin/env python3 """ Read CSV files from an input directory, validate rows, and upsert valid rows into a PostgreSQL table. Invalid rows are written to an error CSV with a reason column.</p>
+
+<p>Usage:     python csv<em>to</em>pg.py --input-dir ./data --db-url postgresql://user:pass@localhost/mydb """</p>
+
+<p>import argparse import csv import logging import re import sys from pathlib import Path</p>
+
+<p>import psycopg2 from psycopg2.extras import execute_values</p>
+
+<p>logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s") log = logging.getLogger(<strong>name</strong>)</p>
+
+<p>EMAIL_RE = re.compile(r"^[^@]+@[^@]+\.[^@]+$")</p>
+
+<p>UPSERT<em>SQL = """     INSERT INTO customers (customer</em>id, email, amount, sale<em>date)     VALUES %s     ON CONFLICT (customer</em>id)     DO UPDATE SET         email = EXCLUDED.email,         amount = EXCLUDED.amount,         sale<em>date = EXCLUDED.sale</em>date """</p>
+
+<p>def validate<em>row(row: dict) -> tuple[bool, str]:     if not row.get("customer</em>id", "").strip():         return False, "Missing customer<em>id"     if not EMAIL</em>RE.match(row.get("email", "")):         return False, f"Invalid email: {row.get('email')}"     try:         amount = float(row["amount"])         if amount <= 0:             raise ValueError     except (KeyError, ValueError):         return False, f"Invalid amount: {row.get('amount')}"     return True, ""</p>
+
+<p>def process<em>file(filepath: Path, conn) -> tuple[int, int]:     """Returns (inserted, rejected) counts."""     valid</em>rows = []     error_rows = []</p>
+
+<p>with filepath.open(newline="", encoding="utf-8-sig") as f:         reader = csv.DictReader(f)         for row in reader:             ok, reason = validate<em>row(row)             if ok:                 valid</em>rows.append(                     (row["customer<em>id"].strip(), row["email"].strip(),                      float(row["amount"]), row["date"].strip())                 )             else:                 error</em>rows.append({**row, "error_reason": reason})</p>
+
+<p>if valid<em>rows:         with conn.cursor() as cur:             execute</em>values(cur, UPSERT<em>SQL, valid</em>rows)         conn.commit()</p>
+
+<p>if error<em>rows:         error</em>path = filepath.parent / "errors" / filepath.name         error<em>path.parent.mkdir(exist</em>ok=True)         with error<em>path.open("w", newline="", encoding="utf-8") as f:             writer = csv.DictWriter(f, fieldnames=list(error</em>rows[0].keys()))             writer.writeheader()             writer.writerows(error_rows)</p>
+
+<p>log.info("%s: %d inserted, %d rejected", filepath.name, len(valid<em>rows), len(error</em>rows))     return len(valid<em>rows), len(error</em>rows)</p>
+
+<p>def main() -> None:     parser = argparse.ArgumentParser(description="CSV to PostgreSQL ETL")     parser.add<em>argument("--input-dir", required=True, type=Path)     parser.add</em>argument("--db-url", required=True)     args = parser.parse_args()</p>
+
+<p>csv<em>files = list(args.input</em>dir.glob("*.csv"))     if not csv<em>files:         log.warning("No CSV files found in %s", args.input</em>dir)         sys.exit(0)</p>
+
+<p>conn = psycopg2.connect(args.db<em>url)     total</em>inserted = total_rejected = 0</p>
+
+<p>try:         for filepath in csv<em>files:             inserted, rejected = process</em>file(filepath, conn)             total<em>inserted += inserted             total</em>rejected += rejected     finally:         conn.close()</p>
+
+<p>log.info("Done. Total inserted: %d, rejected: %d", total<em>inserted, total</em>rejected)</p>
+
+<p>if <strong>name</strong> == "<strong>main</strong>":     main() <code>`</code></p>
+
+<h3>Script 3: Batch File Renamer with Preview Mode</h3>
+
+<p><code>`</code>python</p>
+<p>#!/usr/bin/env python3 """ Rename files in a directory according to a pattern. Supports preview (dry-run) mode, undo via a log file, and regex transformations.</p>
+
+<p>Usage:     # Preview     python renamer.py --dir ./photos --pattern "{date}<em>{name}" --dry-run     # Apply     python renamer.py --dir ./photos --pattern "{date}</em>{name}"     # Undo last run     python renamer.py --undo """</p>
+
+<p>import argparse import json import re import sys from datetime import datetime from pathlib import Path</p>
+
+<p>UNDO<em>LOG = Path(".renamer</em>undo.json")</p>
+
+<p>def build<em>new</em>name(filepath: Path, pattern: str) -> str:     """Substitute pattern variables with file metadata."""     mtime = datetime.fromtimestamp(filepath.stat().st<em>mtime)     replacements = {         "{name}": filepath.stem,         "{ext}": filepath.suffix.lstrip("."),         "{date}": mtime.strftime("%Y-%m-%d"),         "{datetime}": mtime.strftime("%Y%m%d</em>%H%M%S"),     }     result = pattern     for key, value in replacements.items():         result = result.replace(key, value)     # Append original extension if pattern doesn't include {ext}     if "{ext}" not in pattern and filepath.suffix:         result += filepath.suffix     return result</p>
+
+<p>def rename<em>files(directory: Path, pattern: str, dry</em>run: bool) -> None:     files = [f for f in directory.iterdir() if f.is_file() and not f.name.startswith(".")]     if not files:         print("No files found.")         return</p>
+
+<p>undo_map = {}     conflicts = set()</p>
+
+<p>renames = [(f, f.parent / build<em>new</em>name(f, pattern)) for f in files]</p>
+
+<p># Check for conflicts     new<em>names = [new for </em>, new in renames]     seen = set()     for new in new_names:         if new in seen:             conflicts.add(new)         seen.add(new)</p>
+
+<p>for original, new<em>path in renames:         if original == new</em>path:             continue         if new<em>path in conflicts:             print(f"  SKIP (conflict): {original.name} -> {new</em>path.name}")             continue         print(f"  {'[DRY RUN] ' if dry<em>run else ''}Rename: {original.name} -> {new</em>path.name}")         if not dry<em>run:             original.rename(new</em>path)             undo<em>map[str(new</em>path)] = str(original)</p>
+
+<p>if not dry<em>run and undo</em>map:         UNDO<em>LOG.write</em>text(json.dumps(undo<em>map, indent=2))         print(f"\nUndo log saved to {UNDO</em>LOG}")</p>
+
+<p>def undo<em>renames() -> None:     if not UNDO</em>LOG.exists():         print("No undo log found.")         sys.exit(1)     undo<em>map = json.loads(UNDO</em>LOG.read<em>text())     for current, original in undo</em>map.items():         current<em>path, original</em>path = Path(current), Path(original)         if current<em>path.exists():             current</em>path.rename(original<em>path)             print(f"Restored: {current</em>path.name} -> {original<em>path.name}")         else:             print(f"File not found, skipping: {current</em>path.name}")     UNDO_LOG.unlink()     print("Undo complete.")</p>
+
+<p>def main() -> None:     parser = argparse.ArgumentParser(description="Batch file renamer")     parser.add<em>argument("--dir", type=Path, help="Directory containing files to rename")     parser.add</em>argument("--pattern", help="Name pattern. Variables: {name} {ext} {date} {datetime}")     parser.add<em>argument("--dry-run", action="store</em>true", help="Preview without renaming")     parser.add<em>argument("--undo", action="store</em>true", help="Undo the last rename operation")     args = parser.parse_args()</p>
+
+<p>if args.undo:         undo<em>renames()     elif args.dir and args.pattern:         rename</em>files(args.dir, args.pattern, args.dry<em>run)     else:         parser.print</em>help()         sys.exit(1)</p>
+
+<p>if <strong>name</strong> == "<strong>main</strong>":     main() <code>`</code></p>
+
+<h2>Integrating Claude Python Output with Make.com</h2>
+
+<p>Claude can write Python scripts that serve as the processing core of a Make.com automation. A common pattern: Make.com handles the trigger and data routing, and a Python script (deployed as an AWS Lambda or on a VPS) handles the heavy lifting.</p>
+
+<p>Example workflow:</p>
+
+<ol>
+<li><strong>Make.com trigger</strong> — new row in Google Sheets</li>
+<li><strong>Make.com HTTP module</strong> — POST the row data to your Python webhook endpoint</li>
+<li><strong>Python script</strong> — validates, transforms, and loads data to Postgres</li>
+<li><strong>Make.com</strong> — receives the response, updates the Sheet status</li>
+</ol>
+
+<p>Ask Claude to generate the Python Flask endpoint that Make.com calls:</p>
+
+<p><code>`</code> Write a Flask endpoint at POST /process-lead that receives JSON with  fields (name, email, company, source). Validate the data with pydantic,  upsert to the leads table in Postgres, and return {success: true, lead_id: ...}  or {success: false, error: ...}. The endpoint should use HTTP Basic Auth  with credentials from environment variables. <code>`</code></p>
+
+<p>Claude generates a complete, deployable Flask handler with pydantic validation, database upsert, and authentication — ready to plug into your Make.com scenario.</p>
+
+<h2>Claude Code vs Claude.ai for Python Projects</h2>
+
+<p><table> <thead> <tr> <th>Use case</th> <th>Use Claude Code</th> <th>Use Claude.ai</th> </tr> </thead> <tbody> <tr> <td>Multi-file Python project</td> <td>Yes — reads all files</td> <td>No</td> </tr> <tr> <td>Single standalone script</td> <td>Either works</td> <td>Quick and easy</td> </tr> <tr> <td>Refactoring existing code</td> <td>Claude Code</td> <td>Paste and describe</td> </tr> <tr> <td>Running and testing output</td> <td>Claude Code</td> <td>No</td> </tr> <tr> <td>Quick data manipulation</td> <td>Either</td> <td>Faster for one-offs</td> </tr> <tr> <td>Package a CLI tool</td> <td>Claude Code</td> <td>Possible but awkward</td> </tr> </tbody> </table></p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-code-getting-started/">Claude Code Getting Started</a></li>
+<li><a href="/debug-code-with-claude/">Debug Code with Claude</a></li>
+<li><a href="/claude-api-documentation/">Claude for API Documentation</a></li>
+<li><a href="/claude-co-developer/">Building Apps with Claude as Your Co-Developer</a></li>
+<li><a href="/claude-code-vs-n8n/">Claude Code vs n8n</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude write Python scripts?</dt>
+<dd>Yes — Claude writes complete, runnable Python scripts including data processing pipelines, API clients, file automation, web scrapers, CLI tools, and more. It handles standard library modules, popular third-party packages (requests, pandas, SQLAlchemy, FastAPI, etc.), and Python 3.10+ features like structural pattern matching and improved type hints. You can ask for a complete script with error handling, logging, and CLI arguments in a single prompt.</dd>
+<dt>How good is Claude at Python?</dt>
+<dd>Claude is among the strongest AI models for Python. It writes idiomatic, Pythonic code — using list comprehensions where appropriate, context managers for resources, dataclasses, proper exception hierarchies, and type hints. It also knows when not to be clever. For production scripts, Claude consistently adds error handling, logging, and argument parsing without being asked.</dd>
+<dt>What Python libraries does Claude know?</dt>
+<dd>Claude has deep knowledge of the Python standard library plus the most widely used third-party packages: requests and httpx (HTTP), pandas and polars (data), SQLAlchemy (databases), FastAPI and Flask (web), pytest (testing), pydantic (validation), boto3 (AWS), Pillow (images), BeautifulSoup and Playwright (scraping/automation), and many more. It also knows the Anthropic Python SDK for building Claude-powered tools.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Do a Site Audit Using Claude (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Learn how to do an SEO site audit with Claude AI in 2026. Discover what Claude can and can't audit, how to feed it data, and how to combine it with Screaming Frog.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/site-audit-with-claude/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Do a Site Audit Using Claude (2026 Guide)">
+  <meta property="og:description" content="Learn how to do an SEO site audit with Claude AI in 2026. Discover what Claude can and can't audit, how to feed it data, and how to combine it with Screaming Frog.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/site-audit-with-claude/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/site-audit-with-claude.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Do a Site Audit Using Claude (2026 Guide)">
+  <meta name="twitter:description" content="Learn how to do an SEO site audit with Claude AI in 2026. Discover what Claude can and can't audit, how to feed it data, and how to combine it with Screaming Frog.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Do a Site Audit Using Claude (2026 Guide)",
+  "description": "Learn how to do an SEO site audit with Claude AI in 2026. Discover what Claude can and can't audit, how to feed it data, and how to combine it with Screaming Frog.",
+  "url": "https://howtoclaudeatoz.com/site-audit-with-claude/",
+  "image": "https://howtoclaudeatoz.com/og/site-audit-with-claude.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude do an SEO site audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude can analyse site audit data that you paste or upload into the conversation \u2014 identifying patterns in technical issues, prioritising fixes, interpreting content quality problems, and suggesting a remediation roadmap. It cannot crawl your site directly. You need to export data from a crawler like Screaming Frog or a platform like Surfer SEO and feed it to Claude."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can Claude audit that other tools can't?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude can interpret the why behind issues \u2014 explaining why thin content hurts a specific section of your site, why a particular redirect chain is problematic, or how to prioritise 47 different technical issues in the right order. Standard audit tools produce lists; Claude turns those lists into an actionable ranked remediation plan with explanations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I still need Ahrefs if I use Claude for site audits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for most serious SEO work. Claude cannot check backlink profiles, domain authority, toxic link analysis, or ranking history \u2014 all of which are important audit components. Mangools or Surfer SEO provide cost-effective alternatives to Ahrefs for these data layers. Claude then analyses the data you bring in from those tools."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for SEO",
+      "item": "https://howtoclaudeatoz.com/seo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Do a Site Audit Using Claude (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/site-audit-with-claude/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/seo/">Claude for SEO</a></li><li aria-current="page">How to Do a Site Audit Using Claude (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How to Do a Site Audit Using Claude (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>A site audit with Claude follows a data-in, analysis-out model. Claude cannot access your website directly — it has no web crawler. What it can do is analyse audit data you paste or upload, interpret patterns across hundreds of pages, prioritise issues by SEO impact, and produce a clear remediation roadmap. This is genuinely useful because most site audits produce overwhelming lists of issues with no prioritisation guidance. Claude takes a raw Screaming Frog export with 400 rows and turns it into a ranked action plan in minutes. This guide covers the full workflow, what Claude handles well, and where you still need dedicated tools.</p>
+
+<h2>What Can Claude Audit? — A Clear Breakdown</h2>
+
+<p>Understanding Claude's scope prevents frustration. Here is an honest map of what Claude can and cannot assess.</p>
+
+<h3>What Claude CAN audit (with your data)</h3>
+
+<p><table> <thead> <tr> <th>Audit Area</th> <th>What Claude Does</th> <th>Data Source Needed</th> </tr> </thead> <tbody> <tr> <td>Title tags and meta descriptions</td> <td>Flags missing, duplicate, too long, too short</td> <td>Screaming Frog CSV export</td> </tr> <tr> <td>Heading structure (H1, H2)</td> <td>Spots missing H1s, duplicate H1s, keyword misalignment</td> <td>Screaming Frog or manual paste</td> </tr> <tr> <td>Content quality</td> <td>Assesses thin content, duplicate content, topical relevance</td> <td>Page text paste or crawl data</td> </tr> <tr> <td>Internal link analysis</td> <td>Identifies orphan pages, poor anchor text, link equity gaps</td> <td>Screaming Frog internal links export</td> </tr> <tr> <td>Redirect mapping</td> <td>Reviews redirect chains, 302 vs 301 issues, loops</td> <td>Screaming Frog redirect report</td> </tr> <tr> <td>Content gap analysis</td> <td>Compares your content to competitor topics</td> <td>Manual input + competitor URLs</td> </tr> <tr> <td>Issue prioritisation</td> <td>Ranks all issues by likely SEO impact</td> <td>Any audit tool export</td> </tr> <tr> <td>Remediation roadmap</td> <td>Creates a phased fix plan with rationale</td> <td>Your issue list</td> </tr> </tbody> </table></p>
+
+<h3>What Claude CANNOT audit (needs dedicated tools)</h3>
+
+<p><table> <thead> <tr> <th>Audit Area</th> <th>Why Claude Can't Help</th> <th>Tool to Use Instead</th> </tr> </thead> <tbody> <tr> <td>Live crawl of your site</td> <td>No web access or crawler</td> <td>Screaming Frog, Sitebulb</td> </tr> <tr> <td>Page speed / Core Web Vitals</td> <td>No access to runtime metrics</td> <td>PageSpeed Insights, Screaming Frog</td> </tr> <tr> <td>Backlink profile</td> <td>No access to link databases</td> <td>Mangools LinkMiner, Ahrefs</td> </tr> <tr> <td>Search rankings</td> <td>No access to SERP data</td> <td>Mangools SERPWatcher, Search Console</td> </tr> <tr> <td>Index status</td> <td>Cannot query Google's index</td> <td>Google Search Console</td> </tr> <tr> <td>JavaScript rendering issues</td> <td>Cannot execute JavaScript</td> <td>Screaming Frog, Sitebulb</td> </tr> </tbody> </table></p>
+
+<h2>How to Do a Site Audit with Claude — Step by Step</h2>
+
+<h3>Step 1: Crawl your site with Screaming Frog</h3>
+
+<p>Download and run Screaming Frog SEO Spider (free up to 500 URLs). Crawl your site and export these reports:</p>
+
+<ul>
+<li><strong>Internal HTML pages</strong> — all pages with status codes, title tags, meta descriptions, H1, word count</li>
+<li><strong>Response codes</strong> — all 3xx and 4xx responses</li>
+<li><strong>Redirect chains</strong> — any chains longer than one hop</li>
+<li><strong>Internal links</strong> — anchor text and target URLs</li>
+</ul>
+
+<p>For sites over 500 URLs, the paid Screaming Frog licence is necessary. Alternatively, use Surfer SEO's site audit feature if you are already a subscriber.</p>
+
+<h3>Step 2: Structure your data for Claude</h3>
+
+<p>Claude works best with structured data. Before pasting, format your exports as clean tables. Remove unnecessary columns from Screaming Frog exports — keep only the columns relevant to the audit area.</p>
+
+<p>A useful prep prompt:</p>
+
+<p><code>`</code> I am going to paste my site crawl data into this conversation for analysis. Before I do, tell me the ideal column structure for each of these data types:</p>
+<ol>
+<li>Page list (titles, descriptions, H1, word count)</li>
+<li>Redirect report</li>
+<li>Internal links report</li>
+</ol>
+
+<p>I am using Screaming Frog exports. <code>`</code></p>
+
+<h3>Step 3: Feed the crawl data and request an initial audit</h3>
+
+<p>Paste your primary page data and ask for an overall assessment:</p>
+
+<p><code>`</code> Here is my site crawl data for [domain.com]: [paste data]</p>
+
+<p>Perform a technical SEO audit. Identify:</p>
+<ol>
+<li>Pages with missing or duplicate title tags</li>
+<li>Pages with missing or duplicate H1 tags</li>
+<li>Pages with meta descriptions that are too short (<120 chars) or too long (>160 chars)</li>
+<li>Pages with very low word count (under 300 words)</li>
+<li>Pages returning 4xx or 3xx status codes</li>
+</ol>
+
+<p>For each issue type, list the affected URLs and give an estimated SEO impact (high / medium / low). <code>`</code></p>
+
+<h3>Step 4: Request a prioritised remediation roadmap</h3>
+
+<p>After the initial findings, ask Claude to prioritise:</p>
+
+<p><code>`</code> Based on the issues you identified, create a prioritised remediation roadmap.</p>
+
+<p>Organise fixes into three phases:</p>
+<ul>
+<li>Phase 1 (Week 1-2): Quick wins — high impact, low effort</li>
+<li>Phase 2 (Week 3-6): Important fixes — high impact, moderate effort</li>
+<li>Phase 3 (Month 2-3): Long-term work — moderate impact, high effort</li>
+</ul>
+
+<p>For each fix, explain why it matters in 1-2 sentences. <code>`</code></p>
+
+<h3>Step 5: Content quality audit</h3>
+
+<p>For content issues, paste the text of underperforming pages directly into Claude:</p>
+
+<p><code>`</code> Analyse this page for content quality issues from an SEO perspective.</p>
+
+<p>URL: [page URL] Primary keyword this page should rank for: [keyword] Current ranking position: [position from Search Console]</p>
+
+<p>Identify:</p>
+<ol>
+<li>Is the primary keyword used naturally in the first 100 words?</li>
+<li>Does the content adequately cover the topic compared to what a top-ranking page would include?</li>
+<li>Are there sections missing that a searcher would expect to find?</li>
+<li>Is there any thin or padded content that should be removed?</li>
+<li>What are the top 3 changes that would most improve this page's rankings?</li>
+</ol>
+<p><code>`</code></p>
+
+<h3>Step 6: Internal link audit</h3>
+
+<p>Paste your Screaming Frog internal links export and ask Claude to find opportunities:</p>
+
+<p><code>`</code> Here is my site's internal link data: [paste export]</p>
+
+<p>Identify:</p>
+<ol>
+<li>Any pages with zero internal links pointing to them (orphan pages)</li>
+<li>Pages that are heavily linked internally but have low search value</li>
+<li>High-value pages (based on the URL and title) that have fewer than 3 internal links</li>
+<li>Anchor text that is too generic (e.g. "click here", "read more")</li>
+</ol>
+
+<p>Suggest the top 10 internal linking improvements I should make. <code>`</code></p>
+
+<h3>Step 7: Competitor gap audit</h3>
+
+<p>Complete the audit by comparing your content coverage to competitors:</p>
+
+<p><code>`</code> My site covers these topics: [paste your page titles or topic areas]</p>
+
+<p>My main competitors are [competitor 1], [competitor 2], [competitor 3].</p>
+
+<p>Based on what you know about these competitors' content and what I've told you about my site, what are the top 10 content gaps I should address? Prioritise by estimated search volume potential. <code>`</code></p>
+
+<h2>Claude Site Audit — What Makes It Valuable</h2>
+
+<p>The real value of Claude in a site audit is not data collection — it is interpretation and prioritisation. A Screaming Frog crawl of a 500-page site returns thousands of data points. Claude processes this data and answers the question that standard tools cannot: "Given everything here, what should I fix first and why?"</p>
+
+<p>Claude also explains issues in plain language, which is invaluable when you need to brief a developer, justify the audit to a client, or explain technical SEO to a non-technical business owner.</p>
+
+<h2>Combining Claude with Screaming Frog and Surfer SEO</h2>
+
+<p>The most effective site audit workflow uses three tools in sequence:</p>
+
+<ol>
+<li><strong>Screaming Frog</strong> — crawls the site and generates structured data exports</li>
+<li><strong>Surfer SEO</strong> — audits content quality and on-page optimisation scores for key pages</li>
+<li><strong>Claude</strong> — receives data from both tools, identifies patterns, prioritises issues, and writes the remediation plan</li>
+</ol>
+
+<p>Screaming Frog and Surfer SEO give you the data. Claude gives you the strategy. Together, this three-tool audit is comparable in output quality to audits that agencies charge thousands for.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-on-page-seo/">Claude for On-Page SEO Optimisation</a> — Fix the on-page issues your audit uncovers</li>
+<li><a href="/claude-internal-linking/">Claude Internal Linking</a> — Build a proper internal link structure after your audit</li>
+<li><a href="/claude-meta-titles-descriptions/">Claude Meta Titles and Descriptions</a> — Rewrite the meta tags your audit flags as missing or weak</li>
+<li><a href="/keyword-research-with-claude/">Keyword Research with Claude</a> — Pair your audit with keyword research to find content gaps</li>
+<li><a href="/claude-surfer-seo-workflow/">Claude + Surfer SEO Workflow</a> — Deep dive into combining Claude with Surfer's audit data</li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude do an SEO site audit?</dt>
+<dd>Claude can analyse site audit data that you paste or upload into the conversation — identifying patterns in technical issues, prioritising fixes, interpreting content quality problems, and suggesting a remediation roadmap. It cannot crawl your site directly. You need to export data from a crawler like Screaming Frog or a platform like Surfer SEO and feed it to Claude.</dd>
+<dt>What can Claude audit that other tools can't?</dt>
+<dd>Claude can interpret the why behind issues — explaining why thin content hurts a specific section of your site, why a particular redirect chain is problematic, or how to prioritise 47 different technical issues in the right order. Standard audit tools produce lists; Claude turns those lists into an actionable ranked remediation plan with explanations.</dd>
+<dt>Do I still need Ahrefs if I use Claude for site audits?</dt>
+<dd>Yes, for most serious SEO work. Claude cannot check backlink profiles, domain authority, toxic link analysis, or ranking history — all of which are important audit components. Mangools or Surfer SEO provide cost-effective alternatives to Ahrefs for these data layers. Claude then analyses the data you bring in from those tools.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

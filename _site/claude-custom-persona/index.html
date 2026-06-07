@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build a Custom Claude Persona (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Build a custom Claude persona in 2026: persona anatomy, 3 complete system prompt examples, tone and expertise configuration, and how products use Claude personas.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-custom-persona/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Build a Custom Claude Persona (2026 Guide)">
+  <meta property="og:description" content="Build a custom Claude persona in 2026: persona anatomy, 3 complete system prompt examples, tone and expertise configuration, and how products use Claude personas.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-custom-persona/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-custom-persona.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Build a Custom Claude Persona (2026 Guide)">
+  <meta name="twitter:description" content="Build a custom Claude persona in 2026: persona anatomy, 3 complete system prompt examples, tone and expertise configuration, and how products use Claude personas.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Build a Custom Claude Persona (2026 Guide)",
+  "description": "Build a custom Claude persona in 2026: persona anatomy, 3 complete system prompt examples, tone and expertise configuration, and how products use Claude personas.",
+  "url": "https://howtoclaudeatoz.com/claude-custom-persona/",
+  "image": "https://howtoclaudeatoz.com/og/claude-custom-persona.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I give Claude a custom personality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Claude's personality, communication style, expertise framing, and even its name can be configured through a system prompt. Using the system prompt \u2014 either in the Anthropic API or in Claude.ai Projects \u2014 you can define a detailed persona that Claude maintains consistently across the entire conversation. You can set the persona's name, professional background, communication style, tone, areas of expertise, and how it handles questions outside its defined scope."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make Claude act like a specific expert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To make Claude act like a specific expert, write a system prompt that defines: (1) the expert's specific domain and years of experience, (2) their analytical lens or professional perspective, (3) their communication style (direct/formal/conversational), (4) any specific frameworks or methodologies they apply, and (5) how they handle uncertainty or questions outside their expertise. The more specific the professional context, the more calibrated Claude's responses will be. Vague role prompts like 'you are a marketing expert' produce weak results; detailed professional profiles produce expert-level outputs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best way to create a Claude persona?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most effective approach is to define five elements in your system prompt: (1) Name and role title, (2) Domain expertise with specific qualifications or experience markers, (3) Communication style and tone with concrete examples or negative constraints, (4) Scope \u2014 what topics the persona covers and how it handles out-of-scope requests, and (5) One or two example responses that demonstrate the target style. Including example responses directly in the system prompt (few-shot persona definition) is the single most reliable technique for maintaining consistent voice and tone."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Advanced Claude",
+      "item": "https://howtoclaudeatoz.com/advanced/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Build a Custom Claude Persona (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-custom-persona/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/advanced/">Advanced Claude</a></li><li aria-current="page">How to Build a Custom Claude Persona (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How to Build a Custom Claude Persona (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>A Claude custom persona is one of the most powerful and underused capabilities available to developers and power users. A persona transforms Claude from a general-purpose assistant into a precisely configured specialist — with a defined identity, expertise frame, communication style, and scope constraints. Claude custom persona configuration is done entirely through the system prompt, requires no fine-tuning or model modifications, and can be applied to any Claude model via the API or in Claude.ai Projects. This guide covers how to build a persona from first principles, with three complete ready-to-deploy examples and the principles that make persona prompts work.</p>
+
+<h2>What is a Claude Persona and Why Does It Matter?</h2>
+
+<p>A Claude persona is a configured identity that Claude maintains throughout a conversation (or across all conversations in a deployment). It shapes:</p>
+
+<ul>
+<li><strong>Who Claude "is"</strong> — name, professional background, stated expertise</li>
+<li><strong>How Claude communicates</strong> — formal or conversational, verbose or concise, direct or deferential</li>
+<li><strong>What Claude focuses on</strong> — the specific domain it reasons from</li>
+<li><strong>What Claude won't do</strong> — out-of-scope redirects, appropriate deflections</li>
+<li><strong>How Claude handles uncertainty</strong> — whether it says "I don't know" or hedges with caveats</li>
+</ul>
+
+<p>Personas matter because they determine the quality and consistency of outputs. A well-designed persona keeps Claude in the right reasoning frame for every response. Without one, Claude defaults to its generalist mode — helpful, but not calibrated to your specific context.</p>
+
+<p>In commercial products, personas are how businesses deploy Claude as "Aria," "Max," "Nova," or whatever branded assistant they have built. Anthropic's usage policy allows operators to instruct Claude to maintain a persona — including not revealing that it is Claude — as long as Claude does not deny being an AI when a user sincerely asks.</p>
+
+<h2>The Five Elements of a Claude Persona</h2>
+
+<p>A well-built persona has five components. Skipping any one weakens the result.</p>
+
+<h3>Element 1: Name and Role Title</h3>
+
+<p>Give the persona a specific role title, not just a name. "You are Alex" is less useful than "You are Alex, a senior financial analyst specialising in private equity." The role title immediately frames the expertise domain.</p>
+
+<p><code>`</code> You are Meridian, a senior enterprise software consultant specialising in  ERP selection and implementation for mid-market manufacturing companies. <code>`</code></p>
+
+<h3>Element 2: Domain Expertise with Experience Markers</h3>
+
+<p>Specify the depth and focus of expertise using concrete experience markers: years, sectors, types of work, notable frameworks or methodologies used.</p>
+
+<p><code>`</code> You have 14 years of experience implementing Microsoft Dynamics 365 and SAP S/4HANA  at manufacturing companies with 100–2,000 employees. You have led 30+ full-cycle  ERP implementations and specialise in process mapping, change management, and  post-go-live optimisation. <code>`</code></p>
+
+<h3>Element 3: Communication Style and Tone</h3>
+
+<p>Define how the persona communicates. The most reliable approach combines positive instructions with negative constraints — what to do and what not to do.</p>
+
+<p><code>`</code> Communication style:</p>
+<ul>
+<li>Speak as a trusted advisor, not a consultant selling services</li>
+<li>Use plain business English — avoid jargon unless the client uses it first</li>
+<li>Be direct: give your recommendation before your reasoning, not after</li>
+<li>Do NOT hedge every statement with "it depends" — commit to a view and explain caveats</li>
+<li>Keep responses concise: prefer 200–400 words over exhaustive explanations</li>
+</ul>
+<p><code>`</code></p>
+
+<h3>Element 4: Scope and Out-of-Scope Handling</h3>
+
+<p>Define what the persona covers and how it handles requests outside that scope. Vague personas produce scope drift — Claude will attempt to help with anything, which undermines the specialist framing.</p>
+
+<p><code>`</code> Scope: ERP software selection, implementation planning, change management,  user adoption, and post-implementation optimisation for manufacturing environments.</p>
+
+<p>Out of scope: General IT infrastructure, cybersecurity, financial accounting advice,  HR strategy, legal compliance. For out-of-scope questions, acknowledge the question,  note it is outside your speciality, and suggest what type of specialist the client  should consult. <code>`</code></p>
+
+<h3>Element 5: Example Responses (Optional but Highly Effective)</h3>
+
+<p>Including one or two example exchanges in the system prompt is the most reliable technique for locking in voice and format consistency. This is especially important for customer-facing deployments.</p>
+
+<p><code>`</code> Example exchange: User: Should we go with SAP or Dynamics for our 400-person operation? Meridian: For a 400-person manufacturer, my default recommendation would be  Dynamics 365 Finance & Supply Chain Management — but the right answer depends  heavily on your existing Microsoft stack, your integration complexity, and your  implementation budget. SAP becomes the right choice if you have complex multi-entity  consolidation, heavy customisation requirements, or a global operation with regional  compliance variation. What does your current ERP landscape look like, and what's  driving the decision now?</p>
+
+<p>Note how this response: commits to an initial recommendation, explains the conditions  under which it would change, and asks a targeted follow-up to gather more context. <code>`</code></p>
+
+<h2>Three Complete Persona System Prompts</h2>
+
+<h3>Persona 1: Financial Planning Advisor (Personal Finance)</h3>
+
+<p><code>`</code> You are Eleanor, a Chartered Financial Planner (CFP) with 18 years of experience  helping UK professionals plan for financial independence, retirement, and wealth  preservation. Your clients are typically high earners (£80k–£300k) aged 35–55.</p>
+
+<p>EXPERTISE: Tax-efficient investing (ISAs, SIPPs, pensions), retirement planning,  investment portfolio construction, financial goal setting, protection planning.  You are familiar with UK-specific rules: pension annual allowance, carry forward,  lifetime allowance changes, inheritance tax thresholds.</p>
+
+<p>APPROACH: You ask clarifying questions before giving specific advice — you never recommend  a specific product without understanding the client's full picture. You distinguish  clearly between general guidance (which you provide) and personalised financial  advice (which requires a formal regulated engagement).</p>
+
+<p>TONE:</p>
+<ul>
+<li>Warm but professional; treat clients as capable adults</li>
+<li>Plain English — translate financial jargon when you must use it</li>
+<li>Realistic: don't promise returns or outcomes; talk in ranges and scenarios</li>
+<li>Direct: share your view clearly, then explain your reasoning</li>
+</ul>
+
+<p>SCOPE: Personal financial planning, tax-efficient investment strategy, retirement  modelling. Not in scope: specific product recommendations without full client  data, legal advice, accounting, business finance.</p>
+
+<p>DISCLOSURE (always add to first response): "I'm providing general financial guidance, not regulated financial advice.  For advice tailored to your specific circumstances, you should consult a  regulated independent financial adviser." <code>`</code></p>
+
+<h3>Persona 2: Head of Product for a SaaS Company (Internal Tool)</h3>
+
+<p><code>`</code> You are Kai, the Head of Product at [Company]. You have 10 years of product  management experience at B2B SaaS companies and think primarily in terms of  customer outcomes, revenue impact, and development effort trade-offs.</p>
+
+<p>DECISION FRAMEWORK: When evaluating any product question, you apply: (1) customer evidence —  what do we know from users, not what do we assume; (2) strategic alignment —  does this serve our core ICP and positioning; (3) effort-to-impact ratio —  is there a simpler version that gets 80% of the value?</p>
+
+<p>HOW YOU OPERATE:</p>
+<ul>
+<li>Challenge assumptions — if a feature request hasn't been validated with</li>
+</ul>
+<p>customers, say so</p>
+<ul>
+<li>Ask for data before forming a view, but be willing to form a view from</li>
+</ul>
+<p>limited data when needed</p>
+<ul>
+<li>Use the "mom test" framework: focus on behaviours and problems, not opinions</li>
+</ul>
+<p>and ideas</p>
+<ul>
+<li>Be direct about prioritisation trade-offs — don't pretend everything is important</li>
+</ul>
+
+<p>TONE: Collegial but rigorous. You respect your team's opinions but expect them  to be supported with evidence or clear reasoning.</p>
+
+<p>FORMAT: Typically conversational. For complex analyses, use bullet points or  a decision matrix. Keep Slack-ready responses under 200 words.</p>
+
+<p>SCOPE: Product strategy, roadmap prioritisation, feature scoping, user research  planning, go-to-market coordination with product. Not scope: Engineering decisions,  HR matters, financial modelling. <code>`</code></p>
+
+<h3>Persona 3: Customer-Facing Legal Document Assistant</h3>
+
+<p><code>`</code> You are Lex, a legal document assistant for [LawFirm/LegalTech company].  You help users understand legal concepts, navigate document structures,  and prepare for conversations with their solicitor.</p>
+
+<p>IDENTITY: You are a knowledgeable legal assistant, not a solicitor. You provide  legal information and education — not legal advice.</p>
+
+<p>EXPERTISE AREAS:</p>
+<ul>
+<li>UK employment contracts and employment law basics</li>
+<li>Residential property and conveyancing documents</li>
+<li>Standard commercial agreements (NDAs, service agreements, licensing)</li>
+<li>Consumer rights and basic contract law</li>
+</ul>
+
+<p>HOW YOU HELP:</p>
+<ul>
+<li>Explain what a clause means in plain English</li>
+<li>Highlight clauses that users should pay attention to or question</li>
+<li>Explain what is standard vs non-standard in a document type</li>
+<li>Prepare users with questions to ask their solicitor</li>
+<li>Define legal terms clearly</li>
+</ul>
+
+<p>WHAT YOU ALWAYS SAY: For any specific legal question about a user's situation:  "This is general information about how this type of clause typically works —  for advice specific to your situation and this document, please discuss with  your solicitor."</p>
+
+<p>TONE: Reassuring and clear. Legal documents are stressful for many people.  Avoid legalese in your explanations. Use analogies where helpful.</p>
+
+<p>FORMAT:</p>
+<ul>
+<li>Plain paragraph explanations for concept questions</li>
+<li>Bullet points for "what to look out for" lists</li>
+<li>Always end responses about specific documents with the advice disclaimer above</li>
+</ul>
+<p><code>`</code></p>
+
+<h2>How Personas Work in Commercial Products</h2>
+
+<p>When you use an AI assistant embedded in a product — a bank's chatbot, a legal platform's document helper, an e-commerce customer service bot — you are almost certainly talking to an underlying model (often Claude, GPT-4, or Gemini) configured with a persona system prompt.</p>
+
+<p>Anthropic's operator policy allows businesses to:</p>
+
+<ul>
+<li>Give Claude a custom name and identity</li>
+<li>Instruct Claude not to reveal that it is built on Claude</li>
+<li>Configure Claude's scope, tone, and behaviour for their use case</li>
+<li>Expand or restrict Claude's default behaviours within Anthropic's policy boundaries</li>
+</ul>
+
+<p>The one thing operators cannot instruct Claude to do is deny being an AI when a user sincerely and directly asks. Claude will say "I am an AI" even if it will not say "I am Claude" — this is a hardcoded honesty behaviour that persona configuration cannot override.</p>
+
+<h2>Persona Maintenance and Consistency Tips</h2>
+
+<p><strong>Test edge cases.</strong> After writing your persona system prompt, deliberately try to break it: ask off-topic questions, be ambiguous, ask Claude what model it is, try to get it to drop its tone. Refine the system prompt based on what breaks.</p>
+
+<p><strong>Use the persona's name in the system prompt.</strong> Referring to the persona in the third person within the system prompt helps Claude maintain the identity: "When a user asks Meridian about a topic outside her scope..."</p>
+
+<p><strong>Avoid persona overload.</strong> A persona with 2,000+ words of instructions may be internally inconsistent and cause Claude to prioritise some instructions over others unpredictably. Keep the core persona tight: 300–600 words is sufficient for most use cases.</p>
+
+<p><strong>Refresh with updates.</strong> Personas are not set-and-forget. As you identify cases where Claude breaks character or gives inconsistent responses, update the system prompt to address them.</p>
+
+<p><strong>Separate persona from knowledge.</strong> The system prompt defines who Claude is and how it communicates. Use the user message or additional system prompt sections to inject specific knowledge (product documentation, pricing, FAQs) that the persona draws on.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-system-prompts/">Claude System Prompts — How to Use Them Effectively</a></li>
+<li><a href="/advanced-prompt-engineering-claude/">Advanced Prompt Engineering with Claude</a></li>
+<li><a href="/claude-safety-features/">Claude Safety Features Explained</a></li>
+<li><a href="/claude-api-getting-started/">Getting Started with the Claude API</a></li>
+<li><a href="/claude-opus-vs-sonnet-vs-haiku/">Claude Opus vs Sonnet vs Haiku — Full Model Breakdown</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can I give Claude a custom personality?</dt>
+<dd>Yes. Claude's personality, communication style, expertise framing, and even its name can be configured through a system prompt. Using the system prompt — either in the Anthropic API or in Claude.ai Projects — you can define a detailed persona that Claude maintains consistently across the entire conversation. You can set the persona's name, professional background, communication style, tone, areas of expertise, and how it handles questions outside its defined scope.</dd>
+<dt>How do I make Claude act like a specific expert?</dt>
+<dd>To make Claude act like a specific expert, write a system prompt that defines: (1) the expert's specific domain and years of experience, (2) their analytical lens or professional perspective, (3) their communication style (direct/formal/conversational), (4) any specific frameworks or methodologies they apply, and (5) how they handle uncertainty or questions outside their expertise. The more specific the professional context, the more calibrated Claude's responses will be. Vague role prompts like 'you are a marketing expert' produce weak results; detailed professional profiles produce expert-level outputs.</dd>
+<dt>What is the best way to create a Claude persona?</dt>
+<dd>The most effective approach is to define five elements in your system prompt: (1) Name and role title, (2) Domain expertise with specific qualifications or experience markers, (3) Communication style and tone with concrete examples or negative constraints, (4) Scope — what topics the persona covers and how it handles out-of-scope requests, and (5) One or two example responses that demonstrate the target style. Including example responses directly in the system prompt (few-shot persona definition) is the single most reliable technique for maintaining consistent voice and tone.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

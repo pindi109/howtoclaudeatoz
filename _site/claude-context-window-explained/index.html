@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude's Context Window Explained — 200K Tokens Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Claude's context window holds up to 200,000 tokens — about 500 pages. This 2026 guide explains what that means, how it works, and how to use it effectively.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-context-window-explained/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude's Context Window Explained — 200K Tokens Guide (2026)">
+  <meta property="og:description" content="Claude's context window holds up to 200,000 tokens — about 500 pages. This 2026 guide explains what that means, how it works, and how to use it effectively.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-context-window-explained/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-context-window-explained.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude's Context Window Explained — 200K Tokens Guide (2026)">
+  <meta name="twitter:description" content="Claude's context window holds up to 200,000 tokens — about 500 pages. This 2026 guide explains what that means, how it works, and how to use it effectively.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude's Context Window Explained \u2014 200K Tokens Guide (2026)",
+  "description": "Claude's context window holds up to 200,000 tokens \u2014 about 500 pages. This 2026 guide explains what that means, how it works, and how to use it effectively.",
+  "url": "https://howtoclaudeatoz.com/claude-context-window-explained/",
+  "image": "https://howtoclaudeatoz.com/og/claude-context-window-explained.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How big is Claude's context window?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude's context window is 200,000 tokens on paid plans (Pro, Max, and Team). The free tier also provides access to a large context window, though the exact limit may vary. 200,000 tokens is roughly 150,000 words, or approximately 500 pages of a typical book."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when you hit the context limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When a conversation reaches Claude's context limit, Claude can no longer 'see' the earliest parts of the conversation. Older messages effectively drop out of its working memory. Claude will not warn you explicitly every time this happens. To work around it, start a new conversation, use Claude Projects to maintain key information separately, or summarise earlier content and paste the summary into a fresh chat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many pages of text fit in Claude's context window?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Approximately 500 pages of plain text fit within Claude's 200,000-token context window. This is based on the common estimate of about 400 tokens per page (roughly 300 words per page). In practice, content type matters: code is more token-dense than prose, and formatted documents use more tokens than plain text."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Getting Started with Claude",
+      "item": "https://howtoclaudeatoz.com/getting-started/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude's Context Window Explained \u2014 200K Tokens Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-context-window-explained/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/getting-started/">Getting Started with Claude</a></li><li aria-current="page">Claude's Context Window Explained — 200K Tokens Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude's Context Window Explained — 200K Tokens Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude's context window is 200,000 tokens — one of the largest available in any commercial AI assistant in 2026. The Claude context window determines how much text Claude can read, remember, and reason over in a single conversation. In practical terms, 200,000 tokens is roughly 150,000 words, or approximately 500 pages of a typical book. This matters enormously for tasks like analysing full documents, reviewing entire codebases, or holding long conversations without losing track of earlier context.</p>
+
+<h2>What is a Context Window? — Claude's Working Memory Explained</h2>
+
+<p>A context window is the total amount of text — measured in tokens — that an AI model can process at one time. Think of it as the model's working memory: everything within the context window is "visible" to Claude when it generates a response. Everything outside it is not. The context window includes your entire conversation history in that session: every message you have sent, every response Claude has given, and any files you have uploaded and shared.</p>
+
+<p>When you start a new conversation, the context window is empty. As the conversation grows, it fills up. If the conversation is long enough to exceed the context window, the oldest messages begin to drop out — Claude can no longer see them when generating new responses.</p>
+
+<h2>What is a Token? — Definition and Examples</h2>
+
+<p>A token is not exactly a word — it is a chunk of text that the model processes as a single unit. Tokens are determined during model training by a process called tokenisation. In English, one token is roughly three-quarters of a word on average.</p>
+
+<p>The table below shows common content types and their approximate token counts.</p>
+
+<p><table> <thead> <tr> <th>Content</th> <th>Approximate Tokens</th> </tr> </thead> <tbody> <tr> <td>One average English word</td> <td>~1.3 tokens</td> </tr> <tr> <td>One page of prose (300 words)</td> <td>~400 tokens</td> </tr> <tr> <td>One page of dense code</td> <td>~500–700 tokens</td> </tr> <tr> <td>A 10-page PDF report</td> <td>~4,000 tokens</td> </tr> <tr> <td>A 50-page business document</td> <td>~20,000 tokens</td> </tr> <tr> <td>A short novel (70,000 words)</td> <td>~90,000 tokens</td> </tr> <tr> <td>A full legal contract (150 pages)</td> <td>~60,000 tokens</td> </tr> <tr> <td>Claude's full context window</td> <td>200,000 tokens</td> </tr> </tbody> </table></p>
+
+<p>These are estimates. Tokenisation is language- and content-dependent. Code and some non-English languages use more tokens per unit of content than standard English prose.</p>
+
+<h2>How Big is Claude's Context Window? — Tokens to Words and Pages</h2>
+
+<p>Claude's 200,000-token context window converts to the following practical capacities:</p>
+
+<p><table> <thead> <tr> <th>Metric</th> <th>Approximate Value</th> </tr> </thead> <tbody> <tr> <td>Words</td> <td>~150,000 words</td> </tr> <tr> <td>Pages of prose</td> <td>~500 pages</td> </tr> <tr> <td>Pages of dense code</td> <td>~285–400 pages</td> </tr> <tr> <td>A4 pages of a typical PDF</td> <td>~500 pages</td> </tr> <tr> <td>Short novels</td> <td>~2 novels</td> </tr> <tr> <td>Hours of transcript</td> <td>~200 hours of speech</td> </tr> </tbody> </table></p>
+
+<p>For most everyday tasks — drafting an email, summarising an article, debugging a function — you will use a tiny fraction of the available context. The large context window matters most for specialist, document-heavy work.</p>
+
+<h2>How to Use Claude's Context Window — Step by Step</h2>
+
+<h3>Step 1: Understand What Fills the Context</h3>
+
+<p>Every message in your conversation consumes tokens. Long system instructions, large file uploads, detailed responses from Claude, and extensive back-and-forth dialogue all accumulate. The context window fills from the beginning of the conversation and grows with every exchange.</p>
+
+<h3>Step 2: Paste or Upload Long Documents</h3>
+
+<p>The most direct way to use Claude's large context window is to paste or upload a long document and ask Claude to reason over it. You can upload a PDF, Word document (.docx), or plain text file directly in the chat interface. Claude will read the entire document and keep it in context for the duration of the conversation.</p>
+
+<p><strong>Example task:</strong> Upload a 100-page business report and ask: "What are the three most important strategic recommendations in this document? Cite the relevant section for each."</p>
+
+<h3>Step 3: Use Full Conversations for Complex Projects</h3>
+
+<p>Because Claude remembers everything within the context window, long conversations allow you to build up complex shared context. You can start by pasting background information, then ask a series of progressively specific questions. Claude will draw on everything in the conversation when answering each new message — not just the most recent one.</p>
+
+<h3>Step 4: Know When Context Is Running Out</h3>
+
+<p>Claude does not display a real-time token counter in the standard interface. Signs that you are approaching the context limit include:</p>
+
+<ul>
+<li>Claude appears to "forget" details from earlier in the conversation</li>
+<li>Responses become less coherent or reference content that no longer appears to be in scope</li>
+<li>Claude makes errors that contradict information it correctly handled earlier</li>
+</ul>
+
+<p>When this happens, start a new conversation. Summarise the key context from the old conversation and paste it at the top of the new one to reset with the most important information intact.</p>
+
+<h3>Step 5: Use Claude Projects for Persistent Context</h3>
+
+<p>Claude Projects (available on Pro, Max, and Team plans) are a separate mechanism from the conversation context window. Files and instructions in a Project are available across multiple conversations, which means you can maintain shared background information without exhausting your context window. Think of Projects as long-term memory and the context window as short-term working memory. See the <a href="/how-to-use-claude-projects/">Claude Projects guide</a> for full details.</p>
+
+<h3>Step 6: Structure Long Prompts Efficiently</h3>
+
+<p>When using the full context for long documents, put the most important instructions at the start or end of your message — not buried in the middle. Research on large language models shows that models tend to pay more attention to the beginning and end of their context than to the middle. If you are analysing a 200-page document, put your question before and/or after the document text, not only at the end.</p>
+
+<h2>Claude Context Window vs. Other AI Assistants</h2>
+
+<p><table> <thead> <tr> <th>Model</th> <th>Context Window</th> <th>Approx. Pages</th> </tr> </thead> <tbody> <tr> <td>Claude Sonnet 4 / Opus 4</td> <td>200,000 tokens</td> <td>~500 pages</td> </tr> <tr> <td>GPT-4o (ChatGPT)</td> <td>128,000 tokens</td> <td>~320 pages</td> </tr> <tr> <td>Gemini 1.5 Pro</td> <td>1,000,000 tokens</td> <td>~2,500 pages</td> </tr> <tr> <td>Gemini 1.5 Flash</td> <td>1,000,000 tokens</td> <td>~2,500 pages</td> </tr> <tr> <td>GPT-4 (original)</td> <td>32,000 tokens</td> <td>~80 pages</td> </tr> </tbody> </table></p>
+
+<p>Gemini 1.5 Pro's 1,000,000-token context window is significantly larger than Claude's. For most everyday tasks, the difference is academic — you will not fill even Claude's 200,000 tokens in typical use. The practical advantage shifts to Gemini only for genuinely enormous document sets like very large codebases, multi-volume reports, or full legal case files.</p>
+
+<h2>What Happens When You Hit Claude's Context Limit?</h2>
+
+<p>When a conversation exceeds 200,000 tokens, the oldest content begins to slide out of the context window. This is sometimes described as the "sliding window" or "lost in the middle" problem. Claude will not explicitly alert you that this is happening. The effects you will notice:</p>
+
+<ul>
+<li>Claude forgets details from the early part of the conversation</li>
+<li>Summaries or references to earlier content become inaccurate</li>
+<li>Claude may repeat information it provided earlier, unaware it already gave it</li>
+</ul>
+
+<p>The most reliable solution is to start fresh conversations for new topics and use Claude Projects or manual summarisation to carry essential context forward.</p>
+
+<h2>Why Claude's Large Context Window Matters</h2>
+
+<p>A large context window is not a marketing detail — it has practical consequences for the types of tasks Claude can handle. Specific use cases that become possible with a 200,000-token context window:</p>
+
+<ul>
+<li><strong>Legal document review:</strong> Paste an entire contract and ask Claude to flag unusual clauses, summarise obligations, or compare against a standard template</li>
+<li><strong>Codebase review:</strong> Paste an entire medium-sized codebase and ask for a security audit, refactoring suggestions, or architecture analysis</li>
+<li><strong>Book summarisation:</strong> Paste a full novel or non-fiction book and get a chapter-by-chapter summary or thematic analysis</li>
+<li><strong>Research synthesis:</strong> Paste 10–20 long research papers and ask Claude to identify consensus points, contradictions, and research gaps</li>
+<li><strong>Interview or meeting transcript analysis:</strong> Upload transcripts from dozens of interviews and ask for patterns, quotes, or thematic codes</li>
+</ul>
+
+<p>These tasks require models with large context windows. Smaller context windows force you to break content into chunks and stitch results together manually — an error-prone and time-consuming process.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/what-is-claude-ai/">What is Claude AI?</a> — Overview of Claude's capabilities including its model family</li>
+<li><a href="/how-to-use-claude-projects/">How to Use Claude Projects</a> — Using Projects for persistent context across conversations</li>
+<li><a href="/how-to-write-first-prompt-claude/">How to Write Your First Prompt in Claude</a> — Structuring prompts to get the best results</li>
+<li><a href="/claude-vs-chatgpt-vs-gemini/">Claude vs ChatGPT vs Gemini</a> — Full comparison including context window sizes</li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>How big is Claude's context window?</dt>
+<dd>Claude's context window is 200,000 tokens on paid plans (Pro, Max, and Team). The free tier also provides access to a large context window, though the exact limit may vary. 200,000 tokens is roughly 150,000 words, or approximately 500 pages of a typical book.</dd>
+<dt>What happens when you hit the context limit?</dt>
+<dd>When a conversation reaches Claude's context limit, Claude can no longer 'see' the earliest parts of the conversation. Older messages effectively drop out of its working memory. Claude will not warn you explicitly every time this happens. To work around it, start a new conversation, use Claude Projects to maintain key information separately, or summarise earlier content and paste the summary into a fresh chat.</dd>
+<dt>How many pages of text fit in Claude's context window?</dt>
+<dd>Approximately 500 pages of plain text fit within Claude's 200,000-token context window. This is based on the common estimate of about 400 tokens per page (roughly 300 words per page). In practice, content type matters: code is more token-dense than prose, and formatted documents use more tokens than plain text.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

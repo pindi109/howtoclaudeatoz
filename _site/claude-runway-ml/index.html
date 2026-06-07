@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude + Runway ML — AI Video Production Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude AI with Runway ML to produce AI video in 2026. Full workflow: scripting, Gen-3 prompts, Runway features overview, and Runway vs Kling AI comparison.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-runway-ml/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude + Runway ML — AI Video Production Guide (2026)">
+  <meta property="og:description" content="Use Claude AI with Runway ML to produce AI video in 2026. Full workflow: scripting, Gen-3 prompts, Runway features overview, and Runway vs Kling AI comparison.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-runway-ml/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-runway-ml.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude + Runway ML — AI Video Production Guide (2026)">
+  <meta name="twitter:description" content="Use Claude AI with Runway ML to produce AI video in 2026. Full workflow: scripting, Gen-3 prompts, Runway features overview, and Runway vs Kling AI comparison.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude + Runway ML \u2014 AI Video Production Guide (2026)",
+  "description": "Use Claude AI with Runway ML to produce AI video in 2026. Full workflow: scripting, Gen-3 prompts, Runway features overview, and Runway vs Kling AI comparison.",
+  "url": "https://howtoclaudeatoz.com/claude-runway-ml/",
+  "image": "https://howtoclaudeatoz.com/og/claude-runway-ml.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use Claude with Runway?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude writes the scripts and Gen-3 prompts that drive Runway's video generation. The workflow is: brief Claude with your creative concept, get a structured set of scene-by-scene prompts, then paste those prompts into Runway Gen-3. Claude can also help with Runway's Motion Brush direction, inpainting descriptions, and multi-scene narrative planning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can Runway ML do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Runway ML is a professional AI video production platform. Its flagship model, Gen-3 Alpha, generates high-quality video clips from text and image prompts. Runway also includes tools for video-to-video style transfer, motion brush (adding motion to still images), inpainting (replacing elements in existing video), background removal, and a full browser-based video editor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Runway ML better than Kling AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Runway ML and Kling AI excel in different areas. Runway produces more artistically stylised, cinematically composed video and is stronger for narrative and creative work. Kling AI tends to produce more photorealistic, physically coherent video and handles motion physics better. For brand and creative storytelling, Runway is often the stronger choice. For realistic human motion and commercial product video, Kling AI is competitive or superior."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Video, Voice & Creative Media",
+      "item": "https://howtoclaudeatoz.com/video-voice/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude + Runway ML \u2014 AI Video Production Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-runway-ml/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/video-voice/">Claude for Video, Voice & Creative Media</a></li><li aria-current="page">Claude + Runway ML — AI Video Production Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude + Runway ML — AI Video Production Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude Runway ML video production is a professional-grade AI workflow used by filmmakers, creative agencies, and video marketers in 2026. Runway ML generates high-quality video from text and image prompts; Claude writes the scripts, scene descriptions, and Gen-3 prompts that make those generations precise and purposeful. Together, the two tools handle everything from concept development to a complete set of rendered video clips — without a camera, crew, or studio. This guide covers Runway ML's core features, where Claude fits in the workflow, and a head-to-head comparison with Kling AI.</p>
+
+<h2>What is Runway ML?</h2>
+
+<p>Runway ML is a professional AI creative platform built for video production. Founded in 2018 and backed by major creative and technology investors, Runway has become one of the defining tools of the AI filmmaking movement.</p>
+
+<p>Its core product, <strong>Gen-3 Alpha</strong>, is a text-to-video model that generates cinematic video clips from detailed text prompts or image + text combinations. Gen-3 Alpha is widely regarded as among the most artistically capable AI video models available, with strong understanding of composition, lighting, atmosphere, and cinematic language.</p>
+
+<p>Runway's full feature set includes:</p>
+
+<ul>
+<li><strong>Gen-3 Alpha:</strong> Text-to-video and image-to-video clip generation</li>
+<li><strong>Motion Brush:</strong> Add directed motion to specific regions of a still image</li>
+<li><strong>Video-to-Video:</strong> Apply a style or look to existing footage</li>
+<li><strong>Inpainting:</strong> Replace or remove elements within an existing video clip</li>
+<li><strong>Background Removal:</strong> Real-time green screen without a physical green screen</li>
+<li><strong>Lip Sync:</strong> Sync AI-generated faces to an audio track</li>
+<li><strong>AI Image Generator:</strong> Generate reference images for video production</li>
+<li><strong>Browser-based editor:</strong> Assemble clips, add audio, and export final video</li>
+</ul>
+
+<p>Runway pricing is credit-based. The Basic plan ($0) includes 125 credits/month. The Standard plan ($15/month) includes 625 credits; the Pro plan ($35/month) includes 2,250 credits. One Gen-3 video generation of ~5 seconds costs approximately 50–100 credits depending on resolution.</p>
+
+<h2>How Claude Helps with Runway ML Production</h2>
+
+<p>Claude handles the language and planning layer of the Runway ML workflow. Runway is a powerful renderer, but it requires precise creative direction. Without structured prompts and a coherent scene plan, output is beautiful but random.</p>
+
+<p>Claude contributes:</p>
+
+<ul>
+<li><strong>Concept development:</strong> Expanding a brief into a structured scene plan</li>
+<li><strong>Gen-3 prompt writing:</strong> Detailed scene descriptions in Runway's preferred language</li>
+<li><strong>Visual continuity planning:</strong> Ensuring prompt language carries consistent style across all clips</li>
+<li><strong>Motion direction:</strong> Writing Motion Brush direction notes for animated still-image projects</li>
+<li><strong>Narrative sequencing:</strong> Ordering clips into a coherent story arc</li>
+<li><strong>Script-to-prompt conversion:</strong> Taking a written script and producing one Runway prompt per scene beat</li>
+</ul>
+
+<h2>How to Use Claude + Runway ML — Step by Step</h2>
+
+<h3>Step 1: Develop the Creative Concept</h3>
+
+<p>Give Claude your project brief and ask it to develop a scene-by-scene creative treatment:</p>
+
+<blockquote><p>I'm producing a 60-second brand film for an outdoor gear company. The concept is: a solo hiker reaching a mountain summit at sunrise. Tone: epic, understated, human. Develop a 12-shot scene plan. For each shot, describe the scene, the emotional beat, and the camera position. Do not write Runway prompts yet — just develop the creative structure.</p></blockquote>
+
+<h3>Step 2: Establish a Visual Style Guide</h3>
+
+<p>Define the visual language that will unify all clips. Claude writes this and applies it to every subsequent prompt:</p>
+
+<blockquote><p>Based on the scene plan, write a visual style guide for this project. Include: colour palette (3–5 colours), lighting style, camera behaviour (movement tendencies, depth of field), texture and grain preferences, and any specific cinematographic references. This style guide will apply to every Runway Gen-3 prompt.</p></blockquote>
+
+<h3>Step 3: Write Gen-3 Prompts</h3>
+
+<blockquote><p>Convert each scene in the plan into a Runway Gen-3 prompt. Apply the visual style guide consistently. Each prompt should be 50–150 words and cover: scene environment, subject action, camera angle and movement, lighting, colour, mood, and any specific visual details. Number each prompt to match the scene plan.</p></blockquote>
+
+<p>Runway Gen-3 responds well to:</p>
+<ul>
+<li>Atmospheric and emotional language ("melancholic", "triumphant", "quietly tense")</li>
+<li>Composition references ("rule of thirds", "symmetrical", "subject in lower third")</li>
+<li>Film stock or photography style references ("35mm grain", "golden hour editorial")</li>
+<li>Negative space description ("empty sky fills the upper two-thirds of the frame")</li>
+</ul>
+
+<h3>Step 4: Write Motion Brush Directions (Optional)</h3>
+
+<p>If you're using Runway's Motion Brush feature to animate still images, Claude can write precise brush direction notes:</p>
+
+<blockquote><p>For each of these images, write a Motion Brush direction note. Describe which regions of the image should move and in what direction: foreground (specify motion), midground (specify motion), background (specify motion). Keep each note under 50 words.</p></blockquote>
+
+<h3>Step 5: Generate and Iterate</h3>
+
+<p>Paste each prompt into Runway Gen-3. Start with the most important shots. If a generation misses the mark, return to Claude with the specific issue:</p>
+
+<blockquote><p>The Runway generation for Shot 4 lacks the emotional weight I need. The current prompt reads: [PASTE PROMPT]. The problem: the lighting feels flat and the subject looks too static. Rewrite the prompt to create more dramatic lighting (motivated by a low sun behind the subject) and add a sense of laboured breathing or physical effort to the subject.</p></blockquote>
+
+<h3>Step 6: Use Video-to-Video for Style Consistency</h3>
+
+<p>If you have existing footage that needs to match the aesthetic of your AI-generated clips, Runway's Video-to-Video feature can apply a consistent style. Ask Claude to write the style transfer prompt:</p>
+
+<blockquote><p>Write a Runway Video-to-Video style prompt for the following scenario: I want to make raw drone footage of a mountain match the visual style of my Gen-3 clips. The Gen-3 style is: [PASTE STYLE GUIDE]. Write a concise style transfer prompt of 40–80 words.</p></blockquote>
+
+<h2>Runway Gen-3 Prompt — Example Output</h2>
+
+<p>Here is a Claude-written Gen-3 prompt for a fashion brand video:</p>
+
+<blockquote><p>A woman in her late 20s stands at the edge of a rooftop in Tokyo at blue hour. She wears a deep navy structured coat, her back mostly to camera. City lights blur in the distance, bokeh circles of amber and purple filling the frame behind her. Camera: slow crane from mid-height, arcing slightly right. Wind moves her coat and hair. Composition: subject occupies left third of frame, city fills right two-thirds. Mood: solitary, cinematic, quietly powerful. 35mm grain, slightly desaturated highlights. No motion blur artifacts.</p></blockquote>
+
+<h2>Runway ML vs Kling AI — Full Comparison</h2>
+
+<p><table> <thead> <tr> <th>Feature</th> <th>Runway ML Gen-3</th> <th>Kling AI</th> </tr> </thead> <tbody> <tr> <td>Video quality</td> <td>Cinematic, stylised</td> <td>Photorealistic, physically coherent</td> </tr> <tr> <td>Best use case</td> <td>Brand films, creative storytelling, art</td> <td>Commercial video, realistic human motion, product</td> </tr> <tr> <td>Text-to-video</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td>Image-to-video</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td>Max clip duration</td> <td>~10 seconds</td> <td>Up to 10 seconds</td> </tr> <tr> <td>Max resolution</td> <td>1080p</td> <td>1080p</td> </tr> <tr> <td>Camera controls</td> <td>Strong via prompt language</td> <td>Strong via explicit camera terms</td> </tr> <tr> <td>Motion physics</td> <td>Good</td> <td>Excellent</td> </tr> <tr> <td>Style transfer (video-to-video)</td> <td>Yes (native feature)</td> <td>Limited</td> </tr> <tr> <td>Motion Brush / selective motion</td> <td>Yes</td> <td>No direct equivalent</td> </tr> <tr> <td>Inpainting</td> <td>Yes</td> <td>Limited</td> </tr> <tr> <td>Free tier</td> <td>125 credits/month</td> <td>Free trial available</td> </tr> <tr> <td>Standard paid plan</td> <td>$15/month (625 credits)</td> <td>Credit bundles from ~$9.99</td> </tr> <tr> <td>API access</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td>Creative community</td> <td>Large, established</td> <td>Growing</td> </tr> </tbody> </table></p>
+
+<p><strong>The practical guide:</strong> Use Runway ML when you need cinematic atmosphere, creative stylisation, or the suite of advanced editing tools (video-to-video, inpainting, motion brush). Use Kling AI when you need realistic human motion, physically plausible environments, or high-volume generation at lower cost per clip.</p>
+
+<p>Many professional AI video producers use both: Kling AI for photorealistic establishing shots and human scenes, Runway ML for stylised transitions, abstract sequences, and brand-identity moments.</p>
+
+<h2>Claude Prompts for Common Runway Use Cases</h2>
+
+<p><strong>Luxury brand product clip:</strong></p>
+<blockquote><p>Generate a Runway Gen-3 prompt for a luxury fragrance ad. A glass bottle sits on a white marble surface. Sunlight enters frame from left, creating caustic light patterns. Slow push-in. Camera slightly above eye level. Background blurs to near-white. No people. Mood: minimalist, aspirational, editorial. Under 100 words.</p></blockquote>
+
+<p><strong>Music video segment:</strong></p>
+<blockquote><p>Write a Runway Gen-3 prompt for a music video segment. Artist is alone in an empty theatre, a single spotlight hitting them from above. They turn slowly toward camera. Dust particles visible in beam of light. Camera: slow orbital movement, low angle. Mood: dramatic, intimate, theatrical. 35mm grain.</p></blockquote>
+
+<p><strong>Documentary B-roll:</strong></p>
+<blockquote><p>Write a Runway Gen-3 prompt for documentary B-roll. A factory floor in the 1950s. Workers at assembly line, motion slightly blurred suggesting long shutter speed. Tungsten lighting from overhead, yellow-orange cast. Camera: static wide shot, slow zoom over 8 seconds. Archival film texture. No colour grading — period accurate.</p></blockquote>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-kling-ai/">Claude + Kling AI — Text to Video Workflow</a></li>
+<li><a href="/claude-video-storyboards/">How to Write Video Storyboards with Claude</a></li>
+<li><a href="/claude-documentary-scriptwriting/">Claude for Documentary Scriptwriting</a></li>
+<li><a href="/claude-youtube-scripts/">How to Write YouTube Scripts with Claude AI</a></li>
+<li><a href="/claude-social-media-video/">Claude for Social Media Video Content</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>How do I use Claude with Runway?</dt>
+<dd>Claude writes the scripts and Gen-3 prompts that drive Runway's video generation. The workflow is: brief Claude with your creative concept, get a structured set of scene-by-scene prompts, then paste those prompts into Runway Gen-3. Claude can also help with Runway's Motion Brush direction, inpainting descriptions, and multi-scene narrative planning.</dd>
+<dt>What can Runway ML do?</dt>
+<dd>Runway ML is a professional AI video production platform. Its flagship model, Gen-3 Alpha, generates high-quality video clips from text and image prompts. Runway also includes tools for video-to-video style transfer, motion brush (adding motion to still images), inpainting (replacing elements in existing video), background removal, and a full browser-based video editor.</dd>
+<dt>Is Runway ML better than Kling AI?</dt>
+<dd>Runway ML and Kling AI excel in different areas. Runway produces more artistically stylised, cinematically composed video and is stronger for narrative and creative work. Kling AI tends to produce more photorealistic, physically coherent video and handles motion physics better. For brand and creative storytelling, Runway is often the stronger choice. For realistic human motion and commercial product video, Kling AI is competitive or superior.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

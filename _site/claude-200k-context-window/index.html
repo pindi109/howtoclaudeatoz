@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude's 200K Token Context Window — How to Use It (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="How Claude's 200K token context window works: token-to-word conversions, practical use cases, the 'lost in the middle' problem, and best practices for long contexts.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-200k-context-window/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude's 200K Token Context Window — How to Use It (2026)">
+  <meta property="og:description" content="How Claude's 200K token context window works: token-to-word conversions, practical use cases, the 'lost in the middle' problem, and best practices for long contexts.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-200k-context-window/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-200k-context-window.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude's 200K Token Context Window — How to Use It (2026)">
+  <meta name="twitter:description" content="How Claude's 200K token context window works: token-to-word conversions, practical use cases, the 'lost in the middle' problem, and best practices for long contexts.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude's 200K Token Context Window \u2014 How to Use It (2026)",
+  "description": "How Claude's 200K token context window works: token-to-word conversions, practical use cases, the 'lost in the middle' problem, and best practices for long contexts.",
+  "url": "https://howtoclaudeatoz.com/claude-200k-context-window/",
+  "image": "https://howtoclaudeatoz.com/og/claude-200k-context-window.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Claude's maximum context window?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All Claude 4 models \u2014 Haiku, Sonnet, and Opus \u2014 support a 200,000-token context window. This applies to the total of input tokens (your messages, documents, system prompt) plus output tokens (Claude's response). In practice, this means Claude can process approximately 150,000 words of input while still generating a full response, or about 500 pages of dense text in a single request."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many pages fit in Claude's context window?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude's 200,000-token context window fits approximately 500 pages of standard-formatted text (at roughly 400 words per page). For reference: a 100,000-word novel fits comfortably within one request; a full PhD thesis (80,000 words) fits with room for substantial output; a 500-page legal brief fits within a single context window. Token counts vary with document formatting \u2014 code, tables, and heavily formatted text use more tokens per page than plain prose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Claude remember everything in its context window?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude has access to everything within a single context window \u2014 it is not a rolling window or compressed memory. However, research has consistently shown a 'lost in the middle' phenomenon: Claude's attention and recall is strongest for content at the beginning and end of the context, and weakest for information buried in the middle. For critical information, place it near the beginning or explicitly reference it in your question at the end of the context."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Advanced Claude",
+      "item": "https://howtoclaudeatoz.com/advanced/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude's 200K Token Context Window \u2014 How to Use It (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-200k-context-window/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/advanced/">Advanced Claude</a></li><li aria-current="page">Claude's 200K Token Context Window — How to Use It (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude's 200K Token Context Window — How to Use It (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude's 200K context window is one of the most practically significant capabilities in the Claude model family — it allows you to pass entire books, large codebases, legal contracts, research papers, and lengthy conversation histories to Claude in a single request. The Claude 200K context window applies to all models in the Claude 4 family (Haiku, Sonnet, and Opus), which means you can use even the lowest-cost model to process very long documents. Understanding how to use this window effectively — including its limitations — determines whether you get deep, coherent analysis or shallow outputs that miss critical details.</p>
+
+<h2>What is a Token and How Does Claude's Context Window Work?</h2>
+
+<p>A token is the basic unit Claude uses to process text. Tokens are not the same as words — they are chunks of characters that Claude's tokeniser splits text into during processing.</p>
+
+<p><strong>Approximate token conversion rules:</strong></p>
+
+<ul>
+<li>1 token ≈ 4 characters of English text</li>
+<li>1 token ≈ 0.75 words (roughly 3/4 of a word)</li>
+<li>100 tokens ≈ 75 words ≈ half a paragraph</li>
+<li>1,000 tokens ≈ 750 words ≈ 1.5 pages</li>
+<li>10,000 tokens ≈ 7,500 words ≈ 15 pages</li>
+<li>100,000 tokens ≈ 75,000 words ≈ 150 pages</li>
+<li>200,000 tokens ≈ 150,000 words ≈ 300–500 pages</li>
+</ul>
+
+<p>These are approximations. Code, JSON, and markdown-heavy text tend to use more tokens per word than plain prose. Non-English text (especially languages with long words or complex scripts) varies significantly.</p>
+
+<h2>Token-to-Content Size Reference Table</h2>
+
+<p><table> <thead> <tr> <th>Content Type</th> <th>Approximate Token Count</th> <th>Fits in 200K Window?</th> </tr> </thead> <tbody> <tr> <td>Standard email (200 words)</td> <td>~270 tokens</td> <td>Yes — easily</td> </tr> <tr> <td>Blog post (1,500 words)</td> <td>~2,000 tokens</td> <td>Yes — easily</td> </tr> <tr> <td>Short story (5,000 words)</td> <td>~6,700 tokens</td> <td>Yes</td> </tr> <tr> <td>Business report (10,000 words)</td> <td>~13,000 tokens</td> <td>Yes</td> </tr> <tr> <td>Full novel (100,000 words)</td> <td>~133,000 tokens</td> <td>Yes — with room for output</td> </tr> <tr> <td>PhD thesis (80,000 words)</td> <td>~107,000 tokens</td> <td>Yes</td> </tr> <tr> <td>500-page legal brief</td> <td>~150,000–180,000 tokens</td> <td>Yes — borderline</td> </tr> <tr> <td>Full Python codebase (50 files, ~200 lines each)</td> <td>~80,000–120,000 tokens</td> <td>Yes</td> </tr> <tr> <td>GPT-4o context window for comparison</td> <td>128,000 tokens max</td> <td>—</td> </tr> <tr> <td>1M token Gemini 1.5 context window</td> <td>1,000,000 tokens</td> <td>—</td> </tr> </tbody> </table></p>
+
+<p>Claude's 200K window is the largest among the three major model families for their standard-tier models, and all Claude 4 models share this window regardless of cost tier.</p>
+
+<h2>How to Use Claude's Long Context Window — Step by Step</h2>
+
+<h3>Step 1: Prepare Your Document for Submission</h3>
+
+<p>Long documents need minimal preprocessing for Claude. The most important preparation steps:</p>
+
+<ul>
+<li><strong>Remove boilerplate:</strong> Headers, footers, page numbers, and repeated navigation text add tokens without adding meaning.</li>
+<li><strong>Use plain text or markdown:</strong> Heavily formatted documents (complex HTML, DOCX with tables) should be converted to clean text or markdown to reduce token count.</li>
+<li><strong>Order content intentionally:</strong> Put the most important information at the beginning of your document and your key question at the very end, after all context. This exploits Claude's strongest attention zones.</li>
+</ul>
+
+<h3>Step 2: Structure Your Prompt for Long Context</h3>
+
+<p>For long-context tasks, your prompt structure matters more than for short tasks:</p>
+
+<p><code>`</code>xml <task> Analyse the contract pasted below and identify all clauses that create potential  financial liability for the buyer beyond the stated purchase price. </task></p>
+
+<p><instructions> For each clause you identify:</p>
+<ol>
+<li>Quote the exact clause text</li>
+<li>Explain the specific financial risk it creates</li>
+<li>Rate severity: High / Medium / Low</li>
+<li>Suggest a counter-proposal or protective amendment</li>
+</ol>
+<p></instructions></p>
+
+<p><document> [FULL CONTRACT TEXT — 50,000 tokens] </document></p>
+
+<p><reminder> After reading the full document, apply the analysis criteria from the <instructions>  section to every relevant clause. Do not summarise the document — provide the  structured liability analysis requested. </reminder> <code>`</code></p>
+
+<p>The <code><reminder></code> at the end of a long context prompt is a deliberate technique to counteract the lost-in-the-middle problem.</p>
+
+<h3>Step 3: Ask Focused Questions, Not Open-Ended Ones</h3>
+
+<p>For long documents, open-ended prompts ("Summarise this book") produce weaker results than focused analytical prompts ("Identify the three turning points in the protagonist's character arc and quote the specific passages where each occurs"). Focused questions force Claude to actively attend to relevant sections rather than superficially processing the whole.</p>
+
+<h3>Step 4: Use Multiple Passes for Complex Analysis</h3>
+
+<p>For documents near the 200K limit, complex multi-part analysis is better done in multiple targeted passes than one massive query:</p>
+
+<ul>
+<li><strong>Pass 1:</strong> "Extract all mentions of pricing, fees, and payment terms from this contract."</li>
+<li><strong>Pass 2:</strong> "Here are the pricing terms extracted [paste output]. Identify conflicts or ambiguities between these clauses."</li>
+<li><strong>Pass 3:</strong> "Here are the ambiguities identified [paste output]. Draft a memo explaining each risk to a non-lawyer business owner."</li>
+</ul>
+
+<h3>Step 5: Verify Critical Information</h3>
+
+<p>Claude's recall from long contexts is reliable but not perfect. For high-stakes tasks (legal, medical, financial), verify Claude's specific quotes and references against the original document. Claude will occasionally misattribute a quote to the wrong section or paraphrase instead of quoting verbatim.</p>
+
+<h2>Practical Long-Context Use Cases</h2>
+
+<h3>Full Book Analysis</h3>
+
+<p>With 200K tokens, you can submit a complete novel or non-fiction book and ask for:</p>
+<ul>
+<li>Theme and motif analysis with specific textual evidence</li>
+<li>Character development arcs with supporting quotes</li>
+<li>Contradictions or inconsistencies in the narrative</li>
+<li>Structural analysis (chapter pacing, information sequencing)</li>
+<li>Comparison of the author's claims to specific counter-arguments</li>
+</ul>
+
+<p><strong>Example prompt structure:</strong> <code>`</code> I've pasted the full text of [Book]. Please identify the five central arguments  the author makes, evidence they use to support each, and the weakest point in  each argument's logic. Use direct quotes. <code>`</code></p>
+
+<h3>Complete Codebase Review</h3>
+
+<p>A Python codebase of 50 files at 200 lines each fits comfortably in Claude's context window. For codebase review:</p>
+
+<ul>
+<li>Security audit across all files simultaneously</li>
+<li>Inconsistent patterns and style violations</li>
+<li>Functions that duplicate logic across files</li>
+<li>Missing error handling across the full codebase</li>
+<li>Dependency mapping</li>
+</ul>
+
+<p>Claude can see relationships between files that a single-file review would miss — for example, a function defined in <code>utils.py</code> that is called incorrectly in <code>api.py</code> can only be caught when both files are in context simultaneously.</p>
+
+<h3>Legal Document Analysis</h3>
+
+<p>Legal documents of up to 500 pages fit within Claude's context window. High-value use cases:</p>
+
+<ul>
+<li>Contract risk analysis (all clauses reviewed in one pass)</li>
+<li>Inconsistency detection across a complex agreement</li>
+<li>Clause comparison against a standard template</li>
+<li>Due diligence checklists applied to full agreements</li>
+<li>Regulatory compliance review</li>
+</ul>
+
+<h3>Research Paper Synthesis</h3>
+
+<p>Academic research tasks benefit from long-context processing:</p>
+
+<ul>
+<li>Submit 10–15 related research papers and ask for a synthesis of their findings</li>
+<li>Identify where papers contradict each other</li>
+<li>Map the evolution of a concept across multiple studies</li>
+<li>Find gaps in the literature across submitted papers</li>
+</ul>
+
+<h2>The "Lost in the Middle" Problem</h2>
+
+<p>Research published by researchers at UC Berkeley (and replicated across multiple model evaluations) identified a consistent pattern in long-context language models: recall accuracy degrades significantly for information positioned in the middle of a long context.</p>
+
+<p>The practical implication: if you submit a 150,000-token document and bury the critical clause at token 80,000, Claude is measurably less likely to correctly recall and apply it than if that clause appeared at token 1,000 or token 148,000.</p>
+
+<p><strong>Mitigation strategies:</strong></p>
+
+<ol>
+<li><strong>Place critical information first:</strong> Put the most important sections at the beginning of the document, before less critical content.</li>
+<li><strong>Repeat key facts at the end:</strong> If a critical figure or clause needs to be accurate, repeat it in your question: "The contract defines the liability cap as $500,000 — given this, assess whether clause 7.3..."</li>
+<li><strong>Use targeted extraction as a first pass:</strong> Ask Claude to extract critical sections first, then do your full analysis on the extracted text in a shorter context.</li>
+<li><strong>Break very long documents into sections:</strong> For a 500-page document, process it in 100-page segments with overlapping context between segments.</li>
+</ol>
+
+<h2>Context Window vs Memory: An Important Distinction</h2>
+
+<p>Claude's context window is not persistent memory. Each new conversation starts with an empty context. The 200K token window is the capacity of a single request — it does not persist between sessions.</p>
+
+<p>For applications that require memory across sessions, developers use external memory systems: databases that store relevant past interactions and inject them into the context at the start of each new conversation. This is a common pattern in Claude-powered products.</p>
+
+<h2>API Usage for Long-Context Tasks</h2>
+
+<p>When sending long documents via the API, prompt caching is essential for cost efficiency. Claude caches the KV state of the context up to the cache breakpoint, meaning repeated calls with the same long document only pay full price for the first request.</p>
+
+<p><code>`</code>python import anthropic</p>
+
+<p>client = anthropic.Anthropic()</p>
+
+<p>response = client.messages.create(     model="claude-sonnet-4-6",     max<em>tokens=4096,     system=[         {             "type": "text",             "text": "You are a legal analyst specialising in contract risk...",             "cache</em>control": {"type": "ephemeral"}         }     ],     messages=[         {             "role": "user",             "content": [                 {                     "type": "text",                     "text": full<em>contract</em>text,                     "cache_control": {"type": "ephemeral"}                 },                 {                     "type": "text",                     "text": "Identify all clauses creating financial liability for the buyer."                 }             ]         }     ] ) <code>`</code></p>
+
+<p>With caching, a 100,000-token document costs full price on the first call (~$0.30 with Sonnet) and approximately 10% of that (~$0.03) on each subsequent call using the same document.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-opus-vs-sonnet-vs-haiku/">Claude Opus vs Sonnet vs Haiku — Full Model Breakdown</a></li>
+<li><a href="/claude-context-window-explained/">Claude's Context Window Explained</a></li>
+<li><a href="/advanced-prompt-engineering-claude/">Advanced Prompt Engineering with Claude</a></li>
+<li><a href="/claude-for-research/">Claude for Research and Analysis</a></li>
+<li><a href="/claude-api-getting-started/">Getting Started with the Claude API</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>What is Claude's maximum context window?</dt>
+<dd>All Claude 4 models — Haiku, Sonnet, and Opus — support a 200,000-token context window. This applies to the total of input tokens (your messages, documents, system prompt) plus output tokens (Claude's response). In practice, this means Claude can process approximately 150,000 words of input while still generating a full response, or about 500 pages of dense text in a single request.</dd>
+<dt>How many pages fit in Claude's context window?</dt>
+<dd>Claude's 200,000-token context window fits approximately 500 pages of standard-formatted text (at roughly 400 words per page). For reference: a 100,000-word novel fits comfortably within one request; a full PhD thesis (80,000 words) fits with room for substantial output; a 500-page legal brief fits within a single context window. Token counts vary with document formatting — code, tables, and heavily formatted text use more tokens per page than plain prose.</dd>
+<dt>Does Claude remember everything in its context window?</dt>
+<dd>Claude has access to everything within a single context window — it is not a rolling window or compressed memory. However, research has consistently shown a 'lost in the middle' phenomenon: Claude's attention and recall is strongest for content at the beginning and end of the context, and weakest for information buried in the middle. For critical information, place it near the beginning or explicitly reference it in your question at the end of the context.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

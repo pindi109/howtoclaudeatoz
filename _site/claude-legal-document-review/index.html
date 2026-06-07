@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude for Legal Document Review — SMB Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude for legal document review in 2026 — what Claude can review, red flag prompts, NDA and contract checklists, and clear limits for SMB owners.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-legal-document-review/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude for Legal Document Review — SMB Guide (2026)">
+  <meta property="og:description" content="Use Claude for legal document review in 2026 — what Claude can review, red flag prompts, NDA and contract checklists, and clear limits for SMB owners.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-legal-document-review/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-legal-document-review.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude for Legal Document Review — SMB Guide (2026)">
+  <meta name="twitter:description" content="Use Claude for legal document review in 2026 — what Claude can review, red flag prompts, NDA and contract checklists, and clear limits for SMB owners.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude for Legal Document Review \u2014 SMB Guide (2026)",
+  "description": "Use Claude for legal document review in 2026 \u2014 what Claude can review, red flag prompts, NDA and contract checklists, and clear limits for SMB owners.",
+  "url": "https://howtoclaudeatoz.com/claude-legal-document-review/",
+  "image": "https://howtoclaudeatoz.com/og/claude-legal-document-review.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude review contracts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude can read a contract you paste in, identify potentially problematic clauses, flag unusual or one-sided terms, explain legal language in plain English, and produce a structured summary of key provisions. It cannot provide qualified legal advice, and its review should not replace a solicitor's assessment for any significant commercial or employment contract."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Claude reliable for legal documents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude is reliable for explaining what contract language means, identifying clauses that deviate from standard practice, and summarising document structure. It may miss jurisdiction-specific issues, recent legal changes, or subtle drafting traps that an experienced solicitor would catch. Use Claude for initial review and triage, not as your sole legal check."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What legal documents can Claude help with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude is useful for reviewing NDAs (non-disclosure agreements), service agreements, freelance contracts, supplier terms, website terms and conditions, privacy policies, licence agreements, and basic employment contracts. For complex commercial deals, property transactions, or litigation documents, always involve a qualified solicitor."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Business & Productivity",
+      "item": "https://howtoclaudeatoz.com/business/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude for Legal Document Review \u2014 SMB Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-legal-document-review/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/business/">Claude for Business & Productivity</a></li><li aria-current="page">Claude for Legal Document Review — SMB Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude for Legal Document Review — SMB Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude legal document review gives small business owners a practical first step when facing unfamiliar contract language — without a solicitor's hourly rate for every routine document. Claude can read an NDA, service agreement, or supplier contract, explain what each clause means in plain English, flag terms that appear unusual or one-sided, and produce a structured summary of key provisions. This guide covers what Claude can and cannot review, the prompts that produce the most useful analysis, and a red flags checklist for common SMB contracts.</p>
+
+<p><strong>Important legal disclaimer:</strong> Claude is not a solicitor and does not provide qualified legal advice. Nothing in this guide or any Claude output constitutes legal advice. For any contract that involves significant financial exposure, employment, property, or complex liability, always consult a qualified solicitor or legal professional in your jurisdiction before signing.</p>
+
+<h2>How Can Claude Help Your Business with Legal Document Review?</h2>
+
+<p>Claude's legal document capability is fundamentally about comprehension and explanation. Most small business owners are not lawyers, and contract language is often deliberately complex. Claude's practical value is:</p>
+
+<ul>
+<li><strong>Translation:</strong> Converting legal language into plain English</li>
+<li><strong>Structure summary:</strong> Identifying and listing key provisions (payment, termination, liability, IP ownership)</li>
+<li><strong>Red flag detection:</strong> Spotting clauses that deviate significantly from balanced commercial norms</li>
+<li><strong>Comparison:</strong> Explaining what a clause means compared to what you'd typically expect</li>
+<li><strong>Question generation:</strong> Producing a list of questions to raise with the other party or your solicitor</li>
+</ul>
+
+<p>Claude cannot advise on whether to sign a document, predict how a clause would be interpreted by a court, verify that a document is legally valid in your jurisdiction, or replace a professional legal review.</p>
+
+<h2>What Legal Documents Claude Can Review</h2>
+
+<p><table> <thead> <tr> <th>Document Type</th> <th>What Claude Can Help With</th> <th>Typical Use Case</th> </tr> </thead> <tbody> <tr> <td>NDA / Confidentiality Agreement</td> <td>Scope of confidentiality, duration, exclusions, enforceability flags</td> <td>Before sharing business information with a partner or supplier</td> </tr> <tr> <td>Service Agreement</td> <td>Deliverables, payment terms, IP ownership, termination rights</td> <td>Engaging a freelancer or agency</td> </tr> <tr> <td>Supplier Terms & Conditions</td> <td>Liability caps, indemnity, delivery obligations, dispute process</td> <td>Onboarding a new supplier</td> </tr> <tr> <td>Website Terms of Service</td> <td>Acceptable use, limitation of liability, content rights</td> <td>Reviewing T&Cs before accepting a platform</td> </tr> <tr> <td>Privacy Policy</td> <td>Data categories collected, retention, third-party sharing</td> <td>Checking a supplier's or client's privacy policy</td> </tr> <tr> <td>Freelance / Contractor Agreement</td> <td>Scope of work, payment schedule, IP assignment, termination</td> <td>Hiring a contractor</td> </tr> <tr> <td>Basic Employment Contract</td> <td>Core terms, restrictive covenants, notice periods</td> <td>Spot-checking terms before issuing or accepting</td> </tr> <tr> <td>Licence Agreement</td> <td>What rights are granted, restrictions, fees, duration</td> <td>Software or IP licensing review</td> </tr> </tbody> </table></p>
+
+<h2>How to Use Claude for Legal Document Review — Step by Step</h2>
+
+<h3>Step 1: Paste the Document and Request a Plain-English Summary</h3>
+
+<p>Paste the full document text (or the relevant sections) and start with a summary request:</p>
+
+<blockquote><p>"I am going to paste a [type of document]. Please read it carefully and provide: (1) a plain-English summary of the key provisions, (2) a list of the most important clauses I should pay attention to, and (3) any clauses that appear unusually one-sided or that deviate from what you would typically expect in this type of document. I am the [party receiving / party offering] this agreement. [Paste document]"</p></blockquote>
+
+<h3>Step 2: Extract Key Commercial Terms</h3>
+
+<p>For contracts with financial implications, ask Claude to pull out the commercial terms explicitly:</p>
+
+<blockquote><p>"From the contract above, list all clauses relating to: payment terms, late payment consequences, price changes, termination (including notice periods), and liability caps. Quote the relevant clause text alongside each item."</p></blockquote>
+
+<h3>Step 3: Check for Red Flag Clauses</h3>
+
+<p>Use a targeted red flag prompt:</p>
+
+<blockquote><p>"Review the contract for the following red flags and tell me whether each one is present, absent, or unclear: (1) Unlimited liability clause, (2) unilateral right to change terms without notice, (3) automatic renewal with no opt-out window, (4) IP assignment that goes beyond the scope of work, (5) non-compete clause that is unusually broad, (6) jurisdiction clause specifying a foreign court."</p></blockquote>
+
+<h3>Step 4: Ask for an NDA-Specific Review</h3>
+
+<p>NDAs have specific risks worth checking explicitly:</p>
+
+<blockquote><p>"Review this NDA and tell me: (1) Is it mutual or one-way? (2) What is covered by confidentiality — is the definition broad or narrow? (3) How long does the obligation last? (4) What are the exclusions (e.g. already public information)? (5) Is there a return or destruction of information clause? (6) Are there any clauses that seem unusually restrictive for this type of agreement?"</p></blockquote>
+
+<h3>Step 5: Generate Questions for the Other Party</h3>
+
+<p>Once Claude has flagged concerns, convert them into negotiation questions:</p>
+
+<blockquote><p>"Based on the clauses you flagged as concerning, write a list of polite but clear questions I should ask the other party or their legal team before signing. Format as a numbered list."</p></blockquote>
+
+<h3>Step 6: Request a Comparison to Standard Practice</h3>
+
+<blockquote><p>"For the [specific clause] in this contract, explain what standard commercial practice typically looks like for this type of provision, and explain in what ways this clause differs from that standard."</p></blockquote>
+
+<h2>Red Flags Checklist — Common SMB Contract Issues</h2>
+
+<p><table> <thead> <tr> <th>Red Flag</th> <th>What to Look For</th> <th>Why It Matters</th> </tr> </thead> <tbody> <tr> <td>Unlimited liability</td> <td>No liability cap or indemnity without ceiling</td> <td>Exposure to losses far exceeding contract value</td> </tr> <tr> <td>Unilateral term changes</td> <td>Supplier can change terms without notice</td> <td>Pricing or conditions can change without your consent</td> </tr> <tr> <td>Auto-renewal with short opt-out window</td> <td>Renews unless cancelled within e.g. 7 days</td> <td>Easy to miss, locks you into another term</td> </tr> <tr> <td>Broad IP assignment</td> <td>All work product becomes their property</td> <td>You may lose rights to your own contributions</td> </tr> <tr> <td>Excessive non-compete</td> <td>Prevents you working in your industry for years</td> <td>Can restrict your business significantly</td> </tr> <tr> <td>Dispute jurisdiction overseas</td> <td>Any disputes heard in a foreign court</td> <td>Impractical and expensive to pursue</td> </tr> <tr> <td>Vague deliverables</td> <td>Scope described loosely</td> <td>Disputes about what was agreed</td> </tr> <tr> <td>No termination for convenience</td> <td>Can only terminate for breach, not change of mind</td> <td>Locked in if relationship deteriorates</td> </tr> </tbody> </table></p>
+
+<h2>Claude vs Solicitor — When to Use Each</h2>
+
+<p><table> <thead> <tr> <th>Situation</th> <th>Claude Review</th> <th>Solicitor Required</th> </tr> </thead> <tbody> <tr> <td>Understanding a routine NDA</td> <td>Yes</td> <td>Not necessarily</td> </tr> <tr> <td>Reviewing standard freelance T&Cs</td> <td>Yes</td> <td>Not necessarily</td> </tr> <tr> <td>Significant commercial contract (£10k+)</td> <td>First pass</td> <td>Yes</td> </tr> <tr> <td>Employment contract with restrictive covenants</td> <td>Explanation only</td> <td>Yes</td> </tr> <tr> <td>Property or lease agreement</td> <td>Explanation only</td> <td>Yes</td> </tr> <tr> <td>Any litigation-related document</td> <td>No</td> <td>Yes</td> </tr> <tr> <td>Company acquisition documents</td> <td>No</td> <td>Yes</td> </tr> </tbody> </table></p>
+
+<p>Use Claude to get orientated and identify questions. Use a solicitor to make the actual decision and provide formal advice on anything material.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-for-small-business/">Claude for Small Business</a></li>
+<li><a href="/claude-hr-hiring/">Claude for HR and Hiring</a></li>
+<li><a href="/claude-business-plan-writing/">Claude for Business Plan Writing</a></li>
+<li><a href="/claude-business-strategy/">Claude for Business Strategy</a></li>
+<li><a href="/what-is-claude-ai/">What Is Claude AI?</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude review contracts?</dt>
+<dd>Claude can read a contract you paste in, identify potentially problematic clauses, flag unusual or one-sided terms, explain legal language in plain English, and produce a structured summary of key provisions. It cannot provide qualified legal advice, and its review should not replace a solicitor's assessment for any significant commercial or employment contract.</dd>
+<dt>Is Claude reliable for legal documents?</dt>
+<dd>Claude is reliable for explaining what contract language means, identifying clauses that deviate from standard practice, and summarising document structure. It may miss jurisdiction-specific issues, recent legal changes, or subtle drafting traps that an experienced solicitor would catch. Use Claude for initial review and triage, not as your sole legal check.</dd>
+<dt>What legal documents can Claude help with?</dt>
+<dd>Claude is useful for reviewing NDAs (non-disclosure agreements), service agreements, freelance contracts, supplier terms, website terms and conditions, privacy policies, licence agreements, and basic employment contracts. For complex commercial deals, property transactions, or litigation documents, always involve a qualified solicitor.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

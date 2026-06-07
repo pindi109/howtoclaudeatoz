@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude for Firebase Development — Full Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude for Firebase development — Firestore queries, Auth, Cloud Functions, and Security Rules. Full guide with real code examples and prompt templates for 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-firebase-development/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude for Firebase Development — Full Guide (2026)">
+  <meta property="og:description" content="Use Claude for Firebase development — Firestore queries, Auth, Cloud Functions, and Security Rules. Full guide with real code examples and prompt templates for 2026.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-firebase-development/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-firebase-development.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude for Firebase Development — Full Guide (2026)">
+  <meta name="twitter:description" content="Use Claude for Firebase development — Firestore queries, Auth, Cloud Functions, and Security Rules. Full guide with real code examples and prompt templates for 2026.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude for Firebase Development \u2014 Full Guide (2026)",
+  "description": "Use Claude for Firebase development \u2014 Firestore queries, Auth, Cloud Functions, and Security Rules. Full guide with real code examples and prompt templates for 2026.",
+  "url": "https://howtoclaudeatoz.com/claude-firebase-development/",
+  "image": "https://howtoclaudeatoz.com/og/claude-firebase-development.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude write Firebase code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Claude has strong knowledge of the Firebase JavaScript SDK (v9+ modular API), Firebase Admin SDK (Node.js), Cloud Functions for Firebase, Firestore, Realtime Database, Firebase Authentication, Cloud Storage, and Firebase Security Rules. It writes correct, idiomatic Firebase code including async query patterns, batch writes, transactions, and real-time listeners. It is especially useful for Security Rules, which have a niche syntax that is time-consuming to write by hand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Claude good for Firestore queries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude writes accurate Firestore queries including compound queries, collection group queries, pagination with cursors, real-time listeners with onSnapshot, batch writes, and transactions. It knows the Firestore limitations (e.g., no native 'not in' for large arrays, cursor-based pagination rather than offset) and writes around them correctly. Give Claude your data model and what you need to retrieve, and it generates the right query with proper TypeScript types."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use Claude for Firebase security rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste your Firestore data model (document paths and field names) into Claude, describe your access control requirements in plain English (e.g., 'users can only read their own data, admins can read everything'), and ask Claude to generate the security rules. Claude generates well-structured rules.firestore files covering read, write, create, update, and delete separately. Always test generated rules with the Firebase Emulator Suite before deploying."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude Code & Developer Use Cases",
+      "item": "https://howtoclaudeatoz.com/claude-code/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude for Firebase Development \u2014 Full Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-firebase-development/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/claude-code/">Claude Code & Developer Use Cases</a></li><li aria-current="page">Claude for Firebase Development — Full Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude for Firebase Development — Full Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude Firebase development workflows let you move from data model to working Firebase integration in minutes instead of hours. Whether you are writing compound Firestore queries, scaffolding Cloud Functions with proper error handling, implementing Firebase Authentication flows, or wrestling with Security Rules — Claude handles the syntax, the Firebase SDK idioms, and the edge cases so you can focus on what your app actually needs to do. This guide covers every major Firebase product with real code examples and the exact prompts that produce the best output.</p>
+
+<h2>Why Claude Works Well for Firebase</h2>
+
+<p>Firebase development has a specific friction pattern: the concepts are straightforward but the implementation details are numerous and easy to get wrong. Security Rules have their own mini-language. Firestore queries have quirks around ordering and inequality filters. Cloud Functions have cold start considerations and specific error handling patterns. Firebase Auth has a particular flow for token management. Claude has absorbed enough Firebase code and documentation to navigate all of this correctly, which makes it genuinely useful rather than just a code template generator.</p>
+
+<p>Key Claude strengths for Firebase:</p>
+
+<ul>
+<li><strong>Firebase SDK v9 modular API</strong> — Claude writes modular imports (<code>import { getFirestore, collection, query, where } from 'firebase/firestore'</code>) rather than the older namespace style</li>
+<li><strong>Security Rules</strong> — one of the most underserved areas for developer tooling; Claude generates structured, readable rules from plain-English requirements</li>
+<li><strong>TypeScript + Firebase</strong> — Claude generates correctly typed Firebase code with proper generic parameters for Firestore document types</li>
+<li><strong>Cloud Functions v2</strong> — the newer Functions v2 API with <code>onRequest</code>, <code>onCall</code>, and Eventarc triggers</li>
+<li><strong>Firebase Emulator</strong> — Claude knows the emulator setup and writes tests that run against it</li>
+</ul>
+
+<h2>How to Use Claude for Firebase — Step by Step</h2>
+
+<h3>Step 1: Set Up Claude Code with Your Firebase Project</h3>
+
+<p><code>`</code>bash npm install -g @anthropic-ai/claude-code cd ~/projects/my-firebase-app claude <code>`</code></p>
+
+<p>Create a <code>CLAUDE.md</code> with your Firebase project context:</p>
+
+<p><code>`</code>markdown</p>
+<h1>Firebase Project: my-app</h1>
+
+<h2>Firebase Config</h2>
+<ul>
+<li>Project ID: my-app-prod</li>
+<li>Auth providers: Email/password, Google Sign-In</li>
+<li>Firestore region: europe-west2</li>
+</ul>
+
+<h2>Data Model</h2>
+<ul>
+<li>/users/{userId} — {displayName, email, photoURL, createdAt, role: 'user'|'admin'}</li>
+<li>/projects/{projectId} — {name, ownerId, members: string[], createdAt, isArchived}</li>
+<li>/projects/{projectId}/tasks/{taskId} — {title, assigneeId, status, dueDate, createdAt}</li>
+</ul>
+
+<h2>Stack</h2>
+<ul>
+<li>React 18, TypeScript 5</li>
+<li>Firebase SDK v10 (modular)</li>
+<li>Vite for bundling</li>
+<li>React Query for server state</li>
+</ul>
+
+<h2>Rules</h2>
+<ul>
+<li>Always use Firebase SDK v10 modular imports</li>
+<li>All Firestore writes should go through service functions in src/services/</li>
+<li>Use TypeScript generics for typed Firestore refs</li>
+</ul>
+<p><code>`</code></p>
+
+<h3>Step 2: Generate Typed Firestore Service Functions</h3>
+
+<p><code>`</code></p>
+<blockquote><p>Create a TypeScript Firestore service for the tasks subcollection.</p></blockquote>
+<p>Include: getTask, listTasksForProject (with optional status filter),    createTask, updateTask, deleteTask. Use the Firebase SDK v10 modular    API and add TypeScript types for the Task document. Include real-time    listener variants of getTask and listTasksForProject. <code>`</code></p>
+
+<p><code>`</code>typescript import {   collection,   doc,   getDoc,   getDocs,   addDoc,   updateDoc,   deleteDoc,   onSnapshot,   query,   where,   orderBy,   Timestamp,   type DocumentReference,   type Unsubscribe, } from 'firebase/firestore'; import { db } from '../lib/firebase';</p>
+
+<p>export type TaskStatus = 'todo' | 'in_progress' | 'done';</p>
+
+<p>export interface Task {   id: string;   title: string;   assigneeId: string | null;   status: TaskStatus;   dueDate: Timestamp | null;   createdAt: Timestamp; }</p>
+
+<p>export type NewTask = Omit<Task, 'id' | 'createdAt'>;</p>
+
+<p>function tasksRef(projectId: string) {   return collection(db, 'projects', projectId, 'tasks'); }</p>
+
+<p>function taskRef(projectId: string, taskId: string): DocumentReference {   return doc(db, 'projects', projectId, 'tasks', taskId); }</p>
+
+<p>export async function getTask(projectId: string, taskId: string): Promise<Task | null> {   const snap = await getDoc(taskRef(projectId, taskId));   if (!snap.exists()) return null;   return { id: snap.id, ...snap.data() } as Task; }</p>
+
+<p>export function subscribeToTask(   projectId: string,   taskId: string,   onData: (task: Task | null) => void ): Unsubscribe {   return onSnapshot(taskRef(projectId, taskId), (snap) => {     onData(snap.exists() ? ({ id: snap.id, ...snap.data() } as Task) : null);   }); }</p>
+
+<p>export async function listTasksForProject(   projectId: string,   status?: TaskStatus ): Promise<Task[]> {   let q = query(tasksRef(projectId), orderBy('createdAt', 'desc'));   if (status) {     q = query(tasksRef(projectId), where('status', '==', status), orderBy('createdAt', 'desc'));   }   const snap = await getDocs(q);   return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Task)); }</p>
+
+<p>export function subscribeToProjectTasks(   projectId: string,   onData: (tasks: Task[]) => void,   status?: TaskStatus ): Unsubscribe {   let q = query(tasksRef(projectId), orderBy('createdAt', 'desc'));   if (status) {     q = query(tasksRef(projectId), where('status', '==', status), orderBy('createdAt', 'desc'));   }   return onSnapshot(q, (snap) => {     onData(snap.docs.map((d) => ({ id: d.id, ...d.data() } as Task)));   }); }</p>
+
+<p>export async function createTask(projectId: string, task: NewTask): Promise<string> {   const docRef = await addDoc(tasksRef(projectId), {     ...task,     createdAt: Timestamp.now(),   });   return docRef.id; }</p>
+
+<p>export async function updateTask(   projectId: string,   taskId: string,   updates: Partial<Omit<Task, 'id' | 'createdAt'>> ): Promise<void> {   await updateDoc(taskRef(projectId, taskId), updates); }</p>
+
+<p>export async function deleteTask(projectId: string, taskId: string): Promise<void> {   await deleteDoc(taskRef(projectId, taskId)); } <code>`</code></p>
+
+<h3>Step 3: Generate Firebase Security Rules</h3>
+
+<p>This is where Claude saves the most time. Security Rules syntax is its own language and easy to get subtly wrong. Describe your requirements in plain English:</p>
+
+<p><code>`</code></p>
+<blockquote><p>Generate Firestore security rules for our data model (from CLAUDE.md).</p></blockquote>
+<p>Requirements:   - Users can read and update their own user document only   - Admins (role == 'admin') can read any user document   - Projects: members can read, owner can write and delete   - Archived projects can be read but not written by anyone except admins   - Tasks: project members can create and read tasks; task assignee can update status   - Nobody except admins can delete tasks   - All writes must include a valid auth token (request.auth != null) <code>`</code></p>
+
+<p><code>`</code>javascript rules_version = '2'; service cloud.firestore {   match /databases/{database}/documents {</p>
+
+<p>// Helper functions     function isSignedIn() {       return request.auth != null;     }</p>
+
+<p>function isAdmin() {       return isSignedIn() &&         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';     }</p>
+
+<p>function isOwner(userId) {       return isSignedIn() && request.auth.uid == userId;     }</p>
+
+<p>function isProjectMember(projectId) {       return isSignedIn() &&         request.auth.uid in get(/databases/$(database)/documents/projects/$(projectId)).data.members;     }</p>
+
+<p>function isProjectOwner(projectData) {       return isSignedIn() && request.auth.uid == projectData.ownerId;     }</p>
+
+<p>// Users collection     match /users/{userId} {       allow read: if isOwner(userId) || isAdmin();       allow create: if isOwner(userId);       allow update: if isOwner(userId) && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role']);       allow delete: if isAdmin();     }</p>
+
+<p>// Projects collection     match /projects/{projectId} {       allow read: if isProjectMember(projectId) || isAdmin();       allow create: if isSignedIn();       allow update: if (isProjectOwner(resource.data) && !resource.data.isArchived) || isAdmin();       allow delete: if isAdmin();</p>
+
+<p>// Tasks subcollection       match /tasks/{taskId} {         allow read: if isProjectMember(projectId) || isAdmin();</p>
+
+<p>allow create: if isProjectMember(projectId) &&           request.resource.data.keys().hasAll(['title', 'status', 'assigneeId', 'dueDate']) &&           !get(/databases/$(database)/documents/projects/$(projectId)).data.isArchived;</p>
+
+<p>allow update: if isAdmin() ||           (isProjectMember(projectId) &&            !get(/databases/$(database)/documents/projects/$(projectId)).data.isArchived &&            (isProjectOwner(get(/databases/$(database)/documents/projects/$(projectId)).data) ||             resource.data.assigneeId == request.auth.uid));</p>
+
+<p>allow delete: if isAdmin();       }     }   } } <code>`</code></p>
+
+<h3>Step 4: Generate Cloud Functions</h3>
+
+<p><code>`</code></p>
+<blockquote><p>Write a Firebase Cloud Function (v2, Node.js 20) triggered when a</p></blockquote>
+<p>new task document is created in any project. The function should:   - Get the task's assigneeId   - Look up the assignee's email from the users collection   - Send an email notification via SendGrid   - Log success or failure   - Handle the case where assigneeId is null (no notification needed) <code>`</code></p>
+
+<p><code>`</code>typescript import { onDocumentCreated } from 'firebase-functions/v2/firestore'; import { getFirestore } from 'firebase-admin/firestore'; import * as sgMail from '@sendgrid/mail'; import { defineString } from 'firebase-functions/params'; import { logger } from 'firebase-functions';</p>
+
+<p>const sendgridApiKey = defineString('SENDGRID<em>API</em>KEY'); const fromEmail = defineString('FROM_EMAIL');</p>
+
+<p>export const onTaskCreated = onDocumentCreated(   'projects/{projectId}/tasks/{taskId}',   async (event) => {     const task = event.data?.data();     if (!task) return;</p>
+
+<p>const { assigneeId, title } = task;     if (!assigneeId) {       logger.info('Task created without assignee, skipping notification', {         taskId: event.params.taskId,       });       return;     }</p>
+
+<p>const db = getFirestore();     const userDoc = await db.collection('users').doc(assigneeId).get();</p>
+
+<p>if (!userDoc.exists) {       logger.warn('Assignee not found', { assigneeId });       return;     }</p>
+
+<p>const { email, displayName } = userDoc.data()!;</p>
+
+<p>sgMail.setApiKey(sendgridApiKey.value());</p>
+
+<p>try {       await sgMail.send({         to: email,         from: fromEmail.value(),         subject: <code>New task assigned to you: ${title}</code>,         text: <code>Hi ${displayName},\n\nA new task has been assigned to you: "${title}".\n\nLog in to view it.</code>,         html: <code><p>Hi ${displayName},</p><p>A new task has been assigned to you: <strong>${title}</strong>.</p><p><a href="https://app.example.com">View task</a></p></code>,       });       logger.info('Notification sent', { to: email, taskId: event.params.taskId });     } catch (error) {       logger.error('Failed to send notification', { error, assigneeId });     }   } ); <code>`</code></p>
+
+<h2>Key Claude Firebase Prompts</h2>
+
+<p>Here are the most useful prompt patterns for Firebase work:</p>
+
+<p><strong>For pagination:</strong> <code>`</code> Write a Firestore pagination helper for [collection]. Use cursor-based  pagination (startAfter), page size 20. Return the last document cursor  so the caller can request the next page. <code>`</code></p>
+
+<p><strong>For batch operations:</strong> <code>`</code> Write a function to bulk-import [N] records from a JSON array to the  [collection] collection. Use Firestore batch writes (max 500 per batch).  Show progress and handle errors gracefully. <code>`</code></p>
+
+<p><strong>For Auth:</strong> <code>`</code> Write a React hook that exposes the current Firebase Auth user, loading  state, and sign-out function. Use onAuthStateChanged. Include TypeScript  types. Export as useAuth. <code>`</code></p>
+
+<p><strong>For testing Security Rules:</strong> <code>`</code> Write Firebase Emulator tests for our security rules using  @firebase/rules-unit-testing. Test the tasks subcollection rules:  project member can create, non-member cannot, admin can delete. <code>`</code></p>
+
+<h2>Claude Firebase vs. Writing Firebase Code Manually</h2>
+
+<p><table> <thead> <tr> <th>Task</th> <th>Without Claude</th> <th>With Claude</th> </tr> </thead> <tbody> <tr> <td>Typed Firestore service (CRUD + listeners)</td> <td>45-90 mins</td> <td>3-5 mins</td> </tr> <tr> <td>Security rules for 3 collections</td> <td>1-2 hours</td> <td>5-10 mins</td> </tr> <tr> <td>Cloud Function with error handling</td> <td>20-30 mins</td> <td>3-5 mins</td> </tr> <tr> <td>Firebase Auth hook (React)</td> <td>15-20 mins</td> <td>2-3 mins</td> </tr> <tr> <td>Emulator test suite</td> <td>60-90 mins</td> <td>10-15 mins</td> </tr> </tbody> </table></p>
+
+<p>The time savings are largest for Security Rules and structured service functions — exactly the boilerplate-heavy parts of Firebase development that slow teams down.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-flutter-development/">Claude for Flutter Development</a></li>
+<li><a href="/claude-code-getting-started/">Claude Code Getting Started</a></li>
+<li><a href="/claude-co-developer/">Building Apps with Claude as Your Co-Developer</a></li>
+<li><a href="/debug-code-with-claude/">Debug Code with Claude</a></li>
+<li><a href="/claude-api-getting-started/">Claude API Getting Started</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude write Firebase code?</dt>
+<dd>Yes — Claude has strong knowledge of the Firebase JavaScript SDK (v9+ modular API), Firebase Admin SDK (Node.js), Cloud Functions for Firebase, Firestore, Realtime Database, Firebase Authentication, Cloud Storage, and Firebase Security Rules. It writes correct, idiomatic Firebase code including async query patterns, batch writes, transactions, and real-time listeners. It is especially useful for Security Rules, which have a niche syntax that is time-consuming to write by hand.</dd>
+<dt>Is Claude good for Firestore queries?</dt>
+<dd>Claude writes accurate Firestore queries including compound queries, collection group queries, pagination with cursors, real-time listeners with onSnapshot, batch writes, and transactions. It knows the Firestore limitations (e.g., no native 'not in' for large arrays, cursor-based pagination rather than offset) and writes around them correctly. Give Claude your data model and what you need to retrieve, and it generates the right query with proper TypeScript types.</dd>
+<dt>How do I use Claude for Firebase security rules?</dt>
+<dd>Paste your Firestore data model (document paths and field names) into Claude, describe your access control requirements in plain English (e.g., 'users can only read their own data, admins can read everything'), and ask Claude to generate the security rules. Claude generates well-structured rules.firestore files covering read, write, create, update, and delete separately. Always test generated rules with the Firebase Emulator Suite before deploying.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

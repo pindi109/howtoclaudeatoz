@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Claude's Constitutional AI Works — Technical Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="A technical guide to Claude's Constitutional AI: how it works, what the constitution contains, how it shapes refusals, and how it compares to RLHF. Updated 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-constitutional-ai/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How Claude's Constitutional AI Works — Technical Guide (2026)">
+  <meta property="og:description" content="A technical guide to Claude's Constitutional AI: how it works, what the constitution contains, how it shapes refusals, and how it compares to RLHF. Updated 2026.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-constitutional-ai/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-constitutional-ai.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How Claude's Constitutional AI Works — Technical Guide (2026)">
+  <meta name="twitter:description" content="A technical guide to Claude's Constitutional AI: how it works, what the constitution contains, how it shapes refusals, and how it compares to RLHF. Updated 2026.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Claude's Constitutional AI Works \u2014 Technical Guide (2026)",
+  "description": "A technical guide to Claude's Constitutional AI: how it works, what the constitution contains, how it shapes refusals, and how it compares to RLHF. Updated 2026.",
+  "url": "https://howtoclaudeatoz.com/claude-constitutional-ai/",
+  "image": "https://howtoclaudeatoz.com/og/claude-constitutional-ai.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Constitutional AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Constitutional AI (CAI) is a training method developed by Anthropic in which an AI model is trained to evaluate and revise its own outputs according to a set of explicit principles \u2014 a 'constitution.' Instead of relying solely on human raters to label harmful outputs, CAI uses the model itself (and a separate 'critic' model) to identify responses that violate the principles, then generates revised versions. The final model is trained on these self-improved outputs, learning to internalise the constitutional principles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Claude decide what to refuse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude's refusals are not the result of a keyword filter or a simple blocklist. They emerge from values and judgement internalised during training. Claude weighs the potential harms of a response against its potential benefits, considers the likely intent behind a request, and assesses whether providing information would meaningfully enable harm beyond what is freely available. Borderline cases are genuinely evaluated in context \u2014 the same question might get a different response depending on how it is framed and what context the user has provided."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Constitutional AI better than RLHF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anthropic's research suggests CAI produces models with more consistent, principled safety behaviour than RLHF alone \u2014 and does so without requiring human raters to read and label large volumes of potentially harmful content. RLHF is better at aligning model outputs to general human preferences (tone, style, helpfulness), but it depends on the consistency and values of human labellers. Constitutional AI adds a layer of explicit, transparent principles that can be audited and refined. Most state-of-the-art AI models, including Claude, use both CAI and RLHF in combination."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Advanced Claude",
+      "item": "https://howtoclaudeatoz.com/advanced/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How Claude's Constitutional AI Works \u2014 Technical Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-constitutional-ai/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/advanced/">Advanced Claude</a></li><li aria-current="page">How Claude's Constitutional AI Works — Technical Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How Claude's Constitutional AI Works — Technical Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude's Constitutional AI is the training methodology that defines how Claude reasons about safety, helpfulness, and harm — and it is fundamentally different from the RLHF approach used by most other large language models. Understanding Claude Constitutional AI is important for anyone who wants to understand why Claude behaves the way it does, why it refuses certain requests, and why it is often more nuanced in its responses than models trained purely on human preference labels. This guide covers the full technical pipeline, what the "constitution" actually contains, and how CAI compares to alternative alignment approaches.</p>
+
+<h2>What is Constitutional AI?</h2>
+
+<p>Constitutional AI (CAI) is a technique published by Anthropic researchers in 2022 and used in training all versions of Claude. The core idea: instead of relying exclusively on human labellers to identify harmful or unhelpful model outputs, use the model itself to evaluate and improve its responses according to a set of explicit principles.</p>
+
+<p>The analogy to constitutional law is deliberate. A constitution defines foundational principles that all behaviour should be consistent with. In CAI, these principles form a written document — the "constitution" — that guides how the model evaluates its own outputs during training.</p>
+
+<p>The key insight is that this approach:</p>
+
+<ol>
+<li>Scales without requiring human labellers to read potentially harmful content at volume</li>
+<li>Makes the safety principles explicit and auditable (unlike RLHF, where the "values" exist implicitly in labeller decisions)</li>
+<li>Produces more consistent safety behaviour because it is grounded in principles rather than pattern-matching on labeller preferences</li>
+</ol>
+
+<h2>The Constitutional AI Training Pipeline</h2>
+
+<p>CAI has two main phases:</p>
+
+<h3>Phase 1: Supervised Learning from AI Feedback (SL-CAI)</h3>
+
+<p><strong>Step 1 — Generate responses to harmful prompts.</strong> A "red-team" dataset of prompts is created — prompts designed to elicit harmful, dangerous, or unethical responses from the model.</p>
+
+<p><strong>Step 2 — Model produces initial responses.</strong> The model generates responses to these prompts without any safety filtering. Many responses will be harmful.</p>
+
+<p><strong>Step 3 — Self-critique.</strong> The model is then prompted to critique its own response according to a randomly sampled constitutional principle. For example:</p>
+
+<p><code>`</code> Critique: Identify specific ways in which the assistant's last response is harmful,  unethical, racist, sexist, toxic, dangerous, or illegal. <code>`</code></p>
+
+<p><strong>Step 4 — Revision.</strong> The model is then prompted to revise its response:</p>
+
+<p><code>`</code> Revision: Please rewrite the assistant response to remove any and all harmful,  unethical, racist, sexist, toxic, dangerous, or illegal content. <code>`</code></p>
+
+<p><strong>Step 5 — Training.</strong> The model is fine-tuned on the revised (improved) responses. This teaches it to produce the revised version rather than the original harmful version.</p>
+
+<h3>Phase 2: Reinforcement Learning from AI Feedback (RLAIF)</h3>
+
+<p>In standard RLHF, human labellers compare pairs of model responses and indicate which is better. This is expensive, slow, and introduces human inconsistency. In RLAIF (the second phase of CAI), the preference labelling is done by a "feedback model" — a separate AI that has been shown the constitutional principles.</p>
+
+<p><strong>Step 1 — Generate response pairs.</strong> The SL-CAI model produces two different responses to the same prompt.</p>
+
+<p><strong>Step 2 — AI preference labelling.</strong> The feedback model evaluates both responses according to constitutional principles and selects which is more helpful, harmless, and honest.</p>
+
+<p><strong>Step 3 — Reward model training.</strong> A reward model is trained on these AI-generated preference labels.</p>
+
+<p><strong>Step 4 — RL fine-tuning.</strong> The policy model is fine-tuned using PPO (Proximal Policy Optimisation) to maximise the reward model's scores.</p>
+
+<p>The result is a model trained to prefer outputs that the constitutional principles indicate are better — without requiring human labellers to evaluate potentially harmful content.</p>
+
+<h2>What Is in Claude's Constitution?</h2>
+
+<p>Anthropic has published research describing the types of principles included in Claude's constitution. They fall into several categories:</p>
+
+<p><strong>Harm avoidance principles:</strong></p>
+<ul>
+<li>Do not help with the creation of weapons capable of mass casualties</li>
+<li>Do not produce content that sexually exploits minors</li>
+<li>Do not provide information that primarily serves to harm individuals</li>
+<li>Do not produce content designed to deceive users in ways that damage their interests</li>
+</ul>
+
+<p><strong>Helpfulness principles:</strong></p>
+<ul>
+<li>Be genuinely helpful rather than reflexively cautious</li>
+<li>Do not add unnecessary caveats that reduce the usefulness of responses</li>
+<li>Do not refuse reasonable requests by citing possible but highly unlikely harms</li>
+<li>Treat users as intelligent adults capable of determining what is good for them</li>
+</ul>
+
+<p><strong>Honesty principles:</strong></p>
+<ul>
+<li>Do not claim to be human when sincerely asked</li>
+<li>Do not assert things you believe to be false</li>
+<li>Acknowledge uncertainty rather than confabulating confident answers</li>
+<li>Do not create false impressions through technically true but misleading statements</li>
+</ul>
+
+<p><strong>Value conflict resolution principles:</strong></p>
+<ul>
+<li>When privacy and safety conflict, err towards safety</li>
+<li>When user autonomy and harm prevention conflict, give significant weight to autonomy for actions affecting only the user</li>
+<li>When institutional authority and ethical principles conflict, ethical principles take precedence</li>
+</ul>
+
+<p>The specific wording and weighting of these principles has evolved across Claude versions. Anthropic's published model cards and research papers provide the most current descriptions of the principles in use.</p>
+
+<h2>How Constitutional AI Shapes Claude's Responses</h2>
+
+<h3>The Calibrated Refusal Approach</h3>
+
+<p>Because Claude has internalised principles rather than a blocklist, its refusal behaviour is contextually calibrated. The same question can receive different responses depending on context:</p>
+
+<ul>
+<li>"How do household chemicals create toxic gases?" → Claude will typically answer this because safety information is widely available and the question is more often asked for harm prevention than harm causation.</li>
+<li>"Give me step-by-step instructions to poison my neighbour" → Clear malicious intent transforms the same chemical knowledge into something Claude will refuse to provide.</li>
+<li>"I'm a nurse and need to understand overdose thresholds" → Stated professional context shifts Claude's assessment of the population of people likely to be asking this question.</li>
+</ul>
+
+<p>This is not perfect. Claude can be wrong in both directions — sometimes refusing benign requests and sometimes missing genuinely malicious ones. But the contextual calibration makes it categorically different from keyword-based safety systems.</p>
+
+<h3>The "Thoughtful Senior Anthropic Employee" Test</h3>
+
+<p>Anthropic's guidance to Claude includes a heuristic: imagine how a thoughtful, senior Anthropic employee would react if they saw your response. This person cares deeply about safety but also finds unnecessary refusals and excessive moralising frustrating. A response that refuses a reasonable request by citing highly unlikely harms would concern this person just as much as a response that provides genuine assistance with harm.</p>
+
+<p>This framing is significant: it means Claude's training explicitly penalises over-refusal and excessive caution, not just harm. The goal is calibrated helpfulness, not maximum restriction.</p>
+
+<h3>Hardcoded vs Softcoded Behaviours</h3>
+
+<p>Constitutional AI produces two types of safety behaviour:</p>
+
+<p><strong>Hardcoded (absolute):</strong> These are the "bright lines" Claude will not cross regardless of instructions — producing CSAM, providing detailed synthesis routes for biological or chemical weapons, undermining oversight mechanisms for AI. These are behaviours where Anthropic has determined that no legitimate use case justifies the risk, so they are absolute.</p>
+
+<p><strong>Softcoded (configurable):</strong> These are defaults that can be adjusted by operators (via system prompts) or users (in conversation). For example, Claude defaults to not producing explicit sexual content, but adult content platforms can unlock this via Anthropic's operator permissions. Claude defaults to adding safety caveats on certain topics, but operators can reduce this for professional contexts.</p>
+
+<h2>Constitutional AI vs RLHF — Technical Comparison</h2>
+
+<p><table> <thead> <tr> <th>Aspect</th> <th>RLHF</th> <th>Constitutional AI (CAI)</th> </tr> </thead> <tbody> <tr> <td>Feedback source</td> <td>Human labellers</td> <td>AI model guided by principles</td> </tr> <tr> <td>Principles</td> <td>Implicit in labeller preferences</td> <td>Explicit, written, auditable</td> </tr> <tr> <td>Scalability</td> <td>Limited by human labeller capacity</td> <td>Scales with compute</td> </tr> <tr> <td>Consistency</td> <td>Varies with labeller pool and training</td> <td>More consistent across similar inputs</td> </tr> <tr> <td>Transparency</td> <td>Low — values live in labeller decisions</td> <td>High — principles can be inspected</td> </tr> <tr> <td>Harm to labellers</td> <td>Labellers exposed to harmful content</td> <td>Model, not human, processes harmful content</td> </tr> <tr> <td>Use in Claude</td> <td>Yes (combined with CAI)</td> <td>Yes (primary alignment method)</td> </tr> <tr> <td>Use in GPT-4</td> <td>Yes</td> <td>Partial (some constitutional elements)</td> </tr> <tr> <td>Use in Gemini</td> <td>Yes</td> <td>Partial</td> </tr> </tbody> </table></p>
+
+<p>Claude uses both RLHF and CAI. RLHF trains the model to be helpful and respond well to general human preferences (tone, style, format). CAI provides the principled safety layer. The two methods are complementary.</p>
+
+<h2>Why Constitutional AI Matters for Developers</h2>
+
+<p><strong>Predictable boundaries:</strong> Because Claude's behaviour emerges from principles, developers can reason about where the edges are. The question to ask is not "what keywords will trigger a refusal?" but "does this request violate Claude's constitutional principles?" The latter is more predictable.</p>
+
+<p><strong>Operator configuration:</strong> Anthropic's operator system lets businesses adjust Claude's default softcoded behaviours via system prompts. This works because the underlying principles accommodate context — they distinguish between a medical professional asking about drug doses and an anonymous user with no context.</p>
+
+<p><strong>Jailbreak resistance:</strong> Constitutional AI produces more robust refusal behaviour than safety measures applied as a post-processing filter. The safety principles are embedded in the model's weights, not sitting on top of an otherwise unconstrained model.</p>
+
+<p><strong>Research reproducibility:</strong> Because the principles are published, researchers can study the relationship between the stated principles and Claude's actual behaviour, identify inconsistencies, and contribute to improving alignment techniques.</p>
+
+<h2>Limitations of Constitutional AI</h2>
+
+<p><strong>Principle conflicts:</strong> When two constitutional principles conflict (user autonomy vs harm prevention), the resolution is not always obvious and can be inconsistent across similar inputs.</p>
+
+<p><strong>Training distribution gaps:</strong> CAI works on the scenarios covered in the training red-team dataset. Novel adversarial prompts that were not anticipated may not trigger the appropriate constitutional reasoning.</p>
+
+<p><strong>Over-refusal on ambiguous cases:</strong> Claude can be more cautious than necessary on topics that are adjacent to but not actually violating any principle. This is a calibration problem that Anthropic continues to work on.</p>
+
+<p><strong>Opacity of the constitution's full contents:</strong> While Anthropic has published significant detail, the exact wording, weighting, and completeness of the current production constitution is not fully public.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-safety-features/">Claude Safety Features Explained</a></li>
+<li><a href="/advanced-prompt-engineering-claude/">Advanced Prompt Engineering with Claude</a></li>
+<li><a href="/claude-system-prompts/">Claude System Prompts — How to Use Them</a></li>
+<li><a href="/future-of-claude-2026/">The Future of Claude — What's Coming in 2026</a></li>
+<li><a href="/claude-opus-vs-sonnet-vs-haiku/">Claude Opus vs Sonnet vs Haiku — Full Model Breakdown</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>What is Constitutional AI?</dt>
+<dd>Constitutional AI (CAI) is a training method developed by Anthropic in which an AI model is trained to evaluate and revise its own outputs according to a set of explicit principles — a 'constitution.' Instead of relying solely on human raters to label harmful outputs, CAI uses the model itself (and a separate 'critic' model) to identify responses that violate the principles, then generates revised versions. The final model is trained on these self-improved outputs, learning to internalise the constitutional principles.</dd>
+<dt>How does Claude decide what to refuse?</dt>
+<dd>Claude's refusals are not the result of a keyword filter or a simple blocklist. They emerge from values and judgement internalised during training. Claude weighs the potential harms of a response against its potential benefits, considers the likely intent behind a request, and assesses whether providing information would meaningfully enable harm beyond what is freely available. Borderline cases are genuinely evaluated in context — the same question might get a different response depending on how it is framed and what context the user has provided.</dd>
+<dt>Is Constitutional AI better than RLHF?</dt>
+<dd>Anthropic's research suggests CAI produces models with more consistent, principled safety behaviour than RLHF alone — and does so without requiring human raters to read and label large volumes of potentially harmful content. RLHF is better at aligning model outputs to general human preferences (tone, style, helpfulness), but it depends on the consistency and values of human labellers. Constitutional AI adds a layer of explicit, transparent principles that can be audited and refined. Most state-of-the-art AI models, including Claude, use both CAI and RLHF in combination.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

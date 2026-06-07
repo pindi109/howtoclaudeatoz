@@ -3,25 +3,106 @@
 > The definitive A-to-Z encyclopaedia for Claude AI. Covers every use case, feature, integration, workflow, prompt technique, and tool pairing. Written for beginners through power users.
 
 ## Getting Started with Claude
+- [Claude Artifacts — What They Are and How to Use Them (2026)](https://howtoclaudeatoz.com/claude-artifacts-guide/) — Claude Artifacts explained: what they are, how to create them, and all artifact types including code, HTML, SVG, and documents.
+- [Claude Free vs Pro vs Max vs Team — Which Plan Is Right for You? (2026)](https://howtoclaudeatoz.com/claude-plans-comparison/) — Claude plans comparison 2026: Free, Pro ($20), Max ($100), and Team ($30/user).
+- [Claude Keyboard Shortcuts and Power User Tips (2026)](https://howtoclaudeatoz.com/claude-keyboard-shortcuts/) — Claude keyboard shortcuts 2026: complete list of hotkeys plus power user tips to speed up your workflow, manage conversations, and get better results faster.
+- [Claude Memory System Explained — How It Works (2026)](https://howtoclaudeatoz.com/claude-memory-system-explained/) — Claude's memory system explained: how context windows, Projects, and workarounds help Claude remember across conversations.
+- [Claude on Mobile — iOS and Android Complete Guide (2026)](https://howtoclaudeatoz.com/claude-on-mobile/) — Claude mobile app guide 2026: download, setup, and use Claude on iPhone and Android.
+- [Claude vs ChatGPT vs Gemini — Honest 2026 Comparison](https://howtoclaudeatoz.com/claude-vs-chatgpt-vs-gemini/) — Claude vs ChatGPT vs Gemini: honest 2026 comparison across writing, coding, context window, pricing, and more.
+- [Claude's Context Window Explained — 200K Tokens Guide (2026)](https://howtoclaudeatoz.com/claude-context-window-explained/) — Claude's context window holds up to 200,000 tokens — about 500 pages.
+- [How to Use Claude Projects — Complete Guide (2026)](https://howtoclaudeatoz.com/how-to-use-claude-projects/) — Learn how to use Claude Projects in 2026: create a project, add files, set custom instructions, and maintain persistent context across conversations.
+- [How to Write Your First Prompt in Claude — Beginner's Guide (2026)](https://howtoclaudeatoz.com/how-to-write-first-prompt-claude/) — Learn how to write a prompt in Claude that actually works.
 - [What is Claude AI? Complete 2026 Guide](https://howtoclaudeatoz.com/what-is-claude-ai/) — What is Claude AI?
 
 ## Claude for Writing & Content
+- [Claude Prompt Templates for Writers — 20 Ready-to-Use Prompts (2026)](https://howtoclaudeatoz.com/claude-prompt-templates-for-writers/) — 20 Claude prompt templates for writers in 2026.
+- [Claude for Copywriting — Ads, Landing Pages, and CTAs (2026)](https://howtoclaudeatoz.com/claude-for-copywriting/) — Use Claude for copywriting in 2026.
+- [Claude for Newsletter Writing — Complete Workflow (2026)](https://howtoclaudeatoz.com/claude-for-newsletter-writing/) — Use Claude for newsletter writing in 2026.
+- [How to Match Your Brand Voice in Claude — Complete Guide (2026)](https://howtoclaudeatoz.com/claude-brand-voice/) — Learn how to match your brand voice in Claude in 2026.
+- [How to Use Claude for Social Media Content (2026 Guide)](https://howtoclaudeatoz.com/claude-for-social-media-content/) — Learn how to use Claude for social media content in 2026.
+- [How to Use Claude to Repurpose Content (2026 Guide)](https://howtoclaudeatoz.com/claude-repurpose-content/) — Learn how to repurpose content with Claude AI in 2026.
 - [How to Write Blog Posts with Claude AI (2026 Guide)](https://howtoclaudeatoz.com/how-to-write-blog-posts-with-claude/) — Learn how to write blog posts with Claude AI in 2026.
+- [How to Write Email Sequences with Claude AI (2026 Guide)](https://howtoclaudeatoz.com/how-to-write-email-sequences-with-claude/) — Learn how to write email sequences with Claude AI in 2026.
+- [How to Write SEO Content with Claude AI (2026 Guide)](https://howtoclaudeatoz.com/how-to-write-seo-content-with-claude/) — Learn how to write SEO content with Claude AI in 2026.
+- [Writing Long-Form Articles with Claude — 3,000+ Word Guide (2026)](https://howtoclaudeatoz.com/writing-long-form-articles-with-claude/) — Master writing long-form articles with Claude AI in 2026.
 
 ## Claude for SEO
+- [Building a Content Strategy with Claude AI (2026 Guide)](https://howtoclaudeatoz.com/building-content-strategy-with-claude/) — Learn how to build a complete content strategy with Claude AI in 2026.
+- [Claude + Surfer SEO — The Ultimate Workflow (2026)](https://howtoclaudeatoz.com/claude-surfer-seo-workflow/) — The definitive Claude + Surfer SEO workflow for 2026.
+- [Claude for Local SEO — Complete Business Guide (2026)](https://howtoclaudeatoz.com/claude-for-local-seo/) — Use Claude for local SEO in 2026.
+- [Claude for On-Page SEO Optimisation — Full Guide (2026)](https://howtoclaudeatoz.com/claude-on-page-seo/) — Use Claude for on-page SEO optimisation in 2026.
+- [Claude vs Perplexity for SEO Research — Which Should You Use? (2026)](https://howtoclaudeatoz.com/claude-vs-perplexity-seo/) — Claude vs Perplexity for SEO research in 2026 — a detailed comparison across 10 criteria.
+- [How to Build Internal Linking Plans with Claude (2026)](https://howtoclaudeatoz.com/claude-internal-linking/) — Use Claude to build a complete internal linking strategy in 2026.
 - [How to Do Keyword Research with Claude AI (2026)](https://howtoclaudeatoz.com/keyword-research-with-claude/) — Learn how to do keyword research with Claude AI in 2026.
+- [How to Do a Site Audit Using Claude (2026 Guide)](https://howtoclaudeatoz.com/site-audit-with-claude/) — Learn how to do an SEO site audit with Claude AI in 2026.
+- [How to Generate Schema Markup with Claude (2026 Guide)](https://howtoclaudeatoz.com/claude-schema-markup/) — Use Claude to generate JSON-LD schema markup in 2026.
+- [Writing Meta Titles and Descriptions with Claude (2026 Guide)](https://howtoclaudeatoz.com/claude-meta-titles-descriptions/) — Use Claude to write SEO-optimised meta titles and descriptions at scale.
 
 ## Claude for Automation & AI Workflows
+- [10 Claude Automation Workflows You Can Build Today (2026)](https://howtoclaudeatoz.com/claude-automation-workflows/) — 10 practical Claude automation workflows for 2026 — content pipelines, lead qualification, support tickets, social scheduling, and more.
+- [Automating Email with Claude + GetResponse (2026 Guide)](https://howtoclaudeatoz.com/claude-getresponse-email-automation/) — Use Claude AI and GetResponse to automate personalised email sequences in 2026.
+- [Building a Claude Chatbot for Your Website (2026 Guide)](https://howtoclaudeatoz.com/claude-chatbot-website/) — Add a Claude AI chatbot to your website in 2026 — no-code Make.com approach, API method, system prompt templates, embed options, and real pricing estimates.
+- [Claude + Make.com vs n8n — Which Should You Use? (2026)](https://howtoclaudeatoz.com/claude-make-vs-n8n/) — Make.com vs n8n for Claude automation — detailed 2026 comparison covering pricing, ease of use, Claude integration depth, self-hosting, and which to pick.
 - [Claude + Make.com — Complete Integration Guide (2026)](https://howtoclaudeatoz.com/claude-make-com-integration/) — Learn how to integrate Claude AI with Make.com in 2026.
+- [Claude + n8n — How to Build AI Workflows (2026 Guide)](https://howtoclaudeatoz.com/claude-n8n-workflows/) — Connect Claude AI to n8n and build powerful automation workflows in 2026.
+- [Claude API — Getting Started Guide for Non-Developers (2026)](https://howtoclaudeatoz.com/claude-api-getting-started/) — Getting started with the Claude API in 2026 — pricing table, simple Python example, no-code alternatives.
+- [Claude MCP (Model Context Protocol) Explained — Complete Guide (2026)](https://howtoclaudeatoz.com/claude-mcp-explained/) — What is Claude MCP?
+- [Claude for CRM Automation — Full Workflow Guide (2026)](https://howtoclaudeatoz.com/claude-crm-automation/) — Use Claude AI to automate CRM tasks in 2026 — lead scoring, email drafts, contact enrichment, and follow-up sequences.
+- [How to Build Your First Claude AI Agent (2026 Guide)](https://howtoclaudeatoz.com/build-claude-ai-agent/) — Learn how to build a Claude AI agent in 2026 — what makes something an agent, no-code Make.com approach, Python code path, and 3 real agent examples.
 
 ## Claude for Video, Voice & Creative Media
-- [Claude + ElevenLabs — AI Voiceover Workflow (2026)](https://howtoclaudeatoz.com/claude-elevenlabs-voiceover-workflow/) — Combine Claude AI and ElevenLabs to produce professional voiceovers in 2026.
+- [Claude + ElevenLabs — AI Voiceover Workflow Guide (2026)](https://howtoclaudeatoz.com/claude-elevenlabs-voiceover-workflow/) — Use Claude AI and ElevenLabs together to produce professional voiceovers in 2026.
+- [Claude + Kling AI — Text to Video Workflow Guide (2026)](https://howtoclaudeatoz.com/claude-kling-ai/) — Use Claude AI to write prompts for Kling AI text-to-video in 2026.
+- [Claude + Runway ML — AI Video Production Guide (2026)](https://howtoclaudeatoz.com/claude-runway-ml/) — Use Claude AI with Runway ML to produce AI video in 2026.
+- [Claude + Synthesia — Corporate Training Video Workflow (2026)](https://howtoclaudeatoz.com/claude-synthesia/) — Use Claude AI with Synthesia to produce corporate training and explainer videos in 2026.
+- [Claude for Documentary Scriptwriting — Complete Guide (2026)](https://howtoclaudeatoz.com/claude-documentary-scriptwriting/) — Use Claude AI for documentary scriptwriting in 2026.
+- [Claude for Social Media Video Content — Full Guide (2026)](https://howtoclaudeatoz.com/claude-social-media-video/) — Use Claude AI to script TikTok, Reels, and YouTube Shorts in 2026.
+- [How to Generate Voiceover Scripts with Claude (2026 Guide)](https://howtoclaudeatoz.com/claude-voiceover-scripts/) — Generate professional voiceover scripts with Claude AI in 2026.
+- [How to Write Video Storyboards with Claude (2026 Guide)](https://howtoclaudeatoz.com/claude-video-storyboards/) — Use Claude AI to write detailed video storyboards in 2026.
+- [How to Write YouTube Scripts with Claude AI (2026 Guide)](https://howtoclaudeatoz.com/claude-youtube-scripts/) — Write better YouTube scripts faster using Claude AI.
+- [Writing Podcast Scripts with Claude AI (2026 Guide)](https://howtoclaudeatoz.com/claude-podcast-scripts/) — Write podcast scripts with Claude AI in 2026.
 
 ## Claude Code & Developer Use Cases
+- [Building Apps with Claude as Your Co-Developer (2026 Guide)](https://howtoclaudeatoz.com/claude-co-developer/) — Use Claude as your co-developer to build full apps solo.
+- [Claude Code vs n8n — Which for Agentic Workflows? (2026)](https://howtoclaudeatoz.com/claude-code-vs-n8n/) — Claude Code vs n8n: which tool belongs in your agentic workflow stack?
 - [Claude Code — Complete Getting Started Guide (2026)](https://howtoclaudeatoz.com/claude-code-getting-started/) — New to Claude Code?
+- [Claude for Firebase Development — Full Guide (2026)](https://howtoclaudeatoz.com/claude-firebase-development/) — Use Claude for Firebase development — Firestore queries, Auth, Cloud Functions, and Security Rules.
+- [Claude for Flutter Development — Full Guide (2026)](https://howtoclaudeatoz.com/claude-flutter-development/) — Use Claude for Flutter development to generate widgets, manage state, integrate Firebase, and write Dart code faster.
+- [Claude for Python Scripting — Developer Guide (2026)](https://howtoclaudeatoz.com/claude-python-scripting/) — Use Claude for Python scripting to automate tasks, process data, call APIs, and build tools faster.
+- [Claude for Writing API Documentation (2026 Guide)](https://howtoclaudeatoz.com/claude-api-documentation/) — Use Claude to write API documentation — READMEs, OpenAPI specs, docstrings, and endpoint docs — from your code in minutes.
+- [Claude vs GitHub Copilot — Developer Comparison (2026)](https://howtoclaudeatoz.com/claude-vs-github-copilot/) — Claude vs GitHub Copilot: which AI coding assistant is better in 2026?
+- [How to Debug Code with Claude — Developer Guide (2026)](https://howtoclaudeatoz.com/debug-code-with-claude/) — Learn how to debug code with Claude effectively.
+- [How to Use Claude for Code Reviews (2026 Guide)](https://howtoclaudeatoz.com/claude-code-reviews/) — Use Claude for code reviews that catch security issues, bugs, and performance problems.
 
 ## Claude for Business & Productivity
-- [Claude for Small Business Owners — Full Guide (2026)](https://howtoclaudeatoz.com/claude-for-small-business/) — Discover how to use Claude AI for small business in 2026 — from writing marketing copy to automating emails and customer support.
+- [Claude as a Business Strategy Partner — Full Guide (2026)](https://howtoclaudeatoz.com/claude-business-strategy/) — Use Claude for business strategy in 2026 — SWOT, Porter's 5 Forces, PESTLE, Blue Ocean frameworks, strategy session prompts, and how to validate Claude's analysis.
+- [Claude for Business Plan Writing — Step-by-Step Guide (2026)](https://howtoclaudeatoz.com/claude-business-plan-writing/) — Use Claude for business plan writing in 2026 — section-by-section prompts, investor deck adaptation, and a complete structure table for SMBs and startups.
+- [Claude for Financial Analysis and Reporting (2026 Guide)](https://howtoclaudeatoz.com/claude-financial-analysis/) — How to use Claude for financial analysis in 2026 — P&L review, ratio analysis, reporting narrative, key prompts, and important accuracy caveats for SMBs.
+- [Claude for Legal Document Review — SMB Guide (2026)](https://howtoclaudeatoz.com/claude-legal-document-review/) — Use Claude for legal document review in 2026 — what Claude can review, red flag prompts, NDA and contract checklists, and clear limits for SMB owners.
+- [Claude for Project Management — Full Guide (2026)](https://howtoclaudeatoz.com/claude-project-management/) — Use Claude for project management in 2026 — project briefs, risk registers, status reports, Gantt chart descriptions, and Notion/Asana integration via Make.com.
+- [Claude for Sales Copywriting and Outreach (2026 Guide)](https://howtoclaudeatoz.com/claude-sales-copywriting/) — Use Claude for sales copywriting in 2026 — cold email templates, follow-up sequences, LinkedIn outreach, sales page frameworks, and A/B testing prompts.
+- [Claude for Small Business Owners — Complete Guide (2026)](https://howtoclaudeatoz.com/claude-for-small-business/) — How to use Claude for small business in 2026 — top 10 use cases, cost vs value breakdown, and a step-by-step starter guide for SMB owners.
+- [How to Use Claude for Customer Service (2026 Guide)](https://howtoclaudeatoz.com/claude-customer-service/) — Use Claude for customer service in 2026 — response templates, escalation workflows, chatbot setup via Make.com, and a quality checklist for SMBs.
+- [How to Use Claude for HR and Hiring (2026 Guide)](https://howtoclaudeatoz.com/claude-hr-hiring/) — Use Claude for HR and hiring in 2026 — job description templates, interview question generation, CV screening prompts, and HR document templates for SMBs.
+- [Running Meetings More Efficiently with Claude (2026 Guide)](https://howtoclaudeatoz.com/claude-for-meetings/) — Use Claude for meetings in 2026 — agenda templates, note-taking formats, action item extraction, follow-up emails, and meeting type prompts for business teams.
 
 ## Advanced Claude
 - [Advanced Prompt Engineering with Claude (2026 Guide)](https://howtoclaudeatoz.com/advanced-prompt-engineering-claude/) — Master advanced prompt engineering with Claude in 2026.
+- [Claude Opus vs Sonnet vs Haiku — Full Model Breakdown (2026)](https://howtoclaudeatoz.com/claude-opus-vs-sonnet-vs-haiku/) — Claude Opus vs Sonnet vs Haiku compared: context window, cost, speed, intelligence, and best use cases.
+- [Claude Safety Features Explained — Complete Guide (2026)](https://howtoclaudeatoz.com/claude-safety-features/) — A complete guide to Claude's safety features in 2026: Constitutional AI, content policies, hardcoded vs softcoded behaviours, operator configuration, and how Claude compares to other AI models.
+- [Claude System Prompts — How to Use Them Effectively (2026)](https://howtoclaudeatoz.com/claude-system-prompts/) — Learn how Claude system prompts work, how to write them, and see 5 complete examples.
+- [Claude for Education and Teaching — Complete Guide (2026)](https://howtoclaudeatoz.com/claude-for-education/) — How teachers and students can use Claude for education in 2026: lesson plans, quiz generation, tutoring, essay feedback, academic integrity, and ready-to-use prompt templates.
+- [Claude's 200K Token Context Window — How to Use It (2026)](https://howtoclaudeatoz.com/claude-200k-context-window/) — How Claude's 200K token context window works: token-to-word conversions, practical use cases, the 'lost in the middle' problem, and best practices for long contexts.
+- [How Claude's Constitutional AI Works — Technical Guide (2026)](https://howtoclaudeatoz.com/claude-constitutional-ai/) — A technical guide to Claude's Constitutional AI: how it works, what the constitution contains, how it shapes refusals, and how it compares to RLHF.
+- [How to Build a Custom Claude Persona (2026 Guide)](https://howtoclaudeatoz.com/claude-custom-persona/) — Build a custom Claude persona in 2026: persona anatomy, 3 complete system prompt examples, tone and expertise configuration, and how products use Claude personas.
+- [The Future of Claude — What's Coming in 2026 and Beyond](https://howtoclaudeatoz.com/future-of-claude-2026/) — What the future of Claude AI looks like in 2026: Claude 4 capabilities, agentic AI development, multimodal expansion, computer use, and the competitive landscape.
+- [Using Claude for Research and Analysis (2026 Guide)](https://howtoclaudeatoz.com/claude-for-research/) — How to use Claude for research and analysis: workflows, prompt templates, and a full Claude vs Perplexity comparison.
+
+## Comparison Pages
+- [Best AI Automation Tools to Use with Claude (2026 Guide)](https://howtoclaudeatoz.com/best-ai-automation-tools/) — Make.com vs n8n vs Zapier for Claude automation — the best AI automation tools compared on pricing, no-code ease, and Claude integration depth.
+- [Best AI Tools for Content Creators in 2026 (Claude + Top Picks)](https://howtoclaudeatoz.com/best-ai-tools-content-creators/) — The best AI tools for content creators in 2026 — Claude, Writesonic, ElevenLabs, Kling AI and Synthesia reviewed and ranked.
+- [Best AI Video Tools to Pair with Claude (2026 Guide)](https://howtoclaudeatoz.com/best-ai-video-tools/) — Kling AI vs Runway ML vs Synthesia vs ElevenLabs — the best AI video tools to use with Claude in 2026, compared by use case, price and quality.
+- [Best AI Writing Tools in 2026 — Claude vs the Competition](https://howtoclaudeatoz.com/best-ai-writing-tools/) — Claude vs ChatGPT, Jasper, Writesonic and Scalenut — the best AI writing tools in 2026 ranked across quality, SEO, pricing and more.
+- [Best SEO Tools That Work with Claude (2026 Guide)](https://howtoclaudeatoz.com/best-seo-tools-for-claude/) — Surfer SEO, Scalenut, Mangools, Ahrefs and Semrush compared — the best SEO tools that work with Claude for content optimisation in 2026.
+- [Claude Pricing Guide 2026 — Free, Pro, Max, Team and API](https://howtoclaudeatoz.com/claude-pricing-guide/) — Complete Claude pricing guide for 2026 — Free, Pro ($20), Max ($100), Team and API plans compared with token costs and real usage examples.
+- [Is Claude Better Than ChatGPT? (2026 Honest Verdict)](https://howtoclaudeatoz.com/is-claude-better-than-chatgpt/) — Claude vs ChatGPT 2026 — honest, detailed comparison across 10 criteria.

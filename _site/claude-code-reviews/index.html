@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Claude for Code Reviews (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude for code reviews that catch security issues, bugs, and performance problems. Full guide with prompt templates, before/after examples, and PR workflow tips for 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-code-reviews/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Use Claude for Code Reviews (2026 Guide)">
+  <meta property="og:description" content="Use Claude for code reviews that catch security issues, bugs, and performance problems. Full guide with prompt templates, before/after examples, and PR workflow tips for 2026.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-code-reviews/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-code-reviews.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Claude for Code Reviews (2026 Guide)">
+  <meta name="twitter:description" content="Use Claude for code reviews that catch security issues, bugs, and performance problems. Full guide with prompt templates, before/after examples, and PR workflow tips for 2026.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Use Claude for Code Reviews (2026 Guide)",
+  "description": "Use Claude for code reviews that catch security issues, bugs, and performance problems. Full guide with prompt templates, before/after examples, and PR workflow tips for 2026.",
+  "url": "https://howtoclaudeatoz.com/claude-code-reviews/",
+  "image": "https://howtoclaudeatoz.com/og/claude-code-reviews.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude review my code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Claude produces detailed, actionable code reviews covering security vulnerabilities, performance issues, logic errors, code style, and adherence to best practices. It can review a single function, a full file, or an entire pull request diff. Unlike a linter, Claude understands intent \u2014 it explains why something is a problem and what to do about it. The quality of the review improves significantly when you give Claude context about your project's conventions and the intent of the change."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get good code reviews from Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the code and tell Claude: (1) what the code is supposed to do, (2) your stack and language version, (3) what you want focused on (security, performance, readability, or all of the above). In Claude Code, you can ask it to read the file directly and compare against your CLAUDE.md conventions. Specify the review depth \u2014 'be thorough and direct, flag everything' produces different output than 'quick scan for obvious issues'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Claude check in a code review?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude checks for: security vulnerabilities (SQL injection, XSS, insecure deserialization, exposed secrets, improper auth), performance issues (N+1 queries, missing indexes, inefficient loops, memory leaks), logic errors (off-by-one, wrong conditions, missing edge cases), code style and readability, error handling completeness, test coverage gaps, and adherence to the conventions you specify. It also looks for correctness \u2014 does the code actually do what the comments/name claim?"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude Code & Developer Use Cases",
+      "item": "https://howtoclaudeatoz.com/claude-code/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Use Claude for Code Reviews (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-code-reviews/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/claude-code/">Claude Code & Developer Use Cases</a></li><li aria-current="page">How to Use Claude for Code Reviews (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How to Use Claude for Code Reviews (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude code reviews are one of the highest-value uses of AI in the development workflow. Unlike a linter — which checks syntax and style — Claude understands the intent behind code, reads across multiple functions, and catches the bugs that automated tools miss: subtle logic errors, missing auth checks, N+1 query patterns, race conditions, and incorrect assumptions about input. Claude code reviews are also direct and unsparing in a way that human reviewers sometimes are not — Claude has no concern about the social dynamics of telling you your approach is wrong. This guide gives you the exact prompt template, the review categories Claude covers best, before/after examples, and how to integrate Claude into your pull request workflow.</p>
+
+<h2>Why Claude Code Reviews Are Different from Linting</h2>
+
+<p>Linters catch what they are programmed to catch: unused variables, incorrect types, style violations, known anti-patterns. Claude catches what a senior engineer catches: the logic error that is syntactically correct, the security assumption that is subtly wrong, the function whose name says one thing and does another, the test that asserts the wrong thing.</p>
+
+<p>A linter will not tell you that your password reset function has a timing attack vulnerability. A linter will not notice that the new feature bypasses the authorisation check that protects every other route. Claude will.</p>
+
+<p>This does not make linters obsolete — run both. Use linting for the mechanical checks and Claude for the judgement-based review.</p>
+
+<h2>The Code Review Prompt Template</h2>
+
+<p>This template reliably produces thorough, actionable reviews. Copy and adapt it:</p>
+
+<p><code>`</code> Please review the following [language] code.</p>
+
+<p>Context: [What this code does and why it was written] Stack: [Language version, framework, relevant libraries] Change type: [New feature / Bug fix / Refactor / Performance improvement]</p>
+
+<p>Focus on:</p>
+<ul>
+<li>Security vulnerabilities (be specific about attack vectors)</li>
+<li>Logic errors and edge cases the code doesn't handle</li>
+<li>Performance issues</li>
+<li>Error handling completeness</li>
+<li>Code readability and naming</li>
+<li>Anything that doesn't match standard [language] best practices</li>
+</ul>
+
+<p>Be direct and specific. For each issue, include:</p>
+<ul>
+<li>What the problem is</li>
+<li>Why it matters (severity: high/medium/low)</li>
+<li>How to fix it (show corrected code where helpful)</li>
+</ul>
+
+<p>[PASTE CODE HERE] <code>`</code></p>
+
+<h2>How to Review Code with Claude — Step by Step</h2>
+
+<h3>Step 1: Choose Your Review Mode</h3>
+
+<p><strong>Browser (Claude.ai):</strong> Best for quick reviews of single functions or small files. Paste the code, add context, ask for a review.</p>
+
+<p><strong>Claude Code (CLI):</strong> Best for PR reviews involving multiple files or where Claude needs to understand the broader codebase. Launch Claude Code in your project and give a file path or git diff.</p>
+
+<h3>Step 2: Provide Context Before the Code</h3>
+
+<p>Context transforms a generic review into a targeted one. The minimum useful context:</p>
+
+<p><code>`</code> This is a password reset endpoint in a FastAPI app. Users submit their  email, we generate a time-limited token, save its hash to the database,  and email them a link. The link confirms the token and allows password  reset. Review for security issues first, then everything else. <code>`</code></p>
+
+<h3>Step 3: Specify the Review Depth</h3>
+
+<p>Different situations call for different levels of depth:</p>
+
+<ul>
+<li><strong>Quick scan:</strong> "Flag anything critical — security issues, obvious bugs."</li>
+<li><strong>Full review:</strong> "Thorough review — cover security, performance, style, error handling, and edge cases."</li>
+<li><strong>Focused review:</strong> "Review specifically for SQL injection and authentication bypass vulnerabilities."</li>
+<li><strong>Convention check:</strong> "Review against the conventions in CLAUDE.md — flag anything inconsistent."</li>
+</ul>
+
+<h3>Step 4: Use Claude Code for PR Reviews</h3>
+
+<p>In Claude Code, you can review a git diff without copy-pasting:</p>
+
+<p><code>`</code>bash claude</p>
+<blockquote><p>Review the changes in the current git diff (HEAD vs main).</p></blockquote>
+<p>Focus on: security, correctness, and consistency with our    CLAUDE.md conventions. Rate severity of each issue and    suggest specific fixes. <code>`</code></p>
+
+<p>Or review a specific file that was recently changed:</p>
+
+<p><code>`</code>bash</p>
+<blockquote><p>Review src/routers/payments.py for security issues.</p></blockquote>
+<p>This handles Stripe webhook verification and payment recording.    Be thorough. <code>`</code></p>
+
+<h3>Step 5: Act on the Review</h3>
+
+<p>The most productive review workflow:</p>
+
+<ol>
+<li>Get Claude's review</li>
+<li>Go through each high-severity issue immediately</li>
+<li>Ask Claude to write the fix for issues you agree with: "Fix the timing attack vulnerability you identified in the token comparison"</li>
+<li>Add medium/low issues to your backlog</li>
+<li>Run your test suite after applying fixes</li>
+<li>Optional: paste the fixed code back to Claude for a follow-up pass</li>
+</ol>
+
+<h2>What Claude Checks in Code Reviews</h2>
+
+<h3>Security Issues (Claude's Strongest Category)</h3>
+
+<p>Claude checks for the OWASP Top 10 and common application-layer vulnerabilities:</p>
+
+<ul>
+<li><strong>SQL injection</strong> — string interpolation into queries, missing parameterisation</li>
+<li><strong>Authentication bypass</strong> — missing auth checks, broken token validation</li>
+<li><strong>Timing attacks</strong> — using <code>==</code> for secrets instead of <code>hmac.compare_digest</code></li>
+<li><strong>Exposed secrets</strong> — hardcoded API keys, tokens in logs</li>
+<li><strong>IDOR</strong> — endpoints that return data without verifying the resource belongs to the requesting user</li>
+<li><strong>Mass assignment</strong> — blindly accepting user input and saving it to the database</li>
+<li><strong>Insecure deserialization</strong> — <code>pickle.loads</code> on user-controlled data</li>
+<li><strong>XSS</strong> — unsanitised user content rendered as HTML</li>
+</ul>
+
+<h3>Performance Issues</h3>
+
+<ul>
+<li><strong>N+1 queries</strong> — running a database query inside a loop</li>
+<li><strong>Missing indexes</strong> — filtering or ordering by an un-indexed column</li>
+<li><strong>Inefficient data loading</strong> — loading entire records when only a field is needed</li>
+<li><strong>Missing caching</strong> — repeated identical expensive operations</li>
+<li><strong>Blocking async operations</strong> — calling synchronous code in async context</li>
+</ul>
+
+<h3>Logic and Correctness</h3>
+
+<ul>
+<li><strong>Wrong conditions</strong> — <code><</code> when <code><=</code> is needed, <code>OR</code> when <code>AND</code> is needed</li>
+<li><strong>Missing edge cases</strong> — empty input, zero, None, negative numbers</li>
+<li><strong>Incorrect algorithm</strong> — an approach that works for common cases but fails subtly</li>
+<li><strong>State mutation bugs</strong> — modifying shared state, mutable defaults</li>
+</ul>
+
+<h2>Before and After: Code Review Example</h2>
+
+<h3>Before (Submitted for Review)</h3>
+
+<p><code>`</code>python import hashlib import random import string from datetime import datetime, timedelta from db import get<em>db from email</em>service import send<em>reset</em>email</p>
+
+<p>def request<em>password</em>reset(email: str):     db = get_db()     user = db.execute(f"SELECT * FROM users WHERE email = '{email}'").fetchone()     if not user:         return {"error": "User not found"}</p>
+
+<p>token = ''.join(random.choices(string.ascii_letters + string.digits, k=32))     expiry = datetime.now() + timedelta(hours=1)</p>
+
+<p>db.execute(f"INSERT INTO password<em>resets (user</em>id, token, expiry) VALUES ({user['id']}, '{token}', '{expiry}')")     db.commit()</p>
+
+<p>send<em>reset</em>email(email, token)     return {"message": "Reset email sent"}</p>
+
+<p>def confirm<em>password</em>reset(token: str, new<em>password: str):     db = get</em>db()     reset = db.execute(f"SELECT * FROM password_resets WHERE token = '{token}'").fetchone()     if not reset or reset['expiry'] < datetime.now():         return {"error": "Invalid or expired token"}</p>
+
+<p>hashed = hashlib.md5(new<em>password.encode()).hexdigest()     db.execute(f"UPDATE users SET password = '{hashed}' WHERE id = {reset['user</em>id']}")     db.execute(f"DELETE FROM password_resets WHERE token = '{token}'")     db.commit()     return {"message": "Password updated"} <code>`</code></p>
+
+<h3>Claude's Review</h3>
+
+<p><code>`</code> HIGH SEVERITY — Security Issues:</p>
+
+<ol>
+<li>SQL Injection (Critical) — Lines 9, 22, 26, 29, 30</li>
+</ol>
+<p>Both functions use f-strings to interpolate user input directly into     SQL queries. An attacker can submit email=' OR '1'='1 to extract all     users, or use UNION SELECT attacks. Every query must use parameterised     statements.</p>
+
+<ol>
+<li>Weak randomness (High) — Line 14</li>
+</ol>
+<p>random.choices() uses Python's Mersenne Twister which is not     cryptographically secure. A determined attacker can predict future     tokens if they can observe previous ones. Use secrets.token_urlsafe(32)     instead.</p>
+
+<ol>
+<li>Insecure password hashing (Critical) — Line 25</li>
+</ol>
+<p>MD5 is a fast hashing algorithm explicitly unsuitable for passwords.     A modern GPU can crack MD5 hashes at billions per second. Use     bcrypt, argon2, or at minimum PBKDF2 with SHA-256 and 100,000+ iterations.</p>
+
+<ol>
+<li>Token not hashed in database (High) — Line 17</li>
+</ol>
+<p>Storing the raw reset token in the database means a database breach     exposes valid reset tokens directly. Store hash(token) in the database     and compare hash(submitted_token) against it during confirmation.</p>
+
+<ol>
+<li>Information disclosure (Medium) — Line 10</li>
+</ol>
+<p>Returning "User not found" for an unknown email allows email enumeration.     Return the same success message whether or not the email exists.</p>
+
+<p>MEDIUM SEVERITY:</p>
+
+<ol>
+<li>No rate limiting — an attacker can request thousands of reset emails</li>
+</ol>
+<p>for valid addresses (spam) or enumerate valid emails quickly.</p>
+
+<ol>
+<li>Old tokens not invalidated — if a user requests multiple resets,</li>
+</ol>
+<p>old tokens remain valid. DELETE old tokens for the user_id before     inserting a new one.</p>
+
+<p>LOW SEVERITY:</p>
+
+<ol>
+<li>datetime.now() vs datetime.utcnow() — use UTC consistently to avoid</li>
+</ol>
+<p>timezone-related expiry bugs in production. <code>`</code></p>
+
+<h3>After (Claude-Fixed Code)</h3>
+
+<p><code>`</code>python import hashlib import secrets from datetime import datetime, timezone, timedelta from db import get<em>db from email</em>service import send<em>reset</em>email from passlib.context import CryptContext</p>
+
+<p>pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")</p>
+
+<p>def request<em>password</em>reset(email: str) -> dict:     db = get_db()     user = db.execute(         "SELECT id FROM users WHERE email = ?", (email,)     ).fetchone()</p>
+
+<p># Always return same message to prevent email enumeration     if not user:         return {"message": "If that email is registered, a reset link has been sent."}</p>
+
+<p>token = secrets.token<em>urlsafe(32)     token</em>hash = hashlib.sha256(token.encode()).hexdigest()     expiry = datetime.now(timezone.utc) + timedelta(hours=1)</p>
+
+<p># Invalidate any existing tokens for this user     db.execute("DELETE FROM password<em>resets WHERE user</em>id = ?", (user["id"],))     db.execute(         "INSERT INTO password<em>resets (user</em>id, token<em>hash, expiry) VALUES (?, ?, ?)",         (user["id"], token</em>hash, expiry),     )     db.commit()</p>
+
+<p>send<em>reset</em>email(email, token)  # Send raw token in email, store only hash     return {"message": "If that email is registered, a reset link has been sent."}</p>
+
+<p>def confirm<em>password</em>reset(token: str, new<em>password: str) -> dict:     db = get</em>db()     token<em>hash = hashlib.sha256(token.encode()).hexdigest()     reset = db.execute(         "SELECT * FROM password</em>resets WHERE token<em>hash = ?", (token</em>hash,)     ).fetchone()</p>
+
+<p>if not reset:         return {"error": "Invalid or expired token"}     if reset["expiry"] < datetime.now(timezone.utc):         db.execute("DELETE FROM password<em>resets WHERE token</em>hash = ?", (token_hash,))         db.commit()         return {"error": "Invalid or expired token"}</p>
+
+<p>hashed<em>password = pwd</em>context.hash(new<em>password)     db.execute(         "UPDATE users SET password = ? WHERE id = ?",         (hashed</em>password, reset["user<em>id"]),     )     db.execute("DELETE FROM password</em>resets WHERE token<em>hash = ?", (token</em>hash,))     db.commit()     return {"message": "Password updated successfully"} <code>`</code></p>
+
+<h2>Integrating Claude into Your PR Workflow</h2>
+
+<p><strong>Pre-review self-check:</strong> Before requesting human review, run Claude over your own diff. Fix the obvious issues Claude catches before your colleague has to. This makes human review sessions more productive — reviewers focus on architecture and intent rather than basic bugs.</p>
+
+<p><strong>Automated review on PR open:</strong> Some teams pipe the git diff to Claude via the API and post the response as a PR comment automatically. This provides consistent first-pass review on every PR.</p>
+
+<p><strong>Convention enforcement:</strong> Add your coding conventions to <code>CLAUDE.md</code> and ask Claude to flag anything that violates them. This is more thorough than a linter for convention checks that cannot be expressed as static rules.</p>
+
+<p><strong>Security-focused passes:</strong> For authentication, payment, or data-handling code, run a dedicated security-focused review separate from the general code review: "Review this code specifically for security vulnerabilities. Be exhaustive."</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-code-getting-started/">Claude Code Getting Started</a></li>
+<li><a href="/debug-code-with-claude/">Debug Code with Claude</a></li>
+<li><a href="/claude-vs-github-copilot/">Claude vs GitHub Copilot</a></li>
+<li><a href="/claude-python-scripting/">Claude Python Scripting</a></li>
+<li><a href="/claude-co-developer/">Building Apps with Claude as Your Co-Developer</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude review my code?</dt>
+<dd>Yes — Claude produces detailed, actionable code reviews covering security vulnerabilities, performance issues, logic errors, code style, and adherence to best practices. It can review a single function, a full file, or an entire pull request diff. Unlike a linter, Claude understands intent — it explains why something is a problem and what to do about it. The quality of the review improves significantly when you give Claude context about your project's conventions and the intent of the change.</dd>
+<dt>How do I get good code reviews from Claude?</dt>
+<dd>Paste the code and tell Claude: (1) what the code is supposed to do, (2) your stack and language version, (3) what you want focused on (security, performance, readability, or all of the above). In Claude Code, you can ask it to read the file directly and compare against your CLAUDE.md conventions. Specify the review depth — 'be thorough and direct, flag everything' produces different output than 'quick scan for obvious issues'.</dd>
+<dt>What does Claude check in a code review?</dt>
+<dd>Claude checks for: security vulnerabilities (SQL injection, XSS, insecure deserialization, exposed secrets, improper auth), performance issues (N+1 queries, missing indexes, inefficient loops, memory leaks), logic errors (off-by-one, wrong conditions, missing edge cases), code style and readability, error handling completeness, test coverage gaps, and adherence to the conventions you specify. It also looks for correctness — does the code actually do what the comments/name claim?</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

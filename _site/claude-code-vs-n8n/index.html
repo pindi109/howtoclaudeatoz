@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code vs n8n — Which for Agentic Workflows? (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Claude Code vs n8n: which tool belongs in your agentic workflow stack? Comparison table, decision framework, and use case matrix for automation in 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-code-vs-n8n/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Code vs n8n — Which for Agentic Workflows? (2026)">
+  <meta property="og:description" content="Claude Code vs n8n: which tool belongs in your agentic workflow stack? Comparison table, decision framework, and use case matrix for automation in 2026.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-code-vs-n8n/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-code-vs-n8n.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code vs n8n — Which for Agentic Workflows? (2026)">
+  <meta name="twitter:description" content="Claude Code vs n8n: which tool belongs in your agentic workflow stack? Comparison table, decision framework, and use case matrix for automation in 2026.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Code vs n8n \u2014 Which for Agentic Workflows? (2026)",
+  "description": "Claude Code vs n8n: which tool belongs in your agentic workflow stack? Comparison table, decision framework, and use case matrix for automation in 2026.",
+  "url": "https://howtoclaudeatoz.com/claude-code-vs-n8n/",
+  "image": "https://howtoclaudeatoz.com/og/claude-code-vs-n8n.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I use Claude Code or n8n for automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use n8n when you need to connect multiple SaaS apps, schedule recurring workflows, or build visual automation pipelines that non-developers can maintain. Use Claude Code when the automation requires complex reasoning, code generation, multi-step debugging, or large-scale file and codebase manipulation. They are not direct competitors \u2014 most serious automation stacks use n8n for workflow orchestration and Claude (via API) as an intelligent processing node inside those workflows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude Code replace n8n?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 they solve different problems. n8n is a workflow orchestration tool with 400+ native app integrations, visual pipelines, scheduling, and error handling built in. Claude Code is a developer-focused CLI for codebase work. Claude can be embedded into n8n workflows as an HTTP/API node to add AI reasoning, but Claude Code does not replace n8n's trigger system, scheduler, or native app connectors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I use n8n instead of Claude Code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use n8n when you need: scheduled automation (every hour, every day), multi-app integration (Gmail + Slack + Google Sheets + your database in one flow), a visual interface for building and monitoring workflows, or when the automation needs to be maintained by non-developers. n8n's node-based editor makes complex multi-step workflows inspectable and editable without code."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude Code & Developer Use Cases",
+      "item": "https://howtoclaudeatoz.com/claude-code/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude Code vs n8n \u2014 Which for Agentic Workflows? (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-code-vs-n8n/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/claude-code/">Claude Code & Developer Use Cases</a></li><li aria-current="page">Claude Code vs n8n — Which for Agentic Workflows? (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude Code vs n8n — Which for Agentic Workflows? (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>The Claude Code vs n8n question comes up whenever developers start building automated pipelines with AI reasoning in them. The short answer: they are complementary, not competing. n8n is a workflow automation platform — it connects apps, schedules runs, and routes data between services. Claude Code is a developer-focused AI tool for code and reasoning tasks. The most capable agentic workflows use both: n8n for orchestration and scheduling, Claude (via its API) for the intelligence layer. This guide explains exactly where each tool shines, where they overlap, and the decision framework for choosing which to reach for first.</p>
+
+<h2>What is Claude Code?</h2>
+
+<p>Claude Code is Anthropic's CLI that gives Claude direct access to your local file system — it reads project files, writes and edits code, runs shell commands (with approval), and executes complex development tasks autonomously. It is designed for software developers working on codebases. It is not a general-purpose automation tool, and it has no scheduler, no native app connectors, and no visual editor.</p>
+
+<h2>What is n8n?</h2>
+
+<p>n8n is an open-source workflow automation platform (with a hosted cloud option) that connects over 400 apps through a visual node-based editor. You build workflows by connecting trigger nodes (webhooks, schedules, app events) to action nodes (send email, update database, call API, transform data). n8n workflows are inspectable, version-controlled, and can be run on a self-hosted server or the n8n cloud. It is particularly strong for teams who need visibility and maintainability in their automation pipelines.</p>
+
+<h2>Claude Code vs n8n — Comparison Table</h2>
+
+<p><table> <thead> <tr> <th>Criterion</th> <th>Claude Code</th> <th>n8n</th> </tr> </thead> <tbody> <tr> <td><strong>Primary purpose</strong></td> <td>AI-assisted code development</td> <td>Workflow automation</td> </tr> <tr> <td><strong>Interface</strong></td> <td>Terminal CLI</td> <td>Visual node editor + web UI</td> </tr> <tr> <td><strong>Scheduling</strong></td> <td>None built-in</td> <td>Built-in cron + event triggers</td> </tr> <tr> <td><strong>App integrations</strong></td> <td>Via MCP servers</td> <td>400+ native nodes</td> </tr> <tr> <td><strong>Reasoning / AI logic</strong></td> <td>Native (it IS an AI)</td> <td>Via HTTP node or AI nodes</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Yes (in terminal context)</td> <td>Limited (Function nodes in JS)</td> </tr> <tr> <td><strong>Codebase understanding</strong></td> <td>Deep (reads all files)</td> <td>No</td> </tr> <tr> <td><strong>Non-developer friendly</strong></td> <td>No — requires terminal comfort</td> <td>Yes — visual editor</td> </tr> <tr> <td><strong>Self-hostable</strong></td> <td>Claude Code is local; API is Anthropic-hosted</td> <td>Fully self-hostable</td> </tr> <tr> <td><strong>Open source</strong></td> <td>No (Anthropic proprietary)</td> <td>Yes (Apache 2.0 core)</td> </tr> <tr> <td><strong>Error handling</strong></td> <td>Conversational / manual</td> <td>Built-in retry logic, error branches</td> </tr> <tr> <td><strong>Monitoring</strong></td> <td>None built-in</td> <td>Execution logs, alerts</td> </tr> <tr> <td><strong>Best for</strong></td> <td>Code tasks, debugging, documentation</td> <td>App integration, data pipelines</td> </tr> <tr> <td><strong>Pricing</strong></td> <td>Claude Pro $20/mo or API</td> <td>n8n Cloud from $24/mo; self-host free</td> </tr> </tbody> </table></p>
+
+<h2>Use Case Matrix</h2>
+
+<p><table> <thead> <tr> <th>Task</th> <th>Use Claude Code</th> <th>Use n8n</th> <th>Use Both</th> </tr> </thead> <tbody> <tr> <td>Refactor a codebase</td> <td>Yes</td> <td>No</td> <td>No</td> </tr> <tr> <td>Sync CRM to spreadsheet</td> <td>No</td> <td>Yes</td> <td>No</td> </tr> <tr> <td>Generate code from requirements</td> <td>Yes</td> <td>No</td> <td>No</td> </tr> <tr> <td>Process form submissions to email</td> <td>No</td> <td>Yes</td> <td>No</td> </tr> <tr> <td>Classify and route incoming emails with AI</td> <td>No</td> <td>No</td> <td>Yes — n8n triggers, Claude classifies</td> </tr> <tr> <td>Debug a production error</td> <td>Yes</td> <td>No</td> <td>No</td> </tr> <tr> <td>Scrape + summarise news daily</td> <td>No</td> <td>No</td> <td>Yes — n8n schedules, Claude summarises</td> </tr> <tr> <td>Build a REST API</td> <td>Yes</td> <td>No</td> <td>No</td> </tr> <tr> <td>Generate weekly reports from data</td> <td>No</td> <td>No</td> <td>Yes — n8n fetches, Claude writes prose</td> </tr> <tr> <td>Monitor API health and alert</td> <td>No</td> <td>Yes</td> <td>No</td> </tr> <tr> <td>Extract structured data from unstructured docs</td> <td>No</td> <td>No</td> <td>Yes — n8n orchestrates, Claude extracts</td> </tr> <tr> <td>Write API documentation</td> <td>Yes</td> <td>No</td> <td>No</td> </tr> </tbody> </table></p>
+
+<h2>How to Use Claude and n8n Together</h2>
+
+<p>The most powerful pattern is: <strong>n8n as the orchestration layer, Claude API as the intelligence node</strong>.</p>
+
+<p>n8n handles: triggers, scheduling, routing, error handling, app connections, and data storage. Claude handles: classification, summarisation, data extraction, reasoning, and text generation.</p>
+
+<h3>Example 1: AI Email Routing</h3>
+
+<p><strong>n8n workflow:</strong></p>
+<ol>
+<li>Gmail trigger — new email received</li>
+<li>HTTP node — POST email body to Claude API</li>
+<li>Claude returns: <code>{"category": "support", "priority": "high", "summary": "..."}</code></li>
+<li>Switch node — routes based on category</li>
+<li>Slack node (support channel), Notion node (log entry), or Gmail node (auto-reply)</li>
+</ol>
+
+<p><strong>Claude API prompt used inside n8n:</strong> <code>`</code> Classify this email into one of: sales<em>enquiry, support</em>request, spam, partnership. Rate priority: low, medium, high. Return JSON only: {"category": "...", "priority": "...", "summary": "one sentence"}.</p>
+
+<p>Email: {{$json.body}} <code>`</code></p>
+
+<h3>Example 2: Daily Content Digest</h3>
+
+<p><strong>n8n workflow:</strong></p>
+<ol>
+<li>Schedule trigger — 7am every day</li>
+<li>RSS Feed nodes — fetch 3 news sources</li>
+<li>HTTP node — send all headlines to Claude API</li>
+<li>Claude returns a 200-word briefing in HTML</li>
+<li>SendGrid node — email the digest to subscribers</li>
+</ol>
+
+<h3>Example 3: Document Processing Pipeline</h3>
+
+<p><strong>n8n workflow:</strong></p>
+<ol>
+<li>Google Drive trigger — new file added to /inbox folder</li>
+<li>Google Drive node — download the file content</li>
+<li>HTTP node — send to Claude API with extraction prompt</li>
+<li>Set node — parse Claude's JSON response</li>
+<li>Google Sheets node — append extracted fields to spreadsheet</li>
+<li>Slack node — notify team of new processed document</li>
+</ol>
+
+<h3>Setting Up the Claude API Node in n8n</h3>
+
+<p>In n8n, Claude is called via an HTTP Request node:</p>
+
+<p><code>`</code> Method: POST URL: https://api.anthropic.com/v1/messages Headers:   x-api-key: {{ $env.ANTHROPIC<em>API</em>KEY }}   anthropic-version: 2023-06-01   content-type: application/json</p>
+
+<p>Body (JSON): {   "model": "claude-sonnet-4-5",   "max_tokens": 1024,   "messages": [     {       "role": "user",       "content": "{{ $json.prompt }}"     }   ] } <code>`</code></p>
+
+<p>Extract the response with: <code>{{ $json.content[0].text }}</code></p>
+
+<h2>Decision Framework: Which Tool First?</h2>
+
+<p>Work through these questions:</p>
+
+<p><strong>1. Is this a codebase task?</strong></p>
+<ul>
+<li>Writing, editing, or reviewing code → Claude Code</li>
+<li>Debugging from error messages → Claude Code</li>
+<li>Generating documentation → Claude Code</li>
+</ul>
+
+<p><strong>2. Does it involve multiple SaaS apps or services?</strong></p>
+<ul>
+<li>Yes, connecting Gmail + Sheets + Slack etc. → n8n</li>
+<li>No, it's one service or local files → Claude Code or direct API</li>
+</ul>
+
+<p><strong>3. Does it need to run on a schedule or triggered automatically?</strong></p>
+<ul>
+<li>Yes, recurring or event-triggered → n8n (with Claude as a node if reasoning needed)</li>
+<li>No, one-time or manual → Claude Code or direct API call</li>
+</ul>
+
+<p><strong>4. Does a non-developer need to maintain it?</strong></p>
+<ul>
+<li>Yes → n8n (visual editor is accessible)</li>
+<li>No → either tool</li>
+</ul>
+
+<p><strong>5. Does it require complex reasoning or text generation?</strong></p>
+<ul>
+<li>Yes → Claude API (called from n8n or directly)</li>
+<li>No → n8n alone</li>
+</ul>
+
+<h2>When n8n + Claude API Beats Claude Code Alone</h2>
+
+<p><table> <thead> <tr> <th>Scenario</th> <th>Why n8n + Claude wins</th> </tr> </thead> <tbody> <tr> <td>Daily automated digest</td> <td>Claude Code has no scheduler</td> </tr> <tr> <td>Processing 500 documents automatically</td> <td>n8n handles queue, Claude handles each document</td> </tr> <tr> <td>Routing data from Webhook to multiple destinations</td> <td>n8n's router nodes do this natively</td> </tr> <tr> <td>Monitoring and alerting</td> <td>n8n's trigger system and error branches</td> </tr> <tr> <td>Team-maintainable automations</td> <td>n8n's visual editor beats terminal for shared ownership</td> </tr> </tbody> </table></p>
+
+<h2>When Claude Code Beats n8n</h2>
+
+<p><table> <thead> <tr> <th>Scenario</th> <th>Why Claude Code wins</th> </tr> </thead> <tbody> <tr> <td>Refactoring a 50-file codebase</td> <td>n8n has no file system access</td> </tr> <tr> <td>Debugging a complex stack trace</td> <td>Claude Code reads your actual code</td> </tr> <tr> <td>Building a new app feature</td> <td>This is development work, not automation</td> </tr> <tr> <td>Reviewing a pull request</td> <td>Requires codebase understanding</td> </tr> <tr> <td>Writing and running tests</td> <td>Requires code execution in project context</td> </tr> </tbody> </table></p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-code-getting-started/">Claude Code Getting Started</a></li>
+<li><a href="/claude-co-developer/">Building Apps with Claude as Your Co-Developer</a></li>
+<li><a href="/claude-mcp-explained/">Claude MCP Explained</a></li>
+<li><a href="/claude-python-scripting/">Claude Python Scripting</a></li>
+<li><a href="/claude-vs-github-copilot/">Claude vs GitHub Copilot</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Should I use Claude Code or n8n for automation?</dt>
+<dd>Use n8n when you need to connect multiple SaaS apps, schedule recurring workflows, or build visual automation pipelines that non-developers can maintain. Use Claude Code when the automation requires complex reasoning, code generation, multi-step debugging, or large-scale file and codebase manipulation. They are not direct competitors — most serious automation stacks use n8n for workflow orchestration and Claude (via API) as an intelligent processing node inside those workflows.</dd>
+<dt>Can Claude Code replace n8n?</dt>
+<dd>No — they solve different problems. n8n is a workflow orchestration tool with 400+ native app integrations, visual pipelines, scheduling, and error handling built in. Claude Code is a developer-focused CLI for codebase work. Claude can be embedded into n8n workflows as an HTTP/API node to add AI reasoning, but Claude Code does not replace n8n's trigger system, scheduler, or native app connectors.</dd>
+<dt>When should I use n8n instead of Claude Code?</dt>
+<dd>Use n8n when you need: scheduled automation (every hour, every day), multi-app integration (Gmail + Slack + Google Sheets + your database in one flow), a visual interface for building and monitoring workflows, or when the automation needs to be maintained by non-developers. n8n's node-based editor makes complex multi-step workflows inspectable and editable without code.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

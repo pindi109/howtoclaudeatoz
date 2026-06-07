@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude API — Getting Started Guide for Non-Developers (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Getting started with the Claude API in 2026 — pricing table, simple Python example, no-code alternatives. Everything non-developers need to know before building.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-api-getting-started/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude API — Getting Started Guide for Non-Developers (2026)">
+  <meta property="og:description" content="Getting started with the Claude API in 2026 — pricing table, simple Python example, no-code alternatives. Everything non-developers need to know before building.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-api-getting-started/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-api-getting-started.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude API — Getting Started Guide for Non-Developers (2026)">
+  <meta name="twitter:description" content="Getting started with the Claude API in 2026 — pricing table, simple Python example, no-code alternatives. Everything non-developers need to know before building.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude API \u2014 Getting Started Guide for Non-Developers (2026)",
+  "description": "Getting started with the Claude API in 2026 \u2014 pricing table, simple Python example, no-code alternatives. Everything non-developers need to know before building.",
+  "url": "https://howtoclaudeatoz.com/claude-api-getting-started/",
+  "image": "https://howtoclaudeatoz.com/og/claude-api-getting-started.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the Claude API hard to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Claude API is straightforward for developers \u2014 a single API call with a few parameters returns a text response. For non-developers, no-code tools like Make.com provide a form-based interface to the same API without any coding. If you can write a Google Docs macro, you can call the Claude API; if you can't, Make.com is the right starting point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does the Claude API cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude API pricing is based on tokens (roughly 1 token = 0.75 words). Claude Haiku is the cheapest at around $0.0008 per 1,000 input tokens. Claude Sonnet is around $0.003 per 1,000 input tokens. Claude Opus is the most capable and most expensive. For typical automation use \u2014 processing a few hundred emails or documents per month \u2014 total API costs are usually under $5/month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to know Python to use the Claude API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The Claude API has official SDKs for Python and TypeScript, but you can also call it from any language using standard HTTP requests, or not code at all using Make.com's native Anthropic module. Many people use the Claude API productively through Make.com, n8n, or other no-code tools without writing a single line of code."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Automation & AI Workflows",
+      "item": "https://howtoclaudeatoz.com/automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude API \u2014 Getting Started Guide for Non-Developers (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-api-getting-started/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/automation/">Claude for Automation & AI Workflows</a></li><li aria-current="page">Claude API — Getting Started Guide for Non-Developers (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude API — Getting Started Guide for Non-Developers (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Getting started with the Claude API is simpler than most developers expect and more accessible to non-developers than most people assume. The Claude API getting started process takes under 30 minutes from zero to your first working API call — and if you don't want to write code at all, no-code tools like Make.com expose the same API through a visual interface. This guide covers what the API actually is, how to get your key, what each model costs, a minimal working Python example you can copy and run, and the no-code alternative for people who prefer to avoid code entirely.</p>
+
+<h2>What is the Claude API?</h2>
+
+<p>The Claude API is the programmatic interface to Anthropic's Claude models. Instead of typing into Claude.ai and reading the response, your application sends a structured request and receives a structured response — which your code can then use, store, display, or pass to another system.</p>
+
+<p>Every Claude-powered product is built on this API. When Make.com's Anthropic module sends your prompt to Claude, it's using the API. When an app generates a personalised email, summarises a document, or classifies a support ticket, it's using the API.</p>
+
+<p>The API is a REST interface — you send an HTTP POST request with your prompt and some parameters, and you receive a JSON response containing Claude's output. Anthropic also provides official SDKs for Python and TypeScript that wrap the HTTP calls in a cleaner interface.</p>
+
+<h2>Step 1: Get Your API Key</h2>
+
+<ol>
+<li>Go to <a href="https://console.anthropic.com">console.anthropic.com</a></li>
+<li>Sign up or log in with your email</li>
+<li>Click <strong>API Keys</strong> in the left sidebar</li>
+<li>Click <strong>Create Key</strong>, give it a descriptive name ("My First Project"), and click <strong>Create</strong></li>
+<li>Copy the key immediately — it starts with <code>sk-ant-api03-...</code>. Anthropic shows it only once.</li>
+<li>Go to <strong>Billing</strong> and add a payment method. Load some credits (starting with $5 is fine for testing).</li>
+</ol>
+
+<p>Your API key authenticates every request. Keep it private — treat it like a password. Do not commit it to code repositories.</p>
+
+<h2>Claude API Pricing (2026)</h2>
+
+<p>Claude API pricing is per-token. One token is roughly 0.75 words or 4 characters. A typical email is 100-300 tokens; a blog post is 500-1,500 tokens.</p>
+
+<p><table> <thead> <tr> <th>Model</th> <th>Input cost (per 1M tokens)</th> <th>Output cost (per 1M tokens)</th> <th>Best for</th> </tr> </thead> <tbody> <tr> <td><strong>Claude Haiku</strong></td> <td>~$0.80</td> <td>~$4.00</td> <td>High-volume tasks: classification, extraction, short summaries</td> </tr> <tr> <td><strong>Claude Sonnet</strong></td> <td>~$3.00</td> <td>~$15.00</td> <td>Everyday tasks: writing, analysis, coding, most automations</td> </tr> <tr> <td><strong>Claude Opus</strong></td> <td>~$15.00</td> <td>~$75.00</td> <td>Complex reasoning, nuanced writing, highest capability tasks</td> </tr> </tbody> </table></p>
+
+<p><strong>Real-world cost examples:</strong></p>
+
+<ul>
+<li>Classifying 1,000 customer emails with Haiku (avg 200 tokens each): ~$0.16</li>
+<li>Writing 100 blog intros with Sonnet (avg 800 tokens each): ~$0.24 for input + $1.20 for output = ~$1.44</li>
+<li>Summarising 50 long reports with Opus (avg 3,000 tokens each): ~$2.25</li>
+</ul>
+
+<p>For most small-business automation use cases, monthly API costs run $2–20. The API only charges for actual usage — there are no monthly minimums or seat fees.</p>
+
+<p><strong>Tip</strong>: Use Haiku for any task that doesn't require nuanced writing or complex reasoning. Classification, yes/no decisions, extraction of structured data from text — Haiku handles these well and is 4-5x cheaper than Sonnet.</p>
+
+<h2>Your First API Call — Python</h2>
+
+<p>If you have Python installed, here is the minimal working example:</p>
+
+<h3>Install the SDK</h3>
+
+<p><code>`</code>bash pip install anthropic <code>`</code></p>
+
+<h3>Basic Request</h3>
+
+<p><code>`</code>python import anthropic</p>
+
+<p>client = anthropic.Anthropic(api_key="your-api-key-here")</p>
+
+<p>message = client.messages.create(     model="claude-sonnet-4-5",     max_tokens=1024,     messages=[         {"role": "user", "content": "Summarise this text in 3 bullet points: [your text here]"}     ] )</p>
+
+<p>print(message.content[0].text) <code>`</code></p>
+
+<p>Replace <code>"your-api-key-here"</code> with your actual key. Run the script. You'll see Claude's response printed in your terminal.</p>
+
+<h3>Using a System Prompt</h3>
+
+<p>A system prompt lets you define Claude's role, tone, and constraints before the conversation starts:</p>
+
+<p><code>`</code>python message = client.messages.create(     model="claude-sonnet-4-5",     max_tokens=1024,     system="You are a professional email writer. Always write in a warm, direct tone. Keep emails under 200 words.",     messages=[         {"role": "user", "content": "Write a follow-up email to a prospect who downloaded our pricing guide."}     ] ) <code>`</code></p>
+
+<p>The system prompt is invisible to the user — it shapes Claude's behaviour for every message in the conversation.</p>
+
+<h3>Best Practice: Use Environment Variables for Your Key</h3>
+
+<p>Hard-coding your API key in a script is a security risk. Use an environment variable instead:</p>
+
+<p><code>`</code>python import anthropic import os</p>
+
+<p>client = anthropic.Anthropic(api<em>key=os.environ.get("ANTHROPIC</em>API_KEY")) <code>`</code></p>
+
+<p>Set the environment variable in your terminal:</p>
+
+<p><code>`</code>bash export ANTHROPIC<em>API</em>KEY="sk-ant-api03-..." <code>`</code></p>
+
+<p>Or use a <code>.env</code> file with the <code>python-dotenv</code> package — this keeps your key out of your source code.</p>
+
+<h2>Key API Parameters Explained</h2>
+
+<p><table> <thead> <tr> <th>Parameter</th> <th>What it does</th> <th>Recommended value</th> </tr> </thead> <tbody> <tr> <td><code>model</code></td> <td>Which Claude model to use</td> <td><code>claude-sonnet-4-5</code> for most tasks</td> </tr> <tr> <td><code>max_tokens</code></td> <td>Maximum length of Claude's response</td> <td>256 for short outputs, 2048 for long</td> </tr> <tr> <td><code>system</code></td> <td>Defines Claude's role and behaviour</td> <td>Set once per session</td> </tr> <tr> <td><code>messages</code></td> <td>The conversation history as an array</td> <td>Always include at least one user message</td> </tr> <tr> <td><code>temperature</code></td> <td>Controls randomness (0-1)</td> <td>Default (1) for most tasks; 0 for deterministic outputs</td> </tr> </tbody> </table></p>
+
+<p><strong><code>max_tokens</code> is a ceiling, not a target.</strong> Claude will stop when it's done, even if it hasn't reached the limit. Setting it too low can cut Claude's response off mid-sentence. Setting it too high doesn't cost more — you only pay for tokens actually generated.</p>
+
+<h2>No-Code Alternative: Make.com</h2>
+
+<p>If writing Python isn't your thing, Make.com provides a visual interface to the same Claude API. You get all the same models and parameters in a form-based UI, without installing Python or writing any code.</p>
+
+<p><strong>When to use Make.com instead of the API directly:</strong></p>
+
+<ul>
+<li>You want to connect Claude to other apps (Gmail, Sheets, Slack) visually</li>
+<li>You're building a workflow, not a custom application</li>
+<li>You prefer a no-code environment</li>
+<li>You don't have developer resources available</li>
+</ul>
+
+<p><strong>When to use the API directly:</strong></p>
+
+<ul>
+<li>You're building a web or mobile app that uses Claude</li>
+<li>You need precise control over the conversation history</li>
+<li>You're implementing an agent that loops (Claude calls tools, observes results, decides next step)</li>
+<li>You need streaming responses for a real-time UI</li>
+</ul>
+
+<p>Most individual creators and small businesses start with Make.com and graduate to direct API usage as their needs grow more complex. Both are valid choices — they're using the same underlying service.</p>
+
+<h2>Common API Errors and How to Fix Them</h2>
+
+<p><table> <thead> <tr> <th>Error</th> <th>Cause</th> <th>Fix</th> </tr> </thead> <tbody> <tr> <td><code>401 Unauthorized</code></td> <td>Invalid API key</td> <td>Check your key is copied correctly with no extra spaces</td> </tr> <tr> <td><code>429 Too Many Requests</code></td> <td>Rate limit exceeded</td> <td>Add retry logic with exponential backoff; upgrade your API plan</td> </tr> <tr> <td><code>529 Overloaded</code></td> <td>Anthropic server busy</td> <td>Retry after a few seconds; use exponential backoff</td> </tr> <tr> <td><code>max<em>tokens</code> exceeded</td> <td>Response cut off</td> <td>Increase <code>max</em>tokens</code> in your request</td> </tr> <tr> <td>Empty response</td> <td>No messages in array</td> <td>Ensure <code>messages</code> array contains at least one object</td> </tr> </tbody> </table></p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-mcp-explained/">Claude MCP Explained</a></li>
+<li><a href="/build-claude-ai-agent/">Build a Claude AI Agent</a></li>
+<li><a href="/claude-make-com-integration/">Claude Make.com Integration</a></li>
+<li><a href="/claude-n8n-workflows/">Claude n8n Workflows</a></li>
+<li><a href="/claude-code-getting-started/">Claude Code Getting Started</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Is the Claude API hard to use?</dt>
+<dd>The Claude API is straightforward for developers — a single API call with a few parameters returns a text response. For non-developers, no-code tools like Make.com provide a form-based interface to the same API without any coding. If you can write a Google Docs macro, you can call the Claude API; if you can't, Make.com is the right starting point.</dd>
+<dt>How much does the Claude API cost?</dt>
+<dd>Claude API pricing is based on tokens (roughly 1 token = 0.75 words). Claude Haiku is the cheapest at around $0.0008 per 1,000 input tokens. Claude Sonnet is around $0.003 per 1,000 input tokens. Claude Opus is the most capable and most expensive. For typical automation use — processing a few hundred emails or documents per month — total API costs are usually under $5/month.</dd>
+<dt>Do I need to know Python to use the Claude API?</dt>
+<dd>No. The Claude API has official SDKs for Python and TypeScript, but you can also call it from any language using standard HTTP requests, or not code at all using Make.com's native Anthropic module. Many people use the Claude API productively through Make.com, n8n, or other no-code tools without writing a single line of code.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using Claude for Research and Analysis (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="How to use Claude for research and analysis: workflows, prompt templates, and a full Claude vs Perplexity comparison. Expert guide for researchers and analysts.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-for-research/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Using Claude for Research and Analysis (2026 Guide)">
+  <meta property="og:description" content="How to use Claude for research and analysis: workflows, prompt templates, and a full Claude vs Perplexity comparison. Expert guide for researchers and analysts.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-for-research/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-for-research.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Using Claude for Research and Analysis (2026 Guide)">
+  <meta name="twitter:description" content="How to use Claude for research and analysis: workflows, prompt templates, and a full Claude vs Perplexity comparison. Expert guide for researchers and analysts.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Using Claude for Research and Analysis (2026 Guide)",
+  "description": "How to use Claude for research and analysis: workflows, prompt templates, and a full Claude vs Perplexity comparison. Expert guide for researchers and analysts.",
+  "url": "https://howtoclaudeatoz.com/claude-for-research/",
+  "image": "https://howtoclaudeatoz.com/og/claude-for-research.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Claude good for research?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude is excellent for research tasks that involve synthesising, analysing, structuring, and reasoning about information you provide. It excels at literature review synthesis, competitive analysis, argument mapping, research question generation, and writing up findings. Where Claude has a significant limitation is real-time information: Claude's training has a knowledge cutoff, so for current events, recent statistics, or the latest research publications, you need to either paste the source material directly into Claude or use a live-search tool like Perplexity first to gather current information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Claude have up-to-date information?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Claude's knowledge comes from its training data, which has a fixed cutoff date (August 2025 for the current models). Claude does not browse the internet or access live databases. For research requiring current information, the recommended workflow is: use Perplexity or a direct database search to gather current sources, then paste the relevant content into Claude for analysis, synthesis, and writing up. Claude's analytical capabilities work on whatever text you provide \u2014 the currency of that information is your responsibility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use Claude or Perplexity for research?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use both, for different things. Perplexity is an AI-powered search engine that retrieves and cites current information from the web \u2014 it is the right tool for gathering recent facts, finding sources, and discovering what has been published on a topic. Claude is a reasoning and synthesis engine \u2014 it is the right tool for analysing sources you have gathered, structuring an argument, writing up findings, and going deep on complex questions where reasoning matters more than recency. The power workflow: Perplexity for discovery, Claude for depth."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Advanced Claude",
+      "item": "https://howtoclaudeatoz.com/advanced/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Using Claude for Research and Analysis (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-for-research/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/advanced/">Advanced Claude</a></li><li aria-current="page">Using Claude for Research and Analysis (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Using Claude for Research and Analysis (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Using Claude for research is one of the highest-value applications of the model — but only if you understand what Claude is and is not. Claude for research works as a powerful analysis, synthesis, and reasoning engine, not as a search engine. It does not browse the web or access real-time databases. What it does — exceptionally well — is take information you provide, reason about it deeply, identify patterns and contradictions, structure findings, and write them up with precision. This guide covers the full research workflow, prompt templates for specific research task types, and a direct comparison with Perplexity AI for understanding when to use each tool.</p>
+
+<h2>What is Claude's Role in Research?</h2>
+
+<p>Claude's training gives it a deep representation of human knowledge across science, history, law, business, medicine, technology, and the humanities — up to its training cutoff. This means it can:</p>
+
+<ul>
+<li><strong>Reason about complex topics</strong> without needing additional sources (for established knowledge)</li>
+<li><strong>Synthesise multiple documents</strong> you provide into a coherent analysis</li>
+<li><strong>Identify gaps, contradictions, and weak arguments</strong> in a body of evidence</li>
+<li><strong>Generate research questions</strong> that an expert would find substantive</li>
+<li><strong>Structure findings</strong> into reports, memos, literature reviews, or presentations</li>
+<li><strong>Critique methodology</strong> in research papers and studies</li>
+</ul>
+
+<p>What it cannot do without your help:</p>
+<ul>
+<li>Access real-time web content</li>
+<li>Retrieve papers from PubMed, SSRN, or other live databases</li>
+<li>Tell you what was published last month</li>
+<li>Provide current market data, stock prices, or recent statistics</li>
+</ul>
+
+<p>Understanding this division determines how you architect a research workflow with Claude.</p>
+
+<h2>Claude vs Perplexity — Which Tool for Which Research Task?</h2>
+
+<p><table> <thead> <tr> <th>Research Task</th> <th>Best Tool</th> <th>Reasoning</th> </tr> </thead> <tbody> <tr> <td>Finding recent papers on a topic</td> <td>Perplexity</td> <td>Live web/academic search</td> </tr> <tr> <td>Summarising a paper you've already found</td> <td>Claude</td> <td>Deep reading and synthesis</td> </tr> <tr> <td>Getting current market statistics</td> <td>Perplexity</td> <td>Real-time data access</td> </tr> <tr> <td>Analysing what statistics mean</td> <td>Claude</td> <td>Reasoning and interpretation</td> </tr> <tr> <td>Building a literature review outline</td> <td>Claude</td> <td>Structural and conceptual work</td> </tr> <tr> <td>Finding who published what in 2025</td> <td>Perplexity</td> <td>Current and indexed content</td> </tr> <tr> <td>Identifying contradictions across 5 papers</td> <td>Claude</td> <td>Multi-document reasoning</td> </tr> <tr> <td>Competitive intelligence on a new company</td> <td>Perplexity</td> <td>Current web content</td> </tr> <tr> <td>Analysing a competitor's strategy from filings</td> <td>Claude</td> <td>Document analysis</td> </tr> <tr> <td>Generating research hypotheses</td> <td>Claude</td> <td>Creative and analytical reasoning</td> </tr> <tr> <td>Fact-checking a specific recent claim</td> <td>Perplexity</td> <td>Source-cited verification</td> </tr> <tr> <td>Writing a research methodology section</td> <td>Claude</td> <td>Structured writing and reasoning</td> </tr> <tr> <td>Understanding a complex scientific concept</td> <td>Claude</td> <td>Deep explanation from training</td> </tr> </tbody> </table></p>
+
+<p><strong>The power workflow:</strong> Use Perplexity to gather current, sourced information on a topic. Paste the relevant content into Claude for deep analysis, synthesis, and structured output.</p>
+
+<p>Perplexity is available at perplexity.ai and provides cited, real-time search with AI-generated summaries — it is the recommended complement to Claude for research tasks requiring current information.</p>
+
+<h2>How to Use Claude for Research — Step by Step</h2>
+
+<h3>Step 1: Define Your Research Question Precisely</h3>
+
+<p>Vague research questions produce vague research outputs. Before submitting to Claude, sharpen your question:</p>
+
+<p><strong>Weak:</strong> "Tell me about remote work."</p>
+
+<p><strong>Strong:</strong> "What does the peer-reviewed evidence say about the effect of remote work on individual productivity? Distinguish between self-reported productivity and objective output measures. Note where studies conflict and why."</p>
+
+<p>The sharper question tells Claude: (a) the type of evidence you want, (b) the specific aspect of the topic, (c) how you want contradictions handled. This is the difference between a Wikipedia summary and a genuine analytical synthesis.</p>
+
+<h3>Step 2: Gather Sources Before Analysing</h3>
+
+<p>For topics requiring current or specific information:</p>
+
+<ol>
+<li>Search Perplexity for recent papers, reports, and articles on your topic</li>
+<li>Find primary sources: journal papers, official reports, company filings, legal documents</li>
+<li>Paste the full text or key excerpts into Claude</li>
+</ol>
+
+<p>For topics within Claude's established knowledge (history, science fundamentals, established business frameworks), you can work directly with Claude without providing sources.</p>
+
+<h3>Step 3: Submit Sources with a Structured Research Prompt</h3>
+
+<p><code>`</code>xml <task>Literature synthesis</task></p>
+
+<p><research<em>question> What does the evidence say about the effectiveness of spaced repetition  compared to traditional studying for long-term retention in adults? </research</em>question></p>
+
+<p><sources> [Paste paper 1 text or abstract]</p>
+<hr>
+<p>[Paste paper 2 text or abstract]</p>
+<hr>
+<p>[Paste paper 3 text or abstract] </sources></p>
+
+<p><analysis_instructions></p>
+<ol>
+<li>Summarise the key finding of each source (1-2 sentences each)</li>
+<li>Identify where sources agree and where they conflict</li>
+<li>Assess the overall quality of evidence (note sample sizes, study design)</li>
+<li>Draw a conclusion about the research question, with appropriate confidence level</li>
+<li>Identify the most important remaining gaps in the evidence</li>
+</ol>
+<p></analysis_instructions></p>
+
+<p><output<em>format> Structured report with labelled sections. 600-900 words. Use tables where useful. </output</em>format> <code>`</code></p>
+
+<h3>Step 4: Use Claude to Generate Research Questions You Haven't Thought Of</h3>
+
+<p>One of Claude's most underused research capabilities is generating expert-level research questions on a topic. This is particularly valuable early in a research project:</p>
+
+<p><code>`</code> I am researching the effects of algorithmic management on worker wellbeing in  gig economy platforms. I have been approaching this from a labour economics  perspective.</p>
+
+<p>Generate 12 specific research questions about this topic that I may not have  considered — covering perspectives from organisational psychology, technology  ethics, legal studies, and public health. For each, note what type of study  design would best answer it. <code>`</code></p>
+
+<p>Claude's broad training means it can surface genuinely non-obvious angles that a researcher deep in one discipline might miss.</p>
+
+<h3>Step 5: Critique and Stress-Test Your Own Analysis</h3>
+
+<p>After completing initial analysis, use Claude to play devil's advocate:</p>
+
+<p><code>`</code> Here is my analysis of [topic]: [paste analysis]</p>
+
+<p>Your task: identify the three weakest points in this analysis. For each,  explain specifically what evidence or argument could undermine it, and what  I would need to address to make the analysis more robust. Be direct — do  not soften the critique. <code>`</code></p>
+
+<p>This is the research equivalent of a pre-mortem and produces significantly stronger final outputs.</p>
+
+<h2>Research Prompt Templates</h2>
+
+<h3>Template 1: Competitive Analysis</h3>
+
+<p><code>`</code>xml <task>Competitive analysis</task></p>
+
+<p><company>Analyse [Company X] as a competitor to [Company Y]</company></p>
+
+<p><available<em>information> [Paste: recent news, earnings transcripts, product descriptions, public reviews] </available</em>information></p>
+
+<p><analysis_framework></p>
+<ol>
+<li>Business model and revenue streams</li>
+<li>Product differentiation and feature comparison</li>
+<li>Apparent strengths and weaknesses</li>
+<li>Strategic direction (based on public signals)</li>
+<li>Key risks and opportunities they represent to Company Y</li>
+</ol>
+<p></analysis_framework></p>
+
+<p><output> Executive briefing, 500-700 words, suitable for a board presentation. </output> <code>`</code></p>
+
+<h3>Template 2: Literature Review</h3>
+
+<p><code>`</code>xml <task>Academic literature review synthesis</task></p>
+
+<p><topic>[Your research topic]</topic></p>
+
+<p><papers> [Paste paper abstracts or full texts] </papers></p>
+
+<p><synthesis_instructions></p>
+<ol>
+<li>Identify the 3-5 major themes across the literature</li>
+<li>Map how understanding of each theme has evolved</li>
+<li>Note methodological approaches and their trade-offs</li>
+<li>Identify the 2-3 most significant open questions</li>
+<li>Suggest the most productive direction for future research</li>
+</ol>
+<p></synthesis_instructions></p>
+
+<p><format> Standard academic literature review structure. 800-1,200 words.  Third person, present tense for current state of knowledge. </format> <code>`</code></p>
+
+<h3>Template 3: Market Research Synthesis</h3>
+
+<p><code>`</code>xml <task>Market research synthesis</task></p>
+
+<p><market<em>question> [Specific market question — e.g., "Is the UK B2B HR software market  saturated or does it present entry opportunities?"] </market</em>question></p>
+
+<p><data<em>sources> [Paste: industry reports, analyst commentary, company announcements,  customer reviews, job postings, pricing pages] </data</em>sources></p>
+
+<p><analysis_outputs></p>
+<ol>
+<li>Market size and growth rate (from provided data)</li>
+<li>Major players and their positioning</li>
+<li>Customer pain points and unmet needs (from review data)</li>
+<li>Signals of market saturation or whitespace</li>
+<li>Recommended entry angles with supporting rationale</li>
+</ol>
+<p></analysis_outputs> <code>`</code></p>
+
+<h3>Template 4: Policy or Legal Research</h3>
+
+<p><code>`</code>xml <task>Policy analysis</task></p>
+
+<p><policy<em>question> [E.g., "What are the key compliance implications of the EU AI Act  for a UK-based AI startup deploying a high-risk AI system?"] </policy</em>question></p>
+
+<p><documents> [Paste: relevant regulation text, official guidance, legal commentary] </documents></p>
+
+<p><analysis_required></p>
+<ol>
+<li>Applicable provisions (with specific article references)</li>
+<li>Compliance obligations in plain English</li>
+<li>Timeline and implementation requirements</li>
+<li>Areas of ambiguity requiring legal advice</li>
+<li>Practical first steps</li>
+</ol>
+<p></analysis_required></p>
+
+<p><note> Flag if any analysis requires professional legal advice to confirm.  I understand this is not legal advice. </note> <code>`</code></p>
+
+<h2>Advanced Research Techniques with Claude</h2>
+
+<h3>Using Claude's 200K Context for Multi-Source Synthesis</h3>
+
+<p>Claude can hold 10–15 substantial research papers in its context window simultaneously. For a thorough literature review, paste all relevant papers and ask for synthesis across all sources at once — this produces more coherent cross-source analysis than reviewing papers sequentially.</p>
+
+<h3>Research Chain Workflow</h3>
+
+<p>For deep research projects, use a sequential chain:</p>
+
+<ol>
+<li><strong>Scoping prompt:</strong> "Given this research question, what are the 5 sub-questions I need to answer to address it fully?"</li>
+<li><strong>Source gathering:</strong> [Use Perplexity for current sources, then paste into Claude]</li>
+<li><strong>Sub-question analysis:</strong> Address each sub-question with a focused Claude prompt</li>
+<li><strong>Synthesis:</strong> "Here are my findings on each sub-question [paste outputs]. Synthesise these into a coherent overall answer with appropriate caveats."</li>
+<li><strong>Writing up:</strong> "Draft a [report type] summarising these findings for [audience]."</li>
+</ol>
+
+<h3>Using Claude to Assess Evidence Quality</h3>
+
+<p>Claude can apply standard evidence hierarchy frameworks to research you provide:</p>
+
+<p><code>`</code> Assess the quality of evidence in the sources I have provided for the claim that  [X causes Y]. Apply the GRADE evidence quality framework. For each source, note  study design, sample size, control conditions, and potential biases. <code>`</code></p>
+
+<h3>Perplexity + Claude Integration Workflow</h3>
+
+<p>For the most rigorous research workflow:</p>
+
+<ol>
+<li>Open Perplexity and search: "[topic] recent research 2024 2025" — collect cited sources</li>
+<li>Open the primary sources (papers, reports) and copy key sections</li>
+<li>Paste into Claude with a structured analysis prompt</li>
+<li>Use Claude to identify gaps — ask what you still need to find</li>
+<li>Return to Perplexity for targeted follow-up searches</li>
+<li>Final synthesis in Claude</li>
+</ol>
+
+<p>This workflow combines Perplexity's real-time sourcing capability with Claude's superior reasoning and synthesis depth. Neither tool alone matches the output quality of the two used in combination.</p>
+
+<p>For content research and SEO-aligned research workflows, tools like Surfer SEO can help structure what questions your audience is asking — which then informs the research questions you take to Claude and Perplexity.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-200k-context-window/">Claude's 200K Context Window — How to Use It</a></li>
+<li><a href="/advanced-prompt-engineering-claude/">Advanced Prompt Engineering with Claude</a></li>
+<li><a href="/claude-for-education/">Claude for Education and Teaching</a></li>
+<li><a href="/claude-opus-vs-sonnet-vs-haiku/">Claude Opus vs Sonnet vs Haiku — Full Model Breakdown</a></li>
+<li><a href="/claude-context-window-explained/">Claude's Context Window Explained</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Is Claude good for research?</dt>
+<dd>Claude is excellent for research tasks that involve synthesising, analysing, structuring, and reasoning about information you provide. It excels at literature review synthesis, competitive analysis, argument mapping, research question generation, and writing up findings. Where Claude has a significant limitation is real-time information: Claude's training has a knowledge cutoff, so for current events, recent statistics, or the latest research publications, you need to either paste the source material directly into Claude or use a live-search tool like Perplexity first to gather current information.</dd>
+<dt>Does Claude have up-to-date information?</dt>
+<dd>No. Claude's knowledge comes from its training data, which has a fixed cutoff date (August 2025 for the current models). Claude does not browse the internet or access live databases. For research requiring current information, the recommended workflow is: use Perplexity or a direct database search to gather current sources, then paste the relevant content into Claude for analysis, synthesis, and writing up. Claude's analytical capabilities work on whatever text you provide — the currency of that information is your responsibility.</dd>
+<dt>Should I use Claude or Perplexity for research?</dt>
+<dd>Use both, for different things. Perplexity is an AI-powered search engine that retrieves and cites current information from the web — it is the right tool for gathering recent facts, finding sources, and discovering what has been published on a topic. Claude is a reasoning and synthesis engine — it is the right tool for analysing sources you have gathered, structuring an argument, writing up findings, and going deep on complex questions where reasoning matters more than recency. The power workflow: Perplexity for discovery, Claude for depth.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Claude Chatbot for Your Website (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Add a Claude AI chatbot to your website in 2026 — no-code Make.com approach, API method, system prompt templates, embed options, and real pricing estimates.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-chatbot-website/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Building a Claude Chatbot for Your Website (2026 Guide)">
+  <meta property="og:description" content="Add a Claude AI chatbot to your website in 2026 — no-code Make.com approach, API method, system prompt templates, embed options, and real pricing estimates.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-chatbot-website/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-chatbot-website.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Building a Claude Chatbot for Your Website (2026 Guide)">
+  <meta name="twitter:description" content="Add a Claude AI chatbot to your website in 2026 — no-code Make.com approach, API method, system prompt templates, embed options, and real pricing estimates.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Building a Claude Chatbot for Your Website (2026 Guide)",
+  "description": "Add a Claude AI chatbot to your website in 2026 \u2014 no-code Make.com approach, API method, system prompt templates, embed options, and real pricing estimates.",
+  "url": "https://howtoclaudeatoz.com/claude-chatbot-website/",
+  "image": "https://howtoclaudeatoz.com/og/claude-chatbot-website.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I add a Claude chatbot to my website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are two main approaches: no-code and API-based. The no-code approach uses a chatbot widget platform (like Tidio, Crisp, or Chatbase) that connects to Claude via Make.com webhook \u2014 no coding required. The API approach involves building a small backend that calls the Anthropic API and a frontend chat UI. The no-code approach takes hours; the API approach takes days but gives full control."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Claude as a customer service chatbot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Claude is well-suited for customer service chatbots because it handles nuanced, multi-turn conversations naturally and follows instruction prompts reliably. You configure a system prompt that describes your business, products, policies, and tone. Claude answers questions based on that context and escalates to a human when needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a Claude chatbot free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Claude API is not free \u2014 you pay per token. However, costs are low. A chatbot handling 500 conversations per month with an average of 10 messages each (at ~100 tokens per message) costs roughly $1.50\u2013$3 in API fees using Claude Sonnet. You'll also need a chatbot widget platform (many have free tiers) and Make.com (free tier available for low volume)."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Automation & AI Workflows",
+      "item": "https://howtoclaudeatoz.com/automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Building a Claude Chatbot for Your Website (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-chatbot-website/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/automation/">Claude for Automation & AI Workflows</a></li><li aria-current="page">Building a Claude Chatbot for Your Website (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Building a Claude Chatbot for Your Website (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Adding a Claude chatbot to your website gives visitors instant, intelligent responses to questions about your products, services, pricing, and policies — 24 hours a day, without human staff. A Claude chatbot website integration can handle the top 80% of customer queries automatically, escalate the rest to a human, and do it in your brand's voice, using your specific business knowledge. This guide covers the no-code approach (fastest to launch), the API approach (most flexible), the system prompt structure that makes chatbots work, and a realistic cost breakdown so you know what to budget.</p>
+
+<h2>What Makes Claude a Good Website Chatbot?</h2>
+
+<p>Not all AI models work equally well as customer-facing chatbots. Claude has several properties that make it particularly suitable:</p>
+
+<p><strong>Instruction-following</strong>: Claude reliably stays within the boundaries you set in your system prompt. If you tell it not to discuss competitors or to always recommend contacting support for billing issues, it will follow those instructions consistently.</p>
+
+<p><strong>Nuanced conversation</strong>: Claude handles multi-turn conversations naturally, remembering earlier context in the same chat session. Customers can ask follow-up questions without repeating themselves.</p>
+
+<p><strong>Tone control</strong>: Claude adapts its tone precisely to your brand voice as defined in the system prompt — professional, casual, warm, technical — and maintains it throughout the conversation.</p>
+
+<p><strong>Honest uncertainty</strong>: Claude says "I don't have information about that" rather than hallucinating an answer, which is critical for a customer-facing chatbot where incorrect information causes real problems.</p>
+
+<h2>Approach 1: No-Code Claude Chatbot via Make.com</h2>
+
+<p>The no-code approach connects a third-party chatbot widget to Claude through Make.com. You get a chat interface embedded on your site, Make.com handles the API calls to Claude, and you configure everything visually.</p>
+
+<h3>What You Need</h3>
+
+<ul>
+<li>A chatbot widget platform that supports webhook integration: Tidio, Crisp, Chatbase, or similar</li>
+<li>A Make.com account (free tier works for low volume)</li>
+<li>An Anthropic API key with billing enabled</li>
+</ul>
+
+<h3>Step 1: Set Up Your Chatbot Widget</h3>
+
+<p>Sign up for a chatbot widget platform. Most have a free tier. Install their embed code on your website — this is usually a single <code><script></code> tag added before <code></body></code>. Configure basic settings: chatbot name, avatar, opening message.</p>
+
+<p>In the widget platform's settings, find the <strong>Webhook</strong> or <strong>Custom AI integration</strong> option. Copy the webhook URL that the widget will call when a user sends a message.</p>
+
+<h3>Step 2: Create a Make.com Scenario as the AI Backend</h3>
+
+<p>In Make.com, create a new scenario with a <strong>Webhooks > Custom Webhook</strong> trigger. Copy the webhook URL that Make.com generates.</p>
+
+<p>Paste this Make.com webhook URL into your chatbot widget platform as the AI endpoint. Now when a user sends a message, the widget calls Make.com.</p>
+
+<h3>Step 3: Add the Claude Module</h3>
+
+<p>After the webhook trigger, add an <strong>Anthropic</strong> module. In the <strong>System</strong> field, paste your chatbot system prompt (see system prompt guidance below). In the <strong>Content</strong> field, map the user's message from the webhook payload: <code>{{1.message}}</code> or whatever variable name your widget platform sends.</p>
+
+<p>Set <strong>Model</strong> to <code>claude-sonnet-4-5</code> and <strong>Max Tokens</strong> to 400-600 (enough for a helpful response without being overwhelming in a chat context).</p>
+
+<h3>Step 4: Return Claude's Response to the Widget</h3>
+
+<p>Add an HTTP module configured to POST Claude's response back to your widget platform's response endpoint. The exact format depends on your widget — most accept a simple JSON body with a <code>message</code> field.</p>
+
+<h3>Step 5: Test and Go Live</h3>
+
+<p>Use your widget platform's test mode to simulate conversations. Check that Claude's responses are being returned correctly. Adjust your system prompt based on what you observe. When satisfied, activate the Make.com scenario and your chatbot goes live.</p>
+
+<h2>Approach 2: API-Based Claude Chatbot (Developer)</h2>
+
+<p>For full control over the chat UI, conversation history, and integration with your own backend systems, building directly with the Claude API gives you the most flexibility.</p>
+
+<h3>Architecture Overview</h3>
+
+<p><code>`</code> User browser → Your frontend chat UI      ↓ Your backend server (Node.js/Python/etc.)      ↓ Anthropic API (Claude)      ↑ Response returned up the chain <code>`</code></p>
+
+<p>Your backend maintains the conversation history (the <code>messages</code> array) per user session. Each new user message appends to the array before sending the full history to Claude. This is what gives the chatbot its memory within a session.</p>
+
+<h3>Minimal Python Backend (Flask)</h3>
+
+<p><code>`</code>python from flask import Flask, request, jsonify, session import anthropic</p>
+
+<p>app = Flask(<strong>name</strong>) app.secret_key = "your-secret-key" client = anthropic.Anthropic()</p>
+
+<p>SYSTEM_PROMPT = """You are a helpful assistant for Acme Co., a software company. You help customers with questions about our product, pricing, and getting started. If asked about billing or account issues, direct them to support@acme.co. Keep responses concise and friendly. Never discuss competitors."""</p>
+
+<p>@app.route('/chat', methods=['POST']) def chat():     user_message = request.json.get('message')</p>
+
+<p>if 'history' not in session:         session['history'] = []</p>
+
+<p>session['history'].append({"role": "user", "content": user_message})</p>
+
+<p>response = client.messages.create(         model="claude-sonnet-4-5",         max<em>tokens=512,         system=SYSTEM</em>PROMPT,         messages=session['history']     )</p>
+
+<p>assistant<em>reply = response.content[0].text     session['history'].append({"role": "assistant", "content": assistant</em>reply})</p>
+
+<p>return jsonify({"reply": assistant_reply}) <code>`</code></p>
+
+<p>This minimal backend handles multi-turn conversation by maintaining history in the session. Your frontend sends a POST request to <code>/chat</code> with the user's message and displays the reply.</p>
+
+<h2>Writing a Claude Chatbot System Prompt</h2>
+
+<p>The system prompt is the most important configuration decision for a chatbot. A well-written system prompt prevents Claude from going off-topic, establishes the right tone, and handles edge cases gracefully.</p>
+
+<p><strong>Effective system prompt structure:</strong></p>
+
+<p><code>`</code> You are [name], a [role] for [company name].</p>
+
+<p>Your job: [primary purpose in one sentence].</p>
+
+<p>What you know about [company]:</p>
+<ul>
+<li>[Key product/service info]</li>
+<li>[Pricing overview]</li>
+<li>[Key policies]</li>
+<li>[Common FAQs and answers]</li>
+</ul>
+
+<p>Tone: [adjectives describing desired voice]</p>
+
+<p>Rules:</p>
+<ul>
+<li>If asked about [sensitive topic], always [specific response]</li>
+<li>If you don't know something, say "I don't have that information — [escalation path]"</li>
+<li>Keep responses under [word count] words</li>
+<li>[Any other constraints]</li>
+</ul>
+<p><code>`</code></p>
+
+<p><strong>Example for an e-commerce chatbot:</strong></p>
+
+<p><code>`</code> You are Aria, a friendly customer assistant for ShopBright, an online homewares retailer.</p>
+
+<p>Your job: Help customers find products, answer questions about orders, and resolve common issues.</p>
+
+<p>What you know:</p>
+<ul>
+<li>We ship UK-wide, free over £40</li>
+<li>Returns accepted within 30 days for unused items</li>
+<li>Orders take 2-4 business days to arrive</li>
+<li>Our bestselling categories are kitchen, bedroom, and bathroom</li>
+</ul>
+
+<p>Tone: Warm, helpful, slightly informal — like a knowledgeable friend, not a corporate script.</p>
+
+<p>Rules:</p>
+<ul>
+<li>For order tracking, ask for their order number and direct them to: shopsibright.com/track</li>
+<li>For refund requests, direct to: support@shopbright.com</li>
+<li>If unsure, say "I'm not 100% sure about that — let me get you to our team" and provide the support email</li>
+<li>Keep responses under 80 words</li>
+</ul>
+<p><code>`</code></p>
+
+<h2>Embed Options for Your Claude Chatbot</h2>
+
+<p><table> <thead> <tr> <th>Option</th> <th>Effort</th> <th>Control</th> <th>Cost</th> </tr> </thead> <tbody> <tr> <td><strong>Third-party widget + Make.com</strong></td> <td>Low (hours)</td> <td>Medium</td> <td>Widget platform fee + Make.com + API</td> </tr> <tr> <td><strong>Chatbase / Botpress</strong></td> <td>Low (hours)</td> <td>Medium</td> <td>Platform fee + API</td> </tr> <tr> <td><strong>Custom frontend + your backend</strong></td> <td>High (days)</td> <td>Full</td> <td>Hosting + API only</td> </tr> <tr> <td><strong>Claude.ai embed</strong></td> <td>Not available</td> <td>N/A</td> <td>N/A (Claude.ai is not embeddable)</td> </tr> </tbody> </table></p>
+
+<p>For most small businesses, a third-party widget connected to Claude via Make.com is the right starting point. You get a professional-looking chat interface, basic analytics, and mobile support without building anything from scratch.</p>
+
+<h2>Pricing Estimate for a Claude Website Chatbot</h2>
+
+<p>Costs depend on conversation volume. Here is a realistic monthly estimate for a small business chatbot:</p>
+
+<p><table> <thead> <tr> <th>Component</th> <th>Usage assumption</th> <th>Monthly cost</th> </tr> </thead> <tbody> <tr> <td>Claude Sonnet API</td> <td>500 conversations, 10 messages, 150 tokens avg</td> <td>~$3.50</td> </tr> <tr> <td>Make.com Core plan</td> <td>Covers ~2,500 operations/month</td> <td>$9.00</td> </tr> <tr> <td>Chatbot widget (Tidio free)</td> <td>Up to 50 conversations/month free</td> <td>$0</td> </tr> <tr> <td><strong>Total (low volume)</strong></td> <td></td> <td><strong>~$12.50/month</strong></td> </tr> </tbody> </table></p>
+
+<p>For higher volume or a custom-built frontend, the Make.com cost disappears (you call the API directly) and the API cost scales linearly. At 5,000 conversations/month, you'd pay roughly $35/month in API fees with no platform fee.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-customer-service/">Claude for Customer Service</a></li>
+<li><a href="/claude-make-com-integration/">Claude Make.com Integration</a></li>
+<li><a href="/claude-api-getting-started/">Claude API Getting Started</a></li>
+<li><a href="/build-claude-ai-agent/">Build a Claude AI Agent</a></li>
+<li><a href="/claude-for-small-business/">Claude for Small Business</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>How do I add a Claude chatbot to my website?</dt>
+<dd>There are two main approaches: no-code and API-based. The no-code approach uses a chatbot widget platform (like Tidio, Crisp, or Chatbase) that connects to Claude via Make.com webhook — no coding required. The API approach involves building a small backend that calls the Anthropic API and a frontend chat UI. The no-code approach takes hours; the API approach takes days but gives full control.</dd>
+<dt>Can I use Claude as a customer service chatbot?</dt>
+<dd>Yes. Claude is well-suited for customer service chatbots because it handles nuanced, multi-turn conversations naturally and follows instruction prompts reliably. You configure a system prompt that describes your business, products, policies, and tone. Claude answers questions based on that context and escalates to a human when needed.</dd>
+<dt>Is a Claude chatbot free?</dt>
+<dd>The Claude API is not free — you pay per token. However, costs are low. A chatbot handling 500 conversations per month with an average of 10 messages each (at ~100 tokens per message) costs roughly $1.50–$3 in API fees using Claude Sonnet. You'll also need a chatbot widget platform (many have free tiers) and Make.com (free tier available for low volume).</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Claude Projects — Complete Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Learn how to use Claude Projects in 2026: create a project, add files, set custom instructions, and maintain persistent context across conversations.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/how-to-use-claude-projects/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Use Claude Projects — Complete Guide (2026)">
+  <meta property="og:description" content="Learn how to use Claude Projects in 2026: create a project, add files, set custom instructions, and maintain persistent context across conversations.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/how-to-use-claude-projects/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/how-to-use-claude-projects.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Claude Projects — Complete Guide (2026)">
+  <meta name="twitter:description" content="Learn how to use Claude Projects in 2026: create a project, add files, set custom instructions, and maintain persistent context across conversations.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Use Claude Projects \u2014 Complete Guide (2026)",
+  "description": "Learn how to use Claude Projects in 2026: create a project, add files, set custom instructions, and maintain persistent context across conversations.",
+  "url": "https://howtoclaudeatoz.com/how-to-use-claude-projects/",
+  "image": "https://howtoclaudeatoz.com/og/how-to-use-claude-projects.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are Claude Projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Projects are persistent workspaces within Claude where you can store files, write custom instructions, and start multiple conversations that all share the same background context. Unlike regular conversations, Projects maintain their files and instructions indefinitely \u2014 you do not need to re-paste your documents or re-explain your requirements each time you start a new chat within the Project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I share Claude Projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the Claude Team plan, Projects can be shared with other team members who have access to the same Team workspace. On individual plans (Pro and Max), Projects are private to your account and cannot be shared with other users. Shared Projects allow collaborators to start conversations, view Project files, and contribute to the shared context."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many files can I add to a Claude Project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Projects support multiple file uploads across a range of formats including PDFs, Word documents, spreadsheets, code files, and plain text. Anthropic does not publish a hard limit on file count, but total storage per Project is subject to a size limit. As of 2026, Projects support up to approximately 200,000 tokens of stored content across all files and instructions \u2014 matching the conversation context window."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Getting Started with Claude",
+      "item": "https://howtoclaudeatoz.com/getting-started/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Use Claude Projects \u2014 Complete Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/how-to-use-claude-projects/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/getting-started/">Getting Started with Claude</a></li><li aria-current="page">How to Use Claude Projects — Complete Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How to Use Claude Projects — Complete Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude Projects are one of the most powerful features for anyone who uses Claude regularly. Learning how to use Claude Projects means you can stop re-explaining your requirements, re-uploading your documents, and re-establishing context every single time you start a new conversation. A Project stores files, custom instructions, and shared background — so every conversation within it starts with Claude already knowing what it needs to know about your work.</p>
+
+<h2>What are Claude Projects? — Definition</h2>
+
+<p>Claude Projects are persistent workspaces in Claude that maintain files, instructions, and context across multiple conversations. A standard Claude conversation is ephemeral: when you start a new chat, Claude remembers nothing from previous sessions. A Project changes this by giving you a container where:</p>
+
+<ul>
+<li>Uploaded files remain available across all conversations in the Project</li>
+<li>Custom instructions you write persist and apply to every chat in that Project</li>
+<li>The Project's shared context is loaded automatically at the start of each new conversation</li>
+</ul>
+
+<p>Projects are available on Claude Pro, Max, and Team plans. The Team plan additionally allows Projects to be shared across multiple users.</p>
+
+<h2>How to Use Claude Projects — Step by Step</h2>
+
+<h3>Step 1: Open the Projects Panel</h3>
+
+<p>Log in to claude.ai. In the left sidebar, look for the "Projects" section. Click "New Project" (or the "+" icon next to Projects). A dialogue will appear asking you to name the Project.</p>
+
+<h3>Step 2: Name Your Project</h3>
+
+<p>Give the Project a clear, specific name that describes its purpose. Good names include:</p>
+
+<ul>
+<li>"Q3 Marketing Campaign"</li>
+<li>"Website Redesign — Smith & Co"</li>
+<li>"Python Codebase Review"</li>
+<li>"PhD Thesis — Chapter Drafts"</li>
+<li>"Client: Acme Corp — Contract Review"</li>
+</ul>
+
+<p>The Project name is only for your reference — it does not affect Claude's behaviour.</p>
+
+<h3>Step 3: Write Your Project Instructions</h3>
+
+<p>Project instructions are the most important part of a well-configured Project. They tell Claude who it is working with, what the task is, what tone to use, what to avoid, and any standing rules that apply to every conversation. Instructions are written in plain text — you do not need special formatting.</p>
+
+<p><strong>Example Project instructions for a content writing Project:</strong></p>
+
+<p><code>`</code> You are helping me write blog posts for a UK-based B2B SaaS company called Meridian Analytics.  Our audience is data analysts and business intelligence managers at mid-market companies. Tone: clear, professional, slightly informal. Avoid jargon where plain English works. Always use British English spelling (e.g., "analyse" not "analyze"). Do not use bullet points in article body text — use prose paragraphs. Article lengths: introductions 150 words, sections 200–300 words. When I share a brief, ask clarifying questions before writing. <code>`</code></p>
+
+<p>Strong instructions are specific about audience, tone, format, length, and any non-obvious constraints. See <a href="/claude-system-prompts/">Claude System Prompts</a> for advanced instruction-writing techniques.</p>
+
+<h3>Step 4: Upload Files to the Project</h3>
+
+<p>Click the "Add files" button within the Project view to upload documents that Claude should be able to reference in any conversation within this Project. Useful file types to add:</p>
+
+<ul>
+<li><strong>Reference documents:</strong> Brand guidelines, style guides, technical specifications, previous examples of good work</li>
+<li><strong>Background material:</strong> Research papers, reports, company information, product documentation</li>
+<li><strong>Templates:</strong> Document structures, email formats, code boilerplate</li>
+<li><strong>Data:</strong> Spreadsheets or CSV files Claude should be able to analyse</li>
+</ul>
+
+<p>Claude will be able to see and reason over all uploaded files in every conversation started within the Project. You do not need to re-upload them.</p>
+
+<h3>Step 5: Start a Conversation Within the Project</h3>
+
+<p>Click "New conversation" inside the Project view (not the main "New chat" button in the sidebar, which creates a standard conversation outside any Project). Claude will automatically receive your Project instructions and have access to all Project files.</p>
+
+<p>Your first message can go straight to the task — you do not need to re-introduce the context that is already in the instructions. For example, in the content writing Project above, you can simply start with: "Here's the brief for the next post: [brief]."</p>
+
+<h3>Step 6: Manage Multiple Conversations Within a Project</h3>
+
+<p>Each Project can contain many conversations, each focused on a different specific task. The conversations do not share each other's history — they only share the Project instructions and files. This is intentional: it keeps individual conversations focused without bloating the context with unrelated prior chats.</p>
+
+<p>Good uses of multiple conversations within a Project:</p>
+
+<ul>
+<li>One conversation per article in a writing Project</li>
+<li>One conversation per feature in a software development Project</li>
+<li>One conversation per client meeting in a consulting Project</li>
+<li>One conversation per document in a contract review Project</li>
+</ul>
+
+<h3>Step 7: Update Instructions as the Project Evolves</h3>
+
+<p>Project instructions are not static. As your project evolves, update the instructions to reflect new constraints, updated brand guidelines, revised requirements, or lessons learned from early conversations. Click the Project settings icon to edit instructions at any time. Changes take effect immediately in new conversations.</p>
+
+<h2>Claude Projects — Key Features</h2>
+
+<p><table> <thead> <tr> <th>Feature</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Persistent instructions</td> <td>Written once; apply to every conversation in the Project</td> </tr> <tr> <td>Shared file storage</td> <td>Upload files once; available in all Project conversations</td> </tr> <tr> <td>Multiple conversations</td> <td>Keep work organised by topic within a single Project</td> </tr> <tr> <td>Team sharing (Team plan)</td> <td>Share a Project with colleagues; everyone sees the same files and instructions</td> </tr> <tr> <td>Conversation history</td> <td>All conversations within a Project are stored and searchable</td> </tr> <tr> <td>No re-uploading</td> <td>Files stay in the Project until you remove them</td> </tr> </tbody> </table></p>
+
+<h2>What Claude Projects Are Best Used For</h2>
+
+<h3>Ongoing Content Creation</h3>
+
+<p>Writers and marketers who produce regular content benefit enormously from Projects. Upload your brand voice guide, previous published articles, and audience persona documents. Write instructions that specify your publication's style. Every new article draft starts with Claude already knowing your brand, format, and audience.</p>
+
+<h3>Software Development</h3>
+
+<p>Developers can upload a codebase, architecture documentation, coding standards, and dependency documentation to a Project. Claude will reference these files when writing new features, reviewing code, or debugging — without you needing to re-paste the codebase each session. For long-running development Projects, this saves significant time.</p>
+
+<h3>Research and Analysis</h3>
+
+<p>Researchers can upload academic papers, datasets, interview transcripts, or literature reviews to a Project. Claude will be able to cross-reference these documents in every conversation — useful for literature synthesis, thematic coding, and report drafting.</p>
+
+<h3>Client Work</h3>
+
+<p>Consultants, lawyers, and account managers can create one Project per client. Upload the client's documents, background information, and any relevant correspondence. Write instructions that explain the client's industry and goals. Every conversation within that Project is grounded in the client's specific context.</p>
+
+<h3>Long-Form Writing</h3>
+
+<p>Authors and report writers can upload chapter outlines, character notes, research files, or style guides. Claude will maintain consistency across multiple drafting sessions without forgetting what was established in earlier chapters or sections.</p>
+
+<h2>Claude Projects vs. Standard Conversations — Comparison</h2>
+
+<p><table> <thead> <tr> <th>Feature</th> <th>Standard Conversation</th> <th>Claude Project Conversation</th> </tr> </thead> <tbody> <tr> <td>Context persists between chats</td> <td>No</td> <td>Yes (files + instructions)</td> </tr> <tr> <td>Upload files once, use many times</td> <td>No</td> <td>Yes</td> </tr> <tr> <td>Custom standing instructions</td> <td>No</td> <td>Yes</td> </tr> <tr> <td>Shareable (Team plan)</td> <td>No</td> <td>Yes</td> </tr> <tr> <td>Available on free plan</td> <td>Yes</td> <td>No (Pro, Max, Team only)</td> </tr> <tr> <td>Best for</td> <td>One-off tasks</td> <td>Ongoing, recurring work</td> </tr> </tbody> </table></p>
+
+<h2>Tips for Getting the Most from Claude Projects</h2>
+
+<ul>
+<li><strong>Write detailed instructions upfront.</strong> Vague instructions produce inconsistent results. The time spent writing thorough instructions pays off across every future conversation.</li>
+<li><strong>Organise files logically.</strong> Remove outdated files when they are superseded by newer versions. Stale files can create confusion if Claude draws on outdated information.</li>
+<li><strong>Create one Project per distinct context.</strong> Do not mix unrelated work in a single Project. A Project for blog writing and a Project for software development should be kept separate.</li>
+<li><strong>Use the conversation title field.</strong> Give each conversation a clear title so you can find it later. Claude does not do this automatically.</li>
+<li><strong>Check your instructions periodically.</strong> Instructions written at the start of a long project can become outdated. Review and revise them every few weeks.</li>
+</ul>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-memory-system-explained/">Claude Memory System Explained</a> — How Claude's memory works across conversations and Projects</li>
+<li><a href="/claude-artifacts-guide/">Claude Artifacts Guide</a> — Creating and using Claude's interactive output panel</li>
+<li><a href="/how-to-write-first-prompt-claude/">How to Write Your First Prompt in Claude</a> — Writing effective prompts and Project instructions</li>
+<li><a href="/claude-plans-comparison/">Claude Plans Comparison</a> — Which plans include Claude Projects</li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>What are Claude Projects?</dt>
+<dd>Claude Projects are persistent workspaces within Claude where you can store files, write custom instructions, and start multiple conversations that all share the same background context. Unlike regular conversations, Projects maintain their files and instructions indefinitely — you do not need to re-paste your documents or re-explain your requirements each time you start a new chat within the Project.</dd>
+<dt>Can I share Claude Projects?</dt>
+<dd>On the Claude Team plan, Projects can be shared with other team members who have access to the same Team workspace. On individual plans (Pro and Max), Projects are private to your account and cannot be shared with other users. Shared Projects allow collaborators to start conversations, view Project files, and contribute to the shared context.</dd>
+<dt>How many files can I add to a Claude Project?</dt>
+<dd>Claude Projects support multiple file uploads across a range of formats including PDFs, Word documents, spreadsheets, code files, and plain text. Anthropic does not publish a hard limit on file count, but total storage per Project is subject to a size limit. As of 2026, Projects support up to approximately 200,000 tokens of stored content across all files and instructions — matching the conversation context window.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

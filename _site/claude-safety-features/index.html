@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Safety Features Explained — Complete Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="A complete guide to Claude's safety features in 2026: Constitutional AI, content policies, hardcoded vs softcoded behaviours, operator configuration, and how Claude compares to other AI models.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-safety-features/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Safety Features Explained — Complete Guide (2026)">
+  <meta property="og:description" content="A complete guide to Claude's safety features in 2026: Constitutional AI, content policies, hardcoded vs softcoded behaviours, operator configuration, and how Claude compares to other AI models.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-safety-features/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-safety-features.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Safety Features Explained — Complete Guide (2026)">
+  <meta name="twitter:description" content="A complete guide to Claude's safety features in 2026: Constitutional AI, content policies, hardcoded vs softcoded behaviours, operator configuration, and how Claude compares to other AI models.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Safety Features Explained \u2014 Complete Guide (2026)",
+  "description": "A complete guide to Claude's safety features in 2026: Constitutional AI, content policies, hardcoded vs softcoded behaviours, operator configuration, and how Claude compares to other AI models.",
+  "url": "https://howtoclaudeatoz.com/claude-safety-features/",
+  "image": "https://howtoclaudeatoz.com/og/claude-safety-features.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What safety features does Claude have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude's safety features operate at multiple layers: (1) Constitutional AI training \u2014 Claude internalises explicit principles about harm, honesty, and helpfulness during training, rather than relying on post-processing filters; (2) hardcoded behaviours \u2014 absolute limits that cannot be changed by any instruction, such as refusing to help create weapons of mass destruction or produce CSAM; (3) softcoded behaviours \u2014 configurable defaults that operators can adjust for their specific use case; (4) a three-tier trust hierarchy (Anthropic > operators > users) that determines what instructions Claude follows; and (5) meta-transparency \u2014 Anthropic publicly documents the operator permission system so users can understand the framework even if they cannot see a specific deployment's system prompt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Claude refuse some requests?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude's refusals fall into three categories: (1) hardcoded refusals \u2014 things Claude will never do regardless of framing or instruction, because Anthropic has determined no legitimate use case justifies the risk; (2) context-based refusals \u2014 where Claude judges that a request, in context, is more likely to cause harm than benefit; and (3) operator-configured refusals \u2014 where the business deploying Claude has restricted its scope to their use case. Claude is trained to avoid over-refusal as well as under-refusal: refusing a reasonable request is treated as a failure, not a safe default."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Claude handle sensitive topics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude approaches sensitive topics with contextual judgement rather than categorical avoidance. The same question can receive different responses depending on context: stated professional background, platform context (via operator system prompt), prior conversation content, and the specific framing of the request. For genuinely dual-use information \u2014 things that could educate or could enable harm \u2014 Claude weighs the realistic population of people likely to be asking the question, the counterfactual impact of its response (is this freely available elsewhere?), and the severity and reversibility of potential harm."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Advanced Claude",
+      "item": "https://howtoclaudeatoz.com/advanced/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude Safety Features Explained \u2014 Complete Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/claude-safety-features/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/advanced/">Advanced Claude</a></li><li aria-current="page">Claude Safety Features Explained — Complete Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude Safety Features Explained — Complete Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude's safety features are not a simple content filter sitting on top of a capable model. They are a multi-layer system built into Claude's training, architecture, and deployment policies — designed to make Claude safe without making it uselessly cautious. Understanding Claude safety features matters for developers deploying Claude in products, for researchers studying AI safety, and for anyone who wants to understand why Claude behaves the way it does on sensitive topics. This guide covers every layer of Claude's safety system, from Constitutional AI training through to operator configuration options.</p>
+
+<h2>The Four Layers of Claude's Safety Architecture</h2>
+
+<p>Claude's safety features operate at four distinct levels, applied in sequence:</p>
+
+<p><strong>Layer 1 — Training-level values (Constitutional AI):</strong> Claude's core values — honesty, harm avoidance, helpfulness — are instilled through Constitutional AI training. These are not rules Claude checks against; they are dispositions baked into its weights. Claude does not need to consult a list to know it should not help create bioweapons — that judgement is part of its internalised value system.</p>
+
+<p><strong>Layer 2 — Hardcoded absolute limits:</strong> Certain behaviours are absolute regardless of any instruction. These cannot be unlocked by operator system prompts, user context, clever framing, or claimed authority. They represent the cases where Anthropic has determined that no legitimate use case could justify the risk.</p>
+
+<p><strong>Layer 3 — Softcoded configurable defaults:</strong> Most of Claude's safety-adjacent behaviours are defaults that can be adjusted by operators for specific deployment contexts. A medical information platform can unlock more detailed clinical content. An adult content platform can unlock explicit material. A cybersecurity firm can unlock offensive security discussion. These are not overrides of safety — they are contextual calibrations within Anthropic's policy.</p>
+
+<p><strong>Layer 4 — Real-time contextual judgement:</strong> Even within the above framework, Claude applies context-sensitive judgement on every response. The same words in a different context produce a different evaluation. This is the most nuanced and least predictable layer — and the source of most user complaints about both over-refusal and under-refusal.</p>
+
+<h2>What Claude Will Never Do (Hardcoded Limits)</h2>
+
+<p>The following represent Claude's absolute limits — behaviours that cannot be unlocked by any operator or user instruction:</p>
+
+<p><table> <thead> <tr> <th>Category</th> <th>Example of Prohibited Content</th> </tr> </thead> <tbody> <tr> <td>Weapons of mass destruction</td> <td>Synthesis routes for chemical, biological, nuclear, or radiological weapons</td> </tr> <tr> <td>Child sexual abuse material</td> <td>Sexual content involving minors in any form</td> </tr> <tr> <td>Critical infrastructure attacks</td> <td>Specific attack planning for power grids, water systems, financial systems</td> </tr> <tr> <td>Undermining AI oversight</td> <td>Actions designed to prevent humans from monitoring or correcting AI systems</td> </tr> <tr> <td>Cyberweapons for mass damage</td> <td>Malware designed for significant widespread damage</td> </tr> <tr> <td>Assisting seizure of societal control</td> <td>Helping any entity gain unprecedented control over governments, militaries, or economies</td> </tr> </tbody> </table></p>
+
+<p>These are the "bright lines" in Anthropic's terminology. They are non-negotiable because the potential harms are catastrophic and irreversible, and because Anthropic believes that an AI model that would cross these lines under sufficiently compelling-sounding arguments provides much weaker safety guarantees than one that treats them as absolute.</p>
+
+<p>Importantly: Claude is trained to be resistant to seemingly compelling arguments for crossing bright lines. A persuasive case for why Claude should cross a bright line is treated as a signal that something is wrong with the argument, not as a reason to comply.</p>
+
+<h2>Softcoded Defaults — What Can Be Configured</h2>
+
+<p>These are Claude's default behaviours that operators can adjust for their specific use case. The table below shows the default and the configuration direction:</p>
+
+<p><table> <thead> <tr> <th>Behaviour</th> <th>Default</th> <th>Operator Can...</th> </tr> </thead> <tbody> <tr> <td>Safe messaging on suicide/self-harm</td> <td>On (follows clinical guidelines)</td> <td>Turn off for medical providers</td> </tr> <tr> <td>Explicit sexual content</td> <td>Off</td> <td>Turn on for adult platforms (with Anthropic permission)</td> </tr> <tr> <td>Safety caveats on dangerous activities</td> <td>On</td> <td>Turn off for relevant research contexts</td> </tr> <tr> <td>Balanced perspectives on controversial topics</td> <td>On</td> <td>Turn off for explicit debate practice tools</td> </tr> <tr> <td>Detailed clinical drug information</td> <td>Restricted</td> <td>Expand for medical education platforms</td> </tr> <tr> <td>Offensive security techniques</td> <td>Restricted</td> <td>Expand for cybersecurity professionals</td> </tr> <tr> <td>Harsh/blunt feedback</td> <td>Off</td> <td>Turn on if users want unfiltered critique</td> </tr> <tr> <td>Profanity in responses</td> <td>Off</td> <td>Turn on for appropriate platforms</td> </tr> </tbody> </table></p>
+
+<p>Users can also adjust some behaviours within the latitude operators grant. An operator can say "trust user claims about their profession when adjusting response depth" — in which case a user stating they are a nurse can get more detailed clinical information.</p>
+
+<h2>The Three-Tier Trust Hierarchy</h2>
+
+<p>Claude operates within a principal hierarchy that determines whose instructions it follows and how much weight it gives them:</p>
+
+<p><strong>Tier 1 — Anthropic:</strong> Anthropic's policies are embedded in Claude's training. Anthropic does not communicate with Claude at runtime — its authority is expressed through Claude's trained dispositions.</p>
+
+<p><strong>Tier 2 — Operators:</strong> Businesses and developers who access Claude via the API and deploy it in their products. Claude treats operator instructions (in system prompts) like instructions from a trusted employer — following them without demanding justification, as long as they do not cross ethical bright lines. Operators have agreed to Anthropic's usage policies.</p>
+
+<p><strong>Tier 3 — Users:</strong> The humans who interact with Claude in real time. Claude treats user instructions with "intelligent adult member of the public" trust — more than a stranger, less than an employer. Users cannot override operator restrictions, but they can adjust their experience within operator-granted latitude.</p>
+
+<p>When operator and user instructions conflict, Claude generally follows operator instructions unless doing so would actively harm users, deceive users in ways that damage their interests, prevent users from getting urgent help, or violate Anthropic's guidelines.</p>
+
+<h2>How Claude Handles Sensitive Topic Categories</h2>
+
+<h3>Violence and Graphic Content</h3>
+
+<p>Claude engages with violence in literary, educational, historical, and analytical contexts. It will discuss the mechanics of violence, historical atrocities, and violent events in appropriate contexts. It will not generate gratuitous or purely shock-value violent content, or content designed to celebrate or incite real-world violence.</p>
+
+<h3>Hate Speech and Discrimination</h3>
+
+<p>Claude can discuss hate speech, discriminatory ideologies, and extremism in analytical, educational, and counter-extremism contexts. It will not produce content that dehumanises groups of people or that functions as actual hate speech rather than discussion of hate speech.</p>
+
+<h3>Privacy and Personal Information</h3>
+
+<p>Claude will not help identify private individuals from partial information, assist with stalking or harassment, aggregate personal data in ways that could harm individuals, or help circumvent privacy protections. It can discuss privacy concepts, help with legitimate data handling, and assist with publicly available information about public figures.</p>
+
+<h3>Disinformation and Deception</h3>
+
+<p>Claude will not generate targeted disinformation, write fake news intended to deceive, create fake social media profiles or astroturfing content, or help with influence operations. It can help with persuasive writing (clearly labelled as such), debate preparation, and understanding how disinformation works.</p>
+
+<h3>Dual-Use Information</h3>
+
+<p>The most genuinely difficult category: information that has both legitimate educational value and potential for misuse. Claude's approach is to consider:</p>
+
+<ol>
+<li><strong>Counterfactual impact:</strong> Is this information freely available in textbooks, Wikipedia, or a basic web search? If yes, Claude's refusal provides minimal safety benefit.</li>
+<li><strong>Likely intent population:</strong> Across all the people who might send this message, what proportion are asking for legitimate vs harmful reasons?</li>
+<li><strong>Specificity and operationality:</strong> General explanatory information differs from specific step-by-step instructions. The former is more likely to be educational; the latter more likely to be operational.</li>
+<li><strong>Severity and reversibility:</strong> How bad is the worst-case outcome, and can it be undone?</li>
+</ol>
+
+<h2>Claude Safety Features vs Other AI Models</h2>
+
+<p><table> <thead> <tr> <th>Safety Approach</th> <th>Claude</th> <th>GPT-4o</th> <th>Gemini</th> </tr> </thead> <tbody> <tr> <td>Training method</td> <td>Constitutional AI + RLHF</td> <td>RLHF + safety fine-tuning</td> <td>RLHF + safety fine-tuning</td> </tr> <tr> <td>Explicit principles</td> <td>Yes — documented, auditable</td> <td>Partial — less documented</td> <td>Partial</td> </tr> <tr> <td>Operator configuration</td> <td>Yes — formal operator system</td> <td>Yes — system prompt</td> <td>Yes — system prompt</td> </tr> <tr> <td>Hardcoded limits</td> <td>Yes — formally defined</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td>Contextual calibration</td> <td>Strong — context-sensitive judgement</td> <td>Strong</td> <td>Good</td> </tr> <tr> <td>Refusal rate on legitimate tasks</td> <td>Moderate</td> <td>Higher (historically)</td> <td>Moderate</td> </tr> <tr> <td>Transparency of policies</td> <td>High — detailed model cards, research</td> <td>Medium</td> <td>Medium</td> </tr> <tr> <td>Meta-transparency</td> <td>Yes — operator system publicly documented</td> <td>Partial</td> <td>Partial</td> </tr> </tbody> </table></p>
+
+<p>Claude has historically been noted by researchers as having a well-calibrated refusal rate — refusing genuinely harmful requests while engaging with sensitive legitimate requests — compared to some other models that apply more blunt content filtering.</p>
+
+<h2>For Developers: Configuring Claude Safety in Your Product</h2>
+
+<p><strong>Use your system prompt to set scope.</strong> Claude follows operator instructions. If your product is a cooking assistant, say so — Claude will stay in scope and handle off-topic safety-adjacent questions with an appropriate redirect rather than engaging unpredictably.</p>
+
+<p><strong>Request expanded permissions from Anthropic.</strong> For platforms with legitimate needs that require unlocking default-off behaviours (adult content, detailed medical information, offensive security), Anthropic has a formal operator permissions process. This is not done unilaterally through a system prompt.</p>
+
+<p><strong>Do not try to jailbreak Claude's hardcoded limits.</strong> Spending engineering effort on circumventing bright lines will fail, trigger monitoring, and risk your API access. These limits are embedded in weights, not rules that clever framing can bypass.</p>
+
+<p><strong>Be transparent with users about AI use.</strong> Anthropic's policies require that users can know they are interacting with an AI system, even if they cannot know which specific model.</p>
+
+<p><strong>Test edge cases.</strong> After deploying Claude in a product, red-team it: ask it edge-case questions in your domain, try to pull it off-script, test how it handles ambiguous or sensitive user queries. Refine your system prompt to handle cases that do not align with your product's intended behaviour.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-constitutional-ai/">Claude Constitutional AI — How It Works</a></li>
+<li><a href="/claude-system-prompts/">Claude System Prompts — How to Use Them</a></li>
+<li><a href="/claude-custom-persona/">Claude Custom Persona — Build Your Own</a></li>
+<li><a href="/advanced-prompt-engineering-claude/">Advanced Prompt Engineering with Claude</a></li>
+<li><a href="/future-of-claude-2026/">The Future of Claude — What's Coming in 2026</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>What safety features does Claude have?</dt>
+<dd>Claude's safety features operate at multiple layers: (1) Constitutional AI training — Claude internalises explicit principles about harm, honesty, and helpfulness during training, rather than relying on post-processing filters; (2) hardcoded behaviours — absolute limits that cannot be changed by any instruction, such as refusing to help create weapons of mass destruction or produce CSAM; (3) softcoded behaviours — configurable defaults that operators can adjust for their specific use case; (4) a three-tier trust hierarchy (Anthropic > operators > users) that determines what instructions Claude follows; and (5) meta-transparency — Anthropic publicly documents the operator permission system so users can understand the framework even if they cannot see a specific deployment's system prompt.</dd>
+<dt>Why does Claude refuse some requests?</dt>
+<dd>Claude's refusals fall into three categories: (1) hardcoded refusals — things Claude will never do regardless of framing or instruction, because Anthropic has determined no legitimate use case justifies the risk; (2) context-based refusals — where Claude judges that a request, in context, is more likely to cause harm than benefit; and (3) operator-configured refusals — where the business deploying Claude has restricted its scope to their use case. Claude is trained to avoid over-refusal as well as under-refusal: refusing a reasonable request is treated as a failure, not a safe default.</dd>
+<dt>How does Claude handle sensitive topics?</dt>
+<dd>Claude approaches sensitive topics with contextual judgement rather than categorical avoidance. The same question can receive different responses depending on context: stated professional background, platform context (via operator system prompt), prior conversation content, and the specific framing of the request. For genuinely dual-use information — things that could educate or could enable harm — Claude weighs the realistic population of people likely to be asking the question, the counterfactual impact of its response (is this freely available elsewhere?), and the severity and reversibility of potential harm.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

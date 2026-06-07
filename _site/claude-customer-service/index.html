@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Claude for Customer Service (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Use Claude for customer service in 2026 — response templates, escalation workflows, chatbot setup via Make.com, and a quality checklist for SMBs.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/claude-customer-service/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Use Claude for Customer Service (2026 Guide)">
+  <meta property="og:description" content="Use Claude for customer service in 2026 — response templates, escalation workflows, chatbot setup via Make.com, and a quality checklist for SMBs.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/claude-customer-service/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/claude-customer-service.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Claude for Customer Service (2026 Guide)">
+  <meta name="twitter:description" content="Use Claude for customer service in 2026 — response templates, escalation workflows, chatbot setup via Make.com, and a quality checklist for SMBs.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Use Claude for Customer Service (2026 Guide)",
+  "description": "Use Claude for customer service in 2026 \u2014 response templates, escalation workflows, chatbot setup via Make.com, and a quality checklist for SMBs.",
+  "url": "https://howtoclaudeatoz.com/claude-customer-service/",
+  "image": "https://howtoclaudeatoz.com/og/claude-customer-service.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude handle customer service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude can draft responses to customer queries, generate reply templates for common scenarios, classify incoming tickets, and power automated first-response workflows via Make.com or n8n. It is not an out-of-the-box customer service platform \u2014 it works best as the AI brain behind an automation, or as a writing assistant that helps human agents respond faster and more consistently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I build a Claude customer service bot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most practical approach for small businesses is to use Make.com or n8n to connect Claude's API to your inbox or support tool. When a new email or ticket arrives, the automation sends the content to Claude with a system prompt, receives a draft reply, and adds it as a draft or internal note for a human to review and send."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What customer service tasks can Claude automate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude can automate first-draft responses to enquiries, ticket classification (billing, technical, general), FAQ answers, order status replies (when given order data), complaint acknowledgements, and post-resolution follow-up messages. Anything requiring a live system lookup or real-time account data needs a more complex integration."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Business & Productivity",
+      "item": "https://howtoclaudeatoz.com/business/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Use Claude for Customer Service (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/claude-customer-service/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/business/">Claude for Business & Productivity</a></li><li aria-current="page">How to Use Claude for Customer Service (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How to Use Claude for Customer Service (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude customer service applications let businesses respond to customers faster, more consistently, and without burning agent time on repetitive queries. Claude can write high-quality response templates, draft personalised replies to individual tickets, classify incoming messages by topic, and power automated workflows that generate a draft reply before a human ever opens the email. This guide covers practical implementation for small and medium businesses — from a simple template bank to a full automated first-response system using <a href="make-com">Make.com</a> or <a href="n8n">n8n</a>.</p>
+
+<h2>How Can Claude Help Your Business with Customer Service?</h2>
+
+<p>Claude handles the writing and reasoning layers of customer service — composing clear, empathetic replies, structuring complex answers, and maintaining a consistent tone. What it does not do natively is access your live systems (order databases, CRM records, stock levels) — that requires an integration.</p>
+
+<p>The practical split:</p>
+
+<ul>
+<li><strong>Human agent + Claude as assistant:</strong> Agent pastes a customer email into Claude, which drafts a reply. Agent edits and sends. This typically cuts response time by 40–70%.</li>
+<li><strong>Automated first-response:</strong> An automation (Make.com or n8n) sends incoming tickets to Claude, gets a draft, and adds it to your inbox as a draft or internal note.</li>
+<li><strong>FAQ automation:</strong> Claude answers common questions automatically when they match predefined patterns, with complex queries escalating to a human.</li>
+</ul>
+
+<h2>How to Use Claude for Customer Service — Step by Step</h2>
+
+<h3>Step 1: Audit Your Most Common Query Types</h3>
+
+<p>Pull the last 30 days of customer emails or support tickets. Group them into categories. Most businesses find 70–80% of their volume falls into 5–10 repeating query types. These are your automation and template targets.</p>
+
+<h3>Step 2: Write a Customer Service System Prompt</h3>
+
+<p>Create a base prompt that defines your business, tone, and response rules. This is the foundation every Claude customer service interaction builds on.</p>
+
+<p><code>`</code> You are a customer service assistant for [Business Name]. We sell [products/services]. Our tone is [friendly and professional / warm and direct / formal]. Always:</p>
+<ul>
+<li>Acknowledge the customer's issue before explaining the solution</li>
+<li>Avoid jargon</li>
+<li>End with a clear next step or action</li>
+<li>Keep replies under 200 words unless detail is genuinely needed</li>
+</ul>
+<p>Never:</p>
+<ul>
+<li>Make promises about timelines or refunds without checking with a human</li>
+<li>Apologise more than once</li>
+<li>Use phrases like "Great question!" or "Certainly!"</li>
+</ul>
+<p><code>`</code></p>
+
+<h3>Step 3: Generate a Template Bank for Top Query Types</h3>
+
+<p>For each of your top 5–10 query categories, write a Claude prompt and generate a template. Store these in a shared doc, Notion page, or your helpdesk canned responses.</p>
+
+<p>Example prompt for a delivery query:</p>
+<blockquote><p>"Write a customer service reply for a customer asking where their order is. We cannot check order status in this reply — ask them to provide their order number and confirm we will follow up within 24 hours. Tone: friendly and efficient. Under 120 words."</p></blockquote>
+
+<h3>Step 4: Set Up Personalised Reply Drafting</h3>
+
+<p>For queries outside your template bank, agents can paste the customer message into Claude and request a personalised draft. This is faster than writing from scratch and ensures tone consistency.</p>
+
+<p>Prompt:</p>
+<blockquote><p>"Draft a reply to the following customer email. Follow our tone guidelines: [guidelines]. The reply should acknowledge their concern, explain [your answer], and give a clear next step. Do not promise anything that requires approval. Customer email: [paste email]"</p></blockquote>
+
+<h3>Step 5: Build an Automated First-Response with Make.com</h3>
+
+<p><a href="make-com">Make.com</a> connects Claude's API to your Gmail, Outlook, or helpdesk. A basic workflow:</p>
+
+<ol>
+<li>Trigger: New email arrives in support inbox</li>
+<li>Filter: Only process emails matching specific criteria (subject keywords, sender not internal)</li>
+<li>Claude module: Send email body + system prompt to Claude API; receive draft reply</li>
+<li>Action: Add draft to Gmail drafts folder, or create internal note in helpdesk</li>
+<li>Human review: Agent reviews and sends or edits</li>
+</ol>
+
+<p>This keeps a human in the loop while eliminating the blank-page starting problem.</p>
+
+<h3>Step 6: Build the Same Workflow with n8n (Self-Hosted Option)</h3>
+
+<p><a href="n8n">n8n</a> offers the same automation capability with a self-hosted option for businesses with data privacy requirements. The node sequence mirrors Make.com: webhook or email trigger → HTTP request to Claude API → output to your chosen destination.</p>
+
+<h3>Step 7: Set Up an Escalation Workflow</h3>
+
+<p>Not every query should go through AI drafting. Your escalation rules should define what bypasses Claude entirely.</p>
+
+<p>Add a classification step before the Claude draft node. Prompt:</p>
+<blockquote><p>"Classify this customer email into one category: BILLING, TECHNICAL, COMPLAINT, GENERAL_ENQUIRY, or ESCALATE. Reply with only the category label. Email: [email body]"</p></blockquote>
+
+<p>Route ESCALATE and COMPLAINT tickets directly to a senior agent. Route others through the draft generation flow.</p>
+
+<h2>Claude Customer Service — Response Templates for Common Scenarios</h2>
+
+<p><table> <thead> <tr> <th>Scenario</th> <th>Template Purpose</th> <th>Key Elements</th> </tr> </thead> <tbody> <tr> <td>Delivery enquiry</td> <td>Request order number, set expectation</td> <td>Acknowledgement, order number request, 24hr timeline</td> </tr> <tr> <td>Refund request</td> <td>Acknowledge, explain process</td> <td>Empathy, clear process steps, no over-promising</td> </tr> <tr> <td>Product complaint</td> <td>Acknowledge fault, offer remedy</td> <td>Ownership, remedy options, follow-up commitment</td> </tr> <tr> <td>Technical issue</td> <td>Triage, guide or escalate</td> <td>Acknowledgement, initial troubleshooting, escalation path</td> </tr> <tr> <td>Positive feedback</td> <td>Thank and engage</td> <td>Genuine thanks, invitation to review or share</td> </tr> <tr> <td>General enquiry</td> <td>Answer or route</td> <td>Direct answer if possible, clear routing if not</td> </tr> </tbody> </table></p>
+
+<h2>Response Quality Checklist</h2>
+
+<p>Before sending any Claude-drafted response (or configuring auto-send), verify:</p>
+
+<ul>
+<li>[ ] The reply correctly addresses the specific issue raised</li>
+<li>[ ] No promises about timelines, refunds, or replacements were made without authorisation</li>
+<li>[ ] Tone matches your brand guidelines</li>
+<li>[ ] The reply is under 200 words unless the topic genuinely requires more</li>
+<li>[ ] There is a clear next step for the customer</li>
+<li>[ ] No generic filler phrases ("Absolutely!", "Great question!") remain</li>
+<li>[ ] Customer's name is used correctly if included</li>
+<li>[ ] No internal instructions or prompt text leaked into the reply</li>
+</ul>
+
+<h2>Claude vs Dedicated Customer Service AI Tools</h2>
+
+<p><table> <thead> <tr> <th>Feature</th> <th>Claude (via Make.com)</th> <th>Dedicated CS Platform (e.g., Intercom AI)</th> </tr> </thead> <tbody> <tr> <td>Setup complexity</td> <td>Medium (requires automation config)</td> <td>Low (built-in)</td> </tr> <tr> <td>Cost</td> <td>Low ($20–$50/month all-in)</td> <td>Higher ($74–$200+/month)</td> </tr> <tr> <td>Customisation</td> <td>High (full prompt control)</td> <td>Medium (within platform limits)</td> </tr> <tr> <td>Live system integration</td> <td>Manual (requires extra automation steps)</td> <td>Often built-in</td> </tr> <tr> <td>Quality of drafts</td> <td>High</td> <td>Variable (model-dependent)</td> </tr> <tr> <td>Human oversight</td> <td>Easy to configure</td> <td>Depends on platform</td> </tr> </tbody> </table></p>
+
+<p>For small businesses with under 100 tickets per day, the Claude + Make.com approach is cost-effective and highly controllable. Larger operations with live CRM data needs may prefer a dedicated platform.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-make-com-integration/">Claude and Make.com Integration</a></li>
+<li><a href="/claude-automation-workflows/">Claude Automation Workflows</a></li>
+<li><a href="/claude-for-small-business/">Claude for Small Business</a></li>
+<li><a href="/how-to-write-email-sequences-with-claude/">How to Write Email Sequences with Claude</a></li>
+<li><a href="/claude-sales-copywriting/">Claude for Sales Copywriting</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude handle customer service?</dt>
+<dd>Claude can draft responses to customer queries, generate reply templates for common scenarios, classify incoming tickets, and power automated first-response workflows via Make.com or n8n. It is not an out-of-the-box customer service platform — it works best as the AI brain behind an automation, or as a writing assistant that helps human agents respond faster and more consistently.</dd>
+<dt>How do I build a Claude customer service bot?</dt>
+<dd>The most practical approach for small businesses is to use Make.com or n8n to connect Claude's API to your inbox or support tool. When a new email or ticket arrives, the automation sends the content to Claude with a system prompt, receives a draft reply, and adds it as a draft or internal note for a human to review and send.</dd>
+<dt>What customer service tasks can Claude automate?</dt>
+<dd>Claude can automate first-draft responses to enquiries, ticket classification (billing, technical, general), FAQ answers, order status replies (when given order data), complaint acknowledgements, and post-resolution follow-up messages. Anything requiring a live system lookup or real-time account data needs a more complex integration.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

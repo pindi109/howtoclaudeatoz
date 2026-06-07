@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Debug Code with Claude — Developer Guide (2026) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Learn how to debug code with Claude effectively. Share context, describe errors, and use rubber duck prompting to find bugs fast. Full developer guide for 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/debug-code-with-claude/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Debug Code with Claude — Developer Guide (2026)">
+  <meta property="og:description" content="Learn how to debug code with Claude effectively. Share context, describe errors, and use rubber duck prompting to find bugs fast. Full developer guide for 2026.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/debug-code-with-claude/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/debug-code-with-claude.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Debug Code with Claude — Developer Guide (2026)">
+  <meta name="twitter:description" content="Learn how to debug code with Claude effectively. Share context, describe errors, and use rubber duck prompting to find bugs fast. Full developer guide for 2026.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Debug Code with Claude \u2014 Developer Guide (2026)",
+  "description": "Learn how to debug code with Claude effectively. Share context, describe errors, and use rubber duck prompting to find bugs fast. Full developer guide for 2026.",
+  "url": "https://howtoclaudeatoz.com/debug-code-with-claude/",
+  "image": "https://howtoclaudeatoz.com/og/debug-code-with-claude.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude debug my code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Claude is highly effective at debugging. It can read error messages, trace logic errors through your code, identify off-by-one errors, spot async race conditions, find SQL injection vulnerabilities, debug regex patterns, and explain why a piece of code does not behave as expected. The key is giving Claude the full relevant context: the code, the error message, what you expected vs what actually happened, and your environment details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I share code with Claude for debugging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the full relevant code block \u2014 not just the line with the error. Include the error message or stack trace in full. Add a brief description of what the code is supposed to do and what it actually does instead. If using Claude Code (the CLI), you do not need to paste anything \u2014 Claude Code reads your files directly and can run your code to reproduce the error."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Claude better than Stack Overflow for debugging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For debugging your specific code in your specific context, Claude is usually faster and more targeted than Stack Overflow. Stack Overflow gives you answers to common, abstract problems; Claude analyses your actual code. The combination is powerful \u2014 Claude for immediate diagnosis, Stack Overflow for community context on unusual errors. Claude also does not close your question for being too specific."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude Code & Developer Use Cases",
+      "item": "https://howtoclaudeatoz.com/claude-code/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Debug Code with Claude \u2014 Developer Guide (2026)",
+      "item": "https://howtoclaudeatoz.com/debug-code-with-claude/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/claude-code/">Claude Code & Developer Use Cases</a></li><li aria-current="page">How to Debug Code with Claude — Developer Guide (2026)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How to Debug Code with Claude — Developer Guide (2026)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Knowing how to debug code with Claude effectively cuts the time you spend stuck on a bug from hours to minutes. Claude is not just a lookup engine for error messages — it reads your actual code, traces execution paths, spots logic errors, and explains the root cause in plain language. The critical skill is sharing the right context: give Claude too little and it guesses; give it just enough and it pinpoints the bug in seconds. This guide covers the most effective ways to share code for debugging, the types of bugs Claude handles best, the rubber duck prompting technique for hard problems, and before/after examples of real bug fixes.</p>
+
+<h2>Why Claude Is Effective for Debugging</h2>
+
+<p>Most debugging tools tell you where a crash happened. Claude tells you why. When you paste a stack trace and the surrounding code, Claude:</p>
+
+<ul>
+<li>Reads the error message and identifies which component of the trace is the real root cause</li>
+<li>Traces backwards through your code to find where the bad state was introduced</li>
+<li>Identifies the conceptual mistake, not just the symptom (e.g., "you're mutating the original list while iterating it" rather than just "IndexError on line 42")</li>
+<li>Explains the fix and why it works</li>
+<li>Warns you if the same pattern appears elsewhere in the code you pasted</li>
+</ul>
+
+<p>Claude is especially strong at debugging because it has seen enormous quantities of buggy code, error messages, and their fixes during training. It recognises patterns that take human developers years to learn to spot.</p>
+
+<h2>How to Debug Code with Claude — Step by Step</h2>
+
+<h3>Step 1: Share the Full Relevant Code</h3>
+
+<p>The most common mistake when asking Claude to debug is sharing too little code. Sharing only the line with the error forces Claude to guess about everything above it. Share the full function, the class, or — in Claude Code — the entire file.</p>
+
+<p><strong>Too little context:</strong> <code>`</code> Why does line 42 throw a KeyError? <code>`</code></p>
+
+<p><strong>Good context:</strong> <code>`</code>python</p>
+<h1>This function is supposed to merge two user dicts, but it throws</h1>
+<h1>KeyError: 'email' intermittently. I can't reproduce it consistently.</h1>
+
+<p>def merge<em>user</em>records(existing: dict, update: dict) -> dict:     merged = existing     for key, value in update.items():         if key in existing:             merged[key] = value     return merged</p>
+
+<h1>Called like this:</h1>
+<p>users = [{"id": 1, "name": "Alice", "email": "alice@example.com"}] for user in users:     updated = merge<em>user</em>records(user, {"name": "Alicia"})     send<em>welcome</em>email(updated["email"]) <code>`</code></p>
+
+<p>Now Claude can see the actual bug: <code>merged = existing</code> creates a reference, not a copy — mutating <code>merged</code> mutates the original dict, which can cause unexpected state downstream. The <code>KeyError</code> is a symptom of a different root cause.</p>
+
+<h3>Step 2: Include the Full Error Message and Stack Trace</h3>
+
+<p>Never summarise an error message — paste it in full. Stack traces contain critical information in every line: file paths, function names, line numbers, and the exact error type and message. Summaries strip out the context that makes diagnosis possible.</p>
+
+<p><code>`</code> I'm getting this error in production:</p>
+
+<p>Traceback (most recent call last):   File "/app/workers/email<em>worker.py", line 83, in process</em>queue     result = send<em>email(task["recipient"], task["subject"], task["body"])   File "/app/services/email</em>service.py", line 41, in send<em>email     response = self.client.messages.create(   File "/usr/local/lib/python3.11/site-packages/anthropic/</em>client.py", line 244, in create     return self.<em>post(...) anthropic.APIStatusError: 529 Overloaded {"type":"error","error":{"type":"overloaded</em>error","message":"Overloaded"}} <code>`</code></p>
+
+<p>With the full trace, Claude immediately identifies this as an API rate/overload error and suggests adding retry logic with exponential backoff — rather than assuming there's a bug in your code.</p>
+
+<h3>Step 3: Describe the Expected vs Actual Behaviour</h3>
+
+<p>This framing forces you to be precise and gives Claude the two reference points it needs:</p>
+
+<p><code>`</code> Expected: The function should return a sorted list of unique integers. Actual: It returns a sorted list but still contains duplicates.</p>
+
+<p>def unique_sorted(nums: list[int]) -> list[int]:     seen = []     for n in nums:         if n not in seen:             seen.append(n)     return sorted(seen)</p>
+
+<h1>Test case: unique_sorted([3, 1, 2, 1, 3]) returns [1, 1, 2, 3, 3]</h1>
+<p><code>`</code></p>
+
+<p>With this framing Claude immediately sees that the test case contradicts the code — the code should work. It will ask you to verify the test case, or check if the function is being called with <code>nums</code> already modified somewhere.</p>
+
+<h3>Step 4: Add Environment Context for Infrastructure Bugs</h3>
+
+<p>For bugs that depend on environment (database drivers, OS file paths, timezone handling, encoding), tell Claude:</p>
+
+<p><code>`</code> Python 3.11, macOS development / Ubuntu 22.04 production PostgreSQL 15, psycopg2 2.9.9 Timezone: UTC (server), Europe/London (users) <code>`</code></p>
+
+<p>Many intermittent bugs are timezone, encoding, or OS-path bugs that only appear in specific environments. Claude cannot diagnose them without knowing which environment you're in.</p>
+
+<h3>Step 5: Use the Rubber Duck Technique with Claude</h3>
+
+<p>The rubber duck debugging technique (explaining your code out loud to force you to find the bug yourself) works extremely well with Claude as the duck. The prompt template:</p>
+
+<p><code>`</code> I'm going to explain what I think this code does, step by step.  Tell me if my understanding is correct or where I've gone wrong.</p>
+
+<p>[Paste code]</p>
+
+<p>My understanding:</p>
+<ol>
+<li>The function receives a list of order dicts</li>
+<li>It groups them by customer_id</li>
+<li>For each group, it sums the amounts</li>
+<li>It returns a dict mapping customer_id to total amount</li>
+</ol>
+
+<p>But the totals are wrong — some customers have amounts from other customers mixed in. <code>`</code></p>
+
+<p>When you articulate your mental model and Claude compares it to the actual code, the gap between what you think the code does and what it actually does becomes immediately visible. This technique solves bugs that are invisible when you just stare at the code.</p>
+
+<h2>Types of Bugs Claude Handles Best</h2>
+
+<h3>Logic Errors</h3>
+
+<p>Off-by-one errors, wrong loop bounds, incorrect boolean logic, and subtle algorithm mistakes are where Claude shines. It reads your intent from the context and variable names, then spots where the implementation diverges from the intent.</p>
+
+<p><strong>Example prompt:</strong> <code>`</code> This binary search should return the index of the target, or -1.  It works for most inputs but fails when the target is the last element.</p>
+
+<p>def binary_search(arr, target):     left, right = 0, len(arr)     while left < right:         mid = (left + right) // 2         if arr[mid] == target:             return mid         elif arr[mid] < target:             left = mid         else:             right = mid     return -1 <code>`</code></p>
+
+<p>Claude identifies the two bugs: <code>right</code> should be <code>len(arr) - 1</code>, and <code>left = mid</code> and <code>right = mid</code> should be <code>left = mid + 1</code> and <code>right = mid - 1</code> to avoid infinite loops. It explains why both changes are needed.</p>
+
+<h3>Async and Concurrency Bugs</h3>
+
+<p>Race conditions, missing <code>await</code> keywords, improper task cancellation, and shared state in async code are notoriously hard to debug. Claude handles these well because the patterns are predictable:</p>
+
+<p><code>`</code> This async function occasionally returns None even though the database  always has a record for this user_id. It only happens under load.</p>
+
+<p>async def get<em>user(user</em>id: str) -> User | None:     async with get<em>db() as db:         result = db.execute(             "SELECT <em> FROM users WHERE id = %s", (user</em>id,)         )         return User(</em>*result.fetchone()) if result else None <code>`</code></p>
+
+<p>Claude spots the missing <code>await</code> on <code>db.execute()</code> and explains that without it, <code>result</code> is a coroutine object (always truthy), so the None path is never taken, but the returned User is constructed from garbage data — which manifests as intermittent errors rather than consistent failures.</p>
+
+<h3>Regular Expression Bugs</h3>
+
+<p>Paste a broken regex with test strings and Claude debugs and rewrites it:</p>
+
+<p><code>`</code> This regex is supposed to match UK postcodes but it's matching partial  strings too. Pattern: [A-Z]{1,2}[0-9]{1,2}\s?[0-9][A-Z]{2}</p>
+
+<p>Input "SW1A 1AA meeting at 9AM" should not match but does. <code>`</code></p>
+
+<h3>SQL Query Bugs</h3>
+
+<p><code>`</code> This query returns duplicate rows. I expect one row per user.</p>
+
+<p>SELECT u.id, u.email, o.total FROM users u LEFT JOIN orders o ON u.id = o.user<em>id WHERE o.created</em>at > NOW() - INTERVAL '30 days' <code>`</code></p>
+
+<p>Claude identifies that the LEFT JOIN + WHERE clause effectively becomes an INNER JOIN (filtering out NULLs), and that users with multiple orders in the last 30 days appear multiple times. It suggests using a subquery or <code>DISTINCT ON</code>.</p>
+
+<h2>Before and After: Real Bug Fix Examples</h2>
+
+<h3>Before: Mutable Default Argument</h3>
+
+<p><code>`</code>python</p>
+<h1>Bug: default list is shared across all calls</h1>
+<p>def add_item(item, items=[]):     items.append(item)     return items</p>
+
+<p>add<em>item("a")  # Returns ["a"] add</em>item("b")  # Returns ["a", "b"] — unexpected! <code>`</code></p>
+
+<h3>After: Fixed by Claude</h3>
+
+<p><code>`</code>python</p>
+<h1>Fix: use None sentinel, create new list each call</h1>
+<p>def add_item(item, items=None):     if items is None:         items = []     items.append(item)     return items <code>`</code></p>
+
+<p>Claude also explains this is one of Python's most common gotchas and flags any other functions in your code that may have the same pattern.</p>
+
+<h2>Using Claude Code for Debugging</h2>
+
+<p>Claude Code (the CLI) is more powerful for debugging than the browser interface because it reads your actual files and can run your code:</p>
+
+<p><code>`</code>bash cd ~/projects/my-api claude</p>
+<blockquote><p>I'm getting a 500 error on POST /api/orders. The error log shows</p></blockquote>
+<p>'sqlalchemy.exc.IntegrityError: FOREIGN KEY constraint failed'.    Find the relevant route handler and model, diagnose the issue,    and suggest a fix. <code>`</code></p>
+
+<p>Claude Code reads <code>routers/orders.py</code>, <code>models/order.py</code>, and <code>models/product.py</code>, identifies that the route handler does not verify product existence before creating the order, and writes the fix with a pre-check query and a proper 404 response.</p>
+
+<h2>Claude vs Stack Overflow for Debugging</h2>
+
+<p><table> <thead> <tr> <th>Scenario</th> <th>Claude</th> <th>Stack Overflow</th> </tr> </thead> <tbody> <tr> <td>Your specific code, your specific error</td> <td>Excellent</td> <td>Poor fit</td> </tr> <tr> <td>Common error message, generic cause</td> <td>Excellent</td> <td>Excellent</td> </tr> <tr> <td>Obscure library internals</td> <td>Good</td> <td>Often has the answer</td> </tr> <tr> <td>Architecture / design feedback</td> <td>Excellent</td> <td>Off-topic</td> </tr> <tr> <td>Up-to-date library versions</td> <td>Good (2025 cutoff)</td> <td>Community-maintained</td> </tr> <tr> <td>Explains the why, not just the fix</td> <td>Excellent</td> <td>Varies</td> </tr> <tr> <td>Available at 2am</td> <td>Always</td> <td>Yes (asynchronous)</td> </tr> </tbody> </table></p>
+
+<p>The best workflow: use Claude first for rapid diagnosis. If Claude's answer references a library behaviour that seems unexpected, verify it against the official docs or Stack Overflow. Use both — they solve different parts of the debugging problem.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-code-getting-started/">Claude Code Getting Started</a></li>
+<li><a href="/claude-code-reviews/">Claude Code Reviews</a></li>
+<li><a href="/claude-python-scripting/">Claude Python Scripting</a></li>
+<li><a href="/claude-co-developer/">Building Apps with Claude as Your Co-Developer</a></li>
+<li><a href="/what-is-claude-ai/">What is Claude AI?</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can Claude debug my code?</dt>
+<dd>Yes — Claude is highly effective at debugging. It can read error messages, trace logic errors through your code, identify off-by-one errors, spot async race conditions, find SQL injection vulnerabilities, debug regex patterns, and explain why a piece of code does not behave as expected. The key is giving Claude the full relevant context: the code, the error message, what you expected vs what actually happened, and your environment details.</dd>
+<dt>How do I share code with Claude for debugging?</dt>
+<dd>Paste the full relevant code block — not just the line with the error. Include the error message or stack trace in full. Add a brief description of what the code is supposed to do and what it actually does instead. If using Claude Code (the CLI), you do not need to paste anything — Claude Code reads your files directly and can run your code to reproduce the error.</dd>
+<dt>Is Claude better than Stack Overflow for debugging?</dt>
+<dd>For debugging your specific code in your specific context, Claude is usually faster and more targeted than Stack Overflow. Stack Overflow gives you answers to common, abstract problems; Claude analyses your actual code. The combination is powerful — Claude for immediate diagnosis, Stack Overflow for community context on unusual errors. Claude also does not close your question for being too specific.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

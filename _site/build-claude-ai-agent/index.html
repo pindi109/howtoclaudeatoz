@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build Your First Claude AI Agent (2026 Guide) | HowToClaudeAtoZ</title>
+  <meta name="description" content="Learn how to build a Claude AI agent in 2026 — what makes something an agent, no-code Make.com approach, Python code path, and 3 real agent examples.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://howtoclaudeatoz.com/build-claude-ai-agent/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Build Your First Claude AI Agent (2026 Guide)">
+  <meta property="og:description" content="Learn how to build a Claude AI agent in 2026 — what makes something an agent, no-code Make.com approach, Python code path, and 3 real agent examples.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/build-claude-ai-agent/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/build-claude-ai-agent.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Build Your First Claude AI Agent (2026 Guide)">
+  <meta name="twitter:description" content="Learn how to build a Claude AI agent in 2026 — what makes something an agent, no-code Make.com approach, Python code path, and 3 real agent examples.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Build Your First Claude AI Agent (2026 Guide)",
+  "description": "Learn how to build a Claude AI agent in 2026 \u2014 what makes something an agent, no-code Make.com approach, Python code path, and 3 real agent examples.",
+  "url": "https://howtoclaudeatoz.com/build-claude-ai-agent/",
+  "image": "https://howtoclaudeatoz.com/og/build-claude-ai-agent.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.png"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Claude AI agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Claude AI agent is an automation where Claude doesn't just respond to a single prompt \u2014 it can use tools, take actions, observe the results, and loop back to decide what to do next. This decision-action-observation loop is what distinguishes an agent from a simple prompt-response workflow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I build an AI agent with Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can build a Claude agent in two ways: no-code using Make.com (connect trigger \u2192 Claude \u2192 action \u2192 loop back if needed) or with code using the Anthropic Python/TypeScript SDK and tool_use blocks. The no-code path is fastest for simple agents; code gives you full control for complex ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to code to build a Claude agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Make.com lets you build functional Claude agents without any code using its visual scenario builder and native Anthropic module. However, for agents that need to make complex decisions across many tool calls or maintain conversational state, a Python or TypeScript implementation gives you much more control."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Claude for Automation & AI Workflows",
+      "item": "https://howtoclaudeatoz.com/automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Build Your First Claude AI Agent (2026 Guide)",
+      "item": "https://howtoclaudeatoz.com/build-claude-ai-agent/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/writing/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/video-voice/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/claude-code/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/business/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/automation/">Claude for Automation & AI Workflows</a></li><li aria-current="page">How to Build Your First Claude AI Agent (2026 Guide)</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      <p class="affiliate-disclosure text-sm text-gray-500 border-l-4 border-amber-400 pl-3 my-4"><em>This page contains affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em></p>
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>How to Build Your First Claude AI Agent (2026 Guide)</h1>
+
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Building a Claude AI agent is simpler than it sounds, and the distinction between a basic automation and a true agent comes down to one thing: does Claude take an action, observe the result, and decide what to do next? If yes — it's an agent. This guide explains what makes something an agent (not just a chatbot or a single-prompt workflow), walks through two paths for building one — no-code with Make.com and code with Python — and gives you three practical agent examples you can build and deploy today, even if you've never written an automation before.</p>
+
+<h2>What Makes Something a Claude AI Agent?</h2>
+
+<p>The word "agent" gets overused, but it has a precise meaning in the context of AI automation. A Claude AI agent has three properties that a simple prompt-response workflow does not:</p>
+
+<p><strong>1. Tool use</strong>: Claude can call external tools or functions — a web search, a database lookup, a calculator, an API call — and incorporate the results into its reasoning.</p>
+
+<p><strong>2. A decision loop</strong>: After using a tool and receiving results, Claude decides whether the task is complete or whether it needs to take another action. This loop continues until Claude determines the goal is achieved.</p>
+
+<p><strong>3. Goal-directed behaviour</strong>: Claude is given a goal (not just a single prompt) and autonomously determines the steps needed to reach it.</p>
+
+<p>A simple Claude workflow looks like this: input → Claude generates text → output. An agent looks like this: goal → Claude thinks about what to do → Claude calls a tool → Claude reviews result → Claude decides to call another tool or declares done → output.</p>
+
+<p>The agentic loop is what gives Claude agents their power — they can handle multi-step tasks that no single prompt could complete.</p>
+
+<h2>No-Code Path: Build a Claude Agent with Make.com</h2>
+
+<p>Make.com's visual scenario builder can implement agentic loops without writing code. The approach uses Make.com's <strong>Router</strong> and <strong>Repeater</strong> modules to create the decision loop, with the Claude module as the reasoning engine.</p>
+
+<h3>Step 1: Define Your Agent's Goal and Tools</h3>
+
+<p>Before building in Make.com, write out plainly what your agent should do and what actions it has available. For example:</p>
+
+<p><strong>Goal</strong>: Qualify incoming sales leads   <strong>Tools available</strong>: (1) Look up company info in Clearbit, (2) Check if lead already exists in HubSpot, (3) Create or update HubSpot record, (4) Send Slack notification to sales team</p>
+
+<h3>Step 2: Set Up the Trigger</h3>
+
+<p>Create a new Make.com scenario. Add a trigger — for a lead qualification agent, this would be <strong>Typeform > Watch Responses</strong> or <strong>Webhooks > Custom Webhook</strong> if your lead form posts there.</p>
+
+<h3>Step 3: Add the Claude Module as the Decision Maker</h3>
+
+<p>Add an Anthropic module after the trigger. Write a system prompt that describes the agent's role and available tools:</p>
+
+<p><code>`</code> You are a lead qualification agent. When you receive a lead, you must:</p>
+<ol>
+<li>Decide if the company size (from data provided) meets our criteria (50+ employees)</li>
+<li>Check if the email domain is from a business (not gmail.com, hotmail.com etc)</li>
+<li>Score the lead 1-10 based on fit</li>
+</ol>
+
+<p>Respond with a JSON object: {"score": number, "qualified": boolean, "reason": string} <code>`</code></p>
+
+<p>Pass the lead data from the trigger into Claude's message.</p>
+
+<h3>Step 4: Add a Router to Branch Based on Claude's Decision</h3>
+
+<p>Claude returns a JSON score. Add a <strong>JSON > Parse JSON</strong> module to extract the values, then add a <strong>Router</strong> module. Configure two routes:</p>
+
+<ul>
+<li><strong>Route A</strong> (if <code>qualified = true</code>): Create HubSpot contact → Send Slack alert to sales team</li>
+<li><strong>Route B</strong> (if <code>qualified = false</code>): Add to a low-priority spreadsheet for later review</li>
+</ul>
+
+<h3>Step 5: Test and Iterate</h3>
+
+<p>Run the scenario with test data. Inspect Claude's JSON output. Adjust your system prompt if Claude's scoring logic doesn't match your expectations. This prompt tuning step is where most of your time goes when building agents — the logic lives in the prompt, not the workflow structure.</p>
+
+<h2>Code Path: Build a Claude Agent with Python</h2>
+
+<p>For agents that need more complex decision loops, maintain conversation history, or call many different tools in sequence, Python gives you full control using the Anthropic SDK.</p>
+
+<h3>Basic Agentic Loop Structure</h3>
+
+<p><code>`</code>python import anthropic import json</p>
+
+<p>client = anthropic.Anthropic()</p>
+
+<h1>Define tools the agent can use</h1>
+<p>tools = [     {         "name": "search<em>crm",         "description": "Search the CRM for a contact by email address",         "input</em>schema": {             "type": "object",             "properties": {                 "email": {"type": "string", "description": "Email address to look up"}             },             "required": ["email"]         }     },     {         "name": "create<em>crm</em>record",         "description": "Create a new contact record in the CRM",         "input_schema": {             "type": "object",             "properties": {                 "name": {"type": "string"},                 "email": {"type": "string"},                 "company": {"type": "string"}             },             "required": ["name", "email"]         }     } ]</p>
+
+<p>def run<em>agent(user</em>goal: str):     messages = [{"role": "user", "content": user_goal}]</p>
+
+<p>while True:         response = client.messages.create(             model="claude-sonnet-4-5",             max_tokens=1024,             tools=tools,             messages=messages         )</p>
+
+<p># If Claude is done, return final response         if response.stop<em>reason == "end</em>turn":             return response.content[0].text</p>
+
+<p># If Claude wants to use a tool, execute it and loop back         if response.stop<em>reason == "tool</em>use":             tool<em>results = []             for block in response.content:                 if block.type == "tool</em>use":                     result = execute<em>tool(block.name, block.input)                     tool</em>results.append({                         "type": "tool<em>result",                         "tool</em>use_id": block.id,                         "content": json.dumps(result)                     })</p>
+
+<p># Add Claude's response and tool results to message history             messages.append({"role": "assistant", "content": response.content})             messages.append({"role": "user", "content": tool_results})             # Loop continues — Claude will decide what to do next</p>
+
+<p>def execute<em>tool(name: str, inputs: dict):     # Your actual tool implementations go here     if name == "search</em>crm":         return search<em>your</em>crm(inputs["email"])     if name == "create<em>crm</em>record":         return create<em>crm</em>contact(inputs) <code>`</code></p>
+
+<p>The key pattern is the <code>while True</code> loop: Claude responds, you check if it called a tool, you execute the tool, you add the result back to the message history, and Claude decides the next step. The loop only exits when Claude's <code>stop<em>reason</code> is <code>end</em>turn</code>.</p>
+
+<h2>3 Claude AI Agent Examples</h2>
+
+<h3>Agent 1: Lead Research and Qualification Agent</h3>
+
+<p><strong>What it does</strong>: When a new lead fills in your contact form, this agent looks up their company on LinkedIn (via a scraping API), checks their company size, reviews their message for buying signals, scores the lead 1-10, and writes a personalised intro email draft for the sales rep — all before a human looks at it.</p>
+
+<p><strong>Build path</strong>: Make.com (no-code) — 4-6 modules. Trigger on form submission, Claude module for reasoning and scoring, Router for qualified/unqualified branching, HubSpot and Gmail actions.</p>
+
+<p><strong>Time to build</strong>: 2-3 hours for a non-technical user following a template.</p>
+
+<h3>Agent 2: Customer Support Resolution Agent</h3>
+
+<p><strong>What it does</strong>: A customer submits a support ticket. The agent searches your knowledge base for relevant articles, attempts to draft a resolution, checks if the issue matches any known bugs in your tracker, and either sends an automated response (if confident) or escalates to a human agent with a summary and suggested response.</p>
+
+<p><strong>Build path</strong>: Python + Anthropic SDK — requires code for the multi-step decision logic. Tools include: knowledge<em>base</em>search, bug<em>tracker</em>lookup, send<em>email, escalate</em>to_human.</p>
+
+<p><strong>Time to build</strong>: 1-2 days for a developer starting from scratch.</p>
+
+<h3>Agent 3: Content Repurposing Agent</h3>
+
+<p><strong>What it does</strong>: Given a new blog post URL, the agent reads the content, generates a Twitter/X thread, a LinkedIn post, an email newsletter intro, and three short-form video script ideas — then routes each piece to the appropriate scheduling tool (Buffer, Mailchimp, etc.).</p>
+
+<p><strong>Build path</strong>: Make.com — trigger on new Google Doc or RSS item, Claude module for each content format, parallel action routes to different platforms.</p>
+
+<p><strong>Time to build</strong>: 1-2 hours for a user familiar with Make.com.</p>
+
+<h2>Agent vs Chatbot vs Simple Automation — What's the Difference?</h2>
+
+<p>Understanding where agents fit helps you pick the right tool for each task.</p>
+
+<p><table> <thead> <tr> <th>Type</th> <th>Claude role</th> <th>Decision loop</th> <th>Best for</th> </tr> </thead> <tbody> <tr> <td><strong>Simple automation</strong></td> <td>Generates text once</td> <td>No</td> <td>Writing, summarising, classifying single items</td> </tr> <tr> <td><strong>Chatbot</strong></td> <td>Responds conversationally</td> <td>No (responds to each message)</td> <td>Customer Q&A, support chat</td> </tr> <tr> <td><strong>Agent</strong></td> <td>Plans, acts, observes, decides</td> <td>Yes</td> <td>Multi-step tasks requiring judgment</td> </tr> </tbody> </table></p>
+
+<p>Don't over-engineer. If a task can be completed with a single Claude call, use a simple automation. Agents add value when the task genuinely requires multiple steps, tool calls, or decisions that depend on intermediate results.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-make-com-integration/">Claude Make.com Integration</a></li>
+<li><a href="/claude-n8n-workflows/">Claude n8n Workflows</a></li>
+<li><a href="/claude-mcp-explained/">Claude MCP Explained</a></li>
+<li><a href="/claude-api-getting-started/">Claude API Getting Started</a></li>
+<li><a href="/claude-automation-workflows/">Claude Automation Workflows — 10 Templates</a></li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>What is a Claude AI agent?</dt>
+<dd>A Claude AI agent is an automation where Claude doesn't just respond to a single prompt — it can use tools, take actions, observe the results, and loop back to decide what to do next. This decision-action-observation loop is what distinguishes an agent from a simple prompt-response workflow.</dd>
+<dt>How do I build an AI agent with Claude?</dt>
+<dd>You can build a Claude agent in two ways: no-code using Make.com (connect trigger → Claude → action → loop back if needed) or with code using the Anthropic Python/TypeScript SDK and tool_use blocks. The no-code path is fastest for simple agents; code gives you full control for complex ones.</dd>
+<dt>Do I need to code to build a Claude agent?</dt>
+<dd>No. Make.com lets you build functional Claude agents without any code using its visual scenario builder and native Anthropic module. However, for agents that need to make complex decisions across many tool calls or maintain conversational state, a Python or TypeScript implementation gives you much more control.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    // Duplicate instance for mobile search slot (only rendered when visible)
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

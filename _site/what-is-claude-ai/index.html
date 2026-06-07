@@ -66,18 +66,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is Claude AI?",
+      "name": "What is Claude AI and who made it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Claude AI is a large language model (LLM) built by Anthropic. It can read, write, summarise, and reason across a wide range of tasks \u2014 from drafting emails to analysing complex documents. It is designed with a focus on safety and helpfulness."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who made Claude AI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Claude is made by Anthropic, an AI safety company founded in 2021 by former OpenAI researchers including Dario Amodei and Daniela Amodei. Anthropic is headquartered in San Francisco."
+        "text": "Claude AI is a large language model (LLM) built by Anthropic, an AI safety company founded in 2021 by former OpenAI researchers including Dario and Daniela Amodei. Claude is designed to be helpful, harmless, and honest across writing, coding, analysis, and conversation."
       }
     },
     {
@@ -85,7 +77,15 @@
       "name": "Is Claude AI free to use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, Claude has a free tier available at claude.ai that gives you access to the base model with usage limits. Paid plans (Claude Pro) unlock higher limits, access to more powerful models like Claude Opus, and priority availability."
+        "text": "Yes. Claude has a free tier at claude.ai that gives access to Claude Sonnet with daily usage limits. Paid plans (Pro, Max, and Team) unlock higher usage limits, access to Claude Opus, larger file uploads, and priority availability during peak times."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Claude different from ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude and ChatGPT are both large language models but differ in key areas. Claude is made by Anthropic and offers a 200,000-token context window with strong long-document reasoning. ChatGPT is made by OpenAI and integrates with a wider third-party plugin and tool ecosystem. Many users find Claude stronger for nuanced writing and long-document analysis."
       }
     }
   ]
@@ -230,17 +230,117 @@
       ">
         <h1>What is Claude AI? Complete 2026 Guide</h1>
 
-<p>Claude AI is an artificial intelligence assistant built by Anthropic — one of the leading AI safety research companies in the world. What is Claude AI, exactly? It is a large language model (LLM) capable of understanding and generating human-level text across almost any task: writing, summarising, coding, reasoning, research, and conversation. Claude is available via claude.ai and through an API for developers. Unlike some competitors, Anthropic built Claude with a deliberate emphasis on safety, honesty, and avoiding harmful outputs — making it a strong choice for individuals, businesses, and developers who want a capable and trustworthy AI assistant.</p>
+<p><em>Last updated: 2026-06-07</em></p>
+
+<p>Claude AI is an artificial intelligence assistant built by Anthropic — one of the world's leading AI safety research companies. What is Claude AI, in plain terms? It is a large language model (LLM) capable of understanding and generating text across nearly any task: writing, summarising, coding, reasoning, research, and conversation. Claude is available at claude.ai for individuals and through an API (Application Programming Interface) for developers. Anthropic built Claude with a deliberate emphasis on safety, honesty, and avoiding harmful outputs, making it one of the most capable and trustworthy AI assistants available in 2026.</p>
+
+<h2>What is Claude AI? — Definition and Background</h2>
+
+<p>Claude AI is an LLM trained by Anthropic using a technique called Constitutional AI (CAI), which guides the model to behave according to a written set of principles rather than relying solely on human feedback. Anthropic released the first public version of Claude in 2023, with subsequent versions — Claude 2, Claude 3, Claude 3.5, and Claude 4 — each delivering substantial improvements in reasoning, speed, and context length. The current flagship models as of mid-2026 are Claude Sonnet 4 and Claude Opus 4.</p>
+
+<p>Anthropic was founded in 2021 by Dario Amodei, Daniela Amodei, and other former OpenAI researchers who wanted to pursue a more safety-focused approach to building AI systems. The company is headquartered in San Francisco and has raised billions in funding from investors including Google and Amazon.</p>
+
+<h2>How Claude AI Works — The Technology Behind It</h2>
+
+<p>Claude is a transformer-based neural network trained on large, diverse text datasets. It generates responses one token (roughly one word or word-fragment) at a time by predicting the most contextually appropriate next token given the entire conversation so far. Claude does not browse the internet in real time by default; its knowledge comes from its training data, which has a defined cut-off date. When given access to web search tools via the API or Claude.ai's search feature, it can retrieve current information.</p>
+
+<h3>Constitutional AI — How Claude Stays Safe</h3>
+
+<p>Constitutional AI (CAI) is Anthropic's proprietary training method. It teaches Claude to evaluate its own outputs against a set of written principles — for example, "do not produce content that could help someone cause mass harm." Rather than relying entirely on human raters to flag every problematic response, CAI uses the model itself to critique and revise outputs during training. This approach is one reason Claude is widely regarded as producing fewer harmful, misleading, or sycophantic responses than many competitor models.</p>
+
+<h3>Claude's Context Window</h3>
+
+<p>Claude's context window — the amount of text it can read and reason over in a single conversation — reaches 200,000 tokens on paid plans. That is roughly 150,000 words, or approximately 500 pages of a typical book. This is among the largest context windows available in any commercial AI assistant in 2026. The large context window makes Claude particularly powerful for tasks like analysing an entire codebase, reviewing long legal documents, or summarising full-length reports in a single session. For a detailed breakdown, see the <a href="/claude-context-window-explained/">Claude context window guide</a>.</p>
+
+<h2>How to Start Using Claude AI — Step by Step</h2>
+
+<h3>Step 1: Navigate to claude.ai</h3>
+
+<p>Open your browser and go to claude.ai. No software download is required to use the web interface. Claude is also available as a native mobile app on iOS and Android — see the <a href="/claude-on-mobile/">Claude mobile guide</a> for details.</p>
+
+<h3>Step 2: Create Your Free Account</h3>
+
+<p>Click "Sign up" and register with your email address or a Google account. The free tier gives immediate access to Claude Sonnet with daily message limits. No credit card is required to start.</p>
+
+<h3>Step 3: Write Your First Message</h3>
+
+<p>The main interface presents a text input box at the bottom of the screen. Type your question or task and press Enter or click the send arrow. Claude will respond within a few seconds. You can ask anything from "Summarise this article" to "Write a Python function that parses a CSV (comma-separated values) file." For tips on writing effective prompts, see <a href="/how-to-write-first-prompt-claude/">How to Write Your First Prompt in Claude</a>.</p>
+
+<h3>Step 4: Upload Files to Analyse</h3>
+
+<p>Claude accepts file uploads including PDFs, Word documents (.docx), spreadsheets, images, and code files. Click the paperclip icon to attach a file or drag it into the chat window. Claude will read and reason over the file contents within the conversation — handy for document review, data analysis, or code review tasks.</p>
+
+<h3>Step 5: Explore Claude Artifacts</h3>
+
+<p>When Claude produces self-contained outputs — like a webpage mockup, a working code snippet, a chart, or a formatted document — it can display these as an Artifact: an interactive panel alongside the conversation. Artifacts let you preview and iterate on outputs without cluttering the chat. See the <a href="/claude-artifacts-guide/">Claude Artifacts guide</a> for a full walkthrough.</p>
+
+<h3>Step 6: Start a Project for Ongoing Work</h3>
+
+<p>For recurring tasks — editing a manuscript, building a software project, or managing a research workflow — use Claude Projects. Projects give you a persistent space with shared files, custom instructions, and context that carries across multiple conversations. Projects are available on Pro, Max, and Team plans. See the <a href="/how-to-use-claude-projects/">Claude Projects guide</a>.</p>
+
+<h3>Step 7: Access the API for Development</h3>
+
+<p>Developers who want to integrate Claude into applications should sign up at console.anthropic.com to receive an API key. Anthropic provides official SDKs for Python and TypeScript and REST API access for any language.</p>
+
+<h2>What Can Claude AI Do? — Key Capabilities</h2>
+
+<p>Claude is a general-purpose AI assistant. The table below lists its primary capabilities and example use cases.</p>
+
+<p><table> <thead> <tr> <th>Capability</th> <th>Description</th> <th>Example Prompt</th> </tr> </thead> <tbody> <tr> <td>Writing and editing</td> <td>Draft, rewrite, and proofread any text format</td> <td>"Write a cover letter for a marketing director role"</td> </tr> <tr> <td>Coding</td> <td>Write, explain, and debug code in 30+ languages</td> <td>"Find and fix the bug in this Python script"</td> </tr> <tr> <td>Research and analysis</td> <td>Extract insights from long documents</td> <td>"Summarise the key findings in this 60-page report"</td> </tr> <tr> <td>Data and maths</td> <td>Reason over numbers, tables, and equations</td> <td>"What does this sales data tell me about Q2?"</td> </tr> <tr> <td>Creative writing</td> <td>Fiction, poetry, scripts, ideation</td> <td>"Write a short story in the style of Ursula Le Guin"</td> </tr> <tr> <td>Q&A and tutoring</td> <td>Explain concepts at any level</td> <td>"Explain quantum computing to a 12-year-old"</td> </tr> <tr> <td>Translation</td> <td>Translate between 100+ languages</td> <td>"Translate this contract clause into French"</td> </tr> <tr> <td>Image understanding</td> <td>Describe and reason about uploaded images</td> <td>"What trend does this graph show?"</td> </tr> </tbody> </table></p>
+
+<h2>Claude AI Plans — Free, Pro, Max, and Team</h2>
+
+<p>Claude is available on four plans.</p>
+
+<ul>
+<li><strong>Free</strong> — Access to Claude Sonnet, daily message limits, suitable for light individual use</li>
+<li><strong>Pro</strong> — $20/month, higher usage limits, access to Claude Opus, Projects, priority access</li>
+<li><strong>Max</strong> — $100/month, highest usage limits for individual power users</li>
+<li><strong>Team</strong> — $30/user/month (billed annually), collaboration tools, admin controls, shared Projects</li>
+</ul>
+
+<p>For a full breakdown of pricing and features see the <a href="/claude-plans-comparison/">Claude plans comparison</a>.</p>
+
+<h2>Claude AI vs ChatGPT vs Gemini — Comparison Table</h2>
+
+<p><table> <thead> <tr> <th>Feature</th> <th>Claude (Anthropic)</th> <th>ChatGPT (OpenAI)</th> <th>Gemini (Google)</th> </tr> </thead> <tbody> <tr> <td>Company</td> <td>Anthropic</td> <td>OpenAI</td> <td>Google DeepMind</td> </tr> <tr> <td>First public release</td> <td>2023</td> <td>2022</td> <td>2023</td> </tr> <tr> <td>Context window</td> <td>200,000 tokens</td> <td>128,000 tokens (GPT-4o)</td> <td>1,000,000 tokens (Gemini 1.5 Pro)</td> </tr> <tr> <td>Free tier</td> <td>Yes (Claude Sonnet)</td> <td>Yes (GPT-4o mini)</td> <td>Yes (Gemini 1.5 Flash)</td> </tr> <tr> <td>Key strength</td> <td>Long docs, safety, writing</td> <td>Broad integrations, plugins</td> <td>Google ecosystem, multimodal</td> </tr> <tr> <td>Best for</td> <td>Writers, researchers, developers</td> <td>General use, business tools</td> <td>Google Workspace users, search</td> </tr> </tbody> </table></p>
+
+<p>For the full head-to-head analysis see <a href="/claude-vs-chatgpt-vs-gemini/">Claude vs ChatGPT vs Gemini — Honest 2026 Comparison</a>.</p>
+
+<h2>Claude AI Model Versions — Haiku, Sonnet, Opus</h2>
+
+<p>Within each generation of Claude, Anthropic releases three model tiers:</p>
+
+<ul>
+<li><strong>Haiku</strong> — Fastest and most cost-efficient; designed for simple, high-volume tasks and API applications</li>
+<li><strong>Sonnet</strong> — Balanced capability and speed; the default model on the free plan and the workhorse for most everyday tasks</li>
+<li><strong>Opus</strong> — The most capable and intelligent model in each generation; reserved for complex reasoning, long documents, and demanding professional tasks; available on paid plans only</li>
+</ul>
+
+<h2>Why Users Choose Claude AI</h2>
+
+<p>Claude is the right choice for users who prioritise long-document analysis, nuanced writing quality, and a safety-conscious AI. Its 200,000-token context window lets it read entire books, contracts, or codebases in a single session — a capability few competitors match at the same price point. Anthropic's Constitutional AI training makes Claude less likely to produce sycophantic, harmful, or misleading responses.</p>
+
+<p>Claude is especially valued by writers, researchers, lawyers, software engineers, and knowledge workers who need an AI that can hold a long, coherent reasoning thread without losing track of earlier context. It is also one of the most direct and honest AI assistants available — it will tell you when it does not know something rather than inventing a plausible-sounding but incorrect answer.</p>
+
+<h2>Related Claude Guides</h2>
+
+<ul>
+<li><a href="/claude-plans-comparison/">Claude Plans Comparison: Free vs Pro vs Max vs Team</a> — Side-by-side pricing and feature breakdown for every Claude plan</li>
+<li><a href="/claude-vs-chatgpt-vs-gemini/">Claude vs ChatGPT vs Gemini</a> — Detailed honest comparison across 8+ criteria</li>
+<li><a href="/how-to-write-first-prompt-claude/">How to Write Your First Prompt in Claude</a> — Beginner's guide to writing prompts that get useful results</li>
+<li><a href="/claude-context-window-explained/">Claude Context Window Explained</a> — How 200,000 tokens works in practice and what it means for your tasks</li>
+</ul>
       </div>
 
       <!-- FAQ section -->
       <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
-<dt>What is Claude AI?</dt>
-<dd>Claude AI is a large language model (LLM) built by Anthropic. It can read, write, summarise, and reason across a wide range of tasks — from drafting emails to analysing complex documents. It is designed with a focus on safety and helpfulness.</dd>
-<dt>Who made Claude AI?</dt>
-<dd>Claude is made by Anthropic, an AI safety company founded in 2021 by former OpenAI researchers including Dario Amodei and Daniela Amodei. Anthropic is headquartered in San Francisco.</dd>
+<dt>What is Claude AI and who made it?</dt>
+<dd>Claude AI is a large language model (LLM) built by Anthropic, an AI safety company founded in 2021 by former OpenAI researchers including Dario and Daniela Amodei. Claude is designed to be helpful, harmless, and honest across writing, coding, analysis, and conversation.</dd>
 <dt>Is Claude AI free to use?</dt>
-<dd>Yes, Claude has a free tier available at claude.ai that gives you access to the base model with usage limits. Paid plans (Claude Pro) unlock higher limits, access to more powerful models like Claude Opus, and priority availability.</dd>
+<dd>Yes. Claude has a free tier at claude.ai that gives access to Claude Sonnet with daily usage limits. Paid plans (Pro, Max, and Team) unlock higher usage limits, access to Claude Opus, larger file uploads, and priority availability during peak times.</dd>
+<dt>How is Claude different from ChatGPT?</dt>
+<dd>Claude and ChatGPT are both large language models but differ in key areas. Claude is made by Anthropic and offers a 200,000-token context window with strong long-document reasoning. ChatGPT is made by OpenAI and integrates with a wider third-party plugin and tool ecosystem. Many users find Claude stronger for nuanced writing and long-document analysis.</dd>
 </dl></section>
 
       <!-- Internal links / Related guides -->
