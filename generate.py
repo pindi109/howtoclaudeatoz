@@ -817,10 +817,14 @@ def main():
     print('Generated: site.webmanifest')
 
     # Copy static asset directories (icons/, assets/) into _site/
+    # Wipe destination first so removed source files don't linger
     for asset_dir in ['icons', 'assets']:
         src_asset = base_dir / asset_dir
         dst_asset = site_dir / asset_dir
         if src_asset.exists():
+            if dst_asset.exists():
+                shutil.rmtree(dst_asset)
+            dst_asset.mkdir(parents=True)
             for f in src_asset.rglob('*'):
                 if f.is_file():
                     rel = f.relative_to(src_asset)
