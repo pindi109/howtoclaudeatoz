@@ -1,0 +1,16 @@
+{
+  "surfer-seo": { "name": "Surfer SEO", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Surfer SEO", "program": "surfer-seo" },
+  "getresponse": { "name": "GetResponse", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try GetResponse", "program": "getresponse" },
+  "make-com": { "name": "Make.com", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Make.com", "program": "make-com" },
+  "writesonic": { "name": "Writesonic", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Writesonic", "program": "writesonic" },
+  "elevenlabs": { "name": "ElevenLabs", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try ElevenLabs", "program": "elevenlabs" },
+  "n8n": { "name": "n8n", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try n8n", "program": "n8n" },
+  "synthesia": { "name": "Synthesia", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Synthesia", "program": "synthesia" },
+  "kling-ai": { "name": "Kling AI", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Kling AI", "program": "kling-ai" },
+  "runway-ml": { "name": "Runway ML", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Runway ML", "program": "runway-ml" },
+  "jasper": { "name": "Jasper", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Jasper", "program": "jasper" },
+  "scalenut": { "name": "Scalenut", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Scalenut", "program": "scalenut" },
+  "mangools": { "name": "Mangools", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Mangools", "program": "mangools" },
+  "aweber": { "name": "AWeber", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try AWeber", "program": "aweber" },
+  "perplexity": { "name": "Perplexity", "url": "YOUR_AFFILIATE_LINK_HERE", "label": "Try Perplexity", "program": "perplexity" }
+}

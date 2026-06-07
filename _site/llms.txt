@@ -1,0 +1,27 @@
+# howtoclaudeatoz.com
+
+> The definitive A-to-Z encyclopaedia for Claude AI. Covers every use case, feature, integration, workflow, prompt technique, and tool pairing. Written for beginners through power users.
+
+## Getting Started with Claude
+- [What is Claude AI? Complete 2026 Guide](https://howtoclaudeatoz.com/what-is-claude-ai/) — What is Claude AI?
+
+## Claude for Writing & Content
+- [How to Write Blog Posts with Claude AI (2026 Guide)](https://howtoclaudeatoz.com/how-to-write-blog-posts-with-claude/) — Learn how to write blog posts with Claude AI in 2026.
+
+## Claude for SEO
+- [How to Do Keyword Research with Claude AI (2026)](https://howtoclaudeatoz.com/keyword-research-with-claude/) — Learn how to do keyword research with Claude AI in 2026.
+
+## Claude for Automation & AI Workflows
+- [Claude + Make.com — Complete Integration Guide (2026)](https://howtoclaudeatoz.com/claude-make-com-integration/) — Learn how to integrate Claude AI with Make.com in 2026.
+
+## Claude for Video, Voice & Creative Media
+- [Claude + ElevenLabs — AI Voiceover Workflow (2026)](https://howtoclaudeatoz.com/claude-elevenlabs-voiceover-workflow/) — Combine Claude AI and ElevenLabs to produce professional voiceovers in 2026.
+
+## Claude Code & Developer Use Cases
+- [Claude Code — Complete Getting Started Guide (2026)](https://howtoclaudeatoz.com/claude-code-getting-started/) — New to Claude Code?
+
+## Claude for Business & Productivity
+- [Claude for Small Business Owners — Full Guide (2026)](https://howtoclaudeatoz.com/claude-for-small-business/) — Discover how to use Claude AI for small business in 2026 — from writing marketing copy to automating emails and customer support.
+
+## Advanced Claude
+- [Advanced Prompt Engineering with Claude (2026 Guide)](https://howtoclaudeatoz.com/advanced-prompt-engineering-claude/) — Master advanced prompt engineering with Claude in 2026.

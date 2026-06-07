@@ -1,0 +1,27 @@
+# howtoclaudeatoz.com
+
+> The definitive A-to-Z encyclopaedia for Claude AI. Covers every use case, feature, integration, workflow, prompt technique, and tool pairing. Written for beginners through power users.
+
+## Getting Started with Claude
+- [What is Claude AI? Complete 2026 Guide](https://howtoclaudeatoz.com/what-is-claude-ai/) — What is Claude AI? Claude AI is a large language model created by Anthropic, designed for safe and helpful AI assistance across writing, coding, analysis, and more. This guide covers what Claude is, who built it, how it compares to other AI tools, and how to get started for free.
+
+## Claude for Writing & Content
+- [How to Write Blog Posts with Claude AI (2026 Guide)](https://howtoclaudeatoz.com/how-to-write-blog-posts-with-claude/) — Learn how to write blog posts with Claude AI in 2026. Claude AI can produce full blog post drafts — from outline to polished copy — when given a clear brief covering keyword, audience, tone, and structure. This guide covers the exact prompts and workflows to use Claude for blog writing, including how to combine it with SEO tools for search-ready content.
+
+## Claude for SEO
+- [How to Do Keyword Research with Claude AI (2026)](https://howtoclaudeatoz.com/keyword-research-with-claude/) — Learn how to do keyword research with Claude AI in 2026. Claude AI can accelerate keyword research by generating seed ideas, clustering keywords by intent, and mapping content opportunities — but must be paired with a data tool for volume and difficulty metrics. This guide shows exactly how to combine Claude's reasoning with SEO tools to build a complete keyword strategy.
+
+## Claude for Automation & AI Workflows
+- [Claude + Make.com — Complete Integration Guide (2026)](https://howtoclaudeatoz.com/claude-make-com-integration/) — Learn how to integrate Claude AI with Make.com in 2026. Claude integrates with Make.com through the native Anthropic module, enabling no-code automations that pipe Claude's AI capabilities into any app in your stack. This guide covers setting up the connection, building your first scenario, and scaling to real production workflows.
+
+## Claude for Video, Voice & Creative Media
+- [Claude + ElevenLabs — AI Voiceover Workflow (2026)](https://howtoclaudeatoz.com/claude-elevenlabs-voiceover-workflow/) — Combine Claude AI and ElevenLabs to produce professional voiceovers in 2026. Combining Claude AI for scriptwriting with ElevenLabs for voice synthesis produces professional-quality voiceovers in minutes. This guide walks through the complete workflow — from writing a speech-optimised script in Claude to selecting the right ElevenLabs voice and settings for your content type.
+
+## Claude Code & Developer Use Cases
+- [Claude Code — Complete Getting Started Guide (2026)](https://howtoclaudeatoz.com/claude-code-getting-started/) — New to Claude Code? Claude Code is Anthropic's terminal-based CLI that gives Claude direct access to your local codebase for reading, writing, and executing code. This guide covers installation, authentication, core commands, and the most effective ways to use Claude Code on real software projects.
+
+## Claude for Business & Productivity
+- [Claude for Small Business Owners — Full Guide (2026)](https://howtoclaudeatoz.com/claude-for-small-business/) — Discover how to use Claude AI for small business in 2026 — from writing marketing copy to automating emails and customer support. Claude AI gives small business owners access to a capable AI assistant for marketing copy, customer communications, admin tasks, and business automation — without hiring additional staff. This guide covers the highest-impact use cases and shows how to combine Claude with tools like GetResponse and Make.com for end-to-end business workflows.
+
+## Advanced Claude
+- [Advanced Prompt Engineering with Claude (2026 Guide)](https://howtoclaudeatoz.com/advanced-prompt-engineering-claude/) — Master advanced prompt engineering with Claude in 2026. Advanced prompt engineering with Claude covers the techniques that produce consistently better outputs: chain-of-thought reasoning, XML structure, system prompt design, few-shot examples, and multi-step prompt chains. This guide gives working examples of each technique with before-and-after comparisons.

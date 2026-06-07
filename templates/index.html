@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HowToClaudeAtoZ — The Complete Claude AI Encyclopaedia</title>
+  <meta name="description" content="The definitive A-to-Z guide to Claude AI. Every use case, feature, integration, workflow, and prompt technique — for beginners through power users." />
+  <link rel="canonical" href="https://howtoclaudeatoz.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HowToClaudeAtoZ — The Complete Claude AI Encyclopaedia" />
+  <meta property="og:description" content="The definitive A-to-Z guide to Claude AI. Every use case, feature, integration, workflow, and prompt technique — for beginners through power users." />
+  <meta property="og:url" content="https://howtoclaudeatoz.com/" />
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/homepage.png" />
+  <meta property="og:site_name" content="HowToClaudeAtoZ" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HowToClaudeAtoZ — The Complete Claude AI Encyclopaedia" />
+  <meta name="twitter:description" content="The definitive A-to-Z guide to Claude AI. Every use case, feature, integration, workflow, and prompt technique — for beginners through power users." />
+  <meta name="twitter:image" content="https://howtoclaudeatoz.com/og/homepage.png" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            amber: {
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Pagefind CSS -->
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+
+  <!-- GA4 placeholder -->
+  <!-- GA4: replace G-XXXXXXXXXX with your Measurement ID -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+
+  <!-- Schema: WebSite + Organization -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "HowToClaudeAtoZ",
+      "url": "https://howtoclaudeatoz.com",
+      "description": "The definitive A-to-Z encyclopaedia for Claude AI",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://howtoclaudeatoz.com/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "HowToClaudeAtoZ",
+      "url": "https://howtoclaudeatoz.com",
+      "logo": "https://howtoclaudeatoz.com/logo.png",
+      "description": "The definitive A-to-Z encyclopaedia for Claude AI — use cases, features, integrations, workflows, and prompt techniques."
+    }
+  ]
+  </script>
+  {{ article_schema }}{{ faq_schema }}{{ breadcrumb_schema }}{{ howto_schema }}
+
+  <style>
+    /* Pagefind UI overrides — amber accent */
+    :root {
+      --pagefind-ui-primary: #d97706;
+      --pagefind-ui-text: #1c1917;
+      --pagefind-ui-background: #ffffff;
+      --pagefind-ui-border: #d1d5db;
+      --pagefind-ui-tag: #fef3c7;
+      --pagefind-ui-border-width: 2px;
+      --pagefind-ui-border-radius: 8px;
+      --pagefind-ui-font: inherit;
+    }
+    #search .pagefind-ui__search-input {
+      font-size: 1.1rem;
+      padding: 0.75rem 1rem;
+    }
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased">
+
+  <!-- ===== NAV BAR ===== -->
+  <header class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site Name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.png" alt="HowToClaudeAtoZ logo" class="h-9 w-9 object-contain" />
+          <span class="font-bold text-lg leading-tight text-stone-900 hidden sm:block">
+            HowToClaudeAtoZ
+          </span>
+        </a>
+
+        <!-- Desktop Pillar Nav -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium" aria-label="Pillar navigation">
+          <a href="/getting-started/" class="px-3 py-2 rounded-md text-stone-600 hover:text-amber-600 hover:bg-amber-50 transition-colors">Getting Started</a>
+          <a href="/writing-content/" class="px-3 py-2 rounded-md text-stone-600 hover:text-amber-600 hover:bg-amber-50 transition-colors">Writing</a>
+          <a href="/seo/" class="px-3 py-2 rounded-md text-stone-600 hover:text-amber-600 hover:bg-amber-50 transition-colors">SEO</a>
+          <a href="/automation/" class="px-3 py-2 rounded-md text-stone-600 hover:text-amber-600 hover:bg-amber-50 transition-colors">Automation</a>
+          <a href="/video-voice-media/" class="px-3 py-2 rounded-md text-stone-600 hover:text-amber-600 hover:bg-amber-50 transition-colors">Media</a>
+          <a href="/code-dev/" class="px-3 py-2 rounded-md text-stone-600 hover:text-amber-600 hover:bg-amber-50 transition-colors">Code</a>
+          <a href="/business/" class="px-3 py-2 rounded-md text-stone-600 hover:text-amber-600 hover:bg-amber-50 transition-colors">Business</a>
+          <a href="/advanced/" class="px-3 py-2 rounded-md text-stone-600 hover:text-amber-600 hover:bg-amber-50 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="nav-toggle"
+          class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-stone-600 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg id="hamburger-icon" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-stone-100 bg-white">
+      <nav class="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 gap-1 text-sm font-medium" aria-label="Mobile pillar navigation">
+        <a href="/getting-started/" class="flex items-center gap-2 px-3 py-2 rounded-md text-stone-700 hover:text-amber-600 hover:bg-amber-50 transition-colors">
+          <span>🚀</span> Getting Started
+        </a>
+        <a href="/writing-content/" class="flex items-center gap-2 px-3 py-2 rounded-md text-stone-700 hover:text-amber-600 hover:bg-amber-50 transition-colors">
+          <span>✍️</span> Writing
+        </a>
+        <a href="/seo/" class="flex items-center gap-2 px-3 py-2 rounded-md text-stone-700 hover:text-amber-600 hover:bg-amber-50 transition-colors">
+          <span>🔍</span> SEO
+        </a>
+        <a href="/automation/" class="flex items-center gap-2 px-3 py-2 rounded-md text-stone-700 hover:text-amber-600 hover:bg-amber-50 transition-colors">
+          <span>⚙️</span> Automation
+        </a>
+        <a href="/video-voice-media/" class="flex items-center gap-2 px-3 py-2 rounded-md text-stone-700 hover:text-amber-600 hover:bg-amber-50 transition-colors">
+          <span>🎬</span> Media
+        </a>
+        <a href="/code-dev/" class="flex items-center gap-2 px-3 py-2 rounded-md text-stone-700 hover:text-amber-600 hover:bg-amber-50 transition-colors">
+          <span>💻</span> Code
+        </a>
+        <a href="/business/" class="flex items-center gap-2 px-3 py-2 rounded-md text-stone-700 hover:text-amber-600 hover:bg-amber-50 transition-colors">
+          <span>💼</span> Business
+        </a>
+        <a href="/advanced/" class="flex items-center gap-2 px-3 py-2 rounded-md text-stone-700 hover:text-amber-600 hover:bg-amber-50 transition-colors">
+          <span>🧠</span> Advanced
+        </a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="bg-gradient-to-br from-amber-500 via-amber-600 to-orange-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+      <div class="flex justify-center mb-6">
+        <img src="/logo.png" alt="HowToClaudeAtoZ" class="h-16 w-16 object-contain drop-shadow-lg" />
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+        The Complete Claude AI Encyclopaedia
+      </h1>
+      <p class="text-lg sm:text-xl text-amber-100 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Every Claude use case, feature, integration, and workflow — from beginner to expert.
+      </p>
+
+      <!-- Pagefind Search Bar — centrepiece -->
+      <div class="max-w-2xl mx-auto">
+        <div id="search" class="rounded-xl overflow-hidden shadow-xl"></div>
+        <p class="mt-3 text-amber-200 text-sm">
+          Search across hundreds of Claude guides, tutorials, and how-tos
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 8 PILLAR CARDS GRID ===== -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20" aria-labelledby="pillars-heading">
+    <div class="text-center mb-12">
+      <h2 id="pillars-heading" class="text-2xl sm:text-3xl font-bold text-stone-900 mb-3">
+        Browse by Topic
+      </h2>
+      <p class="text-stone-500 text-base sm:text-lg max-w-2xl mx-auto">
+        Eight deep-dive pillars covering every angle of Claude AI — pick where you want to start.
+      </p>
+    </div>
+
+{{ pillar_links }}
+  </section>
+
+
+  <!-- ===== WHY THIS ENCYCLOPAEDIA ===== -->
+  <section class="bg-white border-y border-stone-200" aria-labelledby="why-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div class="text-center mb-12">
+        <h2 id="why-heading" class="text-2xl sm:text-3xl font-bold text-stone-900 mb-3">
+          Why this encyclopaedia?
+        </h2>
+        <p class="text-stone-500 text-base max-w-xl mx-auto">
+          There are plenty of generic "AI tips" sites. This is not one of them.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+        <!-- Value prop 1 -->
+        <div class="relative bg-amber-50 border border-amber-100 rounded-2xl p-7 flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-amber-600 flex items-center justify-center">
+              <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-stone-900 text-base">AI-Dedicated</h3>
+          </div>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Every single page is about Claude. No generic AI fluff, no filler, no "top 10 chatbots" roundups. Just deep, specific Claude knowledge.
+          </p>
+        </div>
+
+        <!-- Value prop 2 -->
+        <div class="relative bg-amber-50 border border-amber-100 rounded-2xl p-7 flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-amber-600 flex items-center justify-center">
+              <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-stone-900 text-base">Built for Search</h3>
+          </div>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Find any Claude use case instantly with full-text site search. Every article is indexed so you get straight to the answer you need.
+          </p>
+        </div>
+
+        <!-- Value prop 3 -->
+        <div class="relative bg-amber-50 border border-amber-100 rounded-2xl p-7 flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-amber-600 flex items-center justify-center">
+              <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-stone-900 text-base">Updated 2026</h3>
+          </div>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Fresh, accurate, and current. We cover Claude 3.5, Claude 3.7, Claude 4, and everything in between — including the latest models and features.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-stone-900 text-stone-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <!-- Brand -->
+        <div class="flex items-center gap-2">
+          <img src="/logo.png" alt="HowToClaudeAtoZ" class="h-7 w-7 object-contain opacity-80" />
+          <span class="text-stone-300 font-semibold text-sm">HowToClaudeAtoZ</span>
+        </div>
+
+        <!-- Links -->
+        <nav class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-400 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-400 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-400 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-400 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-400 transition-colors">llms-full.txt</a>
+        </nav>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-stone-800 text-center text-xs text-stone-600">
+        &copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd. All rights reserved.
+        HowToClaudeAtoZ is an independent encyclopaedia and is not affiliated with Anthropic.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ===== SCRIPTS ===== -->
+
+  <!-- Pagefind UI -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      new PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+        excerptLength: 15,
+        resetStyles: false
+      });
+    });
+  </script>
+
+  <!-- GA4 Affiliate Click Tracking -->
+  <script>
+    (function () {
+      document.addEventListener('click', function (e) {
+        var el = e.target.closest('a[href]');
+        if (!el) return;
+        var href = el.getAttribute('href') || '';
+        // Track outbound affiliate links
+        var affiliateDomains = ['anthropic.com', 'claude.ai', 'amazon.com'];
+        var isAffiliate = affiliateDomains.some(function (d) { return href.indexOf(d) !== -1; });
+        if (isAffiliate && typeof gtag === 'function') {
+          gtag('event', 'affiliate_click', {
+            event_category: 'affiliate',
+            event_label: href,
+            transport_type: 'beacon'
+          });
+        }
+      });
+    })();
+  </script>
+
+  <!-- Mobile Nav Toggle -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var hamburger = document.getElementById('hamburger-icon');
+      var closeIcon = document.getElementById('close-icon');
+
+      if (!toggle || !menu) return;
+
+      toggle.addEventListener('click', function () {
+        var isOpen = !menu.classList.contains('hidden');
+        if (isOpen) {
+          menu.classList.add('hidden');
+          hamburger.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        } else {
+          menu.classList.remove('hidden');
+          hamburger.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      // Close menu on outside click
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.add('hidden');
+          hamburger.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
