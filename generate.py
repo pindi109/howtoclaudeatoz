@@ -515,8 +515,9 @@ def build_pillar_links(pages_by_pillar):
         extra = len(sorted_pages) - 6
         if extra > 0:
             links += f'<li class="text-xs text-stone-400 pt-1">+ {extra} more guides</li>\n'
+        delay = (len(card_parts) % 4) * 75
         card_parts.append(
-            f'<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" id="{pillar_slug}">'
+            f'<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="{delay}" id="{pillar_slug}">'
             f'<div class="flex items-center gap-3 mb-5">'
             f'{icon_img}'
             f'<h3 class="font-bold text-stone-900 text-base leading-tight">{pillar_name}</h3>'
@@ -961,11 +962,12 @@ def main():
             print(f'Copied: {asset_dir}/')
 
     # Copy root-level static files into _site/
-    for static_file in ['logo.svg', 'logo.png']:
+    for static_file in ['logo.svg', 'logo.png', 'src/tokens.css']:
         src_f = base_dir / static_file
         if src_f.exists():
-            shutil.copy2(src_f, site_dir / static_file)
-    print('Copied: logo.svg, logo.png')
+            dest_name = Path(static_file).name
+            shutil.copy2(src_f, site_dir / dest_name)
+    print('Copied: logo.svg, logo.png, tokens.css')
 
     # Build Tailwind CSS from the generated HTML
     import subprocess

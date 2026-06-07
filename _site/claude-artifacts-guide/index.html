@@ -25,6 +25,11 @@
   <!-- Tailwind CSS -->
   <link rel="stylesheet" href="/tailwind.css">
 
+  <!-- Design tokens -->
+  <link rel="stylesheet" href="/tokens.css">
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
   <!-- Pagefind search UI -->
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
 
@@ -33,8 +38,8 @@
   <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="icon" href="/logo.png" type="image/png">
 
-  <!-- Pagefind search icon — right side -->
   <style>
+    /* ── PAGEFIND OVERRIDES ── */
     .pagefind-ui__search-input {
       padding-left: 1rem !important;
       padding-right: 3rem !important;
@@ -46,6 +51,146 @@
     }
     .pagefind-ui form {
       position: relative;
+    }
+
+    /* ── GRAIN TEXTURE ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 8001;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    @media (pointer: fine) {
+      *, *::before, *::after { cursor: none !important; }
+      #cursor-dot {
+        position: fixed; width: 12px; height: 12px;
+        background: #c9a84c; border-radius: 50%;
+        pointer-events: none; z-index: 9001;
+        left: 0; top: 0; transform: translate(-50%,-50%);
+        transition: width .2s, height .2s, opacity .2s;
+        will-change: left, top;
+      }
+      #cursor-ring {
+        position: fixed; width: 36px; height: 36px;
+        border: 1.5px solid #c9a84c; border-radius: 50%;
+        pointer-events: none; z-index: 9000;
+        left: 0; top: 0; transform: translate(-50%,-50%);
+        opacity: .55; transition: width .25s, height .25s, opacity .2s;
+        will-change: left, top;
+      }
+      body.cursor-link #cursor-ring { width: 52px; height: 52px; opacity: .9; }
+      body.cursor-link #cursor-dot  { width: 6px;  height: 6px;  opacity: .7; }
+    }
+
+    /* ── PAGE WIPE ── */
+    #page-wipe {
+      position: fixed; inset: 0;
+      background: #c9a84c; z-index: 8000;
+      transform: translateX(-100%); pointer-events: none;
+    }
+
+    /* ── FLUID TYPE ── */
+    h1 { font-size: clamp(2.5rem,6vw,5rem);   line-height: 1.1; }
+    h2 { font-size: clamp(1.8rem,4vw,3rem);   line-height: 1.2; }
+    h3 { font-size: clamp(1.3rem,2.5vw,2rem); line-height: 1.25; }
+    body, p { font-size: clamp(1rem,1.5vw,1.125rem); }
+
+    /* ── ARTICLE PROSE ENHANCEMENTS ── */
+    .prose-article blockquote {
+      position: relative;
+      border-left: none !important;
+      background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.04));
+      border-radius: 12px;
+      padding: 2rem 2rem 2rem 3.5rem !important;
+      margin: 2.5rem 0 !important;
+      font-style: italic;
+      font-size: clamp(1.1rem,2vw,1.3rem);
+      color: #292524 !important;
+      border-top: 3px solid #c9a84c !important;
+    }
+    .prose-article blockquote::before {
+      content: '\201C';
+      position: absolute;
+      left: 0.75rem; top: 0.5rem;
+      font-size: 4rem; line-height: 1;
+      color: #c9a84c; font-family: Georgia, serif;
+      opacity: 0.7;
+    }
+    .prose-article blockquote p { margin-bottom: 0 !important; }
+
+    /* Callout boxes — any <div class="callout"> in content */
+    .prose-article .callout {
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    /* Table upgrade */
+    .prose-article table { border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .prose-article thead th {
+      background: #1c1917 !important;
+      color: #c9a84c !important;
+      font-family: 'Cinzel', Georgia, serif;
+      letter-spacing: 0.05em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+    .prose-article tbody tr:nth-child(odd)  { background: #fafaf9 !important; }
+    .prose-article tbody tr:nth-child(even) { background: rgba(201,168,76,0.05) !important; }
+    .prose-article tbody tr { transition: background 0.15s; }
+    .prose-article tbody tr:hover { background: rgba(201,168,76,0.1) !important; }
+
+    /* Code blocks */
+    .prose-article pre {
+      background: #0d0b08 !important;
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 10px !important;
+      position: relative;
+    }
+    .prose-article pre::before {
+      content: '{ }';
+      position: absolute; top: 0.6rem; right: 0.8rem;
+      color: rgba(201,168,76,0.4); font-size: 0.7rem;
+      font-family: monospace; letter-spacing: 0.1em;
+    }
+
+    /* H2 gold accent bar */
+    .prose-article h2 {
+      position: relative;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.25rem !important;
+    }
+    .prose-article h2::after {
+      content: '';
+      position: absolute; left: 0; bottom: 0;
+      width: 3rem; height: 2px;
+      background: linear-gradient(to right, #c9a84c, transparent);
+    }
+
+    /* ── READING TIME BADGE ── */
+    .reading-time {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #c9a84c;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+    }
+
+    /* ── AOS ── */
+    @media (prefers-reduced-motion: reduce) {
+      [data-aos] { opacity: 1 !important; transform: none !important; }
     }
   </style>
 
@@ -143,6 +288,10 @@
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased">
 
+  <div id="page-wipe"></div>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
   <!-- ===== NAV ===== -->
   <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -217,9 +366,13 @@
 
     <article>
 
-      <!-- Author byline -->
-      <div class="text-sm text-gray-500 mb-2">
+      <!-- Article meta: author + reading time -->
+      <div class="flex flex-wrap items-center gap-3 mb-6" data-aos="fade-in" data-aos-duration="400">
         <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+        <span class="reading-time" id="reading-time-badge">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 6v6l4 2"/></svg>
+          <span id="reading-time">— min read</span>
+        </span>
       </div>
 
       <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
@@ -454,6 +607,7 @@
       </div>
 
       <!-- FAQ section -->
+      <div data-aos="fade-up" data-aos-delay="100">
       <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
 <dt>What are Claude Artifacts?</dt>
 <dd>Claude Artifacts are self-contained, interactive outputs that Claude displays in a dedicated side panel alongside the conversation. When Claude generates a substantial, standalone piece of content — such as a working webpage, a code file, a formatted document, or an SVG image — it can present it as an Artifact so you can preview, interact with, and iterate on it without cluttering the chat window.</dd>
@@ -462,9 +616,12 @@
 <dt>What types of Artifacts can Claude create?</dt>
 <dd>Claude can create several types of Artifacts: code files (any programming language), HTML webpages (rendered and interactive), React components (rendered live), SVG graphics (rendered visually), Markdown documents, plain text files, and structured data files like JSON or CSV. The Artifact type is determined automatically based on the content Claude generates.</dd>
 </dl></section>
+      </div>
 
       <!-- Internal links / Related guides -->
+      <div data-aos="fade-up" data-aos-delay="150">
       
+      </div>
 
     </article>
   </main>
@@ -509,6 +666,7 @@
       <a href="https://github.com/pindi109/howtoclaudeatoz/issues/new?template=suggest-a-page.yml"
          target="_blank"
          rel="noopener"
+         data-magnetic
          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-stone-900 bg-amber-500 hover:bg-amber-400 transition-colors whitespace-nowrap shrink-0">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
@@ -578,6 +736,101 @@
       });
     });
   </script>
+
+  <!-- ===== PREMIUM MOTION STACK ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+  (function () {
+    /* 1. Lenis + GSAP sync */
+    if (typeof Lenis !== 'undefined' && typeof gsap !== 'undefined') {
+      var lenis = new Lenis({ lerp: 0.08, wheelMultiplier: 0.8, smoothTouch: false });
+      lenis.on('scroll', function () { if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update(); });
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    /* 2. AOS */
+    if (typeof AOS !== 'undefined') AOS.init({ duration: 600, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+    /* 3. GSAP ScrollTrigger */
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* H1 word reveal */
+      document.querySelectorAll('h1').forEach(function (h1) {
+        var words = h1.textContent.split(' ');
+        h1.innerHTML = words.map(function (w) {
+          return '<span style="display:inline-block;overflow:hidden;vertical-align:bottom"><span class="wi" style="display:inline-block">' + w + '&nbsp;</span></span>';
+        }).join('');
+        gsap.from(h1.querySelectorAll('.wi'), { y: '105%', opacity: 0, duration: 0.65, stagger: 0.055, ease: 'power3.out', delay: 0.1 });
+      });
+
+      /* H2 slide-up on scroll */
+      document.querySelectorAll('h2').forEach(function (h2) {
+        gsap.from(h2, {
+          scrollTrigger: { trigger: h2, start: 'top 88%', once: true },
+          y: 30, opacity: 0, duration: 0.5, ease: 'power2.out'
+        });
+      });
+    }
+
+    /* 4. Custom cursor */
+    if (window.matchMedia('(pointer: fine)').matches) {
+      var dot = document.getElementById('cursor-dot');
+      var ring = document.getElementById('cursor-ring');
+      if (dot && ring) {
+        var mx=0,my=0,rx=0,ry=0;
+        document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
+        (function tick(){ rx+=(mx-rx)*0.15; ry+=(my-ry)*0.15; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(tick); })();
+        document.querySelectorAll('a,button,[data-magnetic]').forEach(function(el){
+          el.addEventListener('mouseenter',function(){ document.body.classList.add('cursor-link'); });
+          el.addEventListener('mouseleave',function(){ document.body.classList.remove('cursor-link'); });
+        });
+      }
+    }
+
+    /* 5. Magnetic buttons */
+    if (typeof gsap !== 'undefined' && window.matchMedia('(pointer: fine)').matches) {
+      document.querySelectorAll('[data-magnetic]').forEach(function(btn){
+        btn.addEventListener('mousemove',function(e){ var r=btn.getBoundingClientRect(); gsap.to(btn,{x:(e.clientX-(r.left+r.width/2))*0.35, y:(e.clientY-(r.top+r.height/2))*0.35, duration:0.3, ease:'power2.out'}); });
+        btn.addEventListener('mouseleave',function(){ gsap.to(btn,{x:0,y:0,duration:0.6,ease:'elastic.out(1,0.4)'}); });
+      });
+    }
+
+    /* 6. Page transition wipe */
+    if (typeof gsap !== 'undefined') {
+      var wipe = document.getElementById('page-wipe');
+      if (wipe) {
+        gsap.fromTo(wipe, {x:'0%'}, {x:'100%', duration:0.45, ease:'power2.in', delay:0.05});
+        document.querySelectorAll('a[href]').forEach(function(link){
+          var href = link.getAttribute('href')||'';
+          if (!href||href.charAt(0)==='#'||/^(https?:|mailto:|tel:|javascript:)/.test(href)||link.target==='_blank') return;
+          link.addEventListener('click',function(e){
+            if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+            e.preventDefault();
+            var dest=href;
+            gsap.fromTo(wipe,{x:'-100%'},{x:'0%',duration:0.35,ease:'power2.out',onComplete:function(){window.location.href=dest;}});
+          });
+        });
+      }
+    }
+
+    /* 7. Reading time */
+    (function(){
+      var main = document.querySelector('[data-pagefind-body]');
+      var el   = document.getElementById('reading-time');
+      if (!main || !el) return;
+      var words = main.textContent.trim().split(/\s+/).filter(Boolean).length;
+      el.textContent = Math.max(1, Math.ceil(words / 238)) + ' min read';
+    })();
+
+  })();
+  </script>
+  <!-- ===== END PREMIUM MOTION STACK ===== -->
 
 </body>
 </html>
