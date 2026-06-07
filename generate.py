@@ -816,7 +816,7 @@ def main():
     (site_dir / 'site.webmanifest').write_text(generate_webmanifest(), encoding='utf-8')
     print('Generated: site.webmanifest')
 
-    # Copy static assets (icons/, assets/) into _site/
+    # Copy static asset directories (icons/, assets/) into _site/
     for asset_dir in ['icons', 'assets']:
         src_asset = base_dir / asset_dir
         dst_asset = site_dir / asset_dir
@@ -828,6 +828,28 @@ def main():
                     dest.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copy2(f, dest)
             print(f'Copied: {asset_dir}/')
+
+    # Copy root-level static files into _site/
+    for static_file in ['logo.svg', 'logo.png']:
+        src_f = base_dir / static_file
+        if src_f.exists():
+            shutil.copy2(src_f, site_dir / static_file)
+    print('Copied: logo.svg, logo.png')
+
+    # Build Tailwind CSS from the generated HTML
+    import subprocess
+    tw_result = subprocess.run(
+        ['npx', 'tailwindcss',
+         '-i', 'src/input.css',
+         '-o', '_site/tailwind.css',
+         '--minify'],
+        cwd=str(base_dir),
+        capture_output=True, text=True
+    )
+    if tw_result.returncode == 0:
+        print('Built: tailwind.css')
+    else:
+        print(f'WARNING: tailwindcss skipped — {tw_result.stderr[:120].strip()}')
 
     print(f'\nBuilt {built_count} pages → _site/')
 

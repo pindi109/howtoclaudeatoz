@@ -1,5 +1,5 @@
 [build]
-  command = "python generate.py && npx pagefind --site _site"
+  command = "npm ci && python generate.py && npx pagefind --site _site"
   publish = "_site"
 
 [[redirects]]
