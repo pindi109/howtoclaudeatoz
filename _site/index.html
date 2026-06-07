@@ -119,7 +119,7 @@
 
     #scroll-stage {
       position: relative;
-      height: 600vh;
+      /* height set dynamically by JS: TOTAL_FRAMES * 25vh + 100vh */
     }
     #sticky-hero {
       position: sticky;
@@ -656,6 +656,10 @@
         var idx        = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * TOTAL_FRAMES));
         if (idx !== current) { current = idx; drawFrame(current); }
       }
+
+      // Scale stage height to frame count so scroll distance matches frames
+      // 25vh of scroll per frame + 100vh for the viewport itself
+      stage.style.height = (TOTAL_FRAMES * 25 + 100) + 'vh';
 
       cacheLayout();
       resizeCanvas();
