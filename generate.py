@@ -290,7 +290,7 @@ def build_article_schema(fm, slug):
             "url": BASE_URL,
             "logo": {
                 "@type": "ImageObject",
-                "url": f"{BASE_URL}/logo.png"
+                "url": f"{BASE_URL}/logo.svg"
             }
         }
     }
@@ -648,7 +648,7 @@ def generate_webmanifest():
         "background_color": "#ffffff",
         "theme_color": "#d97706",
         "icons": [
-            {"src": "/logo.png", "sizes": "512x512", "type": "image/png"}
+            {"src": "/logo.svg", "sizes": "any", "type": "image/svg+xml"}
         ]
     }
     return json.dumps(manifest, indent=2) + '\n'

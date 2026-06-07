@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#0d1117"/>
+
+  <!-- Book -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left page -->
+    <path d="M250 340 Q380 300 512 430 L512 720 Q400 620 250 650 Z"
+          stroke="#ffffff" stroke-width="18"/>
+    <path d="M280 370 Q390 340 490 450 L490 610"
+          stroke="#ffffff" stroke-width="12"/>
+
+    <!-- Right page -->
+    <path d="M774 340 Q644 300 512 430 L512 720 Q624 620 774 650 Z"
+          stroke="#f4a12d" stroke-width="18"/>
+    <path d="M744 370 Q634 340 534 450 L534 610"
+          stroke="#f4a12d" stroke-width="12"/>
+
+    <!-- Bottom curves -->
+    <path d="M280 635 Q410 610 512 720" stroke="#ffffff" stroke-width="12"/>
+    <path d="M744 635 Q614 610 512 720" stroke="#f4a12d" stroke-width="12"/>
+  </g>
+
+  <!-- A -->
+  <text x="405" y="565"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="170"
+        font-weight="700"
+        fill="#ffffff"
+        text-anchor="middle">A</text>
+
+  <!-- Z -->
+  <text x="640" y="565"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="170"
+        font-weight="700"
+        fill="#f4a12d"
+        text-anchor="middle">Z</text>
+
+  <!-- Neural spark -->
+  <g stroke="#f4a12d" stroke-width="8" stroke-linecap="round">
+    <line x1="512" y1="512" x2="512" y2="450"/>
+    <line x1="512" y1="512" x2="560" y2="465"/>
+    <line x1="512" y1="512" x2="575" y2="512"/>
+    <line x1="512" y1="512" x2="560" y2="560"/>
+    <line x1="512" y1="512" x2="512" y2="575"/>
+    <line x1="512" y1="512" x2="464" y2="560"/>
+    <line x1="512" y1="512" x2="449" y2="512"/>
+    <line x1="512" y1="512" x2="464" y2="465"/>
+  </g>
+
+  <g fill="#f4a12d">
+    <circle cx="512" cy="512" r="16"/>
+    <circle cx="512" cy="450" r="8"/>
+    <circle cx="560" cy="465" r="8"/>
+    <circle cx="575" cy="512" r="8"/>
+    <circle cx="560" cy="560" r="8"/>
+    <circle cx="512" cy="575" r="8"/>
+    <circle cx="464" cy="560" r="8"/>
+    <circle cx="449" cy="512" r="8"/>
+    <circle cx="464" cy="465" r="8"/>
+  </g>
+</svg>
