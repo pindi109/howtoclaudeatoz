@@ -473,31 +473,79 @@ def first_n_sentences(text, n=2):
 # ---------------------------------------------------------------------------
 # Homepage nav HTML
 # ---------------------------------------------------------------------------
+PILLAR_ICONS = {
+    'getting-started':  '🚀',
+    'writing-content':  '✍️',
+    'seo':              '🔍',
+    'automation':       '⚙️',
+    'video-voice':      '🎬',
+    'claude-code':      '💻',
+    'business':         '💼',
+    'advanced':         '🧠',
+    'comparison-pages': '📊',
+}
+
+
 def build_pillar_links(pages_by_pillar):
     """
     Build the {{ pillar_links }} block for the homepage template.
-    Renders one section per pillar with links to all its pages.
+    Renders a Tailwind grid of pillar cards, each with up to 6 page links.
+    Comparison pages appear in a separate strip below.
     """
-    parts = []
+    card_parts = []
     for pillar_slug, pillar_name in PILLAR_NAMES.items():
+        if pillar_slug == 'comparison-pages':
+            continue
         pages = pages_by_pillar.get(pillar_slug, [])
         if not pages:
             continue
-        parts.append(f'<section class="pillar-section" id="{pillar_slug}">')
-        parts.append(f'<h2>{pillar_name}</h2>')
-        parts.append('<ul>')
-        for fm in sorted(pages, key=lambda x: x.get('title', '')):
+        icon = PILLAR_ICONS.get(pillar_slug, '📄')
+        sorted_pages = sorted(pages, key=lambda x: x.get('title', ''))
+        links = ''
+        for fm in sorted_pages[:6]:
             slug = fm.get('slug', '')
             title = fm.get('title', slug)
-            desc = fm.get('meta_description', '')
-            parts.append(
-                f'<li><a href="/{slug}/">{title}</a>'
-                + (f' — <span class="page-desc">{desc}</span>' if desc else '')
-                + '</li>'
-            )
-        parts.append('</ul>')
-        parts.append('</section>')
-    return '\n'.join(parts)
+            links += f'<li><a href="/{slug}/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">{title}</a></li>\n'
+        extra = len(sorted_pages) - 6
+        if extra > 0:
+            links += f'<li class="text-xs text-stone-400 pt-1">+ {extra} more guides</li>\n'
+        card_parts.append(
+            f'<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" id="{pillar_slug}">'
+            f'<div class="flex items-center gap-3 mb-4">'
+            f'<span class="text-2xl" aria-hidden="true">{icon}</span>'
+            f'<h3 class="font-bold text-stone-900 text-base leading-tight">{pillar_name}</h3>'
+            f'</div>'
+            f'<ul class="space-y-0.5">{links}</ul>'
+            f'</div>'
+        )
+
+    grid = (
+        '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">\n'
+        + '\n'.join(card_parts)
+        + '\n</div>'
+    )
+
+    # Comparison pages strip
+    comparison_pages = sorted(
+        pages_by_pillar.get('comparison-pages', []),
+        key=lambda x: x.get('title', '')
+    )
+    if comparison_pages:
+        clinks = ''.join(
+            f'<li><a href="/{fm.get("slug", "")}/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline">{fm.get("title", fm.get("slug", ""))}</a></li>'
+            for fm in comparison_pages
+        )
+        grid += (
+            '\n<div class="mt-10 p-6 bg-amber-50 border border-amber-100 rounded-2xl" id="comparison-pages">'
+            '<div class="flex items-center gap-2 mb-4">'
+            '<span class="text-xl" aria-hidden="true">📊</span>'
+            '<h3 class="font-bold text-stone-900 text-base">Comparison &amp; Best-Of Pages</h3>'
+            '</div>'
+            f'<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">{clinks}</ul>'
+            '</div>'
+        )
+
+    return grid
 
 
 def build_page_nav_links(pages_by_pillar):
