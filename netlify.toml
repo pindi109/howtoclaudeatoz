@@ -2,6 +2,20 @@
   command = "npm ci && python generate.py && npx pagefind --site _site"
   publish = "_site"
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[dev]
+  command   = "python -m http.server 8080 --directory _site"
+  port      = 8080
+  publish   = "_site"
+  functions = "netlify/functions"
+  targetPort = 8080
+
+[build.environment]
+  NODE_VERSION = "20"
+
 [[redirects]]
   from = "/*"
   to = "/404.html"

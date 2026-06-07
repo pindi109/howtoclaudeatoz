@@ -874,6 +874,7 @@ def main():
             'date_modified':       str(fm.get('date_modified', '')),
             'pillar_name':         pillar_display_name(pillar),
             'pillar_slug':         pillar,
+            'primary_keyword':     fm.get('primary_keyword', ''),
             'content':             body_html,
             'article_schema':      schema_tag(article_schema),
             'faq_schema':          schema_tag(faq_schema),
