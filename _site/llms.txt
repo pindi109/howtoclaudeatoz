@@ -12,6 +12,7 @@
 - [Claude's Context Window Explained — 200K Tokens Guide (2026)](https://howtoclaudeatoz.com/claude-context-window-explained/) — Claude's context window holds up to 200,000 tokens — about 500 pages.
 - [How to Use Claude Projects — Complete Guide (2026)](https://howtoclaudeatoz.com/how-to-use-claude-projects/) — Learn how to use Claude Projects in 2026: create a project, add files, set custom instructions, and maintain persistent context across conversations.
 - [How to Write Your First Prompt in Claude — Beginner's Guide (2026)](https://howtoclaudeatoz.com/how-to-write-first-prompt-claude/) — Learn how to write a prompt in Claude that actually works.
+- [HowToClaudeAtoZ — Public Site Roadmap](https://howtoclaudeatoz.com/roadmap/) — See what pages are coming to HowToClaudeAtoZ.
 - [What is Claude AI? Complete 2026 Guide](https://howtoclaudeatoz.com/what-is-claude-ai/) — What is Claude AI?
 
 ## Claude for Writing & Content
@@ -89,6 +90,7 @@
 ## Advanced Claude
 - [Advanced Prompt Engineering with Claude (2026 Guide)](https://howtoclaudeatoz.com/advanced-prompt-engineering-claude/) — Master advanced prompt engineering with Claude in 2026.
 - [Claude Opus vs Sonnet vs Haiku — Full Model Breakdown (2026)](https://howtoclaudeatoz.com/claude-opus-vs-sonnet-vs-haiku/) — Claude Opus vs Sonnet vs Haiku compared: context window, cost, speed, intelligence, and best use cases.
+- [Claude Prompt Library — Community Prompts That Work](https://howtoclaudeatoz.com/prompt-library/) — Browse community-contributed Claude prompts.
 - [Claude Safety Features Explained — Complete Guide (2026)](https://howtoclaudeatoz.com/claude-safety-features/) — A complete guide to Claude's safety features in 2026: Constitutional AI, content policies, hardcoded vs softcoded behaviours, operator configuration, and how Claude compares to other AI models.
 - [Claude System Prompts — How to Use Them Effectively (2026)](https://howtoclaudeatoz.com/claude-system-prompts/) — Learn how Claude system prompts work, how to write them, and see 5 complete examples.
 - [Claude for Education and Teaching — Complete Guide (2026)](https://howtoclaudeatoz.com/claude-for-education/) — How teachers and students can use Claude for education in 2026: lesson plans, quiz generation, tutoring, essay feedback, academic integrity, and ready-to-use prompt templates.

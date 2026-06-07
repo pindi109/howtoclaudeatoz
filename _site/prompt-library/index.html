@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Prompt Library — Community Prompts That Work | HowToClaudeAtoZ</title>
+  <meta name="description" content="Browse community-contributed Claude prompts. Upvote the ones that work. Share your best prompts and workflows with the HowToClaudeAtoZ community.">
+  <meta name="robots" content="index, follow">
+  <meta name='impact-site-verification' value='5c1db8b3-a46a-42bd-b717-fc98a1b4e7fa'>
+  <link rel="canonical" href="https://howtoclaudeatoz.com/prompt-library/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Prompt Library — Community Prompts That Work">
+  <meta property="og:description" content="Browse community-contributed Claude prompts. Upvote the ones that work. Share your best prompts and workflows with the HowToClaudeAtoZ community.">
+  <meta property="og:url" content="https://howtoclaudeatoz.com/prompt-library/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HowToClaudeAtoZ">
+  <meta property="og:image" content="https://howtoclaudeatoz.com/og/prompt-library.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Prompt Library — Community Prompts That Work">
+  <meta name="twitter:description" content="Browse community-contributed Claude prompts. Upvote the ones that work. Share your best prompts and workflows with the HowToClaudeAtoZ community.">
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="/tailwind.css">
+
+  <!-- Pagefind search UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <!-- site.webmanifest -->
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/logo.png" type="image/png">
+
+  <!-- Pagefind search icon — right side -->
+  <style>
+    .pagefind-ui__search-input {
+      padding-left: 1rem !important;
+      padding-right: 3rem !important;
+    }
+    .pagefind-ui__search-clear,
+    .pagefind-ui form::before {
+      left: auto !important;
+      right: 0.75rem !important;
+    }
+    .pagefind-ui form {
+      position: relative;
+    }
+  </style>
+
+  <!-- GA4_PLACEHOLDER -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Prompt Library \u2014 Community Prompts That Work",
+  "description": "Browse community-contributed Claude prompts. Upvote the ones that work. Share your best prompts and workflows with the HowToClaudeAtoZ community.",
+  "url": "https://howtoclaudeatoz.com/prompt-library/",
+  "image": "https://howtoclaudeatoz.com/og/prompt-library.png",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Person",
+    "name": "Pindi Sahota",
+    "url": "https://howtoclaudeatoz.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HowToClaudeAtoZ",
+    "url": "https://howtoclaudeatoz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://howtoclaudeatoz.com/logo.svg"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I contribute a prompt to the library?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 click Share a Prompt to post in our GitHub Discussions. Top-voted prompts are featured on this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are prompts ranked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prompts are ranked by upvotes from the community. Upvote prompts that have worked well for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of prompts can I share?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any Claude prompt \u2014 writing, SEO, coding, automation, business analysis, or anything else. Include context on when and how to use it."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://howtoclaudeatoz.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Advanced Claude",
+      "item": "https://howtoclaudeatoz.com/advanced/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude Prompt Library \u2014 Community Prompts That Work",
+      "item": "https://howtoclaudeatoz.com/prompt-library/"
+    }
+  ]
+}
+</script>
+  
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo + Site name -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <img src="/logo.svg" alt="HowToClaudeAtoZ logo" class="h-10 w-auto">
+          <span class="text-lg font-bold text-amber-600 leading-tight hidden sm:inline">HowToClaudeAtoZ</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-600" aria-label="Main navigation">
+          <a href="/#getting-started" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/#writing-content" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/#seo" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/#automation" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/#video-voice" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/#claude-code" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/#business" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/#advanced" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+
+        <!-- Search + hamburger -->
+        <div class="flex items-center gap-3">
+          <div id="search" class="hidden sm:block w-48 lg:w-64"></div>
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 rounded text-gray-500 hover:text-amber-600 hover:bg-amber-50 transition-colors"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="px-4 py-3">
+        <div id="search-mobile" class="mb-4 sm:hidden"></div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-600" aria-label="Mobile navigation">
+          <a href="/#getting-started" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Getting Started</a>
+          <a href="/#writing-content" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Writing</a>
+          <a href="/#seo" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">SEO</a>
+          <a href="/#automation" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Automation</a>
+          <a href="/#video-voice" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Video &amp; Voice</a>
+          <a href="/#claude-code" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Claude Code</a>
+          <a href="/#business" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Business</a>
+          <a href="/#advanced" class="px-3 py-2 rounded hover:bg-amber-50 hover:text-amber-700 transition-colors">Advanced</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END NAV ===== -->
+
+  <!-- ===== ARTICLE PAGE ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-pagefind-body>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/advanced/">Advanced Claude</a></li><li aria-current="page">Claude Prompt Library — Community Prompts That Work</li></ol></nav>
+    </nav>
+
+    <article>
+
+      <!-- Author byline -->
+      <div class="text-sm text-gray-500 mb-2">
+        <p class="text-sm text-gray-500">By <a href="/about/" class="underline">Pindi Sahota</a> &middot; Last updated: 2026-06-07</p>
+      </div>
+
+      <!-- Affiliate disclosure (rendered only when applicable; generate.py outputs empty string otherwise) -->
+      
+
+      <!-- Main article content -->
+      <div class="
+        prose-article
+        text-gray-800 leading-relaxed
+        [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-gray-900
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-gray-900
+        [&_h2]:pl-3 [&_h2]:border-l-4 [&_h2]:border-amber-600
+        [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-gray-900
+        [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul>li]:mb-1
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol>li]:mb-1
+        [&_a]:text-amber-700 [&_a]:underline [&_a:hover]:text-amber-900
+        [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_blockquote]:border-l-4 [&_blockquote]:border-amber-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:my-6
+        [&_hr]:border-gray-200 [&_hr]:my-8
+        [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-6 [&_img]:max-w-full
+        [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:text-sm
+        [&_thead]:bg-amber-600 [&_thead_th]:text-white [&_thead_th]:font-semibold [&_thead_th]:px-4 [&_thead_th]:py-3 [&_thead_th]:text-left
+        [&_tbody_tr:nth-child(odd)]:bg-white
+        [&_tbody_tr:nth-child(even)]:bg-amber-50
+        [&_tbody_td]:px-4 [&_tbody_td]:py-3 [&_tbody_td]:border [&_tbody_td]:border-gray-200
+        [&_pre]:bg-gray-900 [&_pre]:text-green-400 [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:text-sm [&_pre]:leading-relaxed
+        [&_code]:font-mono
+        [&_:not(pre)>code]:bg-gray-100 [&_:not(pre)>code]:text-amber-800 [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:text-sm
+      ">
+        <h1>Claude Prompt Library — Community Prompts That Work</h1>
+
+<p>Most people write Claude prompts from scratch every time. They get an answer, tweak it slightly, try again. It works, but it is slow and it throws away every lesson learned the last time. This library exists to fix that. Every prompt here was written by someone who ran into a real problem, figured out what wording actually produced a great result, and chose to share it so the next person does not have to start from zero.</p>
+
+<p>The library is powered by GitHub Discussions, which means the community votes on what works and buries what does not. The prompts you see at the top of the list are there because real users upvoted them. When you find a prompt that works well for you, upvote it too — that is what keeps the best material surfaced for everyone who comes after you.</p>
+
+<h2>How the Prompt Library Works</h2>
+
+<p>Every prompt in this library lives as a GitHub Discussion in the Ideas category of the HowToClaudeAtoZ repository. Anyone with a GitHub account can contribute a prompt or upvote an existing one.</p>
+
+<p><strong>Submitting a prompt.</strong> Click the Share a Prompt button below. This opens a new GitHub Discussion. Give your prompt a clear title, paste the full prompt text in the body, and add a short note explaining what task it solves and any tips for using it well. Context matters — the best contributions include an example output so readers know what to expect.</p>
+
+<p><strong>Voting.</strong> Open any prompt from the list below and click the upvote arrow at the top of the discussion. The number next to the arrow is the total upvote count. Prompts are sorted by upvotes so the most useful float to the top automatically. You can also add a comment to a discussion to share variations, edge cases, or improvements you have discovered.</p>
+
+<p><strong>Discovery.</strong> This page is rebuilt on every site deploy and fetches the current top-voted prompts live from GitHub. That means what you see here is always the most recent community consensus on what works. If you contributed a prompt last week and it gathered upvotes, it will appear here on the next build.</p>
+
+<p>The system is deliberately simple. No accounts to create beyond a GitHub login. No complex rating system. Just a clean upvote mechanism that reflects real utility rather than algorithmic noise.</p>
+
+<h2>Top Prompts This Week</h2>
+
+<p>The prompts below are loaded live from GitHub Discussions and ranked by upvotes. Click any prompt to open the full discussion, where you can see the complete prompt text, example outputs, and community comments.</p>
+
+<p><div id="prompt-library-embed" style="background:#1c1917;border-top:4px solid #d97706;border-radius:12px;padding:2rem;margin:2rem 0;">   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:gap;gap:1rem;">     <h3 style="color:#fbbf24;font-size:1.1rem;font-weight:600;margin:0;">Community Prompts</h3>     <a href="https://github.com/pindi109/howtoclaudeatoz/discussions/categories/ideas" target="<em>blank" rel="noopener" style="background:#d97706;color:#0d0b08;padding:0.5rem 1.2rem;border-radius:6px;font-size:0.875rem;font-weight:600;text-decoration:none;">+ Share a Prompt</a>   </div>   <p style="color:#a8a29e;font-size:0.9rem;margin-bottom:1rem;">Loading community prompts... <a href="https://github.com/pindi109/howtoclaudeatoz/discussions/categories/ideas" target="</em>blank" rel="noopener" style="color:#d97706;">View all on GitHub →</a></p>   <script>   (function(){     fetch('/data/discussions.json').then(r=>r.json()).then(function(data){       var prompts = (data.prompt<em>library||[]).slice(0,5);       if(!prompts.length) return;       var el = document.getElementById('prompt-library-embed');       var html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;"><h3 style="color:#fbbf24;font-size:1.1rem;font-weight:600;margin:0;">Community Prompts</h3><a href="https://github.com/pindi109/howtoclaudeatoz/discussions/categories/ideas" target="</em>blank" rel="noopener" style="background:#d97706;color:#0d0b08;padding:0.5rem 1.2rem;border-radius:6px;font-size:0.875rem;font-weight:600;text-decoration:none;">+ Share a Prompt</a></div>';       prompts.forEach(function(p){         html += '<div style="background:#292524;border-radius:8px;padding:1rem 1.25rem;margin-bottom:0.75rem;">'           + '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;">'           + '<a href="'+p.url+'" target="_blank" rel="noopener" style="color:#e7e5e4;font-weight:600;font-size:0.95rem;text-decoration:none;flex:1;">'+p.title+'</a>'           + '<span style="color:#d97706;font-size:0.85rem;white-space:nowrap;">▲ '+p.upvotes+'</span>'           + '</div>'           + '<p style="color:#78716c;font-size:0.8rem;margin-top:0.4rem;">@'+p.author+'</p>'           + '</div>';       });       el.innerHTML = html;     }).catch(function(){});   })();   </script> </div></p>
+
+<h2>What Makes a Great Claude Prompt</h2>
+
+<p>The prompts that consistently earn the most upvotes in this library share a few qualities. Understanding them helps you write prompts that work first time and are worth sharing.</p>
+
+<p><strong>Role and context first.</strong> Claude responds better when it knows who it is writing for and why. Starting with "You are an expert copywriter working for a SaaS startup" gives Claude a frame that shapes every word of the response. Compare that to "write me some copy" — the output quality difference is immediate and obvious.</p>
+
+<p><strong>Explicit output format.</strong> Telling Claude exactly what format you want — a numbered list, a table, a single paragraph, a JSON object — eliminates the back-and-forth of asking it to restructure the answer. The best prompts in this library specify format in the first few lines.</p>
+
+<p><strong>Constraints that focus the output.</strong> Word limits, tone requirements, audience level, and things to avoid are all constraints that narrow the solution space and produce sharper results. "Write a 150-word product description for a first-time buyer who has never heard of this category" gives Claude far more to work with than "write a product description."</p>
+
+<p><strong>An example or a template.</strong> If you know what the output should look like, include an example. Claude is excellent at following patterns when shown one. Many of the top prompts here include a fill-in-the-blanks template that lets anyone adapt the prompt to their specific situation without needing to understand the underlying mechanics.</p>
+
+<h2>Share Your Workflow</h2>
+
+<p>Individual prompts are powerful, but multi-step workflows are where Claude compounds. If you have figured out a sequence — perhaps a research prompt that feeds into a drafting prompt that feeds into an editing prompt — the Share Your Workflow category is the right place to document it.</p>
+
+<p>Share a workflow at the <a href="https://github.com/pindi109/howtoclaudeatoz/discussions/categories/show-and-tell">Share Your Workflow GitHub Discussions category</a>. The best submissions explain the full sequence, what Claude is doing at each stage, and what the final output looks like. Screenshot comparisons between a single-prompt approach and a multi-step workflow are especially effective at showing the quality difference.</p>
+
+<p>Workflows that have been shared by the community are listed on the <a href="#prompt-library-embed">prompt-library page</a> alongside individual prompts, sorted by the same upvote mechanism. If you want to see your workflow featured here, write it up clearly and let the community vote it to the top.</p>
+
+<h2>Why Contribute?</h2>
+
+<p>The HowToClaudeAtoZ library grows in usefulness proportionally to the number of people contributing to it. A library with ten prompts is a curiosity. A library with a thousand well-voted prompts is a reference tool that saves hours every week.</p>
+
+<p><strong>For contributors</strong>, sharing a prompt gets your work in front of a relevant audience — people who are actively looking for better ways to use Claude. If your prompt is genuinely useful, it will be upvoted, linked to, and referenced in related guides on this site. Several guides on HowToClaudeAtoZ already link to community discussions as primary examples.</p>
+
+<p><strong>For the community</strong>, every prompt shared is one fewer wheel reinvented. Claude is flexible enough that the difference between a mediocre prompt and an excellent one is often a single sentence. The library captures those sentences so they are not lost.</p>
+
+<p><strong>For beginners</strong>, the library is a learning resource. Reading well-crafted prompts is one of the fastest ways to develop an intuition for how Claude interprets instructions. Every upvoted prompt is an implicit lesson in what Claude responds well to.</p>
+
+<h2>Related Guides</h2>
+
+<p>If you want to understand the principles behind effective prompting rather than just copy a prompt directly, these guides go deeper into the mechanics.</p>
+
+<ul>
+<li><a href="/how-to-write-claude-prompts/">How to Write Claude Prompts</a> — the fundamentals of prompt structure, context, and constraints</li>
+<li><a href="/claude-system-prompts/">Claude System Prompts Explained</a> — how to use system prompts to shape Claude's behaviour across an entire conversation</li>
+<li><a href="/advanced-prompting-techniques/">Advanced Prompting Techniques</a> — chaining, few-shot examples, and structured output techniques</li>
+<li><a href="/claude-for-business/">Claude for Business Workflows</a> — how to embed Claude prompts into repeatable business processes</li>
+</ul>
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-block"><h2>Frequently Asked Questions</h2><dl>
+<dt>Can I contribute a prompt to the library?</dt>
+<dd>Yes — click Share a Prompt to post in our GitHub Discussions. Top-voted prompts are featured on this page.</dd>
+<dt>How are prompts ranked?</dt>
+<dd>Prompts are ranked by upvotes from the community. Upvote prompts that have worked well for you.</dd>
+<dt>What types of prompts can I share?</dt>
+<dd>Any Claude prompt — writing, SEO, coding, automation, business analysis, or anything else. Include context on when and how to use it.</dd>
+</dl></section>
+
+      <!-- Internal links / Related guides -->
+      
+
+    </article>
+  </main>
+  <!-- ===== END ARTICLE PAGE ===== -->
+
+  <!-- ===== GISCUS COMMENTS ===== -->
+  <section id="comments" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-0 mb-16">
+    <div class="bg-stone-900 rounded-2xl p-6 sm:p-8" style="border-top: 4px solid #d97706;">
+      <h2 class="text-base font-semibold text-amber-400 mb-6 tracking-widest uppercase">
+        Join the Discussion
+      </h2>
+      <script src="https://giscus.app/client.js"
+        data-repo="pindi109/howtoclaudeatoz"
+        data-repo-id="R_kgDOSzXQbg"
+        data-category="General"
+        data-category-id="DIC_kwDOSzXQbs4C-toU"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+      </script>
+      <noscript>
+        <p class="text-stone-500 text-sm">Please enable JavaScript to view the discussion.</p>
+      </noscript>
+    </div>
+  </section>
+  <!-- ===== END GISCUS COMMENTS ===== -->
+
+  <!-- ===== SUGGEST A PAGE ===== -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    <div class="flex items-center justify-between gap-4 p-4 rounded-xl bg-stone-800 border border-stone-700 flex-wrap">
+      <div>
+        <p class="text-stone-200 text-sm font-medium">Missing a Claude guide?</p>
+        <p class="text-stone-500 text-xs mt-0.5">Suggest a page — community votes move it up the queue.</p>
+      </div>
+      <a href="https://github.com/pindi109/howtoclaudeatoz/issues/new?template=suggest-a-page.yml"
+         target="_blank"
+         rel="noopener"
+         class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-stone-900 bg-amber-500 hover:bg-amber-400 transition-colors whitespace-nowrap shrink-0">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+        </svg>
+        Suggest a Page
+      </a>
+    </div>
+  </div>
+  <!-- ===== END SUGGEST A PAGE ===== -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col items-center gap-4 text-center text-sm text-gray-500">
+        <p class="font-medium text-gray-700">Built for Claude AI enthusiasts worldwide</p>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="/about/" class="hover:text-amber-600 transition-colors">About</a>
+          <a href="/affiliate-disclosure/" class="hover:text-amber-600 transition-colors">Affiliate Disclosure</a>
+          <a href="/privacy-policy/" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
+          <a href="/llms.txt" class="hover:text-amber-600 transition-colors">llms.txt</a>
+          <a href="/llms-full.txt" class="hover:text-amber-600 transition-colors">llms-full.txt</a>
+        </nav>
+        <p>&copy; 2026 HowToClaudeAtoZ &mdash; Future Build Cov Ltd</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+  <!-- Pagefind JS -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+    if (document.getElementById('search-mobile')) {
+      new PagefindUI({ element: "#search-mobile", showSubResults: true });
+    }
+  </script>
+
+  <!-- Mobile hamburger toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Affiliate click tracking -->
+  <script>
+    document.querySelectorAll('a[data-affiliate]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'affiliate_click', {
+            'program': this.dataset.affiliate,
+            'page': window.location.pathname
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

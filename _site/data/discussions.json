@@ -1,0 +1,96 @@
+{
+  "prompt_library": [
+    {
+      "number": 5,
+      "title": "Turn any YouTube transcript into a full blog post with this prompt",
+      "body_excerpt": "Works with auto-generated transcripts from YouTube \u2014 even the messy ones.nn---nnHere is a YouTube transcript. It may contain filler words, repetition, and spoken-language patterns.nnTRANSCRIPT:n[PASTE",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/5",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:27:54Z"
+    },
+    {
+      "number": 4,
+      "title": "Meeting notes \u2192 action items \u2192 follow-up email in one shot",
+      "body_excerpt": "Three steps combined into one prompt. Paste your raw meeting notes and get everything back formatted.nn---nnHere are my raw meeting notes:nn[PASTE NOTES]nnDo three things:nn1. ACTION ITEMS \u2014 bullet li",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/4",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:27:54Z"
+    },
+    {
+      "number": 3,
+      "title": "Code review prompt that actually finds real bugs, not just style issues",
+      "body_excerpt": "Most code review prompts just suggest variable renames. This one goes deeper.nn---nnReview the following [LANGUAGE] code as a senior engineer focused on production safety. Do NOT comment on style, nam",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/3",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:27:52Z"
+    },
+    {
+      "number": 2,
+      "title": "The ultimate SEO content brief prompt \u2014 gets you a ready-to-write outline",
+      "body_excerpt": "Copy this prompt, fill in the keyword and use it to generate a complete content brief before you start writing.nn---nnYou are an SEO content strategist. Create a detailed content brief for an article ",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/2",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:27:51Z"
+    },
+    {
+      "number": 1,
+      "title": "System prompt template that makes Claude write in your exact brand voice",
+      "body_excerpt": "I've been refining this for months and it finally feels right.nnPaste this into your system prompt and fill in the blanks:nn---nnYou are a content writer for [COMPANY NAME]. Your writing style is [ADJ",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/1",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:27:50Z"
+    }
+  ],
+  "workflows": [
+    {
+      "number": 10,
+      "title": "Weekly business performance report, fully automated with Claude",
+      "body_excerpt": "I used to spend Friday afternoons pulling reports. Now Claude does it.nn**What gets pulled:**n- Shopify: revenue, orders, AOV, top productsn- Google Analytics: sessions, top pages, conversionsn- Email",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/10",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:28:39Z"
+    },
+    {
+      "number": 9,
+      "title": "YouTube script \u2192 transcript \u2192 SEO blog post \u2192 social clips: my full repurposing system",
+      "body_excerpt": "I post one YouTube video and get 6 pieces of content out of it. Here's the exact workflow.nn**Input:** YouTube video (my own)nn**Output:**n1. Full SEO blog post (1,500 words)n2. LinkedIn articlen3. 3 ",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/9",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:28:38Z"
+    },
+    {
+      "number": 8,
+      "title": "How I built a Claude customer support chatbot for my Shopify store \u2014 no code",
+      "body_excerpt": "Background: I run a DTC skincare brand. Support tickets were killing me.nn**Stack:** Claude API + Make.com + Tidio (chat widget)nn**What it does:**n- Answers product questions using a knowledge base I",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/8",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:28:37Z"
+    },
+    {
+      "number": 7,
+      "title": "Make.com + Claude: auto-draft outreach emails from CRM new leads",
+      "body_excerpt": "Super simple workflow but saves me hours every week.nn**Problem:** Every new lead in my CRM needed a personalised first email. I was writing them manually.nn**Solution:**nn1. New contact added to HubS",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/7",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:28:36Z"
+    },
+    {
+      "number": 6,
+      "title": "My daily content pipeline: Claude \u2192 Surfer SEO \u2192 WordPress (fully automated)",
+      "body_excerpt": "This took me 3 weeks to build. Here's the full workflow:nn**Tools:** Claude API, Surfer SEO, Make.com, WordPress REST APInn**Step 1 \u2014 Keyword input**nI dump 20 keywords into a Google Sheet every Monda",
+      "url": "https://github.com/pindi109/howtoclaudeatoz/discussions/6",
+      "upvotes": 1,
+      "author": "pindi109",
+      "createdAt": "2026-06-07T21:28:35Z"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+name: Suggest a Page
+description: Suggest a new article or guide for HowToClaudeAtoZ
+title: "Page suggestion: "
+labels: ["page-suggestion"]
+body:
+  - type: input
+    id: page_title
+    attributes:
+      label: Page title suggestion
+      placeholder: "e.g. How to use Claude for email marketing automation"
+    validations:
+      required: true
+
+  - type: input
+    id: keyword
+    attributes:
+      label: Target keyword
+      placeholder: "e.g. Claude email marketing"
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would this page help the community?
+      placeholder: "Describe the use case and who would benefit..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pillar
+    attributes:
+      label: Which pillar does this belong to?
+      options:
+        - Getting Started
+        - Writing & Content
+        - SEO
+        - Automation & AI Workflows
+        - Video, Voice & Media
+        - Claude Code & Dev
+        - Business & Productivity
+        - Advanced Claude
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have searched existing suggestions and this is not a duplicate
+          required: true

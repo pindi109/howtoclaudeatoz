@@ -7,6 +7,8 @@ import os
 import re
 import json
 import shutil
+import subprocess
+import urllib.request
 from datetime import date
 from pathlib import Path
 
@@ -659,6 +661,131 @@ def generate_webmanifest():
 
 
 # ---------------------------------------------------------------------------
+# GitHub data fetchers
+# ---------------------------------------------------------------------------
+def fetch_discussions_cache(base_dir, site_dir):
+    """
+    Fetch top discussions from the Prompt Library and Share Your Workflow
+    categories via the GitHub GraphQL API (using the `gh` CLI).
+    Saves _site/data/discussions.json.
+    Falls back to empty lists if `gh` is unavailable (e.g. on Netlify).
+    """
+    query = """
+query {
+  repository(owner: "pindi109", name: "howtoclaudeatoz") {
+    prompts: discussions(first: 20, categoryId: "DIC_kwDOSzXQbs4C-toW", orderBy: {field: CREATED_AT, direction: DESC}) {
+      nodes { number title body url upvoteCount author { login } createdAt }
+    }
+    workflows: discussions(first: 20, categoryId: "DIC_kwDOSzXQbs4C-toX", orderBy: {field: CREATED_AT, direction: DESC}) {
+      nodes { number title body url upvoteCount author { login } createdAt }
+    }
+  }
+}
+""".strip()
+
+    def parse_nodes(nodes):
+        result = []
+        for node in nodes:
+            body = node.get('body') or ''
+            result.append({
+                'number':       node.get('number', 0),
+                'title':        node.get('title', ''),
+                'body_excerpt': body[:200],
+                'url':          node.get('url', ''),
+                'upvotes':      node.get('upvoteCount', 0),
+                'author':       (node.get('author') or {}).get('login', ''),
+                'createdAt':    node.get('createdAt', ''),
+            })
+        return sorted(result, key=lambda x: x['upvotes'], reverse=True)
+
+    data = {'prompt_library': [], 'workflows': []}
+    try:
+        result = subprocess.run(
+            ['gh', 'api', 'graphql', '-f', f'query={query}'],
+            capture_output=True, text=True, timeout=30
+        )
+        if result.returncode != 0:
+            raise RuntimeError(result.stderr.strip())
+        payload = json.loads(result.stdout)
+        repo = payload.get('data', {}).get('repository', {})
+        data['prompt_library'] = parse_nodes(
+            repo.get('prompts', {}).get('nodes', [])
+        )
+        data['workflows'] = parse_nodes(
+            repo.get('workflows', {}).get('nodes', [])
+        )
+    except Exception as exc:
+        print(f'WARNING: fetch_discussions_cache failed — {exc}')
+
+    data_dir = site_dir / 'data'
+    data_dir.mkdir(parents=True, exist_ok=True)
+    (data_dir / 'discussions.json').write_text(
+        json.dumps(data, indent=2), encoding='utf-8'
+    )
+    print('Fetched: discussions.json')
+
+
+def fetch_roadmap_cache(base_dir, site_dir):
+    """
+    Fetch all open issues labelled `roadmap` from the GitHub REST API.
+    Saves _site/data/roadmap.json, grouped by status label.
+    Falls back to empty lists if the fetch fails.
+    """
+    url = (
+        'https://api.github.com/repos/pindi109/howtoclaudeatoz/issues'
+        '?labels=roadmap&state=open&per_page=50'
+    )
+
+    data = {'planned': [], 'in_progress': [], 'published': []}
+    try:
+        # Get auth token from gh CLI
+        token_result = subprocess.run(
+            ['gh', 'auth', 'token'],
+            capture_output=True, text=True, timeout=10
+        )
+        token = token_result.stdout.strip() if token_result.returncode == 0 else ''
+
+        req = urllib.request.Request(url)
+        req.add_header('Accept', 'application/vnd.github+json')
+        req.add_header('X-GitHub-Api-Version', '2022-11-28')
+        if token:
+            req.add_header('Authorization', f'Bearer {token}')
+
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            issues = json.loads(resp.read().decode('utf-8'))
+
+        for issue in issues:
+            label_names = [lbl.get('name', '') for lbl in issue.get('labels', [])]
+            reactions = issue.get('reactions', {}) or {}
+            entry = {
+                'number':    issue.get('number', 0),
+                'title':     issue.get('title', ''),
+                'url':       issue.get('html_url', ''),
+                'reactions': {
+                    'total_count': reactions.get('total_count', 0),
+                    '+1':          reactions.get('+1', 0),
+                },
+                'labels':    label_names,
+            }
+            if 'status:in-progress' in label_names:
+                data['in_progress'].append(entry)
+            elif 'status:published' in label_names:
+                data['published'].append(entry)
+            else:
+                data['planned'].append(entry)
+
+    except Exception as exc:
+        print(f'WARNING: fetch_roadmap_cache failed — {exc}')
+
+    data_dir = site_dir / 'data'
+    data_dir.mkdir(parents=True, exist_ok=True)
+    (data_dir / 'roadmap.json').write_text(
+        json.dumps(data, indent=2), encoding='utf-8'
+    )
+    print('Fetched: roadmap.json')
+
+
+# ---------------------------------------------------------------------------
 # Main build
 # ---------------------------------------------------------------------------
 def main():
@@ -854,6 +981,10 @@ def main():
         print('Built: tailwind.css')
     else:
         print(f'WARNING: tailwindcss skipped — {tw_result.stderr[:120].strip()}')
+
+    # Fetch GitHub data caches
+    fetch_discussions_cache(base_dir, site_dir)
+    fetch_roadmap_cache(base_dir, site_dir)
 
     print(f'\nBuilt {built_count} pages → _site/')
 
