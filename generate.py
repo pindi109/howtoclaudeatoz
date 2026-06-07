@@ -474,15 +474,15 @@ def first_n_sentences(text, n=2):
 # Homepage nav HTML
 # ---------------------------------------------------------------------------
 PILLAR_ICONS = {
-    'getting-started':  '🚀',
-    'writing-content':  '✍️',
-    'seo':              '🔍',
-    'automation':       '⚙️',
-    'video-voice':      '🎬',
-    'claude-code':      '💻',
-    'business':         '💼',
-    'advanced':         '🧠',
-    'comparison-pages': '📊',
+    'getting-started':  'getting-started-compass.svg',
+    'writing-content':  'writing-content-pen-document.svg',
+    'seo':              'seo-search-rankings.svg',
+    'automation':       'automation-workflow-nodes.svg',
+    'video-voice':      'video-voice-media.svg',
+    'claude-code':      'claude-code-terminal.svg',
+    'business':         'business-productivity-dashboard.svg',
+    'advanced':         'advanced-ai-neural.svg',
+    'comparison-pages': 'comparison-analytics-chart.svg',
 }
 
 
@@ -499,7 +499,11 @@ def build_pillar_links(pages_by_pillar):
         pages = pages_by_pillar.get(pillar_slug, [])
         if not pages:
             continue
-        icon = PILLAR_ICONS.get(pillar_slug, '📄')
+        icon_file = PILLAR_ICONS.get(pillar_slug, 'getting-started-compass.svg')
+        icon_img = (
+            f'<img src="/icons/{icon_file}" alt="{pillar_name} icon" '
+            f'class="w-12 h-12 rounded-xl object-cover shrink-0">'
+        )
         sorted_pages = sorted(pages, key=lambda x: x.get('title', ''))
         links = ''
         for fm in sorted_pages[:6]:
@@ -511,8 +515,8 @@ def build_pillar_links(pages_by_pillar):
             links += f'<li class="text-xs text-stone-400 pt-1">+ {extra} more guides</li>\n'
         card_parts.append(
             f'<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" id="{pillar_slug}">'
-            f'<div class="flex items-center gap-3 mb-4">'
-            f'<span class="text-2xl" aria-hidden="true">{icon}</span>'
+            f'<div class="flex items-center gap-3 mb-5">'
+            f'{icon_img}'
             f'<h3 class="font-bold text-stone-900 text-base leading-tight">{pillar_name}</h3>'
             f'</div>'
             f'<ul class="space-y-0.5">{links}</ul>'
@@ -537,8 +541,8 @@ def build_pillar_links(pages_by_pillar):
         )
         grid += (
             '\n<div class="mt-10 p-6 bg-amber-50 border border-amber-100 rounded-2xl" id="comparison-pages">'
-            '<div class="flex items-center gap-2 mb-4">'
-            '<span class="text-xl" aria-hidden="true">📊</span>'
+            '<div class="flex items-center gap-3 mb-4">'
+            '<img src="/icons/comparison-analytics-chart.svg" alt="Comparison pages icon" class="w-10 h-10 rounded-lg object-cover shrink-0">'
             '<h3 class="font-bold text-stone-900 text-base">Comparison &amp; Best-Of Pages</h3>'
             '</div>'
             f'<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">{clinks}</ul>'
