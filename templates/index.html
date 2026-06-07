@@ -22,6 +22,11 @@
   <meta name="twitter:description" content="The definitive A-to-Z guide to Claude AI. Every use case, feature, integration, workflow, and prompt technique — for beginners through power users." />
   <meta name="twitter:image" content="https://howtoclaudeatoz.com/og/homepage.png" />
 
+  <!-- Cinzel font for scroll-scrub hero -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -116,6 +121,159 @@
     }
     /* Smooth scroll */
     html { scroll-behavior: smooth; }
+
+    /* ── SCROLL-SCRUB HERO ── */
+    :root {
+      --scrub-gold:  #c9a84c;
+      --scrub-goldl: #e8c87a;
+      --scrub-cream: #f5ead6;
+      --scrub-dark:  #0d0b08;
+    }
+
+    #scroll-stage {
+      position: relative;
+      height: 600vh;
+    }
+    #sticky-hero {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+    #frame-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .scrub-vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at center, transparent 30%, rgba(13,11,8,0.55) 100%),
+        linear-gradient(to bottom, rgba(13,11,8,0.25) 0%, transparent 30%, transparent 60%, rgba(13,11,8,0.75) 100%);
+      pointer-events: none;
+    }
+    .scrub-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+    .scrub-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--scrub-gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .scrub-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      font-weight: 700;
+      color: var(--scrub-cream);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s;
+    }
+    .scrub-title span { color: var(--scrub-gold); }
+    .scrub-subtitle {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      font-weight: 300;
+      color: rgba(245,234,214,0.75);
+      letter-spacing: 0.03em;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+    }
+    .scrub-hint {
+      position: absolute;
+      bottom: 3.5vh;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.4s;
+      pointer-events: none;
+    }
+    .scrub-hint span {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.6);
+      font-family: 'Cinzel', serif;
+    }
+    .scrub-arrow {
+      width: 18px;
+      height: 18px;
+      border-right: 1.5px solid rgba(201,168,76,0.5);
+      border-bottom: 1.5px solid rgba(201,168,76,0.5);
+      transform: rotate(45deg);
+      animation: scrub-bounce 1.5s infinite;
+    }
+    @keyframes scrub-bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50%       { transform: rotate(45deg) translateY(4px); }
+    }
+
+    /* Loading overlay — covers only the sticky hero */
+    #scrub-loader {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      background: var(--scrub-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      transition: opacity 0.5s ease;
+    }
+    #scrub-loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .scrub-ring {
+      width: 32px;
+      height: 32px;
+      border: 2px solid rgba(201,168,76,0.15);
+      border-top-color: var(--scrub-gold);
+      border-radius: 50%;
+      animation: scrub-spin 0.75s linear infinite;
+    }
+    @keyframes scrub-spin { to { transform: rotate(360deg); } }
+    #scrub-loader p {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.4);
+    }
+
+    /* Reveal hero text once frame 0 is drawn */
+    body.scrub-loaded .scrub-eyebrow,
+    body.scrub-loaded .scrub-title,
+    body.scrub-loaded .scrub-subtitle,
+    body.scrub-loaded .scrub-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans antialiased">
@@ -217,6 +375,33 @@
       </div>
     </div>
   </section>
+
+
+  <!-- ===== SCROLL-SCRUB HERO ===== -->
+  <div id="scroll-stage">
+    <div id="sticky-hero">
+      <canvas id="frame-canvas"></canvas>
+      <div class="scrub-vignette"></div>
+
+      <!-- Loading indicator — inside the sticky hero, not fullscreen -->
+      <div id="scrub-loader">
+        <div class="scrub-ring"></div>
+        <p>Loading</p>
+      </div>
+
+      <div class="scrub-content">
+        <p class="scrub-eyebrow">The Definitive Reference</p>
+        <h2 class="scrub-title">Every way to use <span>Claude AI</span><br>A to Z</h2>
+        <p class="scrub-subtitle">Use cases · Integrations · Workflows · Prompt guides</p>
+      </div>
+
+      <div class="scrub-hint">
+        <span>Scroll</span>
+        <div class="scrub-arrow"></div>
+      </div>
+    </div>
+  </div>
+  <!-- ===== END SCROLL-SCRUB HERO ===== -->
 
 
   <!-- ===== 8 PILLAR CARDS GRID ===== -->
@@ -341,6 +526,94 @@
       });
     });
   </script>
+
+  <!-- ===== SCROLL-SCRUB JS ===== -->
+  <script>
+    (function () {
+      var FRAMES_PATH  = '/assets/frames/';
+      var TOTAL_FRAMES = 74;
+      var FRAME_NAMES  = Array.from({ length: TOTAL_FRAMES }, function (_, i) {
+        return 'frame_' + String(i).padStart(2, '0') + '.gif';
+      });
+
+      var canvas  = document.getElementById('frame-canvas');
+      var ctx     = canvas.getContext('2d');
+      var stage   = document.getElementById('scroll-stage');
+      var loader  = document.getElementById('scrub-loader');
+      var frames  = new Array(TOTAL_FRAMES);
+      var current = 0;
+      var stageTop = 0, stageH = 0, viewH = 0;
+
+      function cacheLayout() {
+        var r = stage.getBoundingClientRect();
+        stageTop = r.top + window.scrollY;
+        stageH   = stage.offsetHeight;
+        viewH    = window.innerHeight;
+      }
+
+      function resizeCanvas() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+        drawFrame(current);
+      }
+
+      function drawFrame(idx) {
+        var img = frames[idx];
+        if (!img || !img.complete || !img.naturalWidth) return;
+        var iw = img.naturalWidth, ih = img.naturalHeight;
+        var cw = canvas.width,     ch = canvas.height;
+        var ir = iw / ih, cr = cw / ch;
+        var dw, dh, dx, dy;
+        if (ir > cr) { dh = ch; dw = dh * ir; dx = (cw - dw) / 2; dy = 0; }
+        else         { dw = cw; dh = dw / ir; dx = 0; dy = (ch - dh) / 2; }
+        ctx.clearRect(0, 0, cw, ch);
+        ctx.drawImage(img, dx, dy, dw, dh);
+      }
+
+      function preload() {
+        var f0 = new Image();
+        f0.onload = function () {
+          frames[0] = f0;
+          drawFrame(0);
+          loader.classList.add('hidden');
+          document.body.classList.add('scrub-loaded');
+          loadRest();
+        };
+        f0.onerror = function () {
+          loader.classList.add('hidden');
+          document.body.classList.add('scrub-loaded');
+          loadRest();
+        };
+        f0.src = FRAMES_PATH + FRAME_NAMES[0];
+      }
+
+      function loadRest() {
+        for (var i = 1; i < TOTAL_FRAMES; i++) {
+          (function (idx) {
+            var img = new Image();
+            img.onload = function () { frames[idx] = img; };
+            img.src = FRAMES_PATH + FRAME_NAMES[idx];
+          })(i);
+        }
+      }
+
+      function onScroll() {
+        var scrollY    = window.scrollY;
+        var scrollable = stageH - viewH;
+        if (scrollable <= 0) return;
+        var progress   = Math.max(0, Math.min(1, (scrollY - stageTop) / scrollable));
+        var idx        = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * TOTAL_FRAMES));
+        if (idx !== current) { current = idx; drawFrame(current); }
+      }
+
+      cacheLayout();
+      resizeCanvas();
+      window.addEventListener('resize', function () { cacheLayout(); resizeCanvas(); }, { passive: true });
+      window.addEventListener('scroll', onScroll, { passive: true });
+      preload();
+    })();
+  </script>
+  <!-- ===== END SCROLL-SCRUB JS ===== -->
 
   <!-- GA4 Affiliate Click Tracking -->
   <script>

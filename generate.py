@@ -816,6 +816,19 @@ def main():
     (site_dir / 'site.webmanifest').write_text(generate_webmanifest(), encoding='utf-8')
     print('Generated: site.webmanifest')
 
+    # Copy static assets (icons/, assets/) into _site/
+    for asset_dir in ['icons', 'assets']:
+        src_asset = base_dir / asset_dir
+        dst_asset = site_dir / asset_dir
+        if src_asset.exists():
+            for f in src_asset.rglob('*'):
+                if f.is_file():
+                    rel = f.relative_to(src_asset)
+                    dest = dst_asset / rel
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(f, dest)
+            print(f'Copied: {asset_dir}/')
+
     print(f'\nBuilt {built_count} pages → _site/')
 
 
