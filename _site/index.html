@@ -584,10 +584,8 @@
   <script>
     (function () {
       var FRAMES_PATH  = '/assets/frames/';
-      var TOTAL_FRAMES = 19;
-      var FRAME_NAMES  = Array.from({ length: 19 }, function (_, i) {
-        return 'frame_' + String(i).padStart(2, '0') + '.gif';
-      });
+      var TOTAL_FRAMES = 6;
+      var FRAME_NAMES  = ['frame_00.gif','frame_03.gif','frame_06.gif','frame_09.gif','frame_12.gif','frame_18.gif'];
 
       var canvas  = document.getElementById('frame-canvas');
       var ctx     = canvas.getContext('2d');
