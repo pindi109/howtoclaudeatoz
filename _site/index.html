@@ -133,6 +133,272 @@ h2 { font-size:clamp(1.8rem,4vw,3rem);line-height:1.2; }
 h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
 @media (prefers-reduced-motion: reduce) { [data-aos] { opacity:1!important;transform:none!important; } }
 
+/* ======================================================
+   PREMIUM PILLARS SECTION
+   ====================================================== */
+.pillars-dark {
+  background: #080c12;
+  position: relative;
+  overflow: hidden;
+}
+/* Top and bottom gold-to-transparent borders */
+.pillars-dark::before,
+.pillars-dark::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, rgba(201,168,76,0.55) 30%, rgba(201,168,76,0.55) 70%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+.pillars-dark::before { top: 0; }
+.pillars-dark::after  { bottom: 0; }
+
+/* Noise texture overlay */
+.pillars-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.pillars-inner {
+  position: relative;
+  z-index: 2;
+  padding: 4.5rem 0 0;
+}
+
+/* Section header */
+.pillars-header {
+  max-width: 700px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+  padding: 0 2rem;
+}
+.pillars-label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 1rem;
+}
+.pillars-heading {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #f5ead6;
+  line-height: 1.1;
+  margin: 0 0 0.9rem;
+}
+.pillars-heading .pg { color: #c9a84c; }
+.pillars-subheading {
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  color: rgba(245,234,214,0.5);
+  line-height: 1.6;
+}
+
+/* Grid — table layout, gold hairline dividers */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top:  1px solid rgba(201,168,76,0.15);
+  border-left: 1px solid rgba(201,168,76,0.15);
+}
+
+/* Cards */
+.pillar-card {
+  position: relative;
+  background: #080c12;
+  padding: 40px 36px;
+  border-right:  1px solid rgba(201,168,76,0.15);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: background 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.pillar-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s ease, transform 0.55s ease,
+              background 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+/* Gold top-border slide in on hover */
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, #c9a84c, #e8c87a);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+  z-index: 3;
+}
+.pillar-card:hover { background: #0d1520; }
+.pillar-card:hover::before { transform: scaleX(1); }
+
+/* Watermark number */
+.pillar-num {
+  position: absolute;
+  top: 18px; right: 22px;
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(201,168,76,0.08);
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.pillar-card:hover .pillar-num { color: rgba(201,168,76,0.18); }
+
+/* Icon */
+.pillar-icon {
+  display: block;
+  width: 36px; height: 36px;
+  color: #c9a84c;
+  opacity: 0.7;
+  margin-bottom: 1.1rem;
+  flex-shrink: 0;
+  transition: opacity 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.pillar-card:hover .pillar-icon { opacity: 1; }
+
+/* Title */
+.pillar-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f5ead6;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.35rem;
+  line-height: 1.3;
+}
+
+/* Descriptor */
+.pillar-desc {
+  font-style: italic;
+  font-size: 0.82rem;
+  color: rgba(245,234,214,0.4);
+  margin: 0 0 0.9rem;
+  line-height: 1.45;
+}
+
+/* Badge */
+.pillar-badge {
+  display: inline-block;
+  border: 1px solid rgba(201,168,76,0.6);
+  color: #c9a84c;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  margin-bottom: 1.1rem;
+}
+
+/* Article link list */
+.pillar-article-links {
+  list-style: none;
+  padding: 0; margin: 0 0 1.4rem;
+}
+.pillar-link-item { margin-bottom: 0.42rem; }
+.pillar-link-item a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: rgba(245,234,214,0.52);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+.pillar-link-item a::before {
+  content: '→';
+  color: #c9a84c;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.pillar-link-item a:hover { color: rgba(245,234,214,0.85); }
+.pillar-link-item a:hover::before { transform: translateX(4px); }
+
+/* Explore CTA */
+.pillar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  text-decoration: none;
+}
+.pillar-cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.pillar-card:hover .pillar-cta-arrow { transform: translateX(6px); }
+
+/* Stats bar */
+.pillars-stats {
+  display: flex;
+  border-top: 1px solid rgba(201,168,76,0.15);
+  margin-top: 0;
+}
+.pillars-stat {
+  flex: 1;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.15);
+}
+.pillars-stat:last-child { border-right: none; }
+.stat-num {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #c9a84c;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-label {
+  font-size: 0.65rem;
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+  color: rgba(245,234,214,0.4);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillar-article-links { display: none; }
+  .pillars-stats { flex-wrap: wrap; }
+  .pillars-stat { min-width: 50%; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .pillars-stat:nth-child(odd) { border-right: 1px solid rgba(201,168,76,0.15); }
+  .pillars-stat:last-child { border-right: none; }
+}
+@media (max-width: 480px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+  .pillar-card { padding: 28px 24px; }
+  .pillars-stat { min-width: 100%; border-right: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pillar-card { opacity: 1 !important; transform: none !important; }
+}
+
     /* ── SCROLL-SCRUB HERO ── */
     :root {
       --scrub-gold:  #c9a84c;
@@ -463,85 +729,168 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
   <!-- ===== END SCROLL-SCRUB HERO ===== -->
 
 
-  <!-- ===== 8 PILLAR CARDS GRID ===== -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20" aria-labelledby="pillars-heading">
-    <div class="text-center mb-12">
-      <h2 id="pillars-heading" class="text-2xl sm:text-3xl font-bold text-stone-900 mb-3" data-aos="fade-up">
-        Browse by Topic
-      </h2>
-      <p class="text-stone-500 text-base sm:text-lg max-w-2xl mx-auto">
-        Eight deep-dive pillars covering every angle of Claude AI — pick where you want to start.
-      </p>
-    </div>
+  <!-- ===== PREMIUM PILLARS SECTION ===== -->
+  <section class="pillars-dark" aria-labelledby="pillars-heading">
+    <div class="pillars-noise" aria-hidden="true"></div>
+    <div class="pillars-inner">
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="0" id="getting-started"><div class="flex items-center gap-3 mb-5"><img src="/icons/getting-started-compass.svg" alt="Getting Started with Claude icon" class="w-12 h-12 rounded-xl object-cover shrink-0"><h3 class="font-bold text-stone-900 text-base leading-tight">Getting Started with Claude</h3></div><ul class="space-y-0.5"><li><a href="/claude-artifacts-guide/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Artifacts — What They Are and How to Use Them (2026)</a></li>
-<li><a href="/claude-plans-comparison/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Free vs Pro vs Max vs Team — Which Plan Is Right for You? (2026)</a></li>
-<li><a href="/claude-keyboard-shortcuts/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Keyboard Shortcuts and Power User Tips (2026)</a></li>
-<li><a href="/claude-memory-system-explained/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Memory System Explained — How It Works (2026)</a></li>
-<li><a href="/claude-on-mobile/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude on Mobile — iOS and Android Complete Guide (2026)</a></li>
-<li><a href="/claude-vs-chatgpt-vs-gemini/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude vs ChatGPT vs Gemini — Honest 2026 Comparison</a></li>
-<li class="text-xs text-stone-400 pt-1">+ 5 more guides</li>
-</ul></div>
-<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="75" id="writing-content"><div class="flex items-center gap-3 mb-5"><img src="/icons/writing-content-pen-document.svg" alt="Claude for Writing & Content icon" class="w-12 h-12 rounded-xl object-cover shrink-0"><h3 class="font-bold text-stone-900 text-base leading-tight">Claude for Writing & Content</h3></div><ul class="space-y-0.5"><li><a href="/claude-prompt-templates-for-writers/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Prompt Templates for Writers — 20 Ready-to-Use Prompts (2026)</a></li>
-<li><a href="/claude-for-copywriting/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Copywriting — Ads, Landing Pages, and CTAs (2026)</a></li>
-<li><a href="/claude-for-newsletter-writing/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Newsletter Writing — Complete Workflow (2026)</a></li>
-<li><a href="/claude-brand-voice/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">How to Match Your Brand Voice in Claude — Complete Guide (2026)</a></li>
-<li><a href="/claude-for-social-media-content/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">How to Use Claude for Social Media Content (2026 Guide)</a></li>
-<li><a href="/claude-repurpose-content/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">How to Use Claude to Repurpose Content (2026 Guide)</a></li>
-<li class="text-xs text-stone-400 pt-1">+ 4 more guides</li>
-</ul></div>
-<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="150" id="seo"><div class="flex items-center gap-3 mb-5"><img src="/icons/seo-search-rankings.svg" alt="Claude for SEO icon" class="w-12 h-12 rounded-xl object-cover shrink-0"><h3 class="font-bold text-stone-900 text-base leading-tight">Claude for SEO</h3></div><ul class="space-y-0.5"><li><a href="/building-content-strategy-with-claude/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Building a Content Strategy with Claude AI (2026 Guide)</a></li>
-<li><a href="/claude-surfer-seo-workflow/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude + Surfer SEO — The Ultimate Workflow (2026)</a></li>
-<li><a href="/claude-for-local-seo/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Local SEO — Complete Business Guide (2026)</a></li>
-<li><a href="/claude-on-page-seo/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for On-Page SEO Optimisation — Full Guide (2026)</a></li>
-<li><a href="/claude-vs-perplexity-seo/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude vs Perplexity for SEO Research — Which Should You Use? (2026)</a></li>
-<li><a href="/claude-internal-linking/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">How to Build Internal Linking Plans with Claude (2026)</a></li>
-<li class="text-xs text-stone-400 pt-1">+ 4 more guides</li>
-</ul></div>
-<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="225" id="automation"><div class="flex items-center gap-3 mb-5"><img src="/icons/automation-workflow-nodes.svg" alt="Claude for Automation & AI Workflows icon" class="w-12 h-12 rounded-xl object-cover shrink-0"><h3 class="font-bold text-stone-900 text-base leading-tight">Claude for Automation & AI Workflows</h3></div><ul class="space-y-0.5"><li><a href="/claude-automation-workflows/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">10 Claude Automation Workflows You Can Build Today (2026)</a></li>
-<li><a href="/claude-getresponse-email-automation/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Automating Email with Claude + GetResponse (2026 Guide)</a></li>
-<li><a href="/claude-chatbot-website/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Building a Claude Chatbot for Your Website (2026 Guide)</a></li>
-<li><a href="/claude-make-vs-n8n/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude + Make.com vs n8n — Which Should You Use? (2026)</a></li>
-<li><a href="/claude-make-com-integration/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude + Make.com — Complete Integration Guide (2026)</a></li>
-<li><a href="/claude-n8n-workflows/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude + n8n — How to Build AI Workflows (2026 Guide)</a></li>
-<li class="text-xs text-stone-400 pt-1">+ 4 more guides</li>
-</ul></div>
-<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="0" id="video-voice"><div class="flex items-center gap-3 mb-5"><img src="/icons/video-voice-media.svg" alt="Claude for Video, Voice & Creative Media icon" class="w-12 h-12 rounded-xl object-cover shrink-0"><h3 class="font-bold text-stone-900 text-base leading-tight">Claude for Video, Voice & Creative Media</h3></div><ul class="space-y-0.5"><li><a href="/claude-elevenlabs-voiceover-workflow/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude + ElevenLabs — AI Voiceover Workflow Guide (2026)</a></li>
-<li><a href="/claude-kling-ai/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude + Kling AI — Text to Video Workflow Guide (2026)</a></li>
-<li><a href="/claude-runway-ml/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude + Runway ML — AI Video Production Guide (2026)</a></li>
-<li><a href="/claude-synthesia/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude + Synthesia — Corporate Training Video Workflow (2026)</a></li>
-<li><a href="/claude-documentary-scriptwriting/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Documentary Scriptwriting — Complete Guide (2026)</a></li>
-<li><a href="/claude-social-media-video/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Social Media Video Content — Full Guide (2026)</a></li>
-<li class="text-xs text-stone-400 pt-1">+ 4 more guides</li>
-</ul></div>
-<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="75" id="claude-code"><div class="flex items-center gap-3 mb-5"><img src="/icons/claude-code-terminal.svg" alt="Claude Code & Developer Use Cases icon" class="w-12 h-12 rounded-xl object-cover shrink-0"><h3 class="font-bold text-stone-900 text-base leading-tight">Claude Code & Developer Use Cases</h3></div><ul class="space-y-0.5"><li><a href="/claude-co-developer/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Building Apps with Claude as Your Co-Developer (2026 Guide)</a></li>
-<li><a href="/claude-code-vs-n8n/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Code vs n8n — Which for Agentic Workflows? (2026)</a></li>
-<li><a href="/claude-code-getting-started/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Code — Complete Getting Started Guide (2026)</a></li>
-<li><a href="/claude-firebase-development/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Firebase Development — Full Guide (2026)</a></li>
-<li><a href="/claude-flutter-development/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Flutter Development — Full Guide (2026)</a></li>
-<li><a href="/claude-python-scripting/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Python Scripting — Developer Guide (2026)</a></li>
-<li class="text-xs text-stone-400 pt-1">+ 4 more guides</li>
-</ul></div>
-<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="150" id="business"><div class="flex items-center gap-3 mb-5"><img src="/icons/business-productivity-dashboard.svg" alt="Claude for Business & Productivity icon" class="w-12 h-12 rounded-xl object-cover shrink-0"><h3 class="font-bold text-stone-900 text-base leading-tight">Claude for Business & Productivity</h3></div><ul class="space-y-0.5"><li><a href="/claude-business-strategy/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude as a Business Strategy Partner — Full Guide (2026)</a></li>
-<li><a href="/claude-business-plan-writing/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Business Plan Writing — Step-by-Step Guide (2026)</a></li>
-<li><a href="/claude-financial-analysis/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Financial Analysis and Reporting (2026 Guide)</a></li>
-<li><a href="/claude-legal-document-review/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Legal Document Review — SMB Guide (2026)</a></li>
-<li><a href="/claude-project-management/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Project Management — Full Guide (2026)</a></li>
-<li><a href="/claude-sales-copywriting/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Sales Copywriting and Outreach (2026 Guide)</a></li>
-<li class="text-xs text-stone-400 pt-1">+ 4 more guides</li>
-</ul></div>
-<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="225" id="advanced"><div class="flex items-center gap-3 mb-5"><img src="/icons/advanced-ai-neural.svg" alt="Advanced Claude icon" class="w-12 h-12 rounded-xl object-cover shrink-0"><h3 class="font-bold text-stone-900 text-base leading-tight">Advanced Claude</h3></div><ul class="space-y-0.5"><li><a href="/advanced-prompt-engineering-claude/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Advanced Prompt Engineering with Claude (2026 Guide)</a></li>
-<li><a href="/claude-opus-vs-sonnet-vs-haiku/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Opus vs Sonnet vs Haiku — Full Model Breakdown (2026)</a></li>
-<li><a href="/prompt-library/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Prompt Library — Community Prompts That Work</a></li>
-<li><a href="/claude-safety-features/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude Safety Features Explained — Complete Guide (2026)</a></li>
-<li><a href="/claude-system-prompts/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude System Prompts — How to Use Them Effectively (2026)</a></li>
-<li><a href="/claude-for-education/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">Claude for Education and Teaching — Complete Guide (2026)</a></li>
-<li class="text-xs text-stone-400 pt-1">+ 5 more guides</li>
-</ul></div>
-</div>
-<div class="mt-10 p-6 bg-amber-50 border border-amber-100 rounded-2xl" id="comparison-pages"><div class="flex items-center gap-3 mb-4"><img src="/icons/comparison-analytics-chart.svg" alt="Comparison pages icon" class="w-10 h-10 rounded-lg object-cover shrink-0"><h3 class="font-bold text-stone-900 text-base">Comparison &amp; Best-Of Pages</h3></div><ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"><li><a href="/best-ai-automation-tools/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline">Best AI Automation Tools to Use with Claude (2026 Guide)</a></li><li><a href="/best-ai-tools-content-creators/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline">Best AI Tools for Content Creators in 2026 (Claude + Top Picks)</a></li><li><a href="/best-ai-video-tools/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline">Best AI Video Tools to Pair with Claude (2026 Guide)</a></li><li><a href="/best-ai-writing-tools/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline">Best AI Writing Tools in 2026 — Claude vs the Competition</a></li><li><a href="/best-seo-tools-for-claude/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline">Best SEO Tools That Work with Claude (2026 Guide)</a></li><li><a href="/claude-pricing-guide/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline">Claude Pricing Guide 2026 — Free, Pro, Max, Team and API</a></li><li><a href="/is-claude-better-than-chatgpt/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline">Is Claude Better Than ChatGPT? (2026 Honest Verdict)</a></li></ul></div>
+      <!-- Header -->
+      <div class="pillars-header">
+        <span class="pillars-label">The Complete Reference</span>
+        <h2 class="pillars-heading no-anim" id="pillars-heading">
+          Everything Claude.<br>
+          <span class="pg">A to Z.</span>
+        </h2>
+        <p class="pillars-subheading">Every use case, workflow, integration and technique — in one place.</p>
+      </div>
+
+      <!-- 4×2 card grid -->
+      <div class="pillars-grid" id="pillars-grid">
+<article class="pillar-card" data-reveal-delay="0" id="getting-started">
+  <span class="pillar-num" aria-hidden="true">01</span>
+  <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="13"/><path d="M23 13l-5 9-5-2 5-9 5 2z"/><circle cx="18" cy="18" r="2" fill="currentColor" stroke="none" opacity=".6"/></svg>
+  <h3 class="pillar-title">Getting Started</h3>
+  <p class="pillar-desc">Your first steps with Claude AI</p>
+  <span class="pillar-badge">11 guides</span>
+  <ul class="pillar-article-links">
+<li class="pillar-link-item"><a href="/claude-artifacts-guide/">Claude Artifacts — What They Are and How to Use T…</a></li>
+<li class="pillar-link-item"><a href="/claude-plans-comparison/">Claude Free vs Pro vs Max vs Team — Which Plan Is…</a></li>
+<li class="pillar-link-item"><a href="/claude-keyboard-shortcuts/">Claude Keyboard Shortcuts and Power User Tips (2026)</a></li>
+<li class="pillar-link-item"><a href="/claude-memory-system-explained/">Claude Memory System Explained — How It Works (2026)</a></li>
+  </ul>
+  <a href="/#getting-started" class="pillar-cta">Explore all <span class="pillar-cta-arrow">→</span></a>
+</article>
+
+<article class="pillar-card" data-reveal-delay="80" id="writing-content">
+  <span class="pillar-num" aria-hidden="true">02</span>
+  <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 26l2-6 13-13 4 4-13 13-6 2z"/><path d="M27 7l2 2"/><line x1="10" y1="30" x2="26" y2="30"/><line x1="16" y1="20" x2="20" y2="16"/></svg>
+  <h3 class="pillar-title">Writing & Content</h3>
+  <p class="pillar-desc">Blogs, copy, emails and social</p>
+  <span class="pillar-badge">10 guides</span>
+  <ul class="pillar-article-links">
+<li class="pillar-link-item"><a href="/claude-prompt-templates-for-writers/">Claude Prompt Templates for Writers — 20 Ready-to…</a></li>
+<li class="pillar-link-item"><a href="/claude-for-copywriting/">Claude for Copywriting — Ads, Landing Pages, and …</a></li>
+<li class="pillar-link-item"><a href="/claude-for-newsletter-writing/">Claude for Newsletter Writing — Complete Workflow…</a></li>
+<li class="pillar-link-item"><a href="/claude-brand-voice/">How to Match Your Brand Voice in Claude — Complet…</a></li>
+  </ul>
+  <a href="/#writing-content" class="pillar-cta">Explore all <span class="pillar-cta-arrow">→</span></a>
+</article>
+
+<article class="pillar-card" data-reveal-delay="160" id="seo">
+  <span class="pillar-num" aria-hidden="true">03</span>
+  <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="15" cy="15" r="9"/><line x1="22" y1="22" x2="30" y2="30"/><path d="M11 19l3-5 3 3 3-5"/></svg>
+  <h3 class="pillar-title">Claude for SEO</h3>
+  <p class="pillar-desc">Rank higher with AI-assisted SEO</p>
+  <span class="pillar-badge">10 guides</span>
+  <ul class="pillar-article-links">
+<li class="pillar-link-item"><a href="/building-content-strategy-with-claude/">Building a Content Strategy with Claude AI (2026 …</a></li>
+<li class="pillar-link-item"><a href="/claude-surfer-seo-workflow/">Claude + Surfer SEO — The Ultimate Workflow (2026)</a></li>
+<li class="pillar-link-item"><a href="/claude-for-local-seo/">Claude for Local SEO — Complete Business Guide (2…</a></li>
+<li class="pillar-link-item"><a href="/claude-on-page-seo/">Claude for On-Page SEO Optimisation — Full Guide …</a></li>
+  </ul>
+  <a href="/#seo" class="pillar-cta">Explore all <span class="pillar-cta-arrow">→</span></a>
+</article>
+
+<article class="pillar-card" data-reveal-delay="240" id="automation">
+  <span class="pillar-num" aria-hidden="true">04</span>
+  <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="3" width="8" height="6" rx="1.5"/><rect x="3" y="27" width="8" height="6" rx="1.5"/><rect x="25" y="27" width="8" height="6" rx="1.5"/><line x1="18" y1="9" x2="18" y2="18"/><line x1="18" y1="18" x2="7" y2="27"/><line x1="18" y1="18" x2="29" y2="27"/><circle cx="18" cy="18" r="2.5" fill="currentColor" stroke="none" opacity=".5"/></svg>
+  <h3 class="pillar-title">Automation</h3>
+  <p class="pillar-desc">Agents, workflows and integrations</p>
+  <span class="pillar-badge">10 guides</span>
+  <ul class="pillar-article-links">
+<li class="pillar-link-item"><a href="/claude-automation-workflows/">10 Claude Automation Workflows You Can Build Toda…</a></li>
+<li class="pillar-link-item"><a href="/claude-getresponse-email-automation/">Automating Email with Claude + GetResponse (2026 …</a></li>
+<li class="pillar-link-item"><a href="/claude-chatbot-website/">Building a Claude Chatbot for Your Website (2026 …</a></li>
+<li class="pillar-link-item"><a href="/claude-make-vs-n8n/">Claude + Make.com vs n8n — Which Should You Use? …</a></li>
+  </ul>
+  <a href="/#automation" class="pillar-cta">Explore all <span class="pillar-cta-arrow">→</span></a>
+</article>
+
+<article class="pillar-card" data-reveal-delay="320" id="video-voice">
+  <span class="pillar-num" aria-hidden="true">05</span>
+  <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="22" height="16" rx="2"/><path d="M26 16l6-4v10l-6-4"/><path d="M9 23V15"/><path d="M13 23v-5"/><path d="M17 23v-8"/><path d="M21 23v-3"/></svg>
+  <h3 class="pillar-title">Video & Voice</h3>
+  <p class="pillar-desc">Scripts, voiceovers and AI video</p>
+  <span class="pillar-badge">10 guides</span>
+  <ul class="pillar-article-links">
+<li class="pillar-link-item"><a href="/claude-elevenlabs-voiceover-workflow/">Claude + ElevenLabs — AI Voiceover Workflow Guide…</a></li>
+<li class="pillar-link-item"><a href="/claude-kling-ai/">Claude + Kling AI — Text to Video Workflow Guide …</a></li>
+<li class="pillar-link-item"><a href="/claude-runway-ml/">Claude + Runway ML — AI Video Production Guide (2…</a></li>
+<li class="pillar-link-item"><a href="/claude-synthesia/">Claude + Synthesia — Corporate Training Video Wor…</a></li>
+  </ul>
+  <a href="/#video-voice" class="pillar-cta">Explore all <span class="pillar-cta-arrow">→</span></a>
+</article>
+
+<article class="pillar-card" data-reveal-delay="400" id="claude-code">
+  <span class="pillar-num" aria-hidden="true">06</span>
+  <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="30" height="24" rx="2.5"/><line x1="3" y1="12" x2="33" y2="12"/><path d="M10 19l5 4-5 4"/><line x1="20" y1="27" x2="26" y2="27"/><circle cx="8" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="9" r="1" fill="currentColor" stroke="none"/></svg>
+  <h3 class="pillar-title">Claude Code</h3>
+  <p class="pillar-desc">Build faster with Claude as co-pilot</p>
+  <span class="pillar-badge">10 guides</span>
+  <ul class="pillar-article-links">
+<li class="pillar-link-item"><a href="/claude-co-developer/">Building Apps with Claude as Your Co-Developer (2…</a></li>
+<li class="pillar-link-item"><a href="/claude-code-vs-n8n/">Claude Code vs n8n — Which for Agentic Workflows?…</a></li>
+<li class="pillar-link-item"><a href="/claude-code-getting-started/">Claude Code — Complete Getting Started Guide (2026)</a></li>
+<li class="pillar-link-item"><a href="/claude-firebase-development/">Claude for Firebase Development — Full Guide (2026)</a></li>
+  </ul>
+  <a href="/#claude-code" class="pillar-cta">Explore all <span class="pillar-cta-arrow">→</span></a>
+</article>
+
+<article class="pillar-card" data-reveal-delay="480" id="business">
+  <span class="pillar-num" aria-hidden="true">07</span>
+  <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="13" width="28" height="17" rx="2"/><path d="M13 13v-2a2 2 0 012-2h6a2 2 0 012 2v2"/><line x1="4" y1="22" x2="32" y2="22"/><line x1="17" y1="22" x2="17" y2="26"/><line x1="19" y1="22" x2="19" y2="26"/></svg>
+  <h3 class="pillar-title">Business</h3>
+  <p class="pillar-desc">Streamline operations and decisions</p>
+  <span class="pillar-badge">10 guides</span>
+  <ul class="pillar-article-links">
+<li class="pillar-link-item"><a href="/claude-business-strategy/">Claude as a Business Strategy Partner — Full Guid…</a></li>
+<li class="pillar-link-item"><a href="/claude-business-plan-writing/">Claude for Business Plan Writing — Step-by-Step G…</a></li>
+<li class="pillar-link-item"><a href="/claude-financial-analysis/">Claude for Financial Analysis and Reporting (2026…</a></li>
+<li class="pillar-link-item"><a href="/claude-legal-document-review/">Claude for Legal Document Review — SMB Guide (2026)</a></li>
+  </ul>
+  <a href="/#business" class="pillar-cta">Explore all <span class="pillar-cta-arrow">→</span></a>
+</article>
+
+<article class="pillar-card" data-reveal-delay="560" id="advanced">
+  <span class="pillar-num" aria-hidden="true">08</span>
+  <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="6"/><line x1="18" y1="4" x2="18" y2="8"/><line x1="18" y1="28" x2="18" y2="32"/><line x1="4" y1="18" x2="8" y2="18"/><line x1="28" y1="18" x2="32" y2="18"/><line x1="8.5" y1="8.5" x2="11.5" y2="11.5"/><line x1="24.5" y1="8.5" x2="27.5" y2="5.5"/><line x1="8.5" y1="27.5" x2="11.5" y2="24.5"/><line x1="24.5" y1="27.5" x2="27.5" y2="24.5"/></svg>
+  <h3 class="pillar-title">Advanced</h3>
+  <p class="pillar-desc">Prompting, models and deep dives</p>
+  <span class="pillar-badge">11 guides</span>
+  <ul class="pillar-article-links">
+<li class="pillar-link-item"><a href="/advanced-prompt-engineering-claude/">Advanced Prompt Engineering with Claude (2026 Guide)</a></li>
+<li class="pillar-link-item"><a href="/claude-opus-vs-sonnet-vs-haiku/">Claude Opus vs Sonnet vs Haiku — Full Model Break…</a></li>
+<li class="pillar-link-item"><a href="/prompt-library/">Claude Prompt Library — Community Prompts That Work</a></li>
+<li class="pillar-link-item"><a href="/claude-safety-features/">Claude Safety Features Explained — Complete Guide…</a></li>
+  </ul>
+  <a href="/#advanced" class="pillar-cta">Explore all <span class="pillar-cta-arrow">→</span></a>
+</article>
+
+      </div>
+
+      <!-- Stats bar -->
+      <div class="pillars-stats" aria-label="Site statistics">
+        <div class="pillars-stat">
+          <span class="stat-num">400+</span>
+          <span class="stat-label">Guides</span>
+        </div>
+        <div class="pillars-stat">
+          <span class="stat-num">8</span>
+          <span class="stat-label">Pillars</span>
+        </div>
+        <div class="pillars-stat">
+          <span class="stat-num">Free</span>
+          <span class="stat-label">Forever</span>
+        </div>
+        <div class="pillars-stat">
+          <span class="stat-num">2026</span>
+          <span class="stat-label">Updated</span>
+        </div>
+      </div>
+
+    </div>
   </section>
+  <!-- ===== END PREMIUM PILLARS SECTION ===== -->
 
 
   <!-- ===== WHY THIS ENCYCLOPAEDIA ===== -->
@@ -711,6 +1060,28 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
   })();
   </script>
   <!-- ===== END PREMIUM MOTION STACK ===== -->
+
+  <!-- ===== PILLAR CARDS INTERSECTION OBSERVER ===== -->
+  <script>
+  (function () {
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: show all immediately
+      document.querySelectorAll('.pillar-card').forEach(function (c) { c.classList.add('in-view'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var card  = entry.target;
+        var delay = parseInt(card.dataset.revealDelay || 0, 10);
+        setTimeout(function () { card.classList.add('in-view'); }, delay);
+        observer.unobserve(card);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.pillar-card').forEach(function (c) { observer.observe(c); });
+  })();
+  </script>
+  <!-- ===== END PILLAR CARDS INTERSECTION OBSERVER ===== -->
 
   <!-- ===== SCROLL-SCRUB JS ===== -->
   <script>

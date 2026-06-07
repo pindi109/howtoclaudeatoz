@@ -475,84 +475,75 @@ def first_n_sentences(text, n=2):
 # ---------------------------------------------------------------------------
 # Homepage nav HTML
 # ---------------------------------------------------------------------------
-PILLAR_ICONS = {
-    'getting-started':  'getting-started-compass.svg',
-    'writing-content':  'writing-content-pen-document.svg',
-    'seo':              'seo-search-rankings.svg',
-    'automation':       'automation-workflow-nodes.svg',
-    'video-voice':      'video-voice-media.svg',
-    'claude-code':      'claude-code-terminal.svg',
-    'business':         'business-productivity-dashboard.svg',
-    'advanced':         'advanced-ai-neural.svg',
-    'comparison-pages': 'comparison-analytics-chart.svg',
+# Premium pillar card metadata — display name, short descriptor, card number
+PILLAR_META = {
+    'getting-started': ('Getting Started',    'Your first steps with Claude AI',       '01'),
+    'writing-content': ('Writing & Content',  'Blogs, copy, emails and social',        '02'),
+    'seo':             ('Claude for SEO',     'Rank higher with AI-assisted SEO',      '03'),
+    'automation':      ('Automation',         'Agents, workflows and integrations',    '04'),
+    'video-voice':     ('Video & Voice',      'Scripts, voiceovers and AI video',      '05'),
+    'claude-code':     ('Claude Code',        'Build faster with Claude as co-pilot',  '06'),
+    'business':        ('Business',           'Streamline operations and decisions',   '07'),
+    'advanced':        ('Advanced',           'Prompting, models and deep dives',      '08'),
+}
+
+# Inline SVGs — gold stroke, 36×36 viewBox, stroke="currentColor"
+PILLAR_SVGS = {
+    'getting-started': '<svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="13"/><path d="M23 13l-5 9-5-2 5-9 5 2z"/><circle cx="18" cy="18" r="2" fill="currentColor" stroke="none" opacity=".6"/></svg>',
+    'writing-content': '<svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 26l2-6 13-13 4 4-13 13-6 2z"/><path d="M27 7l2 2"/><line x1="10" y1="30" x2="26" y2="30"/><line x1="16" y1="20" x2="20" y2="16"/></svg>',
+    'seo':             '<svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="15" cy="15" r="9"/><line x1="22" y1="22" x2="30" y2="30"/><path d="M11 19l3-5 3 3 3-5"/></svg>',
+    'automation':      '<svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="3" width="8" height="6" rx="1.5"/><rect x="3" y="27" width="8" height="6" rx="1.5"/><rect x="25" y="27" width="8" height="6" rx="1.5"/><line x1="18" y1="9" x2="18" y2="18"/><line x1="18" y1="18" x2="7" y2="27"/><line x1="18" y1="18" x2="29" y2="27"/><circle cx="18" cy="18" r="2.5" fill="currentColor" stroke="none" opacity=".5"/></svg>',
+    'video-voice':     '<svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="22" height="16" rx="2"/><path d="M26 16l6-4v10l-6-4"/><path d="M9 23V15"/><path d="M13 23v-5"/><path d="M17 23v-8"/><path d="M21 23v-3"/></svg>',
+    'claude-code':     '<svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="30" height="24" rx="2.5"/><line x1="3" y1="12" x2="33" y2="12"/><path d="M10 19l5 4-5 4"/><line x1="20" y1="27" x2="26" y2="27"/><circle cx="8" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="9" r="1" fill="currentColor" stroke="none"/></svg>',
+    'business':        '<svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="13" width="28" height="17" rx="2"/><path d="M13 13v-2a2 2 0 012-2h6a2 2 0 012 2v2"/><line x1="4" y1="22" x2="32" y2="22"/><line x1="17" y1="22" x2="17" y2="26"/><line x1="19" y1="22" x2="19" y2="26"/></svg>',
+    'advanced':        '<svg class="pillar-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="6"/><line x1="18" y1="4" x2="18" y2="8"/><line x1="18" y1="28" x2="18" y2="32"/><line x1="4" y1="18" x2="8" y2="18"/><line x1="28" y1="18" x2="32" y2="18"/><line x1="8.5" y1="8.5" x2="11.5" y2="11.5"/><line x1="24.5" y1="8.5" x2="27.5" y2="5.5"/><line x1="8.5" y1="27.5" x2="11.5" y2="24.5"/><line x1="24.5" y1="27.5" x2="27.5" y2="24.5"/></svg>',
 }
 
 
 def build_pillar_links(pages_by_pillar):
     """
-    Build the {{ pillar_links }} block for the homepage template.
-    Renders a Tailwind grid of pillar cards, each with up to 6 page links.
-    Comparison pages appear in a separate strip below.
+    Build {{ pillar_links }} — premium dark 4×2 grid of pillar cards.
+    Each card: watermark number, inline SVG icon, title, descriptor,
+    article count badge, 4 article links, Explore all CTA.
     """
     card_parts = []
-    for pillar_slug, pillar_name in PILLAR_NAMES.items():
-        if pillar_slug == 'comparison-pages':
-            continue
+    pillar_order = [k for k in PILLAR_NAMES if k != 'comparison-pages']
+
+    for idx, pillar_slug in enumerate(pillar_order):
         pages = pages_by_pillar.get(pillar_slug, [])
-        if not pages:
-            continue
-        icon_file = PILLAR_ICONS.get(pillar_slug, 'getting-started-compass.svg')
-        icon_img = (
-            f'<img src="/icons/{icon_file}" alt="{pillar_name} icon" '
-            f'class="w-12 h-12 rounded-xl object-cover shrink-0">'
-        )
+        meta  = PILLAR_META.get(pillar_slug, (pillar_slug, '', '0' + str(idx + 1)))
+        display_name, descriptor, num = meta
+        svg   = PILLAR_SVGS.get(pillar_slug, '')
+        total = len(pages)
+        delay = idx * 80   # 80ms stagger per card
+
         sorted_pages = sorted(pages, key=lambda x: x.get('title', ''))
-        links = ''
-        for fm in sorted_pages[:6]:
-            slug = fm.get('slug', '')
+        links_html = ''
+        for fm in sorted_pages[:4]:
+            slug  = fm.get('slug', '')
             title = fm.get('title', slug)
-            links += f'<li><a href="/{slug}/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline leading-snug block py-0.5">{title}</a></li>\n'
-        extra = len(sorted_pages) - 6
-        if extra > 0:
-            links += f'<li class="text-xs text-stone-400 pt-1">+ {extra} more guides</li>\n'
-        delay = (len(card_parts) % 4) * 75
+            # Truncate long titles to keep layout clean
+            if len(title) > 52:
+                title = title[:49] + '…'
+            links_html += (
+                f'<li class="pillar-link-item">'
+                f'<a href="/{slug}/">{title}</a>'
+                f'</li>\n'
+            )
+
         card_parts.append(
-            f'<div class="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all" data-aos="fade-up" data-aos-delay="{delay}" id="{pillar_slug}">'
-            f'<div class="flex items-center gap-3 mb-5">'
-            f'{icon_img}'
-            f'<h3 class="font-bold text-stone-900 text-base leading-tight">{pillar_name}</h3>'
-            f'</div>'
-            f'<ul class="space-y-0.5">{links}</ul>'
-            f'</div>'
+            f'<article class="pillar-card" data-reveal-delay="{delay}" id="{pillar_slug}">\n'
+            f'  <span class="pillar-num" aria-hidden="true">{num}</span>\n'
+            f'  {svg}\n'
+            f'  <h3 class="pillar-title">{display_name}</h3>\n'
+            f'  <p class="pillar-desc">{descriptor}</p>\n'
+            f'  <span class="pillar-badge">{total} guides</span>\n'
+            f'  <ul class="pillar-article-links">\n{links_html}  </ul>\n'
+            f'  <a href="/#{ pillar_slug}" class="pillar-cta">Explore all <span class="pillar-cta-arrow">→</span></a>\n'
+            f'</article>\n'
         )
 
-    grid = (
-        '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">\n'
-        + '\n'.join(card_parts)
-        + '\n</div>'
-    )
-
-    # Comparison pages strip
-    comparison_pages = sorted(
-        pages_by_pillar.get('comparison-pages', []),
-        key=lambda x: x.get('title', '')
-    )
-    if comparison_pages:
-        clinks = ''.join(
-            f'<li><a href="/{fm.get("slug", "")}/" class="text-sm text-amber-700 hover:text-amber-900 hover:underline">{fm.get("title", fm.get("slug", ""))}</a></li>'
-            for fm in comparison_pages
-        )
-        grid += (
-            '\n<div class="mt-10 p-6 bg-amber-50 border border-amber-100 rounded-2xl" id="comparison-pages">'
-            '<div class="flex items-center gap-3 mb-4">'
-            '<img src="/icons/comparison-analytics-chart.svg" alt="Comparison pages icon" class="w-10 h-10 rounded-lg object-cover shrink-0">'
-            '<h3 class="font-bold text-stone-900 text-base">Comparison &amp; Best-Of Pages</h3>'
-            '</div>'
-            f'<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">{clinks}</ul>'
-            '</div>'
-        )
-
-    return grid
+    return '\n'.join(card_parts)
 
 
 def build_page_nav_links(pages_by_pillar):
