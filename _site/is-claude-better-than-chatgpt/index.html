@@ -31,8 +31,9 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <style>
+    .pagefind-ui .pagefind-ui__search-input,
     .pagefind-ui__search-input {
-      background-position: calc(100% - 0.75rem) center !important;
+      background-position: right 0.75rem center !important;
       padding-left: 1rem !important;
       padding-right: 2.75rem !important;
     }
@@ -444,10 +445,17 @@
   <script src="/pagefind/pagefind-ui.js"></script>
   <script>
     new PagefindUI({ element: "#search", showSubResults: true });
-    // Duplicate instance for mobile search slot (only rendered when visible)
     if (document.getElementById('search-mobile')) {
       new PagefindUI({ element: "#search-mobile", showSubResults: true });
     }
+    function moveSearchIcon() {
+      document.querySelectorAll('.pagefind-ui__search-input').forEach(function(el) {
+        el.style.setProperty('background-position', 'right 0.75rem center', 'important');
+        el.style.setProperty('padding-left', '1rem', 'important');
+        el.style.setProperty('padding-right', '2.75rem', 'important');
+      });
+    }
+    setTimeout(moveSearchIcon, 50);
   </script>
 
   <!-- Mobile hamburger toggle -->
