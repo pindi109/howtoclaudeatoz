@@ -553,6 +553,126 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ── COMMUNITY WELCOME SECTION ── */
+    .community-section {
+      background: #080c12;
+      position: relative;
+      overflow: hidden;
+    }
+    .community-section::before {
+      content: '';
+      position: absolute; left: 0; right: 0; top: 0; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,168,76,.45), transparent);
+    }
+    .community-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4.5rem;
+    }
+    .community-label {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin-bottom: 1.1rem;
+    }
+    .community-heading {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 700;
+      color: #f5ead6;
+      line-height: 1.15;
+      margin: 0 0 3rem;
+    }
+    .community-heading span { color: #c9a84c; }
+
+    .community-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 767px) { .community-cols { grid-template-columns: 1fr; gap: 2rem; } }
+
+    .community-col .c-icon {
+      width: 40px; height: 40px;
+      color: #c9a84c;
+      margin-bottom: 1rem;
+    }
+    .community-col h3 {
+      font-family: 'Cinzel', serif;
+      font-size: .95rem;
+      font-weight: 600;
+      color: #f5ead6;
+      letter-spacing: .05em;
+      margin: 0 0 .6rem;
+    }
+    .community-col p {
+      font-size: .88rem;
+      color: rgba(245,234,214,.55);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .community-divider {
+      border: none;
+      border-top: 1px solid rgba(245,234,214,.1);
+      margin: 0 0 2.5rem;
+    }
+    .community-manifesto {
+      max-width: 680px;
+      font-size: clamp(.9rem, 1.4vw, 1rem);
+      color: rgba(245,234,214,.65);
+      line-height: 1.8;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+    .community-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+    .community-ctas .btn-gold {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: #c9a84c; color: #080c12;
+      font-size: .875rem; font-weight: 700;
+      padding: .75rem 1.75rem; border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+    .community-ctas .btn-gold:hover { background: #e8c87a; transform: translateY(-1px); }
+    .community-ctas .btn-ghost {
+      display: inline-flex; align-items: center;
+      background: transparent;
+      border: 1.5px solid rgba(201,168,76,.5);
+      color: rgba(245,234,214,.75);
+      font-size: .875rem; font-weight: 500;
+      padding: .75rem 1.75rem; border-radius: 50px;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+      white-space: nowrap;
+    }
+    .community-ctas .btn-ghost:hover { border-color: #c9a84c; color: #f5ead6; }
+    .community-share {
+      text-align: center;
+      font-size: .78rem;
+      color: rgba(245,234,214,.35);
+      margin: 0 0 1.1rem;
+      font-style: italic;
+    }
+    .community-disclaimer {
+      text-align: center;
+      font-size: .72rem;
+      color: rgba(245,234,214,.22);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans antialiased">
@@ -772,6 +892,71 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
     </div>
   </section>
   <!-- ===== END PREMIUM PILLARS SECTION ===== -->
+
+
+  <!-- ===== COMMUNITY WELCOME SECTION ===== -->
+  <section class="community-section" aria-labelledby="community-heading">
+    <div class="community-inner">
+
+      <p class="community-label">Join The Community</p>
+
+      <h2 class="community-heading no-anim" id="community-heading">
+        You've found your people.<br>
+        <span>Now let's build together.</span>
+      </h2>
+
+      <!-- Three pillars -->
+      <div class="community-cols">
+
+        <div class="community-col">
+          <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+          </svg>
+          <h3>Verified Community</h3>
+          <p>We use GitHub to verify every member. No bots, no spam, no noise — just people who actually build with Claude.</p>
+        </div>
+
+        <div class="community-col">
+          <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+          <h3>Ask Anything</h3>
+          <p>Comment on every guide, post your projects, share workflows, ask for help. If we haven't covered it yet — tell us and we'll update.</p>
+        </div>
+
+        <div class="community-col">
+          <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+          <h3>Grow Together</h3>
+          <p>Share URLs, find collaborators, connect with marketers and developers. We're a team of geeks who want to do well in life.</p>
+        </div>
+
+      </div>
+
+      <hr class="community-divider">
+
+      <p class="community-manifesto">
+        This entire site is written by Claude AI and updated daily. This is not a website for everyone — we're building something focused, high quality, and genuinely useful. Posts that aren't relevant get removed. If that sounds like your kind of place, you're home.
+      </p>
+
+      <div class="community-ctas">
+        <a href="https://github.com/signup" rel="noopener nofollow" target="_blank" class="btn-gold" data-magnetic>
+          Create a Free GitHub Account →
+        </a>
+        <a href="#search" class="btn-ghost">
+          I Already Have GitHub — Start Exploring
+        </a>
+      </div>
+
+      <p class="community-share">If this site has helped you — please share it with someone who'd benefit. We grow through word of mouth, not ads.</p>
+
+      <p class="community-disclaimer">We are not affiliated with GitHub and earn nothing from recommending it. We require GitHub verification to maintain community quality.</p>
+
+    </div>
+  </section>
+  <!-- ===== END COMMUNITY WELCOME SECTION ===== -->
 
 
   <!-- ===== WHY THIS ENCYCLOPAEDIA ===== -->
@@ -1234,6 +1419,45 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
   })();
   </script>
   <!-- ===== END CLAUDE CHAT WIDGET ===== -->
+
+  <!-- ===== FIRST VISIT MODAL ===== -->
+  <style>
+    #htcaz-overlay{position:fixed;inset:0;z-index:20000;background:rgba(0,0,0,.85);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity .4s ease;}
+    #htcaz-overlay.visible{opacity:1;}
+    #htcaz-modal{background:#080c12;border:1px solid #c9a84c;border-radius:16px;max-width:520px;width:100%;padding:3rem;position:relative;transform:scale(.95);transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
+    #htcaz-overlay.visible #htcaz-modal{transform:scale(1);}
+    #htcaz-modal-close{position:absolute;top:1.1rem;right:1.1rem;width:30px;height:30px;border-radius:50%;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:rgba(245,234,214,.55);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s;line-height:1;}
+    #htcaz-modal-close:hover{background:rgba(201,168,76,.2);color:#c9a84c;}
+    #htcaz-modal h2{font-family:'Cinzel',serif;font-size:clamp(1.3rem,3vw,1.65rem);font-weight:700;color:#c9a84c;letter-spacing:.03em;margin:0 0 1.25rem;}
+    #htcaz-modal p{font-size:1rem;color:rgba(245,234,214,.85);line-height:1.7;margin:0 0 1.75rem;}
+    #htcaz-modal .modal-btn-gold{display:block;width:100%;text-align:center;background:#c9a84c;color:#080c12;font-size:.9rem;font-weight:700;padding:.85rem 1.5rem;border-radius:50px;text-decoration:none;margin-bottom:1rem;transition:background .2s;}
+    #htcaz-modal .modal-btn-gold:hover{background:#e8c87a;}
+    #htcaz-modal .modal-link{display:block;text-align:center;font-size:.82rem;color:rgba(245,234,214,.45);text-decoration:none;cursor:pointer;transition:color .15s;}
+    #htcaz-modal .modal-link:hover{color:#c9a84c;}
+    @media(max-width:479px){#htcaz-modal{border-radius:0;max-width:100%;padding:1.5rem;}#htcaz-overlay{padding:0;align-items:flex-end;}}
+  </style>
+  <div id="htcaz-overlay" aria-modal="true" role="dialog" aria-labelledby="htcaz-modal-title" style="display:none;">
+    <div id="htcaz-modal">
+      <button id="htcaz-modal-close" aria-label="Close">✕</button>
+      <h2 id="htcaz-modal-title">Welcome to How To Claude</h2>
+      <p>HowToClaudeAtoZ is a free, living encyclopaedia covering every Claude AI use case, workflow, integration, and prompt technique — written by Claude itself and updated daily.<br><br>Our community lives in GitHub Discussions: comment on guides, share projects, ask questions, and connect with other builders. To keep things spam-free and high quality, participation requires a free GitHub account. It takes 60 seconds to set up.</p>
+      <a href="https://github.com/signup" rel="noopener nofollow" target="_blank" class="modal-btn-gold">Get a Free GitHub Account →</a>
+      <a class="modal-link" id="htcaz-modal-dismiss">I already have GitHub — let me in</a>
+    </div>
+  </div>
+  <script>
+  (function(){
+    if(localStorage.getItem('htcaz_welcomed'))return;
+    var ov=document.getElementById('htcaz-overlay'),cb=document.getElementById('htcaz-modal-close'),dl=document.getElementById('htcaz-modal-dismiss');
+    if(!ov)return;
+    function dismiss(){ov.classList.remove('visible');ov.style.pointerEvents='none';setTimeout(function(){ov.style.display='none';},420);localStorage.setItem('htcaz_welcomed','true');}
+    setTimeout(function(){ov.style.display='flex';requestAnimationFrame(function(){requestAnimationFrame(function(){ov.classList.add('visible');});});},1500);
+    cb.addEventListener('click',dismiss);dl.addEventListener('click',dismiss);
+    ov.addEventListener('click',function(e){if(e.target===ov)dismiss();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')dismiss();});
+  })();
+  </script>
+  <!-- ===== END FIRST VISIT MODAL ===== -->
 
 </body>
 </html>

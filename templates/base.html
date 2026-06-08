@@ -433,5 +433,121 @@
   </script>
   <!-- ===== END PREMIUM MOTION STACK ===== -->
 
+  <!-- ===== FIRST VISIT MODAL ===== -->
+  <style>
+    #htcaz-overlay {
+      position: fixed; inset: 0; z-index: 20000;
+      background: rgba(0,0,0,.85);
+      backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; transition: opacity .4s ease;
+    }
+    #htcaz-overlay.visible { opacity: 1; }
+    #htcaz-modal {
+      background: #080c12;
+      border: 1px solid #c9a84c;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 3rem;
+      position: relative;
+      transform: scale(.95);
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+    }
+    #htcaz-overlay.visible #htcaz-modal { transform: scale(1); }
+    #htcaz-modal-close {
+      position: absolute; top: 1.1rem; right: 1.1rem;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.25);
+      color: rgba(245,234,214,.55); font-size: .85rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, color .15s; line-height: 1;
+    }
+    #htcaz-modal-close:hover { background: rgba(201,168,76,.2); color: #c9a84c; }
+    #htcaz-modal h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.3rem, 3vw, 1.65rem);
+      font-weight: 700; color: #c9a84c;
+      letter-spacing: .03em; margin: 0 0 1.25rem;
+    }
+    #htcaz-modal p {
+      font-size: 1rem; color: rgba(245,234,214,.85);
+      line-height: 1.7; margin: 0 0 1.75rem;
+    }
+    #htcaz-modal .modal-btn-gold {
+      display: block; width: 100%; text-align: center;
+      background: #c9a84c; color: #080c12;
+      font-size: .9rem; font-weight: 700;
+      padding: .85rem 1.5rem; border-radius: 50px;
+      text-decoration: none; margin-bottom: 1rem;
+      transition: background .2s;
+    }
+    #htcaz-modal .modal-btn-gold:hover { background: #e8c87a; }
+    #htcaz-modal .modal-link {
+      display: block; text-align: center;
+      font-size: .82rem; color: rgba(245,234,214,.45);
+      text-decoration: none; cursor: pointer;
+      transition: color .15s;
+    }
+    #htcaz-modal .modal-link:hover { color: #c9a84c; }
+    @media (max-width: 479px) {
+      #htcaz-modal { border-radius: 0; max-width: 100%; padding: 1.5rem; }
+      #htcaz-overlay { padding: 0; align-items: flex-end; }
+    }
+  </style>
+
+  <div id="htcaz-overlay" aria-modal="true" role="dialog" aria-labelledby="htcaz-modal-title" style="display:none;">
+    <div id="htcaz-modal">
+      <button id="htcaz-modal-close" aria-label="Close">✕</button>
+      <h2 id="htcaz-modal-title">Welcome to How To Claude</h2>
+      <p>
+        HowToClaudeAtoZ is a free, living encyclopaedia covering every Claude AI use case, workflow, integration, and prompt technique — written by Claude itself and updated daily.<br><br>
+        Our community lives in GitHub Discussions: comment on guides, share projects, ask questions, and connect with other builders. To keep things spam-free and high quality, participation requires a free GitHub account. It takes 60 seconds to set up and you'll need it to join the conversation.
+      </p>
+      <a href="https://github.com/signup" rel="noopener nofollow" target="_blank" class="modal-btn-gold">
+        Get a Free GitHub Account →
+      </a>
+      <a class="modal-link" id="htcaz-modal-dismiss">
+        I already have GitHub — let me in
+      </a>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    if (localStorage.getItem('htcaz_welcomed')) return;
+
+    var overlay = document.getElementById('htcaz-overlay');
+    var closeBtn = document.getElementById('htcaz-modal-close');
+    var dismissLink = document.getElementById('htcaz-modal-dismiss');
+    if (!overlay) return;
+
+    function dismiss() {
+      overlay.classList.remove('visible');
+      overlay.style.pointerEvents = 'none';
+      setTimeout(function () { overlay.style.display = 'none'; }, 420);
+      localStorage.setItem('htcaz_welcomed', 'true');
+    }
+
+    setTimeout(function () {
+      overlay.style.display = 'flex';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { overlay.classList.add('visible'); });
+      });
+    }, 1500);
+
+    closeBtn.addEventListener('click', dismiss);
+    dismissLink.addEventListener('click', dismiss);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) dismiss();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') dismiss();
+    });
+  })();
+  </script>
+  <!-- ===== END FIRST VISIT MODAL ===== -->
+
 </body>
 </html>

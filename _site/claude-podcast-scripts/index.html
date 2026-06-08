@@ -697,6 +697,20 @@
   </main>
   <!-- ===== END ARTICLE PAGE ===== -->
 
+  <!-- ===== GITHUB CTA STRIP ===== -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+    <div style="background:#13100a;border-left:3px solid #c9a84c;border-radius:0 8px 8px 0;padding:.9rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;">
+      <p style="margin:0;font-size:.82rem;color:rgba(245,234,214,.6);line-height:1.5;">
+        To join the discussion below you'll need a free GitHub account — it takes 60 seconds and keeps our community spam-free.
+      </p>
+      <a href="https://github.com/signup" rel="noopener nofollow" target="_blank"
+         style="color:#c9a84c;font-size:.78rem;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;">
+        Get GitHub Free →
+      </a>
+    </div>
+  </div>
+  <!-- ===== END GITHUB CTA STRIP ===== -->
+
   <!-- ===== GISCUS COMMENTS ===== -->
   <section id="comments" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-0 mb-16">
     <div class="bg-stone-900 rounded-2xl p-6 sm:p-8" style="border-top: 4px solid #d97706;">
@@ -1213,6 +1227,45 @@
   })();
   </script>
   <!-- ===== END CLAUDE CHAT WIDGET ===== -->
+
+  <!-- ===== FIRST VISIT MODAL ===== -->
+  <style>
+    #htcaz-overlay{position:fixed;inset:0;z-index:20000;background:rgba(0,0,0,.85);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity .4s ease;}
+    #htcaz-overlay.visible{opacity:1;}
+    #htcaz-modal{background:#080c12;border:1px solid #c9a84c;border-radius:16px;max-width:520px;width:100%;padding:3rem;position:relative;transform:scale(.95);transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
+    #htcaz-overlay.visible #htcaz-modal{transform:scale(1);}
+    #htcaz-modal-close{position:absolute;top:1.1rem;right:1.1rem;width:30px;height:30px;border-radius:50%;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:rgba(245,234,214,.55);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s;line-height:1;}
+    #htcaz-modal-close:hover{background:rgba(201,168,76,.2);color:#c9a84c;}
+    #htcaz-modal h2{font-family:'Cinzel',serif;font-size:clamp(1.3rem,3vw,1.65rem);font-weight:700;color:#c9a84c;letter-spacing:.03em;margin:0 0 1.25rem;}
+    #htcaz-modal p{font-size:1rem;color:rgba(245,234,214,.85);line-height:1.7;margin:0 0 1.75rem;}
+    #htcaz-modal .modal-btn-gold{display:block;width:100%;text-align:center;background:#c9a84c;color:#080c12;font-size:.9rem;font-weight:700;padding:.85rem 1.5rem;border-radius:50px;text-decoration:none;margin-bottom:1rem;transition:background .2s;}
+    #htcaz-modal .modal-btn-gold:hover{background:#e8c87a;}
+    #htcaz-modal .modal-link{display:block;text-align:center;font-size:.82rem;color:rgba(245,234,214,.45);text-decoration:none;cursor:pointer;transition:color .15s;}
+    #htcaz-modal .modal-link:hover{color:#c9a84c;}
+    @media(max-width:479px){#htcaz-modal{border-radius:0;max-width:100%;padding:1.5rem;}#htcaz-overlay{padding:0;align-items:flex-end;}}
+  </style>
+  <div id="htcaz-overlay" aria-modal="true" role="dialog" aria-labelledby="htcaz-modal-title" style="display:none;">
+    <div id="htcaz-modal">
+      <button id="htcaz-modal-close" aria-label="Close">✕</button>
+      <h2 id="htcaz-modal-title">Welcome to How To Claude</h2>
+      <p>HowToClaudeAtoZ is a free, living encyclopaedia covering every Claude AI use case, workflow, integration, and prompt technique — written by Claude itself and updated daily.<br><br>Our community lives in GitHub Discussions: comment on guides, share projects, ask questions, and connect with other builders. To keep things spam-free and high quality, participation requires a free GitHub account. It takes 60 seconds to set up.</p>
+      <a href="https://github.com/signup" rel="noopener nofollow" target="_blank" class="modal-btn-gold">Get a Free GitHub Account →</a>
+      <a class="modal-link" id="htcaz-modal-dismiss">I already have GitHub — let me in</a>
+    </div>
+  </div>
+  <script>
+  (function(){
+    if(localStorage.getItem('htcaz_welcomed'))return;
+    var ov=document.getElementById('htcaz-overlay'),cb=document.getElementById('htcaz-modal-close'),dl=document.getElementById('htcaz-modal-dismiss');
+    if(!ov)return;
+    function dismiss(){ov.classList.remove('visible');ov.style.pointerEvents='none';setTimeout(function(){ov.style.display='none';},420);localStorage.setItem('htcaz_welcomed','true');}
+    setTimeout(function(){ov.style.display='flex';requestAnimationFrame(function(){requestAnimationFrame(function(){ov.classList.add('visible');});});},1500);
+    cb.addEventListener('click',dismiss);dl.addEventListener('click',dismiss);
+    ov.addEventListener('click',function(e){if(e.target===ov)dismiss();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')dismiss();});
+  })();
+  </script>
+  <!-- ===== END FIRST VISIT MODAL ===== -->
 
 </body>
 </html>
