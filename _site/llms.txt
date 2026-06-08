@@ -108,3 +108,9 @@
 - [Best SEO Tools That Work with Claude (2026 Guide)](https://howtoclaudeatoz.com/best-seo-tools-for-claude/) — Surfer SEO, Scalenut, Mangools, Ahrefs and Semrush compared — the best SEO tools that work with Claude for content optimisation in 2026.
 - [Claude Pricing Guide 2026 — Free, Pro, Max, Team and API](https://howtoclaudeatoz.com/claude-pricing-guide/) — Complete Claude pricing guide for 2026 — Free, Pro ($20), Max ($100), Team and API plans compared with token costs and real usage examples.
 - [Is Claude Better Than ChatGPT? (2026 Honest Verdict)](https://howtoclaudeatoz.com/is-claude-better-than-chatgpt/) — Claude vs ChatGPT 2026 — honest, detailed comparison across 10 criteria.
+
+## Legal
+- [About HowToClaudeAtoZ](https://howtoclaudeatoz.com/about/) — HowToClaudeAtoZ is a Claude AI encyclopaedia operated by Level up IT Solutions Ltd.
+- [Affiliate Disclosure](https://howtoclaudeatoz.com/affiliate-disclosure/) — Affiliate Disclosure for HowToClaudeAtoZ.com.
+- [Privacy Policy](https://howtoclaudeatoz.com/privacy-policy/) — Privacy Policy for HowToClaudeAtoZ, operated by Level up IT Solutions Ltd.
+- [Terms & Conditions](https://howtoclaudeatoz.com/terms/) — Terms and Conditions for HowToClaudeAtoZ.com, operated by Level up IT Solutions Ltd.

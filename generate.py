@@ -397,6 +397,7 @@ PILLAR_NAMES = {
     'business':           'Claude for Business & Productivity',
     'advanced':           'Advanced Claude',
     'comparison-pages':   'Comparison Pages',
+    'legal':              'Legal',
 }
 
 

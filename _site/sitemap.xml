@@ -7,6 +7,18 @@
     <lastmod>2026-06-08</lastmod>
   </url>
   <url>
+    <loc>https://howtoclaudeatoz.com/about/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://howtoclaudeatoz.com/affiliate-disclosure/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
     <loc>https://howtoclaudeatoz.com/best-ai-automation-tools/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -529,6 +541,12 @@
     <lastmod>2026-06-07</lastmod>
   </url>
   <url>
+    <loc>https://howtoclaudeatoz.com/privacy-policy/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
     <loc>https://howtoclaudeatoz.com/prompt-library/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -539,5 +557,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-07</lastmod>
+  </url>
+  <url>
+    <loc>https://howtoclaudeatoz.com/terms/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-08</lastmod>
   </url>
 </urlset>
