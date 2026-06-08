@@ -1133,5 +1133,107 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
     })();
   </script>
 
+  <!-- ===== CLAUDE CHAT WIDGET ===== -->
+  <div id="claude-widget">
+    <button id="claude-widget-btn" aria-label="Ask Claude — AI assistant" aria-expanded="false" aria-controls="claude-chat-panel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3l1.4 4.2L18 9l-4.6 1.8L12 15l-1.4-4.2L6 9l4.6-1.8L12 3z"/>
+        <path d="M19 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2z"/>
+        <path d="M5 7l.5 1.5L7 9l-1.5.5L5 11l-.5-1.5L3 9l1.5-.5L5 7z"/>
+      </svg>
+    </button>
+    <div id="claude-chat-panel" role="dialog" aria-label="Claude AI assistant" aria-modal="true" aria-hidden="true">
+      <div id="cw-header">
+        <div><h3>Ask Claude</h3><span>AI expert — always on</span></div>
+        <button id="cw-close" aria-label="Close chat">✕</button>
+      </div>
+      <div id="cw-messages" role="log" aria-live="polite"></div>
+      <div id="cw-suggestions" style="display:none"></div>
+      <div id="cw-input-row">
+        <input id="cw-input" type="text" placeholder="Ask anything about Claude AI…" autocomplete="off" aria-label="Chat input">
+        <button id="cw-send" aria-label="Send message">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #claude-widget{position:fixed;bottom:24px;right:24px;z-index:10000;font-family:'Inter',system-ui,sans-serif;}
+    #claude-widget-btn{width:56px;height:56px;border-radius:50%;background:#c9a84c;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(201,168,76,.45);transition:transform .2s,box-shadow .2s;animation:cw-pulse 2.8s ease-in-out infinite;position:relative;z-index:10001;}
+    #claude-widget-btn:hover{transform:scale(1.08);animation:none;}
+    #claude-widget-btn.cw-open{animation:none;}
+    #claude-widget-btn svg{width:24px;height:24px;color:#080c12;}
+    @keyframes cw-pulse{0%,100%{box-shadow:0 4px 20px rgba(201,168,76,.45),0 0 0 0 rgba(201,168,76,.35);}50%{box-shadow:0 4px 20px rgba(201,168,76,.45),0 0 0 11px rgba(201,168,76,0);}}
+    #claude-chat-panel{position:absolute;bottom:68px;right:0;width:380px;height:520px;background:#080c12;border:1px solid rgba(201,168,76,.25);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.65);transform:scale(.93) translateY(10px);transform-origin:bottom right;opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .22s ease;}
+    #claude-chat-panel.cw-open{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
+    #cw-header{display:flex;align-items:center;justify-content:space-between;padding:15px 17px;border-bottom:1px solid rgba(201,168,76,.15);background:#0a0e17;flex-shrink:0;}
+    #cw-header h3{font-family:'Cinzel',serif;font-size:.9rem;font-weight:600;color:#c9a84c;margin:0 0 2px;letter-spacing:.06em;}
+    #cw-header span{font-size:.68rem;color:rgba(245,234,214,.38);font-style:italic;}
+    #cw-close{width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);color:rgba(245,234,214,.55);font-size:.8rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s;}
+    #cw-close:hover{background:rgba(201,168,76,.2);color:#c9a84c;}
+    #cw-messages{flex:1;overflow-y:auto;padding:14px 14px 6px;display:flex;flex-direction:column;gap:9px;scroll-behavior:smooth;}
+    #cw-messages::-webkit-scrollbar{width:3px;}#cw-messages::-webkit-scrollbar-thumb{background:rgba(201,168,76,.18);border-radius:2px;}
+    .cw-msg{display:flex;flex-direction:column;max-width:90%;gap:3px;}
+    .cw-msg.cw-user{align-self:flex-end;align-items:flex-end;}.cw-msg.cw-bot{align-self:flex-start;align-items:flex-start;}
+    .cw-bubble{padding:9px 13px;line-height:1.55;font-size:.82rem;word-break:break-word;white-space:pre-wrap;}
+    .cw-msg.cw-user .cw-bubble{background:#c9a84c;color:#080c12;font-weight:500;border-radius:16px 16px 4px 16px;}
+    .cw-msg.cw-bot .cw-bubble{background:#0d1520;color:#f5ead6;border:1px solid rgba(201,168,76,.12);border-radius:16px 16px 16px 4px;}
+    .cw-time{font-size:.62rem;color:rgba(245,234,214,.25);padding:0 4px;}
+    .cw-typing{display:flex;align-items:center;gap:4px;padding:10px 14px;background:#0d1520;border:1px solid rgba(201,168,76,.12);border-radius:16px 16px 16px 4px;width:fit-content;}
+    .cw-dot{width:6px;height:6px;border-radius:50%;background:#c9a84c;animation:cw-dots 1.2s ease-in-out infinite;}
+    .cw-dot:nth-child(2){animation-delay:.18s;}.cw-dot:nth-child(3){animation-delay:.36s;}
+    @keyframes cw-dots{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
+    #cw-suggestions{padding:6px 14px 10px;display:flex;flex-direction:column;gap:5px;flex-shrink:0;}
+    .cw-sugg{background:transparent;border:1px solid rgba(201,168,76,.28);color:rgba(245,234,214,.65);font-size:.77rem;padding:7px 12px;border-radius:20px;cursor:pointer;text-align:left;transition:background .15s,color .15s,border-color .15s;font-family:inherit;}
+    .cw-sugg:hover{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.55);color:#f5ead6;}
+    #cw-input-row{display:flex;align-items:center;gap:7px;padding:11px 13px;border-top:1px solid rgba(201,168,76,.15);background:#0a0e17;flex-shrink:0;}
+    #cw-input{flex:1;background:#111827;border:1px solid rgba(201,168,76,.2);border-radius:20px;padding:8px 14px;color:#f5ead6;font-size:.82rem;font-family:inherit;outline:none;transition:border-color .2s;min-width:0;}
+    #cw-input::placeholder{color:rgba(245,234,214,.28);}#cw-input:focus{border-color:rgba(201,168,76,.48);}
+    #cw-send{width:34px;height:34px;border-radius:50%;background:#c9a84c;border:none;color:#080c12;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,transform .15s;}
+    #cw-send:hover{background:#e8c87a;transform:scale(1.08);}#cw-send:disabled{background:rgba(201,168,76,.3);cursor:not-allowed;transform:none;}
+    @media(max-width:767px){#claude-widget{bottom:16px;right:16px;}#claude-chat-panel.cw-open{position:fixed;inset:0;width:100%;height:100%;border-radius:0;transform:scale(1) translateY(0)!important;}}
+  </style>
+
+  <script>
+  (function(){
+    'use strict';
+    var PAGE={title:'HowToClaudeAtoZ — Claude AI Encyclopaedia',pillar:'getting-started',keyword:'Claude AI'};
+    var SUGG={'getting-started':["What's the difference between Claude Free and Pro?","How do I write my first prompt in Claude?","What can Claude do that ChatGPT can't?"]};
+    var DEFAULT_SUGG=["What can Claude help me with?","How do I get started with Claude AI?","What are the best Claude AI features?"];
+    var RL_KEY='htcaz_rl_v1';
+    function getRL(){try{return JSON.parse(localStorage.getItem(RL_KEY)||'{}')}catch{return{}}}
+    function saveRL(d){try{localStorage.setItem(RL_KEY,JSON.stringify(d))}catch{}}
+    function isLimited(){var d=getRL(),t=new Date().toDateString();return d.date===t&&(d.count||0)>=10;}
+    function incrementRL(){var d=getRL(),t=new Date().toDateString();saveRL({date:t,count:d.date===t?(d.count||0)+1:1});}
+    var history=[];
+    var widgetBtn=document.getElementById('claude-widget-btn'),panel=document.getElementById('claude-chat-panel'),closeBtn=document.getElementById('cw-close'),msgArea=document.getElementById('cw-messages'),suggArea=document.getElementById('cw-suggestions'),input=document.getElementById('cw-input'),sendBtn=document.getElementById('cw-send');
+    if(!widgetBtn||!panel)return;
+    var isOpen=false,suggShown=false,typingEl=null;
+    function open(){isOpen=true;panel.classList.add('cw-open');widgetBtn.classList.add('cw-open');widgetBtn.setAttribute('aria-expanded','true');panel.setAttribute('aria-hidden','false');input.focus();if(!suggShown&&msgArea.childElementCount===0){showSugg();suggShown=true;}}
+    function close(){isOpen=false;panel.classList.remove('cw-open');widgetBtn.classList.remove('cw-open');widgetBtn.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');}
+    widgetBtn.addEventListener('click',function(){isOpen?close():open();});
+    closeBtn.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)close();});
+    function showSugg(){var qs=SUGG[PAGE.pillar]||DEFAULT_SUGG;suggArea.innerHTML='';qs.forEach(function(q){var b=document.createElement('button');b.className='cw-sugg';b.textContent=q;b.addEventListener('click',function(){suggArea.style.display='none';send(q);});suggArea.appendChild(b);});suggArea.style.display='flex';}
+    function fmtTime(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});}
+    function appendMsg(role,text){var w=document.createElement('div');w.className='cw-msg '+(role==='user'?'cw-user':'cw-bot');var b=document.createElement('div');b.className='cw-bubble';b.textContent=text;var t=document.createElement('div');t.className='cw-time';t.textContent=fmtTime();w.appendChild(b);w.appendChild(t);msgArea.appendChild(w);msgArea.scrollTop=msgArea.scrollHeight;return w;}
+    function showTyping(){var w=document.createElement('div');w.className='cw-msg cw-bot';w.id='cw-typing';var i=document.createElement('div');i.className='cw-typing';for(var n=0;n<3;n++){var d=document.createElement('div');d.className='cw-dot';i.appendChild(d);}w.appendChild(i);msgArea.appendChild(w);msgArea.scrollTop=msgArea.scrollHeight;typingEl=w;}
+    function hideTyping(){if(typingEl){typingEl.remove();typingEl=null;}}
+    function send(text){text=text.trim();if(!text)return;
+      if(isLimited()){var w=document.createElement('div');w.className='cw-msg cw-bot';var b=document.createElement('div');b.className='cw-bubble';b.style.cssText='color:rgba(245,234,214,.45);font-style:italic;';b.textContent="You\u2019ve asked 10 questions today \u2014 come back tomorrow!";w.appendChild(b);msgArea.appendChild(w);return;}
+      if(suggArea)suggArea.style.display='none';
+      appendMsg('user',text);input.value='';sendBtn.disabled=true;input.disabled=true;showTyping();
+      fetch('/.netlify/functions/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,pageContext:PAGE,history:history.slice(-12)})})
+      .then(function(r){hideTyping();if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+      .then(function(data){var a=(data&&data.response)||'Something went wrong \u2014 try again.';appendMsg('bot',a);history.push({role:'user',content:text});history.push({role:'assistant',content:a});if(history.length>12)history=history.slice(-12);incrementRL();})
+      .catch(function(){hideTyping();appendMsg('bot','Something went wrong \u2014 try again.');})
+      .finally(function(){sendBtn.disabled=false;input.disabled=false;input.focus();});}
+    sendBtn.addEventListener('click',function(){send(input.value);});
+    input.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send(input.value);}});
+  })();
+  </script>
+  <!-- ===== END CLAUDE CHAT WIDGET ===== -->
+
 </body>
 </html>
