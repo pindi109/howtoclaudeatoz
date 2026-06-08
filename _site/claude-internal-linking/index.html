@@ -257,7 +257,7 @@
     #cw-messages::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.5); border-radius: 3px; }
     #cw-messages::-webkit-scrollbar-thumb:hover { background: rgba(201,168,76,0.8); }
     /* Firefox */
-    #cw-messages { scrollbar-width: thin; scrollbar-color: rgba(201,168,76,0.5) rgba(255,255,255,0.04); }
+    #cw-messages { scrollbar-width: thin; scrollbar-color: rgba(201,168,76,0.5) rgba(255,255,255,0.04); overscroll-behavior: contain; }
 
     .cw-msg { display: flex; flex-direction: column; max-width: 90%; gap: 3px; }
     .cw-msg.cw-user  { align-self: flex-end; align-items: flex-end; }
