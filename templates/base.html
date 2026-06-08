@@ -79,6 +79,7 @@
       z-index: var(--z-page-wipe, 8000);
       transform: translateX(-100%);
       pointer-events: none;
+      transition: transform 0.38s cubic-bezier(0.76, 0, 0.24, 1);
     }
 
     /* ── FLUID TYPOGRAPHY (global baseline) ── */
@@ -389,29 +390,37 @@
       });
     }
 
-    /* ── 6. PAGE TRANSITION WIPE ── */
-    if (typeof gsap !== 'undefined') {
+    /* ── 6. PAGE TRANSITION WIPE — CSS transitions, no GSAP dependency ── */
+    (function () {
       var wipe = document.getElementById('page-wipe');
-      if (wipe) {
-        /* Wipe out on load */
-        gsap.fromTo(wipe, { x: '0%' }, { x: '100%', duration: 0.45, ease: 'power2.in', delay: 0.05 });
+      if (!wipe) return;
 
-        /* Wipe in on internal navigation */
-        document.querySelectorAll('a[href]').forEach(function (link) {
-          var href = link.getAttribute('href') || '';
-          if (!href || href.charAt(0) === '#' || /^(https?:|mailto:|tel:|javascript:)/.test(href) || link.target === '_blank') return;
-          link.addEventListener('click', function (e) {
-            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-            e.preventDefault();
-            var dest = href;
-            gsap.fromTo(wipe, { x: '-100%' }, {
-              x: '0%', duration: 0.35, ease: 'power2.out',
-              onComplete: function () { window.location.href = dest; }
-            });
+      if (sessionStorage.getItem('htcaz-wipe') === '1') {
+        sessionStorage.removeItem('htcaz-wipe');
+        wipe.style.transition = 'none';
+        wipe.style.transform  = 'translateX(0%)';
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            wipe.style.transition = '';
+            wipe.style.transform  = 'translateX(100%)';
           });
         });
       }
-    }
+
+      document.querySelectorAll('a[href]').forEach(function (link) {
+        var href = link.getAttribute('href') || '';
+        if (!href || href.includes('#') || /^(https?:|mailto:|tel:|javascript:)/.test(href) || link.target === '_blank') return;
+        link.addEventListener('click', function (e) {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          e.preventDefault();
+          var dest = href;
+          sessionStorage.setItem('htcaz-wipe', '1');
+          wipe.style.transition = '';
+          wipe.style.transform  = 'translateX(0%)';
+          setTimeout(function () { window.location.href = dest; }, 400);
+        });
+      });
+    })();
 
   })();
   </script>
