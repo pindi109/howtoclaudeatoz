@@ -20,6 +20,8 @@ faq:
   - q: "What is Gemini best at?"
     a: "Google Gemini is best at tasks that integrate with Google products. It performs well inside Google Docs, Sheets, and Gmail through Google Workspace integration. Gemini 1.5 Pro offers a 1,000,000-token context window — the largest available — making it strong for very long document processing. It also benefits from native Google Search integration for real-time information retrieval."
 summary: "Claude, ChatGPT, and Gemini are the three leading AI assistants in 2026. Claude leads on writing quality and long-document analysis, ChatGPT leads on integrations and tool use, and Gemini leads on Google Workspace integration and maximum context length."
+hero_image: "/assets/images/heroes/photo-064-122100377553357116.jpg"
+hero_alt: "Claude leads on nuanced writing and long-document reasoning, ChatGPT on integrations and ecosystem breadth, and Gemini on Google Workspace and the largest context window of the three — all covered in one factual breakdown."
 ---
 
 # Claude vs ChatGPT vs Gemini — Honest 2026 Comparison

@@ -19,6 +19,8 @@ faq:
   - q: "Can you use Claude and Copilot together?"
     a: "Yes — many developers run both simultaneously. GitHub Copilot handles autocomplete inside VS Code or JetBrains while Claude Code handles larger tasks in the terminal. There is no conflict. The combination gives you line-level autocomplete speed from Copilot and deep codebase reasoning from Claude Code."
 summary: "Claude and GitHub Copilot are the two dominant AI coding tools in 2026, but they work very differently — Copilot lives inside your IDE for autocomplete, Claude Code lives in your terminal for agentic development. This comparison covers 10 criteria with a detailed table and a clear verdict on which to use when."
+hero_image: "/assets/images/heroes/photo-021-122100404109357116.jpg"
+hero_alt: "GitHub Copilot autocompletes as you type — Claude Code reads your entire codebase, makes multi-file changes, and runs tests autonomously."
 ---
 
 # Claude vs GitHub Copilot — Developer Comparison (2026)

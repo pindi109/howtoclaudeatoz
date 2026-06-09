@@ -19,6 +19,8 @@ faq:
   - q: "Can I save prompts in Claude?"
     a: "As of 2026, Claude does not have a native prompt library feature in Claude.ai. The practical solution is to maintain a personal prompt document — a Google Doc or Notion page — where you store your best templates. Paste the relevant template at the start of each session. Some users also use Claude's Projects feature to set a persistent system prompt for a specific writing project."
 summary: "Twenty production-ready Claude prompt templates for writers, covering blog posts, SEO content, emails, social media, copywriting, and editing. Each template includes instructions for customisation so you can adapt them to your niche, tone, and goals."
+hero_image: "/assets/images/heroes/photo-058-122100381639357116.jpg"
+hero_alt: "20 ready-to-use Claude prompt templates for writers — covering blog posts, emails, social media, copywriting, and editing, all with customisation notes so you can adapt them to your voice and brief."
 ---
 
 # Claude Prompt Templates for Writers — 20 Ready-to-Use Prompts (2026)

@@ -20,6 +20,8 @@ faq:
   - q: "Can Claude write local landing pages?"
     a: "Yes. Claude is excellent for local landing pages. Give it your service type, city/area, target customer, and any local specifics (landmarks, local regulations, local statistics), and it will write a full localised landing page that avoids the generic 'we serve [city]' filler content that fails to rank. The key is providing local context so the content is genuinely location-specific."
 summary: "Claude is a practical tool for every content task in local SEO — from Google Business Profile copy and review responses to local landing pages and citation templates. This guide covers all the key use cases with prompts you can use immediately."
+hero_image: "/assets/images/heroes/photo-053-122100386187357116.jpg"
+hero_alt: "Google Business Profile posts, review responses, local landing pages, and citation templates — Claude handles all the writing that drives local rankings, and this guide includes ready-to-use prompts for each one."
 ---
 
 # Claude for Local SEO — Complete Business Guide (2026)

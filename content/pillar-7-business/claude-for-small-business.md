@@ -21,6 +21,8 @@ faq:
   - q: "What tasks can Claude replace for SMBs?"
     a: "Claude can replace or substantially reduce time spent on: writing website and product copy, drafting customer service replies, creating email sequences, producing social media captions, writing job ads, summarising documents, drafting contracts and policy templates, and generating first-draft reports. It does not replace specialist professional advice — legal, financial, or medical."
 summary: "Claude for small business gives SMB owners a capable AI assistant for marketing, communications, admin, and automation — without hiring extra staff. This guide covers the top 10 use cases, a realistic cost-vs-value breakdown, and exactly where to start."
+hero_image: "/assets/images/heroes/photo-015-122100409539357116.jpg"
+hero_alt: "Claude can replace hours of weekly admin — writing proposals, drafting SOPs, handling customer enquiries, and building email campaigns without a freelancer in sight."
 ---
 
 # Claude for Small Business Owners — Complete Guide (2026)

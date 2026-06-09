@@ -21,6 +21,8 @@ faq:
   - q: "What does Surfer SEO do that Claude can't?"
     a: "Surfer SEO analyses the top 10-20 SERP results for your keyword and extracts precise data: optimal word count, NLP keyword list with usage frequencies, heading structure benchmarks, and a real-time content score. Claude cannot access live SERP data. Surfer's strength is data; Claude's strength is writing and reasoning. Together they cover all bases."
 summary: "The Claude + Surfer SEO workflow is the most effective approach to data-driven content creation in 2026. Surfer provides the SERP data and scoring; Claude provides the writing and reasoning. This guide covers every step from brief to published, optimised article."
+hero_image: "/assets/images/heroes/photo-083-122100323871357116.jpg"
+hero_alt: "Running Claude and Surfer SEO together produces content that scores well on both quality and ranking signals — Claude handles the writing, Surfer supplies the NLP keywords, word count targets, and live Content Score your draft needs to hit."
 ---
 
 # Claude + Surfer SEO — The Ultimate Workflow (2026)

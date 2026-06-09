@@ -19,6 +19,8 @@ faq:
   - q: "Is Claude Sonnet good enough for most tasks?"
     a: "Yes. Claude Sonnet (currently claude-sonnet-4-5 and claude-sonnet-4-6 in the Claude 4 family) handles the vast majority of professional tasks — coding, writing, analysis, summarisation, data extraction — at a quality level that is hard to distinguish from Opus for everyday work. Sonnet becomes meaningfully weaker than Opus on tasks requiring deep multi-step reasoning, extended analysis of complex documents, or nuanced judgement on ambiguous problems."
 summary: "Claude Opus, Sonnet, and Haiku are Anthropic's three-tier model family, ranging from maximum intelligence to maximum speed. Choosing the right model determines both the quality of your outputs and your cost structure — this guide gives a full technical comparison and a practical decision matrix for every use case."
+hero_image: "/assets/images/heroes/photo-006-122100415335357116.jpg"
+hero_alt: "Choosing the wrong Claude model tier means either overpaying for compute or under-serving your users — and the cost gap between Haiku and Opus is significant."
 ---
 
 # Claude Opus vs Sonnet vs Haiku — Full Model Breakdown (2026)

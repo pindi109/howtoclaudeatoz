@@ -19,6 +19,8 @@ faq:
   - q: "Is the Claude mobile app free?"
     a: "Yes. The Claude mobile app is free to download on both iOS and Android. The free plan gives you access to Claude Sonnet with daily message limits. Upgrading to Pro, Max, or Team through the mobile app unlocks higher limits, Claude Opus, and Projects — with billing managed through Apple App Store (iOS) or Google Play (Android) in-app purchases, or directly at claude.ai."
 summary: "The Claude mobile app is available free on iOS and Android, offering text, voice, image, and file capabilities. This guide covers download, setup, key features, and a comparison of iOS vs Android functionality."
+hero_image: "/assets/images/heroes/photo-066-122100376587357116.jpg"
+hero_alt: "The Claude mobile app is not a cut-down version — it includes voice input, camera integration, file attachments, and full access to Claude Projects on paid plans, all in a touch-optimised interface."
 ---
 
 # Claude on Mobile — iOS and Android Complete Guide (2026)

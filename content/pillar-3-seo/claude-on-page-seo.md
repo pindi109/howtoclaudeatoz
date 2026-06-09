@@ -21,6 +21,8 @@ faq:
   - q: "Should I use Claude or Surfer SEO for on-page optimisation?"
     a: "Use both. Surfer SEO provides data-driven NLP scores, competitor benchmarks, and a specific word count target based on the top 10 ranking pages. Claude uses that data plus your content to make the actual improvements — rewriting sections, adding missing topics, improving readability. Claude writes; Surfer scores."
 summary: "Claude handles the writing and reasoning layer of on-page SEO — improving content structure, keyword placement, depth, and readability — while tools like Surfer SEO provide the data targets. This guide covers every on-page element Claude can optimise, with step-by-step prompts."
+hero_image: "/assets/images/heroes/photo-050-122100388227357116.jpg"
+hero_alt: "Claude does not replace Surfer SEO for on-page optimisation — it is the implementation layer."
 ---
 
 # Claude for On-Page SEO Optimisation — Full Guide (2026)

@@ -21,6 +21,8 @@ faq:
   - q: "What is the best workflow for building with Claude?"
     a: "The best workflow is: (1) Write a project brief and save it as CLAUDE.md. (2) Ask Claude to scaffold the project structure. (3) Build features one at a time — each feature goes from data model to API to tests in one Claude session. (4) Run the tests. (5) Review and push. (6) Start next feature. Claude Code with permission to run tests creates the fastest feedback loop — it can implement, test, and fix in a single autonomous pass."
 summary: "Using Claude as a co-developer lets solo developers build full production apps without a team — Claude handles the code, you handle the direction and infrastructure. This guide covers the project brief method, the iterative feature build workflow, and how to integrate Claude-built backends with Make.com and n8n automation pipelines."
+hero_image: "/assets/images/heroes/photo-028-122100400917357116.jpg"
+hero_alt: "A solo developer using Claude as a co-developer — not a code autocomplete tool — can realistically match the output of a 2–3 person team."
 ---
 
 # Building Apps with Claude as Your Co-Developer (2026 Guide)

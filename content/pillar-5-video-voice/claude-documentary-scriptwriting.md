@@ -21,6 +21,8 @@ faq:
   - q: "How do I use Claude for long-form video?"
     a: "For long-form documentary scripts (20–60 minutes), break the project into acts before writing. Ask Claude to outline the act structure first, then develop one act at a time. This keeps Claude's output coherent and manageable, and lets you review and redirect the narrative before committing to full scenes. Total word count for a 30-minute documentary is approximately 4,500–5,000 words of narration."
 summary: "Claude writes documentary scripts from research notes through to final narration, maintaining consistent voice across long-form content. This guide covers documentary script format, the research-to-script workflow, narration style tips, and how to generate illustrative footage with Kling AI and Runway ML."
+hero_image: "/assets/images/heroes/photo-038-122100394635357116.jpg"
+hero_alt: "Claude can take raw research, archival notes, and interview transcripts and turn them into a fully structured documentary script — complete with two-column formatting, narration voice, and act structure across a 20–60 minute runtime."
 ---
 
 # Claude for Documentary Scriptwriting — Complete Guide (2026)

@@ -19,6 +19,8 @@ faq:
   - q: "How many pages of text fit in Claude's context window?"
     a: "Approximately 500 pages of plain text fit within Claude's 200,000-token context window. This is based on the common estimate of about 400 tokens per page (roughly 300 words per page). In practice, content type matters: code is more token-dense than prose, and formatted documents use more tokens than plain text."
 summary: "Claude's context window holds up to 200,000 tokens — roughly 150,000 words or 500 pages — making it one of the largest available in any commercial AI assistant. This guide explains what a context window is, how tokens work, and how to make the most of Claude's long context."
+hero_image: "/assets/images/heroes/photo-069-122100374037357116.jpg"
+hero_alt: "Claude's context window holds 200,000 tokens — roughly 500 pages of text — all visible to the model at once within a single conversation."
 ---
 
 # Claude's Context Window Explained — 200K Tokens Guide (2026)

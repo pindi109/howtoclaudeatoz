@@ -19,6 +19,8 @@ faq:
   - q: "Can Claude write meeting agendas?"
     a: "Yes. Give Claude the meeting purpose, attendees, time available, and key topics, and it will produce a structured agenda with time allocations, discussion objectives for each item, and a pre-read or preparation note. It takes about 2 minutes to generate an agenda that would otherwise take 15–20 minutes to write from scratch."
 summary: "Claude for meetings reduces preparation and follow-up time significantly — from agenda drafting before the meeting to action item extraction and follow-up email drafting after it."
+hero_image: "/assets/images/heroes/photo-016-122100408363357116.jpg"
+hero_alt: "Claude can save 30–60 minutes per meeting by handling agendas, note processing, action item extraction, and follow-up emails — across every stage of the meeting lifecycle."
 ---
 
 # Running Meetings More Efficiently with Claude (2026 Guide)

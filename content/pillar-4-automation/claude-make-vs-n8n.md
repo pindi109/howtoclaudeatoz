@@ -21,6 +21,8 @@ faq:
   - q: "Which is easier, Make.com or n8n?"
     a: "Make.com has a gentler learning curve. Its visual scenario builder, native module library, and polished UI make it accessible to non-technical users within an hour. n8n has more power but requires more configuration — especially for API-based integrations like Claude where you build the HTTP request yourself."
 summary: "Make.com and n8n both integrate with Claude's API but suit different users: Make.com wins on ease of use and a native Claude module, while n8n wins on pricing, self-hosting, and flexibility for developers. This guide gives you a 10-criteria comparison to pick the right platform for your needs."
+hero_image: "/assets/images/heroes/photo-040-122100393585357116.jpg"
+hero_alt: "Make."
 ---
 
 # Claude + Make.com vs n8n — Which Should You Use? (2026)

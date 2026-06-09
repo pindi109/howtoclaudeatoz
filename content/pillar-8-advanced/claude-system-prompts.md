@@ -19,6 +19,8 @@ faq:
   - q: "How long can a Claude system prompt be?"
     a: "Claude's context window can accommodate system prompts of any practical length — there is no hard character limit specific to the system prompt field itself. Claude 3.5 Sonnet and Claude 4 models support up to 200,000 tokens total context (input + output combined). In practice, effective system prompts are 200–2,000 words. Beyond 2,000 words, you risk diluting the most important instructions; Claude's attention to later instructions can weaken with very long system prompts."
 summary: "Claude system prompts are the foundational layer of any Claude-powered application or advanced workflow — they define who Claude is, how it behaves, and what it will and won't do. This guide covers system prompt anatomy, best practices, and five complete ready-to-use examples."
+hero_image: "/assets/images/heroes/photo-004-122100418257357116.jpg"
+hero_alt: "A Claude system prompt sits above the conversation entirely — Claude treats it as operator-level authority, meaning it shapes every response before the user types a single word."
 ---
 
 # Claude System Prompts — How to Use Them Effectively (2026)

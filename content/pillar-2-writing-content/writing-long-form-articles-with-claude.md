@@ -20,6 +20,8 @@ faq:
   - q: "Does Claude lose quality in long content?"
     a: "Quality can decline in the middle sections of a long article if Claude is asked to write everything in one pass. The first and last sections tend to be strongest. Chunking by section solves this — you get focused, high-quality output for each part. Review each section before moving to the next."
 summary: "Writing long-form articles with Claude requires an outline-first approach and section-by-section drafting to maintain quality across 3,000+ words. This guide covers the chunking strategy, context management, and prompts that produce consistent, polished long-form content."
+hero_image: "/assets/images/heroes/photo-055-122100385251357116.jpg"
+hero_alt: "Asking Claude to write a 4,000-word article in one prompt almost always produces something padded and generic in the middle — an outline-first, section-by-section workflow fixes that."
 ---
 
 # Writing Long-Form Articles with Claude — 3,000+ Word Guide (2026)

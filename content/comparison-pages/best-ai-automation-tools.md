@@ -16,6 +16,8 @@ faq:
   - q: "Can I automate Claude without coding?"
     a: "Yes. Make.com and Zapier both offer no-code Claude integration via their visual editors. Make.com has a native Anthropic module that lets you connect Claude to hundreds of apps without writing a line of code. Zapier similarly has an Anthropic action. n8n requires some technical comfort, though its node editor is more accessible than writing API code directly."
 summary: "Make.com is the best no-code automation tool for Claude, n8n is the best for developers and self-hosting, and Zapier works but costs significantly more at scale. This guide breaks down all five options across seven criteria."
+hero_image: "/assets/images/heroes/photo-077-122100368955357116.jpg"
+hero_alt: "Make."
 ---
 
 # Best AI Automation Tools to Use with Claude (2026 Guide)

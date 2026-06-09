@@ -19,6 +19,8 @@ faq:
   - q: "What is the best way to create a Claude persona?"
     a: "The most effective approach is to define five elements in your system prompt: (1) Name and role title, (2) Domain expertise with specific qualifications or experience markers, (3) Communication style and tone with concrete examples or negative constraints, (4) Scope — what topics the persona covers and how it handles out-of-scope requests, and (5) One or two example responses that demonstrate the target style. Including example responses directly in the system prompt (few-shot persona definition) is the single most reliable technique for maintaining consistent voice and tone."
 summary: "A Claude custom persona lets you configure Claude's identity, expertise, tone, and constraints to match a specific role — for personal workflows, customer-facing products, or team tools. This guide covers persona anatomy, three ready-to-deploy system prompt examples, and how persona design works in real products."
+hero_image: "/assets/images/heroes/photo-008-122100413937357116.jpg"
+hero_alt: "A Claude custom persona is configured entirely inside the system prompt — no fine-tuning, no model changes, just structured instructions that define identity, expertise, tone, and scope constraints."
 ---
 
 # How to Build a Custom Claude Persona (2026 Guide)

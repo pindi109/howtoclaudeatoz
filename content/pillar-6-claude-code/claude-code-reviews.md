@@ -19,6 +19,8 @@ faq:
   - q: "What does Claude check in a code review?"
     a: "Claude checks for: security vulnerabilities (SQL injection, XSS, insecure deserialization, exposed secrets, improper auth), performance issues (N+1 queries, missing indexes, inefficient loops, memory leaks), logic errors (off-by-one, wrong conditions, missing edge cases), code style and readability, error handling completeness, test coverage gaps, and adherence to the conventions you specify. It also looks for correctness — does the code actually do what the comments/name claim?"
 summary: "Claude code reviews are fast, thorough, and free from the social dynamics that make human reviewers pull their punches. This guide covers the exact prompts, a reusable review template, before/after examples, and how to integrate Claude into your PR workflow for consistent review quality."
+hero_image: "/assets/images/heroes/photo-026-122100401811357116.jpg"
+hero_alt: "Claude catches what a linter misses — timing attack vulnerabilities, N+1 query patterns, race conditions, and auth checks that are logically wrong but syntactically fine."
 ---
 
 # How to Use Claude for Code Reviews (2026 Guide)

@@ -20,6 +20,8 @@ faq:
   - q: "Is Runway ML better than Kling AI?"
     a: "Runway ML and Kling AI excel in different areas. Runway produces more artistically stylised, cinematically composed video and is stronger for narrative and creative work. Kling AI tends to produce more photorealistic, physically coherent video and handles motion physics better. For brand and creative storytelling, Runway is often the stronger choice. For realistic human motion and commercial product video, Kling AI is competitive or superior."
 summary: "Claude pairs with Runway ML to plan, script, and prompt professional AI video production. This guide covers Runway Gen-3's capabilities, the Claude scripting and prompting workflow, and a direct comparison with Kling AI to help you choose the right tool."
+hero_image: "/assets/images/heroes/photo-035-122100396201357116.jpg"
+hero_alt: "Claude writes the scripts and Gen-3 prompts; Runway ML renders the footage — together they replace a camera, crew, and studio for AI video production in 2026."
 ---
 
 # Claude + Runway ML — AI Video Production Guide (2026)

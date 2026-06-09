@@ -19,6 +19,8 @@ faq:
   - q: "How do chain-of-thought prompts work in Claude?"
     a: "Chain-of-thought prompting works by instructing Claude to show its reasoning process before giving a final answer. Adding 'Think through this step by step inside <thinking> tags, then give your final answer' causes Claude to decompose complex problems, check intermediate steps, and catch errors before committing to a conclusion. This is especially effective for maths, logic, code debugging, and multi-step analysis tasks."
 summary: "Advanced prompt engineering with Claude covers the techniques that separate reliable, high-quality outputs from inconsistent ones: chain-of-thought reasoning, XML structure, few-shot examples, role prompting, constitutional self-critique, and meta-prompting. This guide gives working before-and-after examples for every major technique."
+hero_image: "/assets/images/heroes/photo-011-122100411957357116.jpg"
+hero_alt: "XML tags, chain-of-thought, few-shot examples, meta-prompting — this 2026 guide covers every major Claude prompting technique with real before-and-after examples you can lift straight away."
 ---
 
 # Advanced Prompt Engineering with Claude (2026 Guide)

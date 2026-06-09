@@ -19,6 +19,8 @@ faq:
   - q: "Can Claude create lesson plans?"
     a: "Yes. Claude can create detailed lesson plans including learning objectives (mapped to curriculum standards if you specify them), opener/hook activities, direct instruction sections, formative check activities, main tasks, differentiation strategies, and assessment criteria — all in a single prompt. For best results, specify: subject, year group or grade level, curriculum standard or topic, lesson duration, available resources, and any class-specific needs (EAL students, SEN provisions, mixed ability)."
 summary: "Claude for education gives teachers a force-multiplying AI assistant for planning, assessment design, and differentiation, and gives students a patient, personalised tutor available at any hour. This guide covers the most effective applications for both groups, with ready-to-use prompt templates and an honest discussion of academic integrity."
+hero_image: "/assets/images/heroes/photo-007-122100414915357116.jpg"
+hero_alt: "Claude can explain the same concept at Year 6, GCSE, A-Level, and university level — in the same conversation, on request."
 ---
 
 # Claude for Education and Teaching — Complete Guide (2026)

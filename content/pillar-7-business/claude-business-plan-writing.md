@@ -20,6 +20,8 @@ faq:
   - q: "What sections should a business plan include?"
     a: "A complete business plan typically includes: executive summary, company overview, problem and solution, market opportunity, product or service description, competitive analysis, go-to-market strategy, operations plan, management team, financial projections, and funding requirements. Claude can draft each section individually or as a complete document once you've supplied the relevant information."
 summary: "Claude for business plan writing lets founders and SMB owners produce professional, structured plans faster — using section-specific prompts and a clear input-first workflow. This guide covers every section with the exact prompts to use."
+hero_image: "/assets/images/heroes/photo-019-122100405687357116.jpg"
+hero_alt: "A full business plan first draft — every section — is achievable in a single focused session using Claude, according to this step-by-step guide for SMB owners and founders."
 ---
 
 # Claude for Business Plan Writing — Step-by-Step Guide (2026)

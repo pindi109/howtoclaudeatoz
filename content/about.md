@@ -19,6 +19,8 @@ faq:
   - q: "Is HowToClaudeAtoZ affiliated with Anthropic?"
     a: "No. HowToClaudeAtoZ is an independent encyclopaedia and is not affiliated with, endorsed by, or connected to Anthropic PBC, the company that makes Claude AI."
 summary: "HowToClaudeAtoZ is an independent Claude AI encyclopaedia operated by Level up IT Solutions Ltd. The site covers every Claude use case, integration, and workflow."
+hero_image: "/assets/images/heroes/photo-086-122100322161357116.jpg"
+hero_alt: "HowToClaudeAtoZ is a Claude AI encyclopaedia run by Level up IT Solutions Ltd, registered in Wolverhampton — built to be the one place any Claude user visits when they need to know how to do something."
 ---
 
 # About HowToClaudeAtoZ

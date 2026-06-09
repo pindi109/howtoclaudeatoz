@@ -19,6 +19,8 @@ faq:
   - q: "How do I use Claude Code for Flutter?"
     a: "Install Claude Code (npm install -g @anthropic-ai/claude-code), navigate to your Flutter project root, and launch claude. Add a CLAUDE.md file describing your app's architecture, state management choice, and target Flutter version. Then give Claude high-level feature requests — it will read your existing code, understand your patterns, and write consistent new features."
 summary: "Claude understands Dart and the Flutter SDK deeply enough to generate production-quality widgets, state management code, and Firebase integrations from plain-English prompts. This guide shows you exactly how to use Claude for Flutter development with real, runnable code examples."
+hero_image: "/assets/images/heroes/photo-023-122100403299357116.jpg"
+hero_alt: "Claude cuts routine Flutter task time by 60–80% — generating widget trees, Riverpod providers, Firebase Auth integration, and platform channel bridges from plain-English prompts."
 ---
 
 # Claude for Flutter Development — Full Guide (2026)

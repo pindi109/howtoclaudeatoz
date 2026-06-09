@@ -22,6 +22,8 @@ faq:
   - q: "When should I use Claude vs Perplexity for SEO?"
     a: "Use Perplexity when you need current information: fresh statistics, recent news, competitor content research, or trending topics with source citations. Use Claude when you need strategic output: content strategies, keyword cluster maps, content briefs, on-page rewrites, meta tags, schema markup, or internal link plans. The two tools are complementary rather than competitive."
 summary: "Claude and Perplexity serve different SEO needs: Perplexity excels at live research with cited sources; Claude excels at strategic planning, content creation, and structured SEO outputs. This guide compares both tools across 10 criteria to help you decide when to use each."
+hero_image: "/assets/images/heroes/photo-048-122100389343357116.jpg"
+hero_alt: "Perplexity pulls live web results with citations; Claude builds strategies, writes content, and structures SEO outputs — they are solving different problems, not competing for the same job."
 ---
 
 # Claude vs Perplexity for SEO Research — Which Should You Use? (2026)

@@ -20,6 +20,8 @@ faq:
   - q: "Can Claude write Synthesia video scripts?"
     a: "Yes. Claude writes Synthesia scripts efficiently because Synthesia videos work best with short, declarative sentences — exactly the format Claude produces when prompted to write for spoken delivery. Claude can write a full multi-scene Synthesia script, break it into slide-by-slide sections, add on-screen text callouts, and produce translated versions for multilingual video deployment."
 summary: "Claude writes the scripts that power Synthesia's AI avatar videos. This guide covers the Claude + Synthesia workflow for corporate training, onboarding, and explainer video — including script formatting, avatar selection, use cases, and a Synthesia pricing breakdown."
+hero_image: "/assets/images/heroes/photo-033-122100397581357116.jpg"
+hero_alt: "Claude paired with Synthesia cuts corporate training video costs by 80–90% compared to traditional studio production — and this guide covers the full workflow from brief to published video."
 ---
 
 # Claude + Synthesia — Corporate Training Video Workflow (2026)

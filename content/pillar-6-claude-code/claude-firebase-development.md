@@ -19,6 +19,8 @@ faq:
   - q: "How do I use Claude for Firebase security rules?"
     a: "Paste your Firestore data model (document paths and field names) into Claude, describe your access control requirements in plain English (e.g., 'users can only read their own data, admins can read everything'), and ask Claude to generate the security rules. Claude generates well-structured rules.firestore files covering read, write, create, update, and delete separately. Always test generated rules with the Firebase Emulator Suite before deploying."
 summary: "Claude is a highly effective tool for Firebase development — it generates Firestore queries, Cloud Functions, Firebase Auth flows, and Security Rules from plain-English requirements. This guide covers every major Firebase product with prompt templates, code examples, and tips for getting production-ready output."
+hero_image: "/assets/images/heroes/photo-024-122100402765357116.jpg"
+hero_alt: "Claude can take you from Firestore data model to working Firebase integration in minutes — handling Security Rules syntax, compound queries, Cloud Functions error patterns, and Auth token flows correctly without you hunting through the docs."
 ---
 
 # Claude for Firebase Development — Full Guide (2026)

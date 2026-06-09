@@ -19,6 +19,8 @@ faq:
   - q: "Can I use templates for Claude prompts?"
     a: "Yes. Prompt templates are one of the most effective ways to get consistent results from Claude. A good template includes placeholders for role, task, context, format, and constraints. You can save templates in Claude Projects as custom instructions so they apply automatically to every conversation in that Project. You can also paste a template into any conversation and fill in the blanks."
 summary: "Writing an effective prompt in Claude means being specific, giving Claude a clear role and output format, and providing relevant context upfront. This guide walks through the anatomy of a good Claude prompt with real before-and-after examples."
+hero_image: "/assets/images/heroes/photo-063-122100378615357116.jpg"
+hero_alt: "A vague prompt gets a vague answer — but a few simple habits consistently double the quality of what Claude gives you back."
 ---
 
 # How to Write Your First Prompt in Claude — Beginner's Guide (2026)

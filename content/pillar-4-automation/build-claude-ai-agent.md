@@ -20,6 +20,8 @@ faq:
   - q: "Do I need to code to build a Claude agent?"
     a: "No. Make.com lets you build functional Claude agents without any code using its visual scenario builder and native Anthropic module. However, for agents that need to make complex decisions across many tool calls or maintain conversational state, a Python or TypeScript implementation gives you much more control."
 summary: "A Claude AI agent combines Claude's reasoning with tool use and a decision loop — Claude takes an action, observes the result, and decides the next step. This guide explains what makes something an agent, walks through the no-code Make.com path and the Python code path, and shows three real agent examples you can build today."
+hero_image: "/assets/images/heroes/photo-046-122100389907357116.jpg"
+hero_alt: "A Claude AI agent is not just a chatbot — it's any setup where Claude uses a tool, observes the result, and decides what to do next."
 ---
 
 # How to Build Your First Claude AI Agent (2026 Guide)

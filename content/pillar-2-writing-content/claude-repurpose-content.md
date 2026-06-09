@@ -20,6 +20,8 @@ faq:
   - q: "What content formats can Claude convert to?"
     a: "Claude converts source content into any written format: blog posts, newsletter issues, email sequences, LinkedIn posts, tweets, Twitter threads, Instagram captions, TikTok scripts, YouTube descriptions, podcast show notes, press releases, FAQ sections, product descriptions, and more. The key is specifying the exact output format requirements in your prompt."
 summary: "Claude AI can convert a single piece of content into a full suite of formats — social posts, emails, threads, scripts, and more — in one session. This guide includes a repurposing matrix, example prompts for every conversion type, and a batch workflow for scaling content production."
+hero_image: "/assets/images/heroes/photo-057-122100382335357116.jpg"
+hero_alt: "One well-researched blog post can become five LinkedIn posts, a Twitter thread, a newsletter, an email sequence, and a video script — all inside a single Claude session."
 ---
 
 # How to Use Claude to Repurpose Content (2026 Guide)

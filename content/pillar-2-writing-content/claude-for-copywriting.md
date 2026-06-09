@@ -20,6 +20,8 @@ faq:
   - q: "How do I write landing pages with Claude?"
     a: "Provide a landing page brief covering: product name, primary benefit, target audience, main objection to overcome, social proof available, and desired CTA. Ask Claude to follow a specific framework (AIDA or PAS work well for landing pages) and write each section separately for quality control."
 summary: "Claude for copywriting covers ads, landing pages, CTAs, and conversion-focused copy using proven frameworks. This guide includes AIDA, PAS, and BAB prompt templates, plus an A/B testing workflow for generating and selecting winning copy variants."
+hero_image: "/assets/images/heroes/photo-060-122100380463357116.jpg"
+hero_alt: "The difference between weak AI copy and copy that converts comes down to the brief — product, buyer, objection, and framework."
 ---
 
 # Claude for Copywriting — Ads, Landing Pages, and CTAs (2026)

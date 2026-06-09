@@ -20,6 +20,8 @@ faq:
   - q: "Can Claude write project plans?"
     a: "Yes. Give Claude the project goal, key deliverables, team members, and timeline, and it will produce a structured project plan with phases, tasks, dependencies, and milestones. For visual Gantt charts you will need to take Claude's output into a dedicated tool, but Claude can produce the full task breakdown and timeline description that populates one."
 summary: "Claude for project management handles the documentation and planning layer — project briefs, risk registers, status reports, and communication plans — while integrating with your existing project tools via Make.com."
+hero_image: "/assets/images/heroes/photo-079-122100368283357116.jpg"
+hero_alt: "Claude handles the documentation layer most PM tools leave entirely to you — project briefs, risk registers, status reports, and stakeholder updates, all generated from structured prompts."
 ---
 
 # Claude for Project Management — Full Guide (2026)

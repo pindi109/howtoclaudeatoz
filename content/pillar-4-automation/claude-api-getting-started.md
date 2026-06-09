@@ -19,6 +19,8 @@ faq:
   - q: "Do I need to know Python to use the Claude API?"
     a: "No. The Claude API has official SDKs for Python and TypeScript, but you can also call it from any language using standard HTTP requests, or not code at all using Make.com's native Anthropic module. Many people use the Claude API productively through Make.com, n8n, or other no-code tools without writing a single line of code."
 summary: "The Claude API lets you integrate Anthropic's AI into any application via a REST interface, with official Python and TypeScript SDKs. This guide covers everything you need to start: how to get an API key, what models cost, a minimal working Python example, and no-code alternatives if you don't want to write code."
+hero_image: "/assets/images/heroes/photo-045-122100390489357116.jpg"
+hero_alt: "You can go from zero to your first working Claude API call in under 30 minutes — and if you'd rather skip code entirely, no-code tools like Make."
 ---
 
 # Claude API — Getting Started Guide for Non-Developers (2026)

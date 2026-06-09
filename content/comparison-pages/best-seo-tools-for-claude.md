@@ -16,6 +16,8 @@ faq:
   - q: "Is Surfer SEO worth it with Claude?"
     a: "Yes. Surfer SEO's content editor is one of the most effective ways to optimise Claude's output for search. You write in Claude, paste the draft into Surfer's editor, and use the NLP term suggestions and content score to refine. The combination of Claude's writing quality and Surfer's data-driven optimisation consistently produces well-ranking content."
 summary: "Claude is a powerful writer but has no SEO data. Pair it with Surfer SEO for content scoring, Mangools for affordable keyword research, or Scalenut for an all-in-one SEO writing workflow. This guide compares all five major options."
+hero_image: "/assets/images/heroes/photo-073-122100371565357116.jpg"
+hero_alt: "Surfer SEO, Scalenut, Mangools, Ahrefs, and Semrush are all compared head-to-head across six criteria specifically for Claude-based content workflows."
 ---
 
 # Best SEO Tools That Work with Claude (2026 Guide)

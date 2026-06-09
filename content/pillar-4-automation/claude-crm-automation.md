@@ -21,6 +21,8 @@ faq:
   - q: "Which CRMs work with Claude?"
     a: "Claude works with any CRM via API. Make.com has native modules for HubSpot, Salesforce, Pipedrive, Zoho, ActiveCampaign, and more. Notion (used as a lightweight CRM) also has a Make.com module. For Salesforce, n8n's Salesforce node offers deep integration for complex enterprise workflows."
 summary: "Claude automates the most time-consuming CRM tasks — lead scoring, email drafting, contact enrichment, and deal summaries — by connecting to HubSpot, Salesforce, Pipedrive, or Notion through Make.com or n8n. This guide covers CRM compatibility, four workflow examples, and how to set up your first Claude CRM automation."
+hero_image: "/assets/images/heroes/photo-043-122100391563357116.jpg"
+hero_alt: "Claude can score leads, draft follow-up emails, enrich contacts, and update CRM records automatically — all routed through Make."
 ---
 
 # Claude for CRM Automation — Full Workflow Guide (2026)

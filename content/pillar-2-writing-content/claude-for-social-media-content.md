@@ -20,6 +20,8 @@ faq:
   - q: "Can Claude create a social media content calendar?"
     a: "Yes. Ask Claude to generate a content calendar for a given number of weeks or months. Provide your content pillars (the main themes you post about), posting frequency per platform, and any upcoming campaigns or events. Claude will map post ideas to dates and themes across the calendar."
 summary: "Claude AI writes platform-specific social media content — LinkedIn posts, tweets, Instagram captions, and TikTok scripts — and can produce a full content calendar in one session. This guide covers platform-specific prompt strategies and a batch content creation workflow."
+hero_image: "/assets/images/heroes/photo-059-122100381189357116.jpg"
+hero_alt: "Claude can turn a single idea into five platform-ready posts — LinkedIn story, X punchline, Instagram caption, TikTok script, the lot — in one session."
 ---
 
 # How to Use Claude for Social Media Content (2026 Guide)

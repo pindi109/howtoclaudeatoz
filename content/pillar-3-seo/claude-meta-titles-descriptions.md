@@ -20,6 +20,8 @@ faq:
   - q: "Does Claude know SEO best practices for titles?"
     a: "Yes. Claude knows that meta titles should be 50-60 characters, include the primary keyword near the start, avoid keyword stuffing, use power words or numbers where appropriate, and match the search intent of the target keyword. It applies these rules automatically when you give it the right context in your prompt."
 summary: "Claude can write SEO-optimised meta titles and descriptions individually or in batches of 50+ pages. This guide covers character count rules, prompt templates, batch generation workflows, and examples of strong versus weak meta copy."
+hero_image: "/assets/images/heroes/photo-051-122100387855357116.jpg"
+hero_alt: "A well-written meta description can increase click-through rate by 5–30% — and Claude can generate them at scale, in bulk, with correct character counts baked in from the start."
 ---
 
 # Writing Meta Titles and Descriptions with Claude (2026 Guide)

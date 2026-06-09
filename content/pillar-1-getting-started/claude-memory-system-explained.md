@@ -19,6 +19,8 @@ faq:
   - q: "Can I make Claude remember things permanently?"
     a: "You can create a persistent memory by maintaining a document — sometimes called a 'memory file' — that you update with key information and upload to a Claude Project. At the start of new conversations, Claude reads this file and effectively 'remembers' what you have recorded. Some advanced users also use the Claude API with custom memory systems built on vector databases, but this requires technical setup."
 summary: "Claude does not have persistent memory between conversations by default. This guide explains how Claude's memory system works, how Projects provide a form of persistent context, and practical techniques for maintaining continuity across sessions."
+hero_image: "/assets/images/heroes/photo-067-122100375837357116.jpg"
+hero_alt: "By default, Claude remembers nothing between conversations — every new chat starts completely blank."
 ---
 
 # Claude Memory System Explained — How It Works (2026)

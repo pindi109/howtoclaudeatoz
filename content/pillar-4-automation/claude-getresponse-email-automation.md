@@ -21,6 +21,8 @@ faq:
   - q: "Does GetResponse integrate with Claude?"
     a: "GetResponse does not have a direct native Claude integration, but the combination works through Make.com (or n8n). Make.com has both native Anthropic (Claude) and GetResponse modules, allowing you to connect them in a visual workflow without any code."
 summary: "Claude and GetResponse work together via Make.com to create a fully automated, AI-personalised email workflow: Claude writes the content, Make.com bridges the two platforms, and GetResponse handles delivery and automation sequences. This guide covers the full setup and three workflow examples."
+hero_image: "/assets/images/heroes/photo-042-122100392145357116.jpg"
+hero_alt: "Claude writes the subject line and body copy, Make."
 ---
 
 # Automating Email with Claude + GetResponse (2026 Guide)

@@ -19,6 +19,8 @@ faq:
   - q: "Is Claude better than Stack Overflow for debugging?"
     a: "For debugging your specific code in your specific context, Claude is usually faster and more targeted than Stack Overflow. Stack Overflow gives you answers to common, abstract problems; Claude analyses your actual code. The combination is powerful — Claude for immediate diagnosis, Stack Overflow for community context on unusual errors. Claude also does not close your question for being too specific."
 summary: "Claude is one of the fastest debugging tools available for developers — it reads your actual code, interprets error messages, traces logic through function calls, and explains the root cause in plain English. This guide covers how to share code effectively, which bug types Claude handles best, and the rubber duck prompting technique that consistently produces clear diagnoses."
+hero_image: "/assets/images/heroes/photo-020-122100404487357116.jpg"
+hero_alt: "Sharing the right context is the critical skill — give Claude too little and it guesses; give it just enough and it pinpoints the bug in seconds."
 ---
 
 # How to Debug Code with Claude — Developer Guide (2026)

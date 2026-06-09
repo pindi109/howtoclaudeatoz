@@ -19,6 +19,8 @@ faq:
   - q: "How many files can I add to a Claude Project?"
     a: "Claude Projects support multiple file uploads across a range of formats including PDFs, Word documents, spreadsheets, code files, and plain text. Anthropic does not publish a hard limit on file count, but total storage per Project is subject to a size limit. As of 2026, Projects support up to approximately 200,000 tokens of stored content across all files and instructions — matching the conversation context window."
 summary: "Claude Projects are persistent workspaces that store files, custom instructions, and shared context across multiple conversations. This guide explains how to create a Project, add files, write effective instructions, and use Projects for ongoing work."
+hero_image: "/assets/images/heroes/photo-087-122100321627357116.jpg"
+hero_alt: "Claude Projects store your files, custom instructions, and background context so every new conversation picks up exactly where your last one left off — no more re-explaining your setup from scratch."
 ---
 
 # How to Use Claude Projects — Complete Guide (2026)

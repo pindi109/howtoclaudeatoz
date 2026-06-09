@@ -16,6 +16,8 @@ faq:
   - q: "Should I switch from ChatGPT to Claude?"
     a: "Switch to Claude if your primary use is writing, research, or document analysis. Try Claude alongside ChatGPT if you do image generation, use the GPT Store plugins, or rely on voice mode. You do not need to choose exclusively — many professionals use both: Claude for writing-heavy tasks, ChatGPT for tasks that benefit from its ecosystem. Both are $20/month at the Pro/Plus tier."
 summary: "Claude leads ChatGPT on writing quality, instruction-following, and long-context work. ChatGPT leads on ecosystem breadth, multi-modal features, and plugin availability. Both are strong; your use case determines which wins."
+hero_image: "/assets/images/heroes/photo-071-122100373035357116.jpg"
+hero_alt: "Claude wins on writing, long-form content, and following complex instructions precisely — ChatGPT leads on image generation, voice, and plugin breadth."
 ---
 
 # Is Claude Better Than ChatGPT? (2026 Honest Verdict)

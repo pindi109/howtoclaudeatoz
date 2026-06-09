@@ -19,6 +19,8 @@ faq:
   - q: "What tools can I connect to Claude with MCP?"
     a: "MCP servers exist for file systems, web browsers, databases (PostgreSQL, SQLite), GitHub, Slack, Google Drive, Notion, and many more. You can also build custom MCP servers that expose your own internal tools and data sources to Claude."
 summary: "The Model Context Protocol (MCP) is Anthropic's open standard for connecting Claude to external tools and data sources in a consistent, interoperable way. This guide explains the architecture, how clients and servers interact, five practical use cases, and how MCP differs from using the Claude API directly."
+hero_image: "/assets/images/heroes/photo-039-122100393963357116.jpg"
+hero_alt: "MCP is essentially USB for AI tools — one standard plug so any tool or data source connects to Claude once, then works across every MCP-compatible client, no custom integration per app."
 ---
 
 # Claude MCP (Model Context Protocol) Explained — Complete Guide (2026)

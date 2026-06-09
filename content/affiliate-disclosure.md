@@ -19,6 +19,8 @@ faq:
   - q: "How do I know which links are affiliate links?"
     a: "Articles that contain affiliate links display a disclosure notice at the top of the page. We use rel='sponsored' on affiliate links in accordance with Google's webmaster guidelines."
 summary: "HowToClaudeAtoZ participates in affiliate programmes and may earn commissions on qualifying purchases. This disclosure explains our affiliate relationships and editorial policy."
+hero_image: "/assets/images/heroes/photo-078-122100368607357116.jpg"
+hero_alt: "Some links on HowToClaudeAtoZ earn a small commission — but editorial decisions are made independently of those relationships."
 ---
 
 # Affiliate Disclosure

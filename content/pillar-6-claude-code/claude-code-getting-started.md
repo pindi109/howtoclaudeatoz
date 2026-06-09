@@ -19,6 +19,8 @@ faq:
   - q: "How is Claude Code different from Claude.ai?"
     a: "Claude.ai is a browser-based chat interface where you paste code manually and get responses in a conversation window. Claude Code runs in your terminal with direct file system access — it reads your actual project files, makes edits, runs tests, and executes shell commands autonomously. Claude Code is purpose-built for software development; Claude.ai is a general-purpose assistant."
 summary: "Claude Code is Anthropic's terminal-based CLI that gives Claude direct access to your local codebase for reading, writing, and executing code. This guide covers installation, authentication, core commands, and the most effective ways to use Claude Code on real software projects."
+hero_image: "/assets/images/heroes/photo-027-122100401427357116.jpg"
+hero_alt: "Claude Code takes one npm install and an Anthropic login — then you have an AI pair programmer that reads your entire codebase, edits files, and runs shell commands directly in your terminal."
 ---
 
 # Claude Code — Complete Getting Started Guide (2026)

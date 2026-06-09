@@ -20,6 +20,8 @@ faq:
   - q: "What can I automate with Claude and Make.com?"
     a: "Common workflows include auto-generating blog drafts from RSS feeds, classifying customer support emails and routing them, summarising documents uploaded to Google Drive, writing personalised cold email sequences from a CRM, and creating social media captions from product data."
 summary: "Claude integrates with Make.com through the native Anthropic module, enabling no-code automations that pipe Claude's AI capabilities into any app in your stack. This guide covers setting up the connection, building your first scenario, and scaling to real production workflows."
+hero_image: "/assets/images/heroes/photo-041-122100392829357116.jpg"
+hero_alt: "Make."
 ---
 
 # Claude + Make.com — Complete Integration Guide (2026)

@@ -16,6 +16,8 @@ faq:
   - q: "How does Claude API pricing work?"
     a: "Claude API pricing is per-token, billed separately from claude.ai subscriptions. You pay for input tokens (text you send to Claude) and output tokens (text Claude generates), at different rates per model. Haiku is the cheapest model; Opus is the most expensive. You purchase API credits via your Anthropic Console account. Claude.ai subscriptions and API credits are completely separate — a Pro subscription does not include API access."
 summary: "Claude pricing in 2026 ranges from free to $100/month for consumer plans, with API pricing charged separately per token by model. This guide breaks down every plan and provides real cost estimates for common API use cases."
+hero_image: "/assets/images/heroes/photo-072-122100372549357116.jpg"
+hero_alt: "Claude has two completely separate billing systems in 2026 — claude."
 ---
 
 # Claude Pricing Guide 2026 — Free, Pro, Max, Team and API

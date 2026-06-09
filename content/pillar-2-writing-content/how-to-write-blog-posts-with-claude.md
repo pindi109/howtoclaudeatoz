@@ -21,6 +21,8 @@ faq:
   - q: "How do I give Claude the right context for my blog?"
     a: "Provide a detailed brief: your brand voice, examples of content you like, a specific angle or opinion, and any data or quotes to include. The more context you give, the more distinctive the output. Avoid asking for a generic 'blog post about X' with no further direction."
 summary: "Claude AI can produce full blog post drafts — from outline to polished copy — when given a clear brief covering keyword, audience, tone, and structure. This guide covers the exact prompts and workflows to use Claude for blog writing, including how to combine it with SEO tools for search-ready content."
+hero_image: "/assets/images/heroes/photo-084-122100323109357116.jpg"
+hero_alt: "A vague prompt returns a generic post — Claude needs your primary keyword, audience profile, word count, tone, and a specific angle before it produces something worth publishing."
 ---
 
 # How to Write Blog Posts with Claude AI (2026 Guide)

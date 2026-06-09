@@ -19,6 +19,8 @@ faq:
   - q: "What are Claude power user tips?"
     a: "The most impactful Claude power user habits are: using Projects with detailed standing instructions for all ongoing work, maintaining a memory file with key facts that persists across sessions, breaking complex tasks into explicitly staged steps, using the Artifacts panel for code and web output, learning to iterate with targeted follow-up messages rather than re-writing prompts from scratch, and using Shift+Enter for multi-line prompts without accidentally sending early."
 summary: "Claude's web interface includes keyboard shortcuts for sending messages, navigating conversations, and managing chats. This guide lists every shortcut and covers power user techniques for faster, better results."
+hero_image: "/assets/images/heroes/photo-068-122100375027357116.jpg"
+hero_alt: "Shift + Enter adds a new line without sending your message — one of those small Claude shortcuts that saves constant frustration once you know it."
 ---
 
 # Claude Keyboard Shortcuts and Power User Tips (2026)

@@ -20,6 +20,8 @@ faq:
   - q: "Is a Claude chatbot free?"
     a: "The Claude API is not free — you pay per token. However, costs are low. A chatbot handling 500 conversations per month with an average of 10 messages each (at ~100 tokens per message) costs roughly $1.50–$3 in API fees using Claude Sonnet. You'll also need a chatbot widget platform (many have free tiers) and Make.com (free tier available for low volume)."
 summary: "You can add a Claude chatbot to your website through a no-code route using a chatbot widget and Make.com, or through a direct API integration for full customisation. This guide covers both approaches, system prompt best practices for chatbots, embed options, and a realistic pricing estimate."
+hero_image: "/assets/images/heroes/photo-044-122100390897357116.jpg"
+hero_alt: "A Claude chatbot can handle the top 80% of customer queries automatically, in your brand's voice, using your own business knowledge — 24 hours a day with no extra staff."
 ---
 
 # Building a Claude Chatbot for Your Website (2026 Guide)

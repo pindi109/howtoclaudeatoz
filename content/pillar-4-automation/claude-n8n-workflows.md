@@ -20,6 +20,8 @@ faq:
   - q: "Can n8n use the Claude API?"
     a: "Yes. n8n connects to the Claude API via the HTTP Request node (calling the Anthropic REST API directly) or through community-built Anthropic nodes available in the n8n community node library. Both approaches give full access to Claude's models and parameters."
 summary: "n8n is an open-source automation platform that connects to Claude's API through HTTP Request nodes or community Anthropic nodes, letting you build AI workflows you can self-host or run in n8n Cloud. This guide walks through setup, four practical workflow examples, and when to choose n8n over Make.com."
+hero_image: "/assets/images/heroes/photo-081-122100325173357116.jpg"
+hero_alt: "n8n can be fully self-hosted, meaning you avoid per-operation billing entirely — a significant saving once your Claude workflows scale up."
 ---
 
 # Claude + n8n — How to Build AI Workflows (2026 Guide)

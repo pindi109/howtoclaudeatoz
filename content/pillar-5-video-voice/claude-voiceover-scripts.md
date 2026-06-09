@@ -20,6 +20,8 @@ faq:
   - q: "What makes a good voiceover script?"
     a: "A good voiceover script sounds effortless when spoken aloud. It uses the active voice, addresses the listener directly, avoids jargon and abstract language, and places the most important information early in each sentence. Pacing is controlled through punctuation and sentence length rather than word choice. The listener should never have to re-listen to a sentence to understand it."
 summary: "Claude generates TTS-optimised voiceover scripts for any format — ads, explainers, e-learning, intros — in minutes. This guide covers the writing rules that make voiceover scripts work, ready-to-use prompt templates, phonetic notation, and how to pair Claude scripts with ElevenLabs for final audio."
+hero_image: "/assets/images/heroes/photo-031-122100399189357116.jpg"
+hero_alt: "A voiceover script written for the eye fails the ear — Claude applies spoken-word rules automatically, keeping sentences to 12–18 words and following subject-verb-object structure throughout."
 ---
 
 # How to Generate Voiceover Scripts with Claude (2026 Guide)

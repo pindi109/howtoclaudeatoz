@@ -19,6 +19,8 @@ faq:
   - q: "How will Claude compare to GPT-5?"
     a: "This is an informed analysis, not a guarantee, as GPT-5's specifications were not publicly released as of August 2025. The competitive landscape heading into 2026 is the most contested it has ever been, with Anthropic (Claude), OpenAI (GPT), Google DeepMind (Gemini), Meta (Llama), and others all making rapid progress. Claude's historical differentiation has been in safety and reliability, long-context performance, instruction following, and nuanced reasoning. OpenAI's historical differentiation has been in ecosystem breadth, tool integrations, and multimodal capabilities. The 2026 competition is likely to be decided less by raw benchmark performance and more by agentic capability, reliability in real-world tasks, and developer ecosystem depth."
 summary: "The future of Claude in 2026 is defined by the transition from a conversational assistant to an agentic AI capable of autonomous multi-step task completion, deeper computer use, and tighter integration into developer and business workflows. This analysis covers Claude 4 capabilities, Anthropic's research direction, and the competitive landscape."
+hero_image: "/assets/images/heroes/photo-003-122100419601357116.jpg"
+hero_alt: "Claude 4 is already a three-tier family — Haiku 4, Sonnet 4."
 ---
 
 # The Future of Claude — What's Coming in 2026 and Beyond

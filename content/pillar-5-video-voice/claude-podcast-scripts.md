@@ -20,6 +20,8 @@ faq:
   - q: "Can I use ElevenLabs to voice a Claude podcast?"
     a: "Yes. Claude's podcast scripts are formatted for natural spoken delivery, which makes them ideal for ElevenLabs text-to-speech. Paste the Claude script into ElevenLabs, select a voice that matches your brand personality, and export the audio. This workflow produces a fully AI-narrated podcast episode without recording equipment or a studio."
 summary: "Claude writes podcast scripts in every format — solo narration, interview outlines, co-hosted shows — and produces show notes, episode titles, and social clips from the same brief. This guide covers prompt templates, script structures, and how to pair Claude with ElevenLabs for AI-voiced episodes."
+hero_image: "/assets/images/heroes/photo-036-122100395661357116.jpg"
+hero_alt: "Claude can produce a first-draft podcast script, show notes, episode titles, and social copy from a single topic brief — cutting hours of prep per episode."
 ---
 
 # Writing Podcast Scripts with Claude AI (2026 Guide)

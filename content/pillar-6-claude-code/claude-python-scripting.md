@@ -20,6 +20,8 @@ faq:
   - q: "What Python libraries does Claude know?"
     a: "Claude has deep knowledge of the Python standard library plus the most widely used third-party packages: requests and httpx (HTTP), pandas and polars (data), SQLAlchemy (databases), FastAPI and Flask (web), pytest (testing), pydantic (validation), boto3 (AWS), Pillow (images), BeautifulSoup and Playwright (scraping/automation), and many more. It also knows the Anthropic Python SDK for building Claude-powered tools."
 summary: "Claude writes production-quality Python scripts from plain-English prompts, handling data processing, API integration, and automation tasks with proper error handling and type hints. This guide shows you exactly how to get the best Python output from Claude — with three complete, runnable scripts as examples."
+hero_image: "/assets/images/heroes/photo-022-122100403557357116.jpg"
+hero_alt: "Give Claude a plain-English description of a Python task and it returns a complete, runnable script — error handling, type hints, logging, and argument parsing included."
 ---
 
 # Claude for Python Scripting — Developer Guide (2026)

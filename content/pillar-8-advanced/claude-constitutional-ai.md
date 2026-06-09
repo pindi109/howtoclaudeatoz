@@ -19,6 +19,8 @@ faq:
   - q: "Is Constitutional AI better than RLHF?"
     a: "Anthropic's research suggests CAI produces models with more consistent, principled safety behaviour than RLHF alone — and does so without requiring human raters to read and label large volumes of potentially harmful content. RLHF is better at aligning model outputs to general human preferences (tone, style, helpfulness), but it depends on the consistency and values of human labellers. Constitutional AI adds a layer of explicit, transparent principles that can be audited and refined. Most state-of-the-art AI models, including Claude, use both CAI and RLHF in combination."
 summary: "Constitutional AI is Anthropic's method for training Claude to internalise explicit safety principles rather than relying purely on human feedback labels. This guide explains the full CAI pipeline — from principles to self-critique to training — and how it produces Claude's characteristic approach to safety and helpfulness."
+hero_image: "/assets/images/heroes/photo-009-122100413049357116.jpg"
+hero_alt: "Unlike most AI models trained on human preference labels, Claude uses a written set of principles to evaluate and improve its own responses during training — a method called Constitutional AI, published by Anthropic in 2022."
 ---
 
 # How Claude's Constitutional AI Works — Technical Guide (2026)

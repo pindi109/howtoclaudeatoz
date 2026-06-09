@@ -19,6 +19,8 @@ faq:
   - q: "What types of Artifacts can Claude create?"
     a: "Claude can create several types of Artifacts: code files (any programming language), HTML webpages (rendered and interactive), React components (rendered live), SVG graphics (rendered visually), Markdown documents, plain text files, and structured data files like JSON or CSV. The Artifact type is determined automatically based on the content Claude generates."
 summary: "Claude Artifacts are interactive output panels that display self-contained content — code, webpages, documents, images — alongside the conversation. This guide explains all artifact types, how to create them, and how to iterate on them effectively."
+hero_image: "/assets/images/heroes/photo-070-122100373449357116.jpg"
+hero_alt: "Claude Artifacts open in a dedicated side panel — so instead of digging through raw code in a chat message, you get a live, interactive preview of HTML pages, SVG graphics, React components, and more."
 ---
 
 # Claude Artifacts — What They Are and How to Use Them (2026)

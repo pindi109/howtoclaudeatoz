@@ -20,6 +20,8 @@ faq:
   - q: "When should I use n8n instead of Claude Code?"
     a: "Use n8n when you need: scheduled automation (every hour, every day), multi-app integration (Gmail + Slack + Google Sheets + your database in one flow), a visual interface for building and monitoring workflows, or when the automation needs to be maintained by non-developers. n8n's node-based editor makes complex multi-step workflows inspectable and editable without code."
 summary: "Claude Code and n8n occupy different positions in the automation stack — n8n orchestrates multi-app workflows visually, while Claude handles the reasoning-heavy tasks that cannot be handled with if/then logic. This guide clarifies when to use each and how to combine them for maximum capability."
+hero_image: "/assets/images/heroes/photo-025-122100402243357116.jpg"
+hero_alt: "Claude Code and n8n are not competitors — the most capable agentic workflows use both: n8n handles orchestration and scheduling, while Claude handles the reasoning layer."
 ---
 
 # Claude Code vs n8n — Which for Agentic Workflows? (2026)

@@ -19,6 +19,8 @@ faq:
   - q: "Can I suggest a page that is not on the roadmap?"
     a: "Yes — use the Suggest a Page button on any article to open a pre-filled GitHub Issue with your suggestion."
 summary: "The public roadmap for HowToClaudeAtoZ showing all planned, in-progress, and published pages. Upvote what you want next."
+hero_image: "/assets/images/heroes/photo-001-122100421035357116.jpg"
+hero_alt: "The most-upvoted pages on this public roadmap get written first — one GitHub thumbs-up is all it takes to move a guide up the queue."
 ---
 
 # HowToClaudeAtoZ Public Roadmap

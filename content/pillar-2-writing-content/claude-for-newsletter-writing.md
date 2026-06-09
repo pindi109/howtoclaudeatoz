@@ -20,6 +20,8 @@ faq:
   - q: "What newsletter platforms work with Claude?"
     a: "Claude works with any newsletter platform because it produces formatted text you copy into your ESP. GetResponse, Beehiiv, Substack, ConvertKit, AWeber, and Mailchimp all work well. Platforms with built-in AI writing (like GetResponse's AI assistant) can be used alongside Claude — use Claude for quality drafting, then upload to your platform for sending and analytics."
 summary: "Claude for newsletter writing speeds up the production of consistent, engaging newsletter issues. This guide covers a repeatable newsletter production workflow, a structure template, subject line generation, and how to repurpose blog content into newsletters using Claude."
+hero_image: "/assets/images/heroes/photo-085-122100322491357116.jpg"
+hero_alt: "A clear brief and repeatable template cuts newsletter production time from hours to under 30 minutes using Claude — the guide covers exactly how to set that up."
 ---
 
 # Claude for Newsletter Writing — Complete Workflow (2026)

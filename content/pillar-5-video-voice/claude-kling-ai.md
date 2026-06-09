@@ -20,6 +20,8 @@ faq:
   - q: "Can Claude write prompts for Kling AI?"
     a: "Yes. Claude is particularly effective at writing Kling AI prompts because Kling responds well to detailed, structured descriptions that cover scene, subject, camera, lighting, and mood. Claude can write a single prompt, a batch of prompts from a script, or a full storyboard of prompts formatted and numbered for sequential video production."
 summary: "Claude writes the detailed scene prompts that Kling AI needs to generate high-quality video. This guide covers the Claude + Kling AI workflow end to end — from brief to prompt to rendered clip — with example prompts and tips for consistent output."
+hero_image: "/assets/images/heroes/photo-037-122100395247357116.jpg"
+hero_alt: "Kling AI's video quality depends almost entirely on prompt quality — and Claude writes the structured scene, camera, and lighting instructions that produce consistent, professional-grade clips."
 ---
 
 # Claude + Kling AI — Text to Video Workflow Guide (2026)
@@ -104,7 +106,7 @@ Kling AI supports negative prompts — descriptions of what you do not want in t
 
 ### Step 6: Generate Clips in Kling AI
 
-Paste each prompt into [Kling AI](https://klingai.com). Start with the most important shots first. Check each generation before proceeding — if a clip does not meet quality standards, ask Claude to revise the prompt before regenerating.
+Paste each prompt into <a href="https://klingaiaffiliate.pxf.io/L0Oa1j" data-affiliate="kling-ai" target="_blank" rel="noopener sponsored">Try Kling AI</a>. Start with the most important shots first. Check each generation before proceeding — if a clip does not meet quality standards, ask Claude to revise the prompt before regenerating.
 
 Common refinement directions to give Claude:
 

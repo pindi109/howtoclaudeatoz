@@ -19,6 +19,8 @@ faq:
   - q: "What is Claude Max?"
     a: "Claude Max is Claude's highest-tier individual plan at $100/month. It offers the maximum usage limits available to single users, full access to all Claude models including Opus, and is designed for power users who rely on Claude heavily throughout the workday — such as researchers, engineers, and consultants who send dozens of complex messages daily."
 summary: "Claude offers four plans in 2026: Free, Pro ($20/month), Max ($100/month), and Team ($30/user/month). This guide compares every plan on price, usage limits, model access, and features to help you choose the right tier."
+hero_image: "/assets/images/heroes/photo-065-122100376917357116.jpg"
+hero_alt: "Claude Max costs five times more than Pro — but unless you're hitting usage limits daily, the $20 Pro plan covers most individual users comfortably."
 ---
 
 # Claude Free vs Pro vs Max vs Team — Which Plan Is Right for You? (2026)

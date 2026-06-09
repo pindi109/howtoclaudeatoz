@@ -21,6 +21,8 @@ faq:
   - q: "How do I make Claude scripts sound natural?"
     a: "Tell Claude the script is for video, not reading. Prompt it to use short sentences, contractions, direct address ('you'), and conversational transitions. Ask it to write in your own voice by sharing 2–3 examples of your existing content. Review the output by reading it aloud — awkward phrasing is obvious when spoken."
 summary: "Claude AI cuts YouTube script production time from hours to minutes. This guide covers how to prompt Claude for high-retention scripts, the hook-intro-body-CTA structure, short-form versus long-form formats, and ready-to-use prompt templates."
+hero_image: "/assets/images/heroes/photo-030-122100399765357116.jpg"
+hero_alt: "Claude can draft a complete YouTube script — hook, structure, and call to action — from a topic brief in under a minute."
 ---
 
 # How to Write YouTube Scripts with Claude AI (2026 Guide)

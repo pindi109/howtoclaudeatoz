@@ -20,6 +20,8 @@ faq:
   - q: "How do I use Claude to find link opportunities?"
     a: "Paste a list of your site's pages into Claude and ask it to identify orphan pages (pages with no internal links), under-linked high-value pages, and natural linking opportunities between existing pages. For each opportunity, Claude will suggest the anchor text and the section of the linking page where the link would fit naturally."
 summary: "Claude builds internal link maps, identifies orphan pages, suggests anchor text, and plans silo structures — making internal linking strategy one of the fastest SEO wins you can achieve with AI. This guide covers the full process with ready-to-use prompts."
+hero_image: "/assets/images/heroes/photo-052-122100387039357116.jpg"
+hero_alt: "Most sites leave high-value pages with almost no internal links — Claude fixes that by analysing your page structure and generating specific link recommendations for every page."
 ---
 
 # How to Build Internal Linking Plans with Claude (2026)

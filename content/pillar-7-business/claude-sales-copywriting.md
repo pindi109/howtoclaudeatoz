@@ -21,6 +21,8 @@ faq:
   - q: "Can Claude write sales page copy?"
     a: "Yes. Claude is strong at sales page copy, including VSL (video sales letter) scripts, long-form sales pages, and landing page copy. Give it your product, the target customer, their primary pain, the transformation your product delivers, social proof points, and the offer structure. Claude can apply proven frameworks including PAS (Problem-Agitate-Solution), AIDA, and the classic direct response format."
 summary: "Claude for sales copywriting produces cold emails, follow-up sequences, LinkedIn outreach, and sales page copy — faster and more consistently than writing from scratch, with A/B test variants on demand."
+hero_image: "/assets/images/heroes/photo-012-122100411447357116.jpg"
+hero_alt: "Claude can write cold email sequences, LinkedIn outreach, follow-up cadences, and full sales page copy — all using frameworks like PAS, AIDA, and BAB, with consistent brand voice across every format."
 ---
 
 # Claude for Sales Copywriting and Outreach (2026 Guide)

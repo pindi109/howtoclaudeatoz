@@ -21,6 +21,8 @@ faq:
   - q: "Can Claude describe shots for AI video tools?"
     a: "Yes, and this is one of the strongest use cases. Claude can convert a script or storyboard into individual prompts formatted for Kling AI or Runway ML. Each prompt describes the visual scene, camera movement, lighting, and mood in the specific language those tools respond to best. Claude can batch-produce 20–30 AI video prompts from a single script in one session."
 summary: "Claude AI produces detailed video storyboards from a script or brief — shot descriptions, camera angles, scene notes, and AI video prompts for Kling AI and Runway ML. This guide covers the storyboard template, formatting workflow, and example output."
+hero_image: "/assets/images/heroes/photo-032-122100398811357116.jpg"
+hero_alt: "Claude can turn a written script into a full shot-by-shot storyboard in minutes — scene descriptions, camera direction, subject notes, and audio cues included."
 ---
 
 # How to Write Video Storyboards with Claude (2026 Guide)

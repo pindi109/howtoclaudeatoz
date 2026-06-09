@@ -20,6 +20,8 @@ faq:
   - q: "How do I test Claude-generated schema?"
     a: "Paste the JSON-LD from Claude directly into Google's Rich Results Test (search.google.com/test/rich-results). This tool validates the schema against Google's requirements and shows you which rich result types your schema qualifies for. Schema.org Validator is a second option for catching structural errors. Fix any warnings before adding the code to your site."
 summary: "Claude generates accurate, valid JSON-LD schema markup for any schema type — from FAQ and HowTo to Product and LocalBusiness. This guide covers the most valuable schema types for SEO, example prompts, real JSON-LD outputs, and how to test and implement the results."
+hero_image: "/assets/images/heroes/photo-049-122100388773357116.jpg"
+hero_alt: "Claude generates valid JSON-LD schema markup — Article, FAQ, HowTo, Product, LocalBusiness — in seconds, ready to paste and test in Google's Rich Results Tool."
 ---
 
 # How to Generate Schema Markup with Claude (2026 Guide)

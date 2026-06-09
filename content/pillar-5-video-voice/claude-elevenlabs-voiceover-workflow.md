@@ -20,6 +20,8 @@ faq:
   - q: "What voice quality does ElevenLabs offer?"
     a: "ElevenLabs offers some of the highest-quality AI voices available in 2026. Its Turbo v2.5 model delivers near-real-time synthesis with natural prosody. The platform includes 3,000+ stock voices across accents, ages, and tones, plus voice cloning from as little as one minute of audio. Professional and enterprise plans unlock higher output limits and commercial licensing."
 summary: "Claude writes the script; ElevenLabs speaks it. This guide covers the complete AI voiceover workflow — from prompting Claude for spoken-word scripts to selecting ElevenLabs voices, using voice cloning, and exporting broadcast-ready audio."
+hero_image: "/assets/images/heroes/photo-080-122100325809357116.jpg"
+hero_alt: "Claude writes the script engineered for spoken delivery — short sentences, correct pacing, no written-only constructions — then ElevenLabs converts it to realistic audio in seconds."
 ---
 
 # Claude + ElevenLabs — AI Voiceover Workflow Guide (2026)

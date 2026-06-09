@@ -19,6 +19,8 @@ faq:
   - q: "What legal documents can Claude help with?"
     a: "Claude is useful for reviewing NDAs (non-disclosure agreements), service agreements, freelance contracts, supplier terms, website terms and conditions, privacy policies, licence agreements, and basic employment contracts. For complex commercial deals, property transactions, or litigation documents, always involve a qualified solicitor."
 summary: "Claude for legal document review helps SMB owners understand contract language, identify red flags, and produce plain-English summaries — with a clear disclaimer that this does not replace qualified legal advice."
+hero_image: "/assets/images/heroes/photo-013-122100410901357116.jpg"
+hero_alt: "Claude can read an NDA or supplier contract, explain every clause in plain English, and flag one-sided terms — without a solicitor's hourly rate for routine documents."
 ---
 
 # Claude for Legal Document Review — SMB Guide (2026)

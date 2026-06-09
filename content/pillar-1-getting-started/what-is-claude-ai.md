@@ -19,6 +19,8 @@ faq:
   - q: "How is Claude different from ChatGPT?"
     a: "Claude and ChatGPT are both large language models but differ in key areas. Claude is made by Anthropic and offers a 200,000-token context window with strong long-document reasoning. ChatGPT is made by OpenAI and integrates with a wider third-party plugin and tool ecosystem. Many users find Claude stronger for nuanced writing and long-document analysis."
 summary: "Claude AI is a large language model created by Anthropic, designed for safe and helpful AI assistance across writing, coding, analysis, and more. This guide covers what Claude is, who built it, how it compares to ChatGPT and Gemini, and how to get started for free."
+hero_image: "/assets/images/heroes/photo-062-122100379125357116.jpg"
+hero_alt: "Claude AI is built by Anthropic using Constitutional AI — a technique that trains the model against a written set of principles, not just human feedback."
 ---
 
 # What is Claude AI? Complete 2026 Guide

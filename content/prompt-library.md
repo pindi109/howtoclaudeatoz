@@ -19,6 +19,8 @@ faq:
   - q: "What types of prompts can I share?"
     a: "Any Claude prompt — writing, SEO, coding, automation, business analysis, or anything else. Include context on when and how to use it."
 summary: "A community-driven library of the best Claude prompts, voted up by real users. Share your prompts and discover what works."
+hero_image: "/assets/images/heroes/photo-002-122100420531357116.jpg"
+hero_alt: "Every prompt in this library was written by someone who solved a real problem with Claude — then shared the exact wording so you don't have to start from scratch."
 ---
 
 # Claude Prompt Library — Community Prompts That Work

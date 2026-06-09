@@ -16,6 +16,8 @@ faq:
   - q: "Which AI writing tool is best for SEO?"
     a: "Scalenut is the most integrated SEO writing tool — it combines keyword research, NLP analysis, and content scoring in one platform. Writesonic has a useful SEO mode via its Chatsonic integration with Surfer. Claude does not have native SEO scoring but produces higher-quality drafts that are then easily optimised in Surfer SEO or Scalenut."
 summary: "Claude leads on writing quality; ChatGPT leads on ecosystem breadth; Jasper leads on team brand management; Writesonic leads on volume; Scalenut leads on SEO integration. This guide helps you pick the right tool for your specific workflow."
+hero_image: "/assets/images/heroes/photo-074-122100371037357116.jpg"
+hero_alt: "Claude leads on long-form prose quality, ChatGPT wins on plugins, Jasper suits marketing teams, and Scalenut is built around SEO — and picking the wrong one affects everything you publish."
 ---
 
 # Best AI Writing Tools in 2026 — Claude vs the Competition

@@ -781,6 +781,22 @@ def fetch_roadmap_cache(base_dir, site_dir):
 # ---------------------------------------------------------------------------
 # Main build
 # ---------------------------------------------------------------------------
+def _build_hero_section(fm):
+    """Return full-width hero <img> HTML if hero_image is set, else empty string."""
+    img = fm.get('hero_image', '')
+    if not img:
+        return ''
+    import html as _html
+    alt = _html.escape(fm.get('hero_alt', ''))
+    return (
+        f'<div class="page-hero-img" aria-hidden="false">'
+        f'<img src="{img}" alt="{alt}" '
+        f'loading="eager" decoding="async" fetchpriority="high" '
+        f'style="width:100%;max-height:440px;height:auto;object-fit:cover;display:block;">'
+        f'</div>'
+    )
+
+
 def main():
     base_dir = Path(__file__).parent.resolve()
     content_dir = base_dir / 'content'
@@ -887,6 +903,7 @@ def main():
             'author_byline':       build_author_byline(fm),
             'breadcrumbs_html':    build_breadcrumbs_html(fm, slug),
             'page_nav_links':      build_page_nav_links(pages_by_pillar),
+            'hero_section':        _build_hero_section(fm),
         }
 
         if page_template:

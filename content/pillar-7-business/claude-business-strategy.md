@@ -19,6 +19,8 @@ faq:
   - q: "How do I use Claude for market research?"
     a: "Claude can summarise market dynamics, help frame a research approach, analyse data you paste in, and generate hypotheses worth testing. It cannot access real-time market data or proprietary research. Use it to process and interpret data you've gathered, frame questions for primary research, structure competitive analysis from publicly available information, or synthesise multiple information sources you provide."
 summary: "Claude for business strategy applies proven frameworks — SWOT, Porter's 5 Forces, PESTLE, Blue Ocean — to your specific business context, helping owners and leaders think more clearly about strategic decisions."
+hero_image: "/assets/images/heroes/photo-018-122100406557357116.jpg"
+hero_alt: "Claude can run SWOT, Porter's 5 Forces, PESTLE, and Blue Ocean Strategy against your actual business context — not just produce textbook definitions."
 ---
 
 # Claude as a Business Strategy Partner — Full Guide (2026)

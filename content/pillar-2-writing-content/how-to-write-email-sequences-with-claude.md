@@ -21,6 +21,8 @@ faq:
   - q: "Does Claude integrate with GetResponse?"
     a: "Claude does not have a direct API integration with GetResponse, but the workflow is straightforward: write your sequence in Claude, copy the email copy into GetResponse's drag-and-drop editor, and set up automation triggers in GetResponse's autoresponder. Many users also use Claude inside GetResponse's built-in AI writing features."
 summary: "Claude AI can write complete email sequences — from welcome series to sales campaigns — when given a clear brief covering audience, goal, tone, and sequence structure. This guide covers every sequence type with prompt templates and a 5-email welcome sequence example."
+hero_image: "/assets/images/heroes/photo-056-122100383967357116.jpg"
+hero_alt: "Claude can draft a full welcome, nurture, or sales email sequence — subject lines, preview text, body copy, and calls to action — in a single session, if you give it the right brief."
 ---
 
 # How to Write Email Sequences with Claude AI (2026 Guide)

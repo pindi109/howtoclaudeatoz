@@ -19,6 +19,8 @@ faq:
   - q: "Can Claude generate OpenAPI specs?"
     a: "Yes — Claude generates valid OpenAPI 3.1 YAML from your route definitions, function signatures, or a plain-English description of your API. It includes proper schemas with types, required fields, example values, error responses, and authentication schemes. The generated YAML is compatible with Swagger UI, Redoc, and code generation tools like openapi-generator."
 summary: "Claude generates accurate, comprehensive API documentation — from OpenAPI specs to README files to inline docstrings — by reading your actual code and converting it to clear developer-facing docs. This guide covers every documentation type with prompt templates and a full OpenAPI YAML example."
+hero_image: "/assets/images/heroes/photo-029-122100400227357116.jpg"
+hero_alt: "Paste your route definitions or function signatures into Claude and it returns a complete OpenAPI 3."
 ---
 
 # Claude for Writing API Documentation (2026 Guide)

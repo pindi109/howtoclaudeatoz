@@ -19,6 +19,8 @@ faq:
   - q: "How do I create a Claude style guide?"
     a: "A Claude style guide is a short document (300–600 words) covering: brand personality in concrete terms, tone adjectives with examples, what to avoid, sentence length preferences, vocabulary standards, and 3–5 example paragraphs. You paste this guide into Claude at the start of every writing session. See the template in this guide."
 summary: "Claude brand voice consistency requires a written voice document, a system prompt, and example content to match. This guide covers how to build a brand voice document, structure a system prompt, and verify output against your standards — with before and after examples."
+hero_image: "/assets/images/heroes/photo-061-122100380025357116.jpg"
+hero_alt: "Claude's default writing style is polished and generic — without a voice document, a set of examples, and a system prompt, every output will sound the same regardless of your brand."
 ---
 
 # How to Match Your Brand Voice in Claude — Complete Guide (2026)

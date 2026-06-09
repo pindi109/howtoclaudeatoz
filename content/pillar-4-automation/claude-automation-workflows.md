@@ -21,6 +21,8 @@ faq:
   - q: "Can Claude automate my whole business?"
     a: "Claude can automate most language-based tasks across your business, but it works best as part of a human-in-the-loop system, especially for customer-facing outputs. Start by automating the highest-volume, most repetitive writing and classification tasks. Expand as you gain confidence in Claude's outputs in your specific context."
 summary: "These 10 Claude automation workflows cover the most impactful use cases across content, sales, support, and operations — each with a build platform recommendation, difficulty rating, and time-to-build estimate so you can pick the right starting point for your situation."
+hero_image: "/assets/images/heroes/photo-082-122100324939357116.jpg"
+hero_alt: "Each of the 10 automation workflows listed here includes a difficulty rating and a realistic time-to-build estimate — so you know exactly what you're taking on before you start."
 ---
 
 # 10 Claude Automation Workflows You Can Build Today (2026)

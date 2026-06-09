@@ -19,6 +19,8 @@ faq:
   - q: "How do I use Claude for interviews?"
     a: "Paste your job description into Claude and ask it to generate a structured interview question set — typically 5–8 competency questions with follow-up probes, plus a technical question or scenario if relevant. You can also paste a candidate's CV and ask Claude to suggest tailored questions based on their background and any gaps."
 summary: "Claude for HR and hiring reduces the administrative burden of recruitment — from first job post to offer letter — using prompts for job descriptions, interview preparation, CV screening, and core HR documents."
+hero_image: "/assets/images/heroes/photo-014-122100410253357116.jpg"
+hero_alt: "Claude can draft a job description, generate structured interview questions, screen CVs against set criteria, and produce offer letters or onboarding checklists — without a dedicated HR team."
 ---
 
 # How to Use Claude for HR and Hiring (2026 Guide)

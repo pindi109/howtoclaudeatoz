@@ -19,6 +19,8 @@ faq:
   - q: "Is Claude reliable for financial analysis?"
     a: "Claude is reliable for explaining financial concepts, writing narrative commentary, calculating basic ratios when given accurate data, and identifying patterns in numbers you provide. It is not a replacement for a qualified accountant or financial adviser. Always verify any calculations independently before using them for decisions, reporting, or investor presentations."
 summary: "Claude for financial analysis helps business owners interpret their numbers, write management commentary, identify trends, and prepare financial narratives — with the right prompts and a clear understanding of what Claude can and cannot do."
+hero_image: "/assets/images/heroes/photo-017-122100407079357116.jpg"
+hero_alt: "Claude can read a P&L, calculate gross margin, debtor days, and current ratio, then write the management commentary — all from data you paste in, no accountant in the room required."
 ---
 
 # Claude for Financial Analysis and Reporting (2026 Guide)

@@ -19,6 +19,8 @@ faq:
   - q: "Does Claude remember everything in its context window?"
     a: "Claude has access to everything within a single context window — it is not a rolling window or compressed memory. However, research has consistently shown a 'lost in the middle' phenomenon: Claude's attention and recall is strongest for content at the beginning and end of the context, and weakest for information buried in the middle. For critical information, place it near the beginning or explicitly reference it in your question at the end of the context."
 summary: "Claude's 200,000-token context window is one of its most practically powerful capabilities — enabling full-book analysis, complete codebase review, and long-document synthesis in a single request. This guide covers exactly how large that window is, how to use it effectively, and how to work around the 'lost in the middle' limitation."
+hero_image: "/assets/images/heroes/photo-010-122100412629357116.jpg"
+hero_alt: "Claude's 200K context window fits roughly 300–500 pages of text in a single request — enough for an entire book, a large codebase, or a stack of legal contracts analysed at once."
 ---
 
 # Claude's 200K Token Context Window — How to Use It (2026)

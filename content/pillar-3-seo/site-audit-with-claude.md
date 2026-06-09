@@ -22,6 +22,8 @@ faq:
   - q: "Do I still need Ahrefs if I use Claude for site audits?"
     a: "Yes, for most serious SEO work. Claude cannot check backlink profiles, domain authority, toxic link analysis, or ranking history — all of which are important audit components. Mangools or Surfer SEO provide cost-effective alternatives to Ahrefs for these data layers. Claude then analyses the data you bring in from those tools."
 summary: "Claude cannot crawl your site, but it is an exceptionally capable audit analyst when you feed it crawl data. This guide covers the data-in workflow, what Claude can and cannot audit, and how to combine it with Screaming Frog and Surfer SEO for a complete technical and content audit."
+hero_image: "/assets/images/heroes/photo-047-122100389679357116.jpg"
+hero_alt: "Claude cannot crawl your site — but paste in a Screaming Frog export and it will turn 400 rows of raw audit data into a ranked remediation plan in minutes."
 ---
 
 # How to Do a Site Audit Using Claude (2026 Guide)

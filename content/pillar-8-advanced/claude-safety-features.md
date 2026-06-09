@@ -19,6 +19,8 @@ faq:
   - q: "How does Claude handle sensitive topics?"
     a: "Claude approaches sensitive topics with contextual judgement rather than categorical avoidance. The same question can receive different responses depending on context: stated professional background, platform context (via operator system prompt), prior conversation content, and the specific framing of the request. For genuinely dual-use information — things that could educate or could enable harm — Claude weighs the realistic population of people likely to be asking the question, the counterfactual impact of its response (is this freely available elsewhere?), and the severity and reversibility of potential harm."
 summary: "Claude's safety features are a multi-layer system — from Constitutional AI training to a three-tier trust hierarchy to specific content policies — designed to make Claude both genuinely helpful and reliably safe. This guide explains every layer, what Claude will and won't do, and how operators can configure safety behaviour for their specific use case."
+hero_image: "/assets/images/heroes/photo-005-122100416727357116.jpg"
+hero_alt: "Claude's safety system runs across four distinct layers — from values baked into its training weights, through to hardcoded absolute limits that no operator or prompt can override."
 ---
 
 # Claude Safety Features Explained — Complete Guide (2026)

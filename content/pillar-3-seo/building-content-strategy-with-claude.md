@@ -21,6 +21,8 @@ faq:
   - q: "What should I include in a Claude content brief?"
     a: "A Claude content brief should include the primary keyword, target audience, search intent, recommended title, suggested H2 structure, key points to cover, competitor pages to outperform, internal links to include, and target word count. Claude can generate all of this from a short prompt once you supply the keyword and niche context."
 summary: "Claude can plan a complete content strategy from scratch — including pillar pages, topic clusters, 90-day calendars, and detailed content briefs. This guide walks through the full process with ready-to-use prompts and a repeatable workflow."
+hero_image: "/assets/images/heroes/photo-054-122100385611357116.jpg"
+hero_alt: "Claude can turn your niche, goals, and keyword data into a full content strategy — pillar pages, topic clusters, a prioritised 90-day publishing calendar, and individual content briefs — far faster than traditional planning."
 ---
 
 # Building a Content Strategy with Claude AI (2026 Guide)

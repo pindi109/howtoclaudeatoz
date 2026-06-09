@@ -21,6 +21,8 @@ faq:
   - q: "What format should short-form video scripts use?"
     a: "Short-form scripts (TikTok, Reels, Shorts) use a sparse, punchy format: 3–5 words per line, spoken in bursts rather than sentences, with visual action notes in brackets. The hook is the most critical element — it must occupy the first 1–3 seconds of on-screen text or speech. Scripts for 30-second videos run 75–100 words; 60-second videos run 140–170 words."
 summary: "Claude scripts short-form social media videos for TikTok, Instagram Reels, and YouTube Shorts — with platform-specific hooks, batch production workflows, and viral format templates. This guide covers platform differences, Claude prompt strategies, and AI video generation with Kling AI and Synthesia."
+hero_image: "/assets/images/heroes/photo-034-122100396993357116.jpg"
+hero_alt: "Claude can turn a full content calendar into production-ready TikTok, Reels, and Shorts scripts in an afternoon — with the correct hook style, pacing, and CTA structure built in for each platform."
 ---
 
 # Claude for Social Media Video Content — Full Guide (2026)
