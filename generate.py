@@ -955,12 +955,13 @@ def main():
             print(f'Copied: {asset_dir}/')
 
     # Copy root-level static files into _site/
-    for static_file in ['logo.svg', 'logo.png', 'src/tokens.css']:
+    for static_file in ['logo.svg', 'logo.png', 'src/tokens.css',
+                        'favicon.ico', 'apple-touch-icon.png']:
         src_f = base_dir / static_file
         if src_f.exists():
             dest_name = Path(static_file).name
             shutil.copy2(src_f, site_dir / dest_name)
-    print('Copied: logo.svg, logo.png, tokens.css')
+    print('Copied: static root files')
 
     # Build Tailwind CSS from the generated HTML
     import subprocess
