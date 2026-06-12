@@ -1107,16 +1107,31 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
       <!-- Updates grid — content added weekly -->
       <div id="updates-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Placeholder card — replace with real update cards -->
-        <div class="bg-white rounded-2xl border border-stone-200 p-6 flex flex-col gap-3 hover:border-amber-400 hover:shadow-md transition-all">
-          <span style="font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#d97706;">Coming Soon</span>
-          <h3 style="font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:#1c1917;line-height:1.35;margin:0;">
-            First weekly update dropping soon
+        <!-- Update card: Claude Fable 5 launch — week of 9 June 2026 -->
+        <div class="bg-white rounded-2xl border border-stone-200 p-6 flex flex-col gap-3 hover:border-amber-400 hover:shadow-md transition-all" style="grid-column:1/-1;">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+            <span style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#d97706;background:#fef3c7;padding:.25rem .65rem;border-radius:999px;">Model Release</span>
+            <span style="font-size:.75rem;color:#a8a29e;">9 June 2026</span>
+          </div>
+          <h3 style="font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:#1c1917;line-height:1.3;margin:0;">
+            Claude Fable 5 — Anthropic's most capable public model yet
           </h3>
-          <p style="font-size:.85rem;color:#78716c;line-height:1.6;margin:0;flex:1;">
-            We're curating the first issue — covering the latest Claude releases, new integrations, and the most useful community prompts from this week.
+          <p style="font-size:.88rem;color:#57534e;line-height:1.65;margin:0;">
+            Fable 5 is Anthropic's first "Mythos-class" model made publicly available — sitting above Opus in the capability hierarchy. It shares the same underlying model as the restricted Mythos 5; safeguards are what distinguish them (the name comes from the Latin <em>fabula</em>, akin to the Greek <em>mythos</em>).
           </p>
-          <span style="font-size:.75rem;color:#a8a29e;">Check back shortly</span>
+          <ul style="font-size:.85rem;color:#44403c;line-height:1.7;margin:0;padding-left:1.1rem;">
+            <li>Beats Claude Opus 4.8 by more than 10% on several benchmarks — the longer the task, the larger the lead</li>
+            <li>First model to break 90% on Hex's analytics benchmark — a 10-point jump over Opus</li>
+            <li>Stripe ran a codebase-wide migration across 50 million lines of Ruby in a day (two months of team work)</li>
+            <li>Beat Pokémon FireRed with vision only — earlier models needed a complex helper harness</li>
+            <li>Safeguards fall back to Opus 4.8 in &lt;5% of sessions (cybersecurity, bio, chemistry); over-blocking acknowledged and being refined</li>
+            <li>Pricing: $10/M input tokens, $50/M output — half the price of Mythos Preview, twice Opus 4.8</li>
+            <li>Free on Pro/Max/Team/Enterprise until 22 June; usage credits required from 23 June onwards</li>
+            <li>API string: <code style="background:#f5f5f4;padding:.1rem .35rem;border-radius:4px;font-size:.82rem;color:#1c1917;">claude-fable-5</code></li>
+          </ul>
+          <div style="padding-top:.5rem;border-top:1px solid #e7e5e4;margin-top:.25rem;">
+            <span style="font-size:.78rem;color:#78716c;">Anthropic intends to restore Fable 5 as a standard subscription feature as capacity allows, and plans to steadily expand access to Mythos 5 in consultation with the US government.</span>
+          </div>
         </div>
 
       </div>
