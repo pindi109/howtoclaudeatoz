@@ -1398,7 +1398,11 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
       preload();
     }
     window.addEventListener('load', function () { if (decoded === 0) preload(); }, { once: true });
-    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // rAF loop: reads position every frame — works with Lenis, native scroll, anything.
+    // onScroll has a lastIdx guard so canvas only redraws when frame changes.
+    (function tick() { onScroll(); requestAnimationFrame(tick); })();
+
     window.addEventListener('resize', function () {
       sizeCanvas();
       var c = lastIdx >= 0 ? lastIdx : 0;
