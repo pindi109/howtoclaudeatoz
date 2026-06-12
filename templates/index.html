@@ -409,13 +409,14 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
 
     #scroll-stage {
       position: relative;
-      /* height set dynamically by JS: TOTAL_FRAMES * 25vh + 100vh */
+      height: 100vh;      /* natural section height — increase in CSS to slow playback */
+      overflow: hidden;
     }
     #sticky-hero {
-      position: sticky;
-      top: 0;
-      height: 100vh;
+      position: absolute;
+      inset: 0;
       width: 100%;
+      height: 100%;
       overflow: hidden;
     }
     #frame-canvas {
@@ -1165,93 +1166,132 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
   </script>
   <!-- ===== END PILLAR CARDS INTERSECTION OBSERVER ===== -->
 
-  <!-- ===== SCROLL-SCRUB JS ===== -->
+  <!-- ===== SCROLL-SCRUB JS — transit scrub, no pin ===== -->
   <script>
   (function () {
-    var FRAMES_PATH  = '/assets/frames/';
-    var TOTAL_FRAMES = 70;
-    var FRAME_NAMES  = Array.from({ length: 70 }, function (_, i) {
-      return 'frame_' + String(i).padStart(2, '0') + '.jpg';
-    });
+    'use strict';
 
-    var canvas  = document.getElementById('frame-canvas');
-    var ctx     = canvas.getContext('2d');
-    var stage   = document.getElementById('scroll-stage');
-    var loader  = document.getElementById('scrub-loader');
-    var frames  = new Array(TOTAL_FRAMES);
-    var current = 0;
-    var stageTop = 0, stageH = 0, viewH = 0;
+    // ── Tunable constants ─────────────────────────────────────────────
+    var FRAME_COUNT = 18;           // total frames in the sequence
+    var START       = 'top bottom'; // when section bottom edge meets viewport bottom
+    var END         = 'bottom top'; // when section top edge meets viewport top
+    // ─────────────────────────────────────────────────────────────────
 
-    function cacheLayout() {
-      var r = stage.getBoundingClientRect();
-      stageTop = r.top + window.scrollY;
-      stageH   = stage.offsetHeight;
-      viewH    = window.innerHeight;
+    var stage  = document.getElementById('scroll-stage');
+    var canvas = document.getElementById('frame-canvas');
+    var loader = document.getElementById('scrub-loader');
+    if (!stage || !canvas) return;
+
+    // prefers-reduced-motion: show final frame statically, exit
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var still = new Image();
+      still.onload = function () {
+        sizeCanvas(); renderImg(still);
+        if (loader) loader.classList.add('hidden');
+        document.body.classList.add('scrub-loaded');
+      };
+      still.src = '/assets/frames/frame_' + String(FRAME_COUNT - 1).padStart(2, '0') + '.jpg';
+      return;
     }
 
-    function resizeCanvas() {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
-      drawFrame(current);
+    var frames  = new Array(FRAME_COUNT);
+    var decoded = 0;
+    var lastIdx = -1;
+
+    // ── Canvas helpers ────────────────────────────────────────────────
+    function sizeCanvas() {
+      var dpr = window.devicePixelRatio || 1;
+      var w   = stage.offsetWidth;
+      var h   = stage.offsetHeight;
+      canvas.width        = Math.round(w * dpr);
+      canvas.height       = Math.round(h * dpr);
+      canvas.style.width  = w + 'px';
+      canvas.style.height = h + 'px';
     }
 
-    function drawFrame(idx) {
-      var img = frames[idx];
-      if (!img || !img.complete || !img.naturalWidth) return;
-      var iw = img.naturalWidth, ih = img.naturalHeight;
-      var cw = canvas.width,     ch = canvas.height;
-      var ir = iw / ih, cr = cw / ch;
+    function renderImg(img) {
+      var ctx = canvas.getContext('2d');
+      var cw  = canvas.width, ch = canvas.height;
+      var iw  = img.naturalWidth, ih = img.naturalHeight;
+      var ir  = iw / ih, cr = cw / ch;
       var dw, dh, dx, dy;
       if (ir > cr) { dh = ch; dw = dh * ir; dx = (cw - dw) / 2; dy = 0; }
-      else         { dw = cw; dh = dw / ir; dx = 0; dy = (ch - dh) / 2; }
+      else          { dw = cw; dh = dw / ir; dx = 0;              dy = (ch - dh) / 2; }
       ctx.clearRect(0, 0, cw, ch);
       ctx.drawImage(img, dx, dy, dw, dh);
     }
 
-    function preload() {
-      var f0 = new Image();
-      f0.onload = function () {
-        frames[0] = f0;
-        drawFrame(0);
-        if (loader) loader.classList.add('hidden');
-        document.body.classList.add('scrub-loaded');
-        loadRest();
-      };
-      f0.onerror = function () {
-        if (loader) loader.classList.add('hidden');
-        document.body.classList.add('scrub-loaded');
-        loadRest();
-      };
-      f0.src = FRAMES_PATH + FRAME_NAMES[0];
+    function renderFrame(idx) {
+      idx = Math.max(0, Math.min(FRAME_COUNT - 1, idx));
+      if (idx === lastIdx) return; // skip redundant draws
+      lastIdx = idx;
+      var img = frames[idx];
+      if (img && img.complete && img.naturalWidth) renderImg(img);
     }
 
-    function loadRest() {
-      for (var i = 1; i < TOTAL_FRAMES; i++) {
+    // ── ScrollTrigger — transit scrub, pin: false (default) ──────────
+    function initScrollTrigger() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.create({
+        trigger : stage,
+        start   : START,
+        end     : END,
+        scrub   : 0.5,
+        onUpdate: function (self) {
+          renderFrame(Math.round(self.progress * (FRAME_COUNT - 1)));
+        }
+      });
+    }
+
+    // ── Preload ───────────────────────────────────────────────────────
+    function preload() {
+      for (var i = 0; i < FRAME_COUNT; i++) {
         (function (idx) {
           var img = new Image();
-          img.onload = function () { frames[idx] = img; };
-          img.src = FRAMES_PATH + FRAME_NAMES[idx];
+          img.onload = function () {
+            frames[idx] = img;
+            decoded++;
+            if (idx === 0) {
+              sizeCanvas();
+              renderImg(img);
+              if (loader) loader.classList.add('hidden');
+              document.body.classList.add('scrub-loaded');
+              // Init ScrollTrigger now or after GSAP loads
+              if (typeof ScrollTrigger !== 'undefined') {
+                initScrollTrigger();
+              } else {
+                window.addEventListener('load', initScrollTrigger, { once: true });
+              }
+            }
+          };
+          img.src = '/assets/frames/frame_' + String(idx).padStart(2, '0') + '.jpg';
         })(i);
       }
     }
 
-    function onScroll() {
-      var scrollY    = window.scrollY;
-      var scrollable = stageH - viewH;
-      if (scrollable <= 0) return;
-      var progress   = Math.max(0, Math.min(1, (scrollY - stageTop) / scrollable));
-      var idx        = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * TOTAL_FRAMES));
-      if (idx !== current) { current = idx; drawFrame(current); }
+    // Fire preload when section is ~2 viewports away — does not block initial page load
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { preload(); io.disconnect(); }
+        });
+      }, { rootMargin: '200% 0px' });
+      io.observe(stage);
+    } else {
+      preload();
     }
+    // Safety: also start after full page load if observer hasn't fired
+    window.addEventListener('load', function () {
+      if (decoded === 0) preload();
+    }, { once: true });
 
-    // Scale stage height to frame count
-    stage.style.height = (TOTAL_FRAMES * 25 + 100) + 'vh';
+    window.addEventListener('resize', function () {
+      sizeCanvas();
+      var cur = lastIdx >= 0 ? lastIdx : 0;
+      if (frames[cur]) renderImg(frames[cur]);
+    }, { passive: true });
 
-    cacheLayout();
-    resizeCanvas();
-    window.addEventListener('resize', function () { cacheLayout(); resizeCanvas(); }, { passive: true });
-    window.addEventListener('scroll', onScroll, { passive: true });
-    preload();
   })();
   </script>
   <!-- ===== END SCROLL-SCRUB JS ===== -->
