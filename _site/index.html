@@ -409,11 +409,12 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
 
     #scroll-stage {
       position: relative;
-      /* height set dynamically by JS */
+      height: 100vh;
+      overflow: hidden;
     }
     #sticky-hero {
       position: relative;
-      height: 100vh;
+      height: 100%;
       width: 100%;
       overflow: hidden;
     }
@@ -1377,8 +1378,6 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
       if (idx !== current) { current = idx; drawFrame(current); }
       requestAnimationFrame(tick);
     }
-
-    stage.style.height = (TOTAL_FRAMES * 25 + 100) + 'vh';
 
     cacheLayout();
     resizeCanvas();
