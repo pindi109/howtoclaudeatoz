@@ -1171,80 +1171,71 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
   (function () {
     'use strict';
 
-    // ── Tunable constants ─────────────────────────────────────────────
-    var FRAME_COUNT = 18;           // total frames in the sequence
-    var START       = 'top bottom'; // when section bottom edge meets viewport bottom
-    var END         = 'bottom top'; // when section top edge meets viewport top
-    // ─────────────────────────────────────────────────────────────────
+    var FRAME_COUNT = 18; // total frames
 
     var stage  = document.getElementById('scroll-stage');
     var canvas = document.getElementById('frame-canvas');
     var loader = document.getElementById('scrub-loader');
     if (!stage || !canvas) return;
 
-    // prefers-reduced-motion: show final frame statically, exit
+    // Reduced motion: show last frame only
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var still = new Image();
-      still.onload = function () {
-        sizeCanvas(); renderImg(still);
-        if (loader) loader.classList.add('hidden');
-        document.body.classList.add('scrub-loaded');
-      };
-      still.src = '/assets/frames/frame_' + String(FRAME_COUNT - 1).padStart(2, '0') + '.jpg';
+      var s = new Image();
+      s.onload = function () { sizeCanvas(); renderImg(s); if (loader) loader.classList.add('hidden'); document.body.classList.add('scrub-loaded'); };
+      s.src = '/assets/frames/frame_' + String(FRAME_COUNT - 1).padStart(2, '0') + '.jpg';
       return;
     }
 
     var frames  = new Array(FRAME_COUNT);
     var decoded = 0;
     var lastIdx = -1;
+    var stageTop = 0, stageH = 0, viewH = 0;
 
-    // ── Canvas helpers ────────────────────────────────────────────────
+    function cacheLayout() {
+      var r = stage.getBoundingClientRect();
+      stageTop = r.top + window.scrollY;
+      stageH   = stage.offsetHeight;
+      viewH    = window.innerHeight;
+    }
+
     function sizeCanvas() {
       var dpr = window.devicePixelRatio || 1;
-      var w   = stage.offsetWidth;
-      var h   = stage.offsetHeight;
-      canvas.width        = Math.round(w * dpr);
-      canvas.height       = Math.round(h * dpr);
+      var w = stage.offsetWidth, h = stage.offsetHeight;
+      canvas.width  = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
       canvas.style.width  = w + 'px';
       canvas.style.height = h + 'px';
     }
 
     function renderImg(img) {
       var ctx = canvas.getContext('2d');
-      var cw  = canvas.width, ch = canvas.height;
-      var iw  = img.naturalWidth, ih = img.naturalHeight;
-      var ir  = iw / ih, cr = cw / ch;
+      var cw = canvas.width, ch = canvas.height;
+      var iw = img.naturalWidth, ih = img.naturalHeight;
+      var ir = iw / ih, cr = cw / ch;
       var dw, dh, dx, dy;
       if (ir > cr) { dh = ch; dw = dh * ir; dx = (cw - dw) / 2; dy = 0; }
-      else          { dw = cw; dh = dw / ir; dx = 0;              dy = (ch - dh) / 2; }
+      else          { dw = cw; dh = dw / ir; dx = 0; dy = (ch - dh) / 2; }
       ctx.clearRect(0, 0, cw, ch);
       ctx.drawImage(img, dx, dy, dw, dh);
     }
 
     function renderFrame(idx) {
       idx = Math.max(0, Math.min(FRAME_COUNT - 1, idx));
-      if (idx === lastIdx) return; // skip redundant draws
+      if (idx === lastIdx) return;
       lastIdx = idx;
       var img = frames[idx];
       if (img && img.complete && img.naturalWidth) renderImg(img);
     }
 
-    // ── ScrollTrigger — transit scrub, pin: false (default) ──────────
-    function initScrollTrigger() {
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-      gsap.registerPlugin(ScrollTrigger);
-      ScrollTrigger.create({
-        trigger : stage,
-        start   : START,
-        end     : END,
-        scrub   : 0.5,
-        onUpdate: function (self) {
-          renderFrame(Math.round(self.progress * (FRAME_COUNT - 1)));
-        }
-      });
+    // Transit scrub: progress = 0 when stage enters bottom of viewport,
+    // progress = 1 when stage exits top of viewport. No pin, no hijack.
+    function onScroll() {
+      var transit  = stageH + viewH;                    // full pass-through distance
+      var scrollStart = stageTop - viewH;               // scrollY at entry
+      var progress = Math.max(0, Math.min(1, (window.scrollY - scrollStart) / transit));
+      renderFrame(Math.floor(progress * FRAME_COUNT));
     }
 
-    // ── Preload ───────────────────────────────────────────────────────
     function preload() {
       for (var i = 0; i < FRAME_COUNT; i++) {
         (function (idx) {
@@ -1253,16 +1244,12 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
             frames[idx] = img;
             decoded++;
             if (idx === 0) {
+              cacheLayout();
               sizeCanvas();
               renderImg(img);
               if (loader) loader.classList.add('hidden');
               document.body.classList.add('scrub-loaded');
-              // Init ScrollTrigger now or after GSAP loads
-              if (typeof ScrollTrigger !== 'undefined') {
-                initScrollTrigger();
-              } else {
-                window.addEventListener('load', initScrollTrigger, { once: true });
-              }
+              onScroll(); // snap to correct frame if already scrolled
             }
           };
           img.src = '/assets/frames/frame_' + String(idx).padStart(2, '0') + '.jpg';
@@ -1270,26 +1257,21 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
       }
     }
 
-    // Fire preload when section is ~2 viewports away — does not block initial page load
+    // Start preloading when section is 2 viewports away
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { preload(); io.disconnect(); }
-        });
+        entries.forEach(function (e) { if (e.isIntersecting) { preload(); io.disconnect(); } });
       }, { rootMargin: '200% 0px' });
       io.observe(stage);
     } else {
       preload();
     }
-    // Safety: also start after full page load if observer hasn't fired
-    window.addEventListener('load', function () {
-      if (decoded === 0) preload();
-    }, { once: true });
-
+    window.addEventListener('load', function () { if (decoded === 0) preload(); }, { once: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', function () {
-      sizeCanvas();
-      var cur = lastIdx >= 0 ? lastIdx : 0;
-      if (frames[cur]) renderImg(frames[cur]);
+      cacheLayout(); sizeCanvas();
+      var c = lastIdx >= 0 ? lastIdx : 0;
+      if (frames[c]) renderImg(frames[c]);
     }, { passive: true });
 
   })();
