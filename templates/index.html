@@ -409,7 +409,7 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
 
     #scroll-stage {
       position: relative;
-      height: 100vh;
+      /* height set dynamically by JS: TOTAL_FRAMES * 25vh + 100vh */
     }
     #sticky-hero {
       position: sticky;
@@ -822,12 +822,13 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
   <!-- ===== SCROLL-SCRUB HERO ===== -->
   <div id="scroll-stage">
     <div id="sticky-hero">
-      <img src="/assets/images/heroes/photo-088-122100321363357116.jpg"
-           alt="One site covers every Claude AI use case, workflow, integration, and prompt technique — from complete beginner to power user."
-           id="frame-canvas"
-           loading="eager" decoding="async" fetchpriority="high"
-           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+      <canvas id="frame-canvas"></canvas>
       <div class="scrub-vignette"></div>
+
+      <div id="scrub-loader">
+        <div class="scrub-ring"></div>
+        <p>Loading</p>
+      </div>
 
       <div class="scrub-content">
         <p class="scrub-eyebrow">The Definitive Reference</p>
@@ -1166,8 +1167,92 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
 
   <!-- ===== SCROLL-SCRUB JS ===== -->
   <script>
-    /* Static image — reveal hero text immediately on load */
-    document.body.classList.add('scrub-loaded');
+  (function () {
+    var FRAMES_PATH  = '/assets/frames/';
+    var TOTAL_FRAMES = 70;
+    var FRAME_NAMES  = Array.from({ length: 70 }, function (_, i) {
+      return 'frame_' + String(i).padStart(2, '0') + '.png';
+    });
+
+    var canvas  = document.getElementById('frame-canvas');
+    var ctx     = canvas.getContext('2d');
+    var stage   = document.getElementById('scroll-stage');
+    var loader  = document.getElementById('scrub-loader');
+    var frames  = new Array(TOTAL_FRAMES);
+    var current = 0;
+    var stageTop = 0, stageH = 0, viewH = 0;
+
+    function cacheLayout() {
+      var r = stage.getBoundingClientRect();
+      stageTop = r.top + window.scrollY;
+      stageH   = stage.offsetHeight;
+      viewH    = window.innerHeight;
+    }
+
+    function resizeCanvas() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      drawFrame(current);
+    }
+
+    function drawFrame(idx) {
+      var img = frames[idx];
+      if (!img || !img.complete || !img.naturalWidth) return;
+      var iw = img.naturalWidth, ih = img.naturalHeight;
+      var cw = canvas.width,     ch = canvas.height;
+      var ir = iw / ih, cr = cw / ch;
+      var dw, dh, dx, dy;
+      if (ir > cr) { dh = ch; dw = dh * ir; dx = (cw - dw) / 2; dy = 0; }
+      else         { dw = cw; dh = dw / ir; dx = 0; dy = (ch - dh) / 2; }
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, dx, dy, dw, dh);
+    }
+
+    function preload() {
+      var f0 = new Image();
+      f0.onload = function () {
+        frames[0] = f0;
+        drawFrame(0);
+        if (loader) loader.classList.add('hidden');
+        document.body.classList.add('scrub-loaded');
+        loadRest();
+      };
+      f0.onerror = function () {
+        if (loader) loader.classList.add('hidden');
+        document.body.classList.add('scrub-loaded');
+        loadRest();
+      };
+      f0.src = FRAMES_PATH + FRAME_NAMES[0];
+    }
+
+    function loadRest() {
+      for (var i = 1; i < TOTAL_FRAMES; i++) {
+        (function (idx) {
+          var img = new Image();
+          img.onload = function () { frames[idx] = img; };
+          img.src = FRAMES_PATH + FRAME_NAMES[idx];
+        })(i);
+      }
+    }
+
+    function onScroll() {
+      var scrollY    = window.scrollY;
+      var scrollable = stageH - viewH;
+      if (scrollable <= 0) return;
+      var progress   = Math.max(0, Math.min(1, (scrollY - stageTop) / scrollable));
+      var idx        = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * TOTAL_FRAMES));
+      if (idx !== current) { current = idx; drawFrame(current); }
+    }
+
+    // Scale stage height to frame count
+    stage.style.height = (TOTAL_FRAMES * 25 + 100) + 'vh';
+
+    cacheLayout();
+    resizeCanvas();
+    window.addEventListener('resize', function () { cacheLayout(); resizeCanvas(); }, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    preload();
+  })();
   </script>
   <!-- ===== END SCROLL-SCRUB JS ===== -->
 
