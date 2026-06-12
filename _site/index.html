@@ -409,14 +409,13 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
 
     #scroll-stage {
       position: relative;
-      height: 100vh;      /* natural section height — increase in CSS to slow playback */
-      overflow: hidden;
+      /* height set dynamically by JS */
     }
     #sticky-hero {
-      position: absolute;
-      inset: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
       width: 100%;
-      height: 100%;
       overflow: hidden;
     }
     #frame-canvas {
@@ -1300,115 +1299,92 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
   </script>
   <!-- ===== END PILLAR CARDS INTERSECTION OBSERVER ===== -->
 
-  <!-- ===== SCROLL-SCRUB JS — transit scrub, no pin ===== -->
+  <!-- ===== SCROLL-SCRUB JS ===== -->
   <script>
   (function () {
-    'use strict';
+    var FRAMES_PATH  = '/assets/frames/';
+    var TOTAL_FRAMES = 18;
+    var FRAME_NAMES  = Array.from({ length: 18 }, function (_, i) {
+      return 'frame_' + String(i).padStart(2, '0') + '.jpg';
+    });
 
-    var FRAME_COUNT = 18; // total frames
+    var canvas  = document.getElementById('frame-canvas');
+    var ctx     = canvas.getContext('2d');
+    var stage   = document.getElementById('scroll-stage');
+    var loader  = document.getElementById('scrub-loader');
+    var frames  = new Array(TOTAL_FRAMES);
+    var current = 0;
+    var stageTop = 0, stageH = 0, viewH = 0;
 
-    var stage  = document.getElementById('scroll-stage');
-    var canvas = document.getElementById('frame-canvas');
-    var loader = document.getElementById('scrub-loader');
-    if (!stage || !canvas) return;
-
-    // Reduced motion: show last frame only
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var s = new Image();
-      s.onload = function () { sizeCanvas(); renderImg(s); if (loader) loader.classList.add('hidden'); document.body.classList.add('scrub-loaded'); };
-      s.src = '/assets/frames/frame_' + String(FRAME_COUNT - 1).padStart(2, '0') + '.jpg';
-      return;
+    function cacheLayout() {
+      var r = stage.getBoundingClientRect();
+      stageTop = r.top + window.scrollY;
+      stageH   = stage.offsetHeight;
+      viewH    = window.innerHeight;
     }
 
-    var frames  = new Array(FRAME_COUNT);
-    var decoded = 0;
-    var lastIdx = -1;
-
-    function sizeCanvas() {
-      var dpr = window.devicePixelRatio || 1;
-      var w = stage.offsetWidth, h = stage.offsetHeight;
-      canvas.width  = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-      canvas.style.width  = w + 'px';
-      canvas.style.height = h + 'px';
+    function resizeCanvas() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      drawFrame(current);
     }
 
-    function renderImg(img) {
-      var ctx = canvas.getContext('2d');
-      var cw = canvas.width, ch = canvas.height;
+    function drawFrame(idx) {
+      var img = frames[idx];
+      if (!img || !img.complete || !img.naturalWidth) return;
       var iw = img.naturalWidth, ih = img.naturalHeight;
+      var cw = canvas.width, ch = canvas.height;
       var ir = iw / ih, cr = cw / ch;
       var dw, dh, dx, dy;
       if (ir > cr) { dh = ch; dw = dh * ir; dx = (cw - dw) / 2; dy = 0; }
-      else          { dw = cw; dh = dw / ir; dx = 0; dy = (ch - dh) / 2; }
+      else         { dw = cw; dh = dw / ir; dx = 0; dy = (ch - dh) / 2; }
       ctx.clearRect(0, 0, cw, ch);
       ctx.drawImage(img, dx, dy, dw, dh);
     }
 
-    function renderFrame(idx) {
-      idx = Math.max(0, Math.min(FRAME_COUNT - 1, idx));
-      if (idx === lastIdx) return;
-      lastIdx = idx;
-      var img = frames[idx];
-      if (img && img.complete && img.naturalWidth) renderImg(img);
-    }
-
-    // Transit scrub: progress = 0 when stage enters bottom of viewport,
-    // progress = 1 when stage exits top of viewport. No pin, no hijack.
-    // Live rect read every scroll — never cached, so layout shifts above
-    // the section (late-loading images, fonts) can't poison the math.
-    function onScroll() {
-      var r = stage.getBoundingClientRect();
-      var viewH = window.innerHeight;
-      var transit = r.height + viewH;                   // full pass-through distance
-      var progress = Math.max(0, Math.min(1, (viewH - r.top) / transit));
-      renderFrame(Math.round(progress * (FRAME_COUNT - 1)));
-    }
-
     function preload() {
-      for (var i = 0; i < FRAME_COUNT; i++) {
+      var f0 = new Image();
+      f0.onload = function () {
+        frames[0] = f0;
+        drawFrame(0);
+        if (loader) loader.classList.add('hidden');
+        document.body.classList.add('scrub-loaded');
+        loadRest();
+      };
+      f0.onerror = function () {
+        if (loader) loader.classList.add('hidden');
+        document.body.classList.add('scrub-loaded');
+        loadRest();
+      };
+      f0.src = FRAMES_PATH + FRAME_NAMES[0];
+    }
+
+    function loadRest() {
+      for (var i = 1; i < TOTAL_FRAMES; i++) {
         (function (idx) {
           var img = new Image();
-          img.onload = function () {
-            frames[idx] = img;
-            decoded++;
-            if (idx === 0) {
-              sizeCanvas();
-              renderImg(img);
-              if (loader) loader.classList.add('hidden');
-              document.body.classList.add('scrub-loaded');
-              onScroll(); // snap to correct frame if already scrolled
-            }
-          };
-          img.onerror = function () {
-            console.error('[scrub] missing frame asset: ' + img.src);
-          };
-          img.src = '/assets/frames/frame_' + String(idx).padStart(2, '0') + '.jpg';
+          img.onload = function () { frames[idx] = img; };
+          img.src = FRAMES_PATH + FRAME_NAMES[idx];
         })(i);
       }
     }
 
-    // Start preloading when section is 2 viewports away
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { if (e.isIntersecting) { preload(); io.disconnect(); } });
-      }, { rootMargin: '200% 0px' });
-      io.observe(stage);
-    } else {
-      preload();
+    function onScroll() {
+      var scrollY    = window.scrollY;
+      var scrollable = stageH - viewH;
+      if (scrollable <= 0) return;
+      var progress = Math.max(0, Math.min(1, (scrollY - stageTop) / scrollable));
+      var idx = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * TOTAL_FRAMES));
+      if (idx !== current) { current = idx; drawFrame(current); }
     }
-    window.addEventListener('load', function () { if (decoded === 0) preload(); }, { once: true });
 
-    // rAF loop: reads position every frame — works with Lenis, native scroll, anything.
-    // onScroll has a lastIdx guard so canvas only redraws when frame changes.
-    (function tick() { onScroll(); requestAnimationFrame(tick); })();
+    stage.style.height = (TOTAL_FRAMES * 25 + 100) + 'vh';
 
-    window.addEventListener('resize', function () {
-      sizeCanvas();
-      var c = lastIdx >= 0 ? lastIdx : 0;
-      if (frames[c]) renderImg(frames[c]);
-    }, { passive: true });
-
+    cacheLayout();
+    resizeCanvas();
+    window.addEventListener('resize', function () { cacheLayout(); resizeCanvas(); }, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    preload();
   })();
   </script>
   <!-- ===== END SCROLL-SCRUB JS ===== -->
