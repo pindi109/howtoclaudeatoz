@@ -1367,7 +1367,7 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
       var transit  = stageH + viewH;                    // full pass-through distance
       var scrollStart = stageTop - viewH;               // scrollY at entry
       var progress = Math.max(0, Math.min(1, (window.scrollY - scrollStart) / transit));
-      renderFrame(Math.floor(progress * FRAME_COUNT));
+      renderFrame(Math.round(progress * (FRAME_COUNT - 1)));
     }
 
     function preload() {
@@ -1385,6 +1385,9 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
               document.body.classList.add('scrub-loaded');
               onScroll(); // snap to correct frame if already scrolled
             }
+          };
+          img.onerror = function () {
+            console.error('[scrub] missing frame asset: ' + img.src);
           };
           img.src = '/assets/frames/frame_' + String(idx).padStart(2, '0') + '.jpg';
         })(i);
