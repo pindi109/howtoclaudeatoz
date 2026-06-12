@@ -412,8 +412,7 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
       /* height set dynamically by JS */
     }
     #sticky-hero {
-      position: sticky;
-      top: 0;
+      position: relative;
       height: 100vh;
       width: 100%;
       overflow: hidden;
@@ -1369,13 +1368,14 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
       }
     }
 
-    function onScroll() {
-      var scrollY    = window.scrollY;
-      var scrollable = stageH - viewH;
-      if (scrollable <= 0) return;
-      var progress = Math.max(0, Math.min(1, (scrollY - stageTop) / scrollable));
-      var idx = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * TOTAL_FRAMES));
+    // Transit scrub via rAF — works with Lenis (no scroll event needed)
+    function tick() {
+      var transit    = stageH + viewH;
+      var scrollStart = stageTop - viewH;
+      var progress   = Math.max(0, Math.min(1, (window.scrollY - scrollStart) / transit));
+      var idx        = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * TOTAL_FRAMES));
       if (idx !== current) { current = idx; drawFrame(current); }
+      requestAnimationFrame(tick);
     }
 
     stage.style.height = (TOTAL_FRAMES * 25 + 100) + 'vh';
@@ -1383,8 +1383,8 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
     cacheLayout();
     resizeCanvas();
     window.addEventListener('resize', function () { cacheLayout(); resizeCanvas(); }, { passive: true });
-    window.addEventListener('scroll', onScroll, { passive: true });
     preload();
+    requestAnimationFrame(tick);
   })();
   </script>
   <!-- ===== END SCROLL-SCRUB JS ===== -->
