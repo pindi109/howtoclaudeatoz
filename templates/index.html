@@ -1323,14 +1323,6 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
     var frames  = new Array(FRAME_COUNT);
     var decoded = 0;
     var lastIdx = -1;
-    var stageTop = 0, stageH = 0, viewH = 0;
-
-    function cacheLayout() {
-      var r = stage.getBoundingClientRect();
-      stageTop = r.top + window.scrollY;
-      stageH   = stage.offsetHeight;
-      viewH    = window.innerHeight;
-    }
 
     function sizeCanvas() {
       var dpr = window.devicePixelRatio || 1;
@@ -1363,10 +1355,13 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
 
     // Transit scrub: progress = 0 when stage enters bottom of viewport,
     // progress = 1 when stage exits top of viewport. No pin, no hijack.
+    // Live rect read every scroll — never cached, so layout shifts above
+    // the section (late-loading images, fonts) can't poison the math.
     function onScroll() {
-      var transit  = stageH + viewH;                    // full pass-through distance
-      var scrollStart = stageTop - viewH;               // scrollY at entry
-      var progress = Math.max(0, Math.min(1, (window.scrollY - scrollStart) / transit));
+      var r = stage.getBoundingClientRect();
+      var viewH = window.innerHeight;
+      var transit = r.height + viewH;                   // full pass-through distance
+      var progress = Math.max(0, Math.min(1, (viewH - r.top) / transit));
       renderFrame(Math.round(progress * (FRAME_COUNT - 1)));
     }
 
@@ -1378,7 +1373,6 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
             frames[idx] = img;
             decoded++;
             if (idx === 0) {
-              cacheLayout();
               sizeCanvas();
               renderImg(img);
               if (loader) loader.classList.add('hidden');
@@ -1406,7 +1400,7 @@ h3 { font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.25; }
     window.addEventListener('load', function () { if (decoded === 0) preload(); }, { once: true });
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', function () {
-      cacheLayout(); sizeCanvas();
+      sizeCanvas();
       var c = lastIdx >= 0 ? lastIdx : 0;
       if (frames[c]) renderImg(frames[c]);
     }, { passive: true });
